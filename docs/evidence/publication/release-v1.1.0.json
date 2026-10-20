@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "version": "1.1.0",
+  "verified_at": "2026-10-20 08:41:20 UTC",
+  "repository": "PresleyRen/figurefoundry-scientific-figures",
+  "release": {
+    "id": 418172164,
+    "name": "FigureFoundry v1.1.0 · 科研图铸",
+    "url": "https://github.com/PresleyRen/figurefoundry-scientific-figures/releases/tag/v1.1.0",
+    "tag": "v1.1.0",
+    "published_at": "2026-10-20T08:39:37Z",
+    "draft": false,
+    "prerelease": false
+  },
+  "tag_commit": "b477c99bdd1f7ac8e99d18a264a8ea3bc586b1e1",
+  "release_tree": "0fd01debb653b6fe05a633547a1363041170778b",
+  "local_tree_matches_remote": true,
+  "release_file_count": 303,
+  "source_skills": 16,
+  "source_features": 103,
+  "capabilities": 41,
+  "specialty_routes": 26,
+  "local_behavioral_tests": {
+    "run": 190,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "report": "../../test-results.json"
+  },
+  "github_actions": {
+    "id": 39394632443,
+    "url": "https://github.com/PresleyRen/figurefoundry-scientific-figures/actions/runs/39394632443",
+    "head_sha": "b477c99bdd1f7ac8e99d18a264a8ea3bc586b1e1",
+    "status": "completed",
+    "conclusion": "success",
+    "jobs": [
+      {
+        "id": 118534186746,
+        "name": "native-figure-contract",
+        "conclusion": "success",
+        "steps": [
+          {
+            "name": "Set up job",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+            "conclusion": "success"
+          },
+          {
+            "name": "Install tested data-plotting dependencies",
+            "conclusion": "success"
+          },
+          {
+            "name": "Validate skill, module index, source syntax and local documentation links",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run numerical, export, SVG, diagram and CLI contracts",
+            "conclusion": "success"
+          },
+          {
+            "name": "Rebuild synthetic examples",
+            "conclusion": "success"
+          },
+          {
+            "name": "Exercise four Seaborn grid recipes through the SVG exporter",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "conclusion": "success"
+          }
+        ]
+      }
+    ]
+  },
+  "screenshot": "browser-screenshot-1792485599521.jpg"
+}
+
