@@ -1,0 +1,5 @@
+# Figure caption
+
+**Experimental workflow and conditional quality-control feedback.** Specimen enters Preparation, followed by Assay and Analysis; Analysis produces Result. Quality control receives information from Assay and returns feedback to Preparation when a recheck is required. Reference database provides a comparator for Analysis. Solid arrowheads show forward information or workflow direction; the dashed directed connection denotes the conditional return to Preparation. The 120 mm layout preserves the same nodes, relationships and arrow directions as the 180 mm layout.
+
+This is a schematic based on the supplied workflow description. Spatial arrangement, shape size and connector length do not encode measured quantities, duration, effect size or sample number. No experimental data, statistical uncertainty or significance claim is represented. The editability-test copy uses “Output” and a green result ellipse solely to demonstrate editable text and geometry; the scientific masters retain “Result”.

@@ -1,0 +1,777 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:ns2="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xlink="http://www.w3.org/1999/xlink" width="190mm" height="160mm" viewBox="0 0 190 160" version="1.1" role="img" aria-labelledby="composition-title">
+  <title id="composition-title">Scientific figure panel composition</title>
+  <defs>
+    <clipPath id="panel-001-viewport" clipPathUnits="userSpaceOnUse">
+      <rect x="0" y="0" width="180" height="85" />
+    </clipPath>
+    <clipPath id="panel-002-viewport" clipPathUnits="userSpaceOnUse">
+      <rect x="0" y="0" width="255.11811" height="170.07874" />
+    </clipPath>
+    <clipPath id="panel-003-viewport" clipPathUnits="userSpaceOnUse">
+      <rect x="0" y="0" width="255.11811" height="170.07874" />
+    </clipPath>
+  </defs>
+  <g id="panel-001">
+    <text id="panel-001-heading" x="6" y="3.5" font-family="Arial, Helvetica, sans-serif" font-size="3.175" font-weight="bold" fill="#22313F">a</text><g transform="translate(5 5) scale(1) translate(-0 -0)">
+      <g clip-path="url(#panel-001-viewport)">
+        <g role="img" aria-labelledby="panel-001-src-figure-title" class="panel-001-scope" id="panel-001-src-content-root" font-size="16">
+          <title id="panel-001-src-figure-title" class="panel-001-scope">Retrieval-augmented agent: explicit topology</title>
+          <desc class="panel-001-scope">Native editable vector diagram; connections follow the supplied specification. Dashed directed edges indicate feedback.</desc>
+          <defs class="panel-001-scope">
+            <marker id="panel-001-src-edge-arrow" markerWidth="4" markerHeight="4" refX="3.5" refY="2" orient="auto" markerUnits="strokeWidth" viewBox="0 0 4 4" class="panel-001-scope">
+              <path d="M 0 0 L 4 2 L 0 4 Z" fill="#516172" class="panel-001-scope" />
+            </marker>
+            <marker id="panel-001-src-edge-arrow-start" markerWidth="4" markerHeight="4" refX="0.5" refY="2" orient="auto" markerUnits="strokeWidth" viewBox="0 0 4 4" class="panel-001-scope">
+              <path d="M 4 0 L 0 2 L 4 4 Z" fill="#516172" class="panel-001-scope" />
+            </marker>
+          </defs>
+          <g id="panel-001-src-diagram-groups" class="panel-001-scope">
+            <g id="panel-001-src-group-1-resources" class="panel-001-scope">
+              <rect x="77.5" y="56.5" width="98" height="26.5" rx="2" fill="#F7F9FC" stroke="#C5CDD8" stroke-width="0.25" stroke-dasharray="1.2 0.9" class="panel-001-scope" />
+              <text x="79.5" text-anchor="start" font-family="Arial, Helvetica, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="2.469444" fill="#536274" font-weight="normal" aria-label="Resources" class="panel-001-scope"><tspan x="79.5" y="60.339611" class="panel-001-scope">Resources</tspan></text></g>
+          </g>
+          <g id="panel-001-src-diagram-edges" class="panel-001-scope">
+            <g id="panel-001-src-edge-1-question-to-planner" data-kind="forward" class="panel-001-scope">
+              <title class="panel-001-scope">question → planner (forward)</title>
+              <path d="M 31 39 L 42 39" fill="none" stroke="#516172" stroke-width="0.38" stroke-linejoin="round" marker-end="url(#panel-001-src-edge-arrow)" class="panel-001-scope" />
+            </g>
+            <g id="panel-001-src-edge-2-planner-to-retriever" data-kind="forward" class="panel-001-scope">
+              <title class="panel-001-scope">planner → retriever (forward)</title>
+              <path d="M 72 39 L 83 39" fill="none" stroke="#516172" stroke-width="0.38" stroke-linejoin="round" marker-end="url(#panel-001-src-edge-arrow)" class="panel-001-scope" />
+            </g>
+            <g id="panel-001-src-edge-3-retriever-to-generator" data-kind="forward" class="panel-001-scope">
+              <title class="panel-001-scope">retriever → generator (forward)</title>
+              <path d="M 116 39 L 131 39" fill="none" stroke="#516172" stroke-width="0.38" stroke-linejoin="round" marker-end="url(#panel-001-src-edge-arrow)" class="panel-001-scope" />
+            </g>
+            <g id="panel-001-src-edge-4-vector_index-to-retriever" data-kind="forward" class="panel-001-scope">
+              <title class="panel-001-scope">vector_index → retriever (forward)</title>
+              <path d="M 99.121212 64 L 99.363636 48" fill="none" stroke="#516172" stroke-width="0.38" stroke-linejoin="round" marker-end="url(#panel-001-src-edge-arrow)" class="panel-001-scope" />
+            </g>
+            <g id="panel-001-src-edge-5-tools-to-generator" data-kind="bidirectional" class="panel-001-scope">
+              <title class="panel-001-scope">tools → generator (bidirectional)</title>
+              <path d="M 154.651515 64 L 152.954545 48" fill="none" stroke="#516172" stroke-width="0.38" stroke-linejoin="round" marker-end="url(#panel-001-src-edge-arrow)" marker-start="url(#panel-001-src-edge-arrow-start)" class="panel-001-scope" />
+            </g>
+            <g id="panel-001-src-edge-6-generator-to-planner" data-kind="feedback" class="panel-001-scope">
+              <title class="panel-001-scope">generator → planner (feedback)</title>
+              <path d="M 152 30 L 152 22 L 57 22 L 57 30" fill="none" stroke="#516172" stroke-width="0.38" stroke-linejoin="round" stroke-dasharray="1.5 1" marker-end="url(#panel-001-src-edge-arrow)" class="panel-001-scope" />
+            </g>
+          </g>
+          <g id="panel-001-src-diagram-edge-labels" class="panel-001-scope">
+            <g id="panel-001-src-edge-3-retriever-to-generator-label" class="panel-001-scope">
+              <rect x="117.400597" y="35.365278" width="12.198806" height="3.669444" rx="0.8" fill="white" opacity="0.96" class="panel-001-scope" />
+              <text x="123.5" text-anchor="middle" font-family="Arial, Helvetica, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="2.469444" fill="#22313F" font-weight="normal" aria-label="context" class="panel-001-scope"><tspan x="123.5" y="38.039611" class="panel-001-scope">context</tspan></text></g>
+            <g id="panel-001-src-edge-6-generator-to-planner-label" class="panel-001-scope">
+              <rect x="86.646042" y="18.165278" width="35.707917" height="3.669444" rx="0.8" fill="white" opacity="0.96" class="panel-001-scope" />
+              <text x="104.5" text-anchor="middle" font-family="Arial, Helvetica, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="2.469444" fill="#22313F" font-weight="normal" aria-label="evidence check / feedback" class="panel-001-scope"><tspan x="104.5" y="20.839611" class="panel-001-scope">evidence check / feedback</tspan></text></g>
+          </g>
+          <g id="panel-001-src-diagram-nodes" class="panel-001-scope">
+            <g id="panel-001-src-node-1-question" data-node-id="question" class="panel-001-scope">
+              <title class="panel-001-scope">Question</title>
+              <rect x="6" y="30" width="25" height="18" rx="1.8" fill="#EAF2F8" stroke="#516172" stroke-width="0.32" class="panel-001-scope" />
+              <text x="18.5" text-anchor="middle" font-family="Arial, Helvetica, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="2.822222" fill="#22313F" font-weight="normal" aria-label="Question" class="panel-001-scope"><tspan x="18.5" y="39.959556" class="panel-001-scope">Question</tspan></text></g>
+            <g id="panel-001-src-node-2-planner" data-node-id="planner" class="panel-001-scope">
+              <title class="panel-001-scope">Agent
+planner</title>
+              <rect x="42" y="30" width="30" height="18" rx="1.8" fill="#FBEDEC" stroke="#516172" stroke-width="0.32" class="panel-001-scope" />
+              <text x="57" text-anchor="middle" font-family="Arial, Helvetica, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="2.822222" fill="#22313F" font-weight="normal" aria-label="Agent&#10;planner" class="panel-001-scope"><tspan x="57" y="38.153333" class="panel-001-scope">Agent</tspan>
+<tspan x="57" y="41.765778" class="panel-001-scope">planner</tspan></text></g>
+            <g id="panel-001-src-node-3-retriever" data-node-id="retriever" class="panel-001-scope">
+              <title class="panel-001-scope">Evidence
+retrieval</title>
+              <rect x="83" y="30" width="33" height="18" rx="1.8" fill="#E8F1EC" stroke="#516172" stroke-width="0.32" class="panel-001-scope" />
+              <text x="99.5" text-anchor="middle" font-family="Arial, Helvetica, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="2.822222" fill="#22313F" font-weight="normal" aria-label="Evidence&#10;retrieval" class="panel-001-scope"><tspan x="99.5" y="38.153333" class="panel-001-scope">Evidence</tspan>
+<tspan x="99.5" y="41.765778" class="panel-001-scope">retrieval</tspan></text></g>
+            <g id="panel-001-src-node-4-generator" data-node-id="generator" class="panel-001-scope">
+              <title class="panel-001-scope">Answer with
+source citations</title>
+              <rect x="131" y="30" width="42" height="18" rx="1.8" fill="#EEEAF7" stroke="#516172" stroke-width="0.32" class="panel-001-scope" />
+              <text x="152" text-anchor="middle" font-family="Arial, Helvetica, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="2.822222" fill="#22313F" font-weight="normal" aria-label="Answer with&#10;source citations" class="panel-001-scope"><tspan x="152" y="38.153333" class="panel-001-scope">Answer with</tspan>
+<tspan x="152" y="41.765778" class="panel-001-scope">source citations</tspan></text></g>
+            <g id="panel-001-src-node-5-vector_index" data-node-id="vector_index" class="panel-001-scope">
+              <title class="panel-001-scope">Curated corpus
+Vector index</title>
+              <path d="M 79 66.4 A 20 2.4 0 0 1 119 66.4 L 119 77.6 A 20 2.4 0 0 1 79 77.6 Z" fill="#FFF3DB" stroke="#516172" stroke-width="0.32" class="panel-001-scope" />
+              <ellipse cx="99" cy="66.4" rx="20" ry="2.4" fill="#FFF3DB" stroke="#516172" stroke-width="0.32" class="panel-001-scope" />
+              <text x="99" text-anchor="middle" font-family="Arial, Helvetica, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="2.822222" fill="#22313F" font-weight="normal" aria-label="Curated corpus&#10;Vector index" class="panel-001-scope"><tspan x="99" y="71.153333" class="panel-001-scope">Curated corpus</tspan>
+<tspan x="99" y="74.765778" class="panel-001-scope">Vector index</tspan></text></g>
+            <g id="panel-001-src-node-6-tools" data-node-id="tools" class="panel-001-scope">
+              <title class="panel-001-scope">Tools / APIs</title>
+              <rect x="138" y="64" width="35" height="16" rx="0" fill="#F3F5F7" stroke="#516172" stroke-width="0.32" class="panel-001-scope" />
+              <text x="155.5" text-anchor="middle" font-family="Arial, Helvetica, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="2.822222" fill="#22313F" font-weight="normal" aria-label="Tools / APIs" class="panel-001-scope"><tspan x="155.5" y="72.959556" class="panel-001-scope">Tools / APIs</tspan></text></g>
+          </g>
+          <g id="panel-001-src-diagram-heading" class="panel-001-scope">
+            <text x="90" text-anchor="middle" font-family="Arial, Helvetica, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="3.175" fill="#22313F" font-weight="bold" aria-label="Retrieval-augmented agent: explicit topology" class="panel-001-scope"><tspan x="90" y="6.5795" class="panel-001-scope">Retrieval-augmented agent: explicit topology</tspan></text></g>
+        </g>
+      </g>
+    </g>
+  </g>
+  <g id="panel-002">
+    <text id="panel-002-heading" x="6" y="96.5" font-family="Arial, Helvetica, sans-serif" font-size="3.175" font-weight="bold" fill="#22313F">b</text><g transform="translate(5 98) scale(0.35277778) translate(-0 -0)">
+      <g clip-path="url(#panel-002-viewport)">
+        <g class="panel-002-scope" id="panel-002-src-content-root" font-size="16">
+          <metadata class="panel-002-scope">
+            <rdf:RDF class="panel-002-scope">
+              <ns2:Work class="panel-002-scope">
+                <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" class="panel-002-scope" />
+                <dc:format class="panel-002-scope">image/svg+xml</dc:format>
+                <dc:creator class="panel-002-scope">
+                  <ns2:Agent class="panel-002-scope">
+                    <dc:title class="panel-002-scope">FigureFoundry 1.0.0; Matplotlib 3.10.8</dc:title>
+                  </ns2:Agent>
+                </dc:creator>
+              </ns2:Work>
+            </rdf:RDF>
+          </metadata>
+          <defs class="panel-002-scope">
+            <style type="text/css" class="panel-002-scope">*.panel-002-scope { stroke-linejoin: round; stroke-linecap: butt }</style>
+          </defs>
+          <g id="panel-002-src-figure_1" class="panel-002-scope">
+            <g id="panel-002-src-patch_1" class="panel-002-scope">
+              <path d="M 0 170.07874  L 255.11811 170.07874  L 255.11811 0  L 0 0  z " style="fill: #ffffff" class="panel-002-scope" />
+            </g>
+            <g id="panel-002-src-axes_1" class="panel-002-scope">
+              <g id="panel-002-src-patch_2" class="panel-002-scope">
+                <path d="M 31.37024 141.6785  L 252.11787 141.6785  L 252.11787 18.36072  L 31.37024 18.36072  z " style="fill: #ffffff" class="panel-002-scope" />
+              </g>
+              <g id="panel-002-src-matplotlib.axis_1" class="panel-002-scope">
+                <g id="panel-002-src-xtick_1" class="panel-002-scope">
+                  <g id="panel-002-src-line2d_1" class="panel-002-scope">
+                    <defs class="panel-002-scope">
+                      <path id="panel-002-src-md75c626034" d="M 0 0  L 0 3.5  " style="stroke: #000000; stroke-width: 0.65" class="panel-002-scope" />
+                    </defs>
+                    <g class="panel-002-scope">
+                      <use xlink:href="#panel-002-src-md75c626034" x="41.404223" y="141.6785" style="stroke: #000000; stroke-width: 0.65" class="panel-002-scope" />
+                    </g>
+                  </g>
+                  <g id="panel-002-src-text_1" class="panel-002-scope">
+                    <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: middle" x="41.404223" y="154.75725" transform="rotate(-0 41.404223 154.75725)" class="panel-002-scope">0</text>
+     </g>
+                </g>
+                <g id="panel-002-src-xtick_2" class="panel-002-scope">
+                  <g id="panel-002-src-line2d_2" class="panel-002-scope">
+                    <g class="panel-002-scope">
+                      <use xlink:href="#panel-002-src-md75c626034" x="74.850834" y="141.6785" style="stroke: #000000; stroke-width: 0.65" class="panel-002-scope" />
+                    </g>
+                  </g>
+                  <g id="panel-002-src-text_2" class="panel-002-scope">
+                    <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: middle" x="74.850834" y="154.75725" transform="rotate(-0 74.850834 154.75725)" class="panel-002-scope">5</text>
+     </g>
+                </g>
+                <g id="panel-002-src-xtick_3" class="panel-002-scope">
+                  <g id="panel-002-src-line2d_3" class="panel-002-scope">
+                    <g class="panel-002-scope">
+                      <use xlink:href="#panel-002-src-md75c626034" x="108.297444" y="141.6785" style="stroke: #000000; stroke-width: 0.65" class="panel-002-scope" />
+                    </g>
+                  </g>
+                  <g id="panel-002-src-text_3" class="panel-002-scope">
+                    <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: middle" x="108.297444" y="154.75725" transform="rotate(-0 108.297444 154.75725)" class="panel-002-scope">10</text>
+     </g>
+                </g>
+                <g id="panel-002-src-xtick_4" class="panel-002-scope">
+                  <g id="panel-002-src-line2d_4" class="panel-002-scope">
+                    <g class="panel-002-scope">
+                      <use xlink:href="#panel-002-src-md75c626034" x="141.744055" y="141.6785" style="stroke: #000000; stroke-width: 0.65" class="panel-002-scope" />
+                    </g>
+                  </g>
+                  <g id="panel-002-src-text_4" class="panel-002-scope">
+                    <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: middle" x="141.744055" y="154.75725" transform="rotate(-0 141.744055 154.75725)" class="panel-002-scope">15</text>
+     </g>
+                </g>
+                <g id="panel-002-src-xtick_5" class="panel-002-scope">
+                  <g id="panel-002-src-line2d_5" class="panel-002-scope">
+                    <g class="panel-002-scope">
+                      <use xlink:href="#panel-002-src-md75c626034" x="175.190666" y="141.6785" style="stroke: #000000; stroke-width: 0.65" class="panel-002-scope" />
+                    </g>
+                  </g>
+                  <g id="panel-002-src-text_5" class="panel-002-scope">
+                    <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: middle" x="175.190666" y="154.75725" transform="rotate(-0 175.190666 154.75725)" class="panel-002-scope">20</text>
+     </g>
+                </g>
+                <g id="panel-002-src-xtick_6" class="panel-002-scope">
+                  <g id="panel-002-src-line2d_6" class="panel-002-scope">
+                    <g class="panel-002-scope">
+                      <use xlink:href="#panel-002-src-md75c626034" x="208.637276" y="141.6785" style="stroke: #000000; stroke-width: 0.65" class="panel-002-scope" />
+                    </g>
+                  </g>
+                  <g id="panel-002-src-text_6" class="panel-002-scope">
+                    <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: middle" x="208.637276" y="154.75725" transform="rotate(-0 208.637276 154.75725)" class="panel-002-scope">25</text>
+     </g>
+                </g>
+                <g id="panel-002-src-xtick_7" class="panel-002-scope">
+                  <g id="panel-002-src-line2d_7" class="panel-002-scope">
+                    <g class="panel-002-scope">
+                      <use xlink:href="#panel-002-src-md75c626034" x="242.083887" y="141.6785" style="stroke: #000000; stroke-width: 0.65" class="panel-002-scope" />
+                    </g>
+                  </g>
+                  <g id="panel-002-src-text_7" class="panel-002-scope">
+                    <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: middle" x="242.083887" y="154.75725" transform="rotate(-0 242.083887 154.75725)" class="panel-002-scope">30</text>
+     </g>
+                </g>
+                <g id="panel-002-src-text_8" class="panel-002-scope">
+                  <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: middle" x="141.744055" y="166.49975" transform="rotate(-0 141.744055 166.49975)" class="panel-002-scope">Training epoch</text>
+    </g>
+              </g>
+              <g id="panel-002-src-matplotlib.axis_2" class="panel-002-scope">
+                <g id="panel-002-src-ytick_1" class="panel-002-scope">
+                  <g id="panel-002-src-line2d_8" class="panel-002-scope">
+                    <path d="M 31.37024 113.256742  L 252.11787 113.256742  " clip-path="url(#panel-002-src-pf875b8d284)" style="fill: none; stroke: #dde2e7; stroke-opacity: 0.7; stroke-width: 0.5; stroke-linecap: square" class="panel-002-scope" />
+                  </g>
+                  <g id="panel-002-src-line2d_9" class="panel-002-scope">
+                    <defs class="panel-002-scope">
+                      <path id="panel-002-src-mf9c7d941d0" d="M 0 0  L -3.5 0  " style="stroke: #000000; stroke-width: 0.65" class="panel-002-scope" />
+                    </defs>
+                    <g class="panel-002-scope">
+                      <use xlink:href="#panel-002-src-mf9c7d941d0" x="31.37024" y="113.256742" style="stroke: #000000; stroke-width: 0.65" class="panel-002-scope" />
+                    </g>
+                  </g>
+                  <g id="panel-002-src-text_9" class="panel-002-scope">
+                    <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: end" x="24.37024" y="116.296117" transform="rotate(-0 24.37024 116.296117)" class="panel-002-scope">50</text>
+     </g>
+                </g>
+                <g id="panel-002-src-ytick_2" class="panel-002-scope">
+                  <g id="panel-002-src-line2d_10" class="panel-002-scope">
+                    <path d="M 31.37024 83.904148  L 252.11787 83.904148  " clip-path="url(#panel-002-src-pf875b8d284)" style="fill: none; stroke: #dde2e7; stroke-opacity: 0.7; stroke-width: 0.5; stroke-linecap: square" class="panel-002-scope" />
+                  </g>
+                  <g id="panel-002-src-line2d_11" class="panel-002-scope">
+                    <g class="panel-002-scope">
+                      <use xlink:href="#panel-002-src-mf9c7d941d0" x="31.37024" y="83.904148" style="stroke: #000000; stroke-width: 0.65" class="panel-002-scope" />
+                    </g>
+                  </g>
+                  <g id="panel-002-src-text_10" class="panel-002-scope">
+                    <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: end" x="24.37024" y="86.943523" transform="rotate(-0 24.37024 86.943523)" class="panel-002-scope">60</text>
+     </g>
+                </g>
+                <g id="panel-002-src-ytick_3" class="panel-002-scope">
+                  <g id="panel-002-src-line2d_12" class="panel-002-scope">
+                    <path d="M 31.37024 54.551554  L 252.11787 54.551554  " clip-path="url(#panel-002-src-pf875b8d284)" style="fill: none; stroke: #dde2e7; stroke-opacity: 0.7; stroke-width: 0.5; stroke-linecap: square" class="panel-002-scope" />
+                  </g>
+                  <g id="panel-002-src-line2d_13" class="panel-002-scope">
+                    <g class="panel-002-scope">
+                      <use xlink:href="#panel-002-src-mf9c7d941d0" x="31.37024" y="54.551554" style="stroke: #000000; stroke-width: 0.65" class="panel-002-scope" />
+                    </g>
+                  </g>
+                  <g id="panel-002-src-text_11" class="panel-002-scope">
+                    <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: end" x="24.37024" y="57.590929" transform="rotate(-0 24.37024 57.590929)" class="panel-002-scope">70</text>
+     </g>
+                </g>
+                <g id="panel-002-src-ytick_4" class="panel-002-scope">
+                  <g id="panel-002-src-line2d_14" class="panel-002-scope">
+                    <path d="M 31.37024 25.19896  L 252.11787 25.19896  " clip-path="url(#panel-002-src-pf875b8d284)" style="fill: none; stroke: #dde2e7; stroke-opacity: 0.7; stroke-width: 0.5; stroke-linecap: square" class="panel-002-scope" />
+                  </g>
+                  <g id="panel-002-src-line2d_15" class="panel-002-scope">
+                    <g class="panel-002-scope">
+                      <use xlink:href="#panel-002-src-mf9c7d941d0" x="31.37024" y="25.19896" style="stroke: #000000; stroke-width: 0.65" class="panel-002-scope" />
+                    </g>
+                  </g>
+                  <g id="panel-002-src-text_12" class="panel-002-scope">
+                    <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: end" x="24.37024" y="28.238335" transform="rotate(-0 24.37024 28.238335)" class="panel-002-scope">80</text>
+     </g>
+                </g>
+                <g id="panel-002-src-text_13" class="panel-002-scope">
+                  <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: middle" x="8.52649" y="80.01961" transform="rotate(-90 8.52649 80.01961)" class="panel-002-scope">Task success (%)</text>
+    </g>
+              </g>
+              <g id="panel-002-src-FillBetweenPolyCollection_1" class="panel-002-scope">
+                <defs class="panel-002-scope">
+                  <path id="panel-002-src-m1e579b7c32" d="M 41.404223 -42.917329  L 41.404223 -34.005594  L 74.850834 -53.506404  L 108.297444 -65.319485  L 141.744055 -70.130423  L 175.190666 -73.900095  L 208.637276 -74.351603  L 242.083887 -77.288141  L 242.083887 -82.623371  L 242.083887 -82.623371  L 208.637276 -83.149083  L 175.190666 -80.419748  L 141.744055 -77.693691  L 108.297444 -71.261607  L 74.850834 -59.899837  L 41.404223 -42.917329  z " style="stroke: #666a73; stroke-opacity: 0.13" class="panel-002-scope" />
+                </defs>
+                <g clip-path="url(#panel-002-src-pf875b8d284)" class="panel-002-scope">
+                  <use xlink:href="#panel-002-src-m1e579b7c32" x="0" y="170.07874" style="fill: #666a73; fill-opacity: 0.13; stroke: #666a73; stroke-opacity: 0.13" class="panel-002-scope" />
+                </g>
+              </g>
+              <g id="panel-002-src-FillBetweenPolyCollection_2" class="panel-002-scope">
+                <defs class="panel-002-scope">
+                  <path id="panel-002-src-ma336fa1e9a" d="M 41.404223 -69.323714  L 41.404223 -64.834811  L 74.850834 -84.623707  L 108.297444 -96.438292  L 141.744055 -103.618654  L 175.190666 -107.584977  L 208.637276 -109.903853  L 242.083887 -110.1325  L 242.083887 -117.846699  L 242.083887 -117.846699  L 208.637276 -115.526562  L 175.190666 -112.468043  L 141.744055 -109.347672  L 108.297444 -103.30469  L 74.850834 -91.462063  L 41.404223 -69.323714  z " style="stroke: #d55e00; stroke-opacity: 0.13" class="panel-002-scope" />
+                </defs>
+                <g clip-path="url(#panel-002-src-pf875b8d284)" class="panel-002-scope">
+                  <use xlink:href="#panel-002-src-ma336fa1e9a" x="0" y="170.07874" style="fill: #d55e00; fill-opacity: 0.13; stroke: #d55e00; stroke-opacity: 0.13" class="panel-002-scope" />
+                </g>
+              </g>
+              <g id="panel-002-src-FillBetweenPolyCollection_3" class="panel-002-scope">
+                <defs class="panel-002-scope">
+                  <path id="panel-002-src-mc779d718f7" d="M 41.404223 -97.525402  L 41.404223 -90.445233  L 74.850834 -112.862238  L 108.297444 -124.084613  L 141.744055 -131.331225  L 175.190666 -134.009175  L 208.637276 -138.626263  L 242.083887 -138.055225  L 242.083887 -146.112667  L 242.083887 -146.112667  L 208.637276 -145.031871  L 175.190666 -144.001521  L 141.744055 -138.229838  L 108.297444 -131.831407  L 74.850834 -119.557031  L 41.404223 -97.525402  z " style="stroke: #0072b2; stroke-opacity: 0.13" class="panel-002-scope" />
+                </defs>
+                <g clip-path="url(#panel-002-src-pf875b8d284)" class="panel-002-scope">
+                  <use xlink:href="#panel-002-src-mc779d718f7" x="0" y="170.07874" style="fill: #0072b2; fill-opacity: 0.13; stroke: #0072b2; stroke-opacity: 0.13" class="panel-002-scope" />
+                </g>
+              </g>
+              <g id="panel-002-src-line2d_16" class="panel-002-scope">
+                <path d="M 41.404223 131.617279  L 74.850834 113.37562  L 108.297444 101.788194  L 141.744055 96.166683  L 175.190666 92.918819  L 208.637276 91.328397  L 242.083887 90.122984  " clip-path="url(#panel-002-src-pf875b8d284)" style="fill: none; stroke: #666a73; stroke-width: 1.3; stroke-linecap: square" class="panel-002-scope" />
+                <defs class="panel-002-scope">
+                  <path id="panel-002-src-m5abd634048" d="M 0 1.9  C 0.503886 1.9 0.987202 1.699804 1.343503 1.343503  C 1.699804 0.987202 1.9 0.503886 1.9 0  C 1.9 -0.503886 1.699804 -0.987202 1.343503 -1.343503  C 0.987202 -1.699804 0.503886 -1.9 0 -1.9  C -0.503886 -1.9 -0.987202 -1.699804 -1.343503 -1.343503  C -1.699804 -0.987202 -1.9 -0.503886 -1.9 0  C -1.9 0.503886 -1.699804 0.987202 -1.343503 1.343503  C -0.987202 1.699804 -0.503886 1.9 0 1.9  z " style="stroke: #666a73" class="panel-002-scope" />
+                </defs>
+                <g clip-path="url(#panel-002-src-pf875b8d284)" class="panel-002-scope">
+                  <use xlink:href="#panel-002-src-m5abd634048" x="41.404223" y="131.617279" style="fill: #666a73; stroke: #666a73" class="panel-002-scope" />
+                  <use xlink:href="#panel-002-src-m5abd634048" x="74.850834" y="113.37562" style="fill: #666a73; stroke: #666a73" class="panel-002-scope" />
+                  <use xlink:href="#panel-002-src-m5abd634048" x="108.297444" y="101.788194" style="fill: #666a73; stroke: #666a73" class="panel-002-scope" />
+                  <use xlink:href="#panel-002-src-m5abd634048" x="141.744055" y="96.166683" style="fill: #666a73; stroke: #666a73" class="panel-002-scope" />
+                  <use xlink:href="#panel-002-src-m5abd634048" x="175.190666" y="92.918819" style="fill: #666a73; stroke: #666a73" class="panel-002-scope" />
+                  <use xlink:href="#panel-002-src-m5abd634048" x="208.637276" y="91.328397" style="fill: #666a73; stroke: #666a73" class="panel-002-scope" />
+                  <use xlink:href="#panel-002-src-m5abd634048" x="242.083887" y="90.122984" style="fill: #666a73; stroke: #666a73" class="panel-002-scope" />
+                </g>
+              </g>
+              <g id="panel-002-src-LineCollection_1" class="panel-002-scope">
+                <path d="M 41.404223 136.073147  L 41.404223 127.161411  " clip-path="url(#panel-002-src-pf875b8d284)" style="fill: none; stroke: #666a73" class="panel-002-scope" />
+                <path d="M 74.850834 116.572337  L 74.850834 110.178903  " clip-path="url(#panel-002-src-pf875b8d284)" style="fill: none; stroke: #666a73" class="panel-002-scope" />
+                <path d="M 108.297444 104.759255  L 108.297444 98.817134  " clip-path="url(#panel-002-src-pf875b8d284)" style="fill: none; stroke: #666a73" class="panel-002-scope" />
+                <path d="M 141.744055 99.948317  L 141.744055 92.385049  " clip-path="url(#panel-002-src-pf875b8d284)" style="fill: none; stroke: #666a73" class="panel-002-scope" />
+                <path d="M 175.190666 96.178645  L 175.190666 89.658993  " clip-path="url(#panel-002-src-pf875b8d284)" style="fill: none; stroke: #666a73" class="panel-002-scope" />
+                <path d="M 208.637276 95.727138  L 208.637276 86.929657  " clip-path="url(#panel-002-src-pf875b8d284)" style="fill: none; stroke: #666a73" class="panel-002-scope" />
+                <path d="M 242.083887 92.790599  L 242.083887 87.455369  " clip-path="url(#panel-002-src-pf875b8d284)" style="fill: none; stroke: #666a73" class="panel-002-scope" />
+              </g>
+              <g id="panel-002-src-line2d_17" class="panel-002-scope">
+                <defs class="panel-002-scope">
+                  <path id="panel-002-src-m0c9590fcab" d="M 2 0  L -2 -0  " style="stroke: #666a73" class="panel-002-scope" />
+                </defs>
+                <g clip-path="url(#panel-002-src-pf875b8d284)" class="panel-002-scope">
+                  <use xlink:href="#panel-002-src-m0c9590fcab" x="41.404223" y="136.073147" style="fill: #666a73; stroke: #666a73" class="panel-002-scope" />
+                  <use xlink:href="#panel-002-src-m0c9590fcab" x="74.850834" y="116.572337" style="fill: #666a73; stroke: #666a73" class="panel-002-scope" />
+                  <use xlink:href="#panel-002-src-m0c9590fcab" x="108.297444" y="104.759255" style="fill: #666a73; stroke: #666a73" class="panel-002-scope" />
+                  <use xlink:href="#panel-002-src-m0c9590fcab" x="141.744055" y="99.948317" style="fill: #666a73; stroke: #666a73" class="panel-002-scope" />
+                  <use xlink:href="#panel-002-src-m0c9590fcab" x="175.190666" y="96.178645" style="fill: #666a73; stroke: #666a73" class="panel-002-scope" />
+                  <use xlink:href="#panel-002-src-m0c9590fcab" x="208.637276" y="95.727138" style="fill: #666a73; stroke: #666a73" class="panel-002-scope" />
+                  <use xlink:href="#panel-002-src-m0c9590fcab" x="242.083887" y="92.790599" style="fill: #666a73; stroke: #666a73" class="panel-002-scope" />
+                </g>
+              </g>
+              <g id="panel-002-src-line2d_18" class="panel-002-scope">
+                <g clip-path="url(#panel-002-src-pf875b8d284)" class="panel-002-scope">
+                  <use xlink:href="#panel-002-src-m0c9590fcab" x="41.404223" y="127.161411" style="fill: #666a73; stroke: #666a73" class="panel-002-scope" />
+                  <use xlink:href="#panel-002-src-m0c9590fcab" x="74.850834" y="110.178903" style="fill: #666a73; stroke: #666a73" class="panel-002-scope" />
+                  <use xlink:href="#panel-002-src-m0c9590fcab" x="108.297444" y="98.817134" style="fill: #666a73; stroke: #666a73" class="panel-002-scope" />
+                  <use xlink:href="#panel-002-src-m0c9590fcab" x="141.744055" y="92.385049" style="fill: #666a73; stroke: #666a73" class="panel-002-scope" />
+                  <use xlink:href="#panel-002-src-m0c9590fcab" x="175.190666" y="89.658993" style="fill: #666a73; stroke: #666a73" class="panel-002-scope" />
+                  <use xlink:href="#panel-002-src-m0c9590fcab" x="208.637276" y="86.929657" style="fill: #666a73; stroke: #666a73" class="panel-002-scope" />
+                  <use xlink:href="#panel-002-src-m0c9590fcab" x="242.083887" y="87.455369" style="fill: #666a73; stroke: #666a73" class="panel-002-scope" />
+                </g>
+              </g>
+              <g id="panel-002-src-line2d_19" class="panel-002-scope">
+                <path d="M 41.404223 102.999478  L 74.850834 82.035855  L 108.297444 70.207249  L 141.744055 63.595577  L 175.190666 60.05223  L 208.637276 57.363532  L 242.083887 56.089141  " clip-path="url(#panel-002-src-pf875b8d284)" style="fill: none; stroke-dasharray: 4.81,2.08; stroke-dashoffset: 0; stroke: #d55e00; stroke-width: 1.3" class="panel-002-scope" />
+                <defs class="panel-002-scope">
+                  <path id="panel-002-src-me603ffe5cd" d="M -1.9 1.9  L 1.9 1.9  L 1.9 -1.9  L -1.9 -1.9  z " style="stroke: #d55e00; stroke-linejoin: miter" class="panel-002-scope" />
+                </defs>
+                <g clip-path="url(#panel-002-src-pf875b8d284)" class="panel-002-scope">
+                  <use xlink:href="#panel-002-src-me603ffe5cd" x="41.404223" y="102.999478" style="fill: #d55e00; stroke: #d55e00; stroke-linejoin: miter" class="panel-002-scope" />
+                  <use xlink:href="#panel-002-src-me603ffe5cd" x="74.850834" y="82.035855" style="fill: #d55e00; stroke: #d55e00; stroke-linejoin: miter" class="panel-002-scope" />
+                  <use xlink:href="#panel-002-src-me603ffe5cd" x="108.297444" y="70.207249" style="fill: #d55e00; stroke: #d55e00; stroke-linejoin: miter" class="panel-002-scope" />
+                  <use xlink:href="#panel-002-src-me603ffe5cd" x="141.744055" y="63.595577" style="fill: #d55e00; stroke: #d55e00; stroke-linejoin: miter" class="panel-002-scope" />
+                  <use xlink:href="#panel-002-src-me603ffe5cd" x="175.190666" y="60.05223" style="fill: #d55e00; stroke: #d55e00; stroke-linejoin: miter" class="panel-002-scope" />
+                  <use xlink:href="#panel-002-src-me603ffe5cd" x="208.637276" y="57.363532" style="fill: #d55e00; stroke: #d55e00; stroke-linejoin: miter" class="panel-002-scope" />
+                  <use xlink:href="#panel-002-src-me603ffe5cd" x="242.083887" y="56.089141" style="fill: #d55e00; stroke: #d55e00; stroke-linejoin: miter" class="panel-002-scope" />
+                </g>
+              </g>
+              <g id="panel-002-src-LineCollection_2" class="panel-002-scope">
+                <path d="M 41.404223 105.24393  L 41.404223 100.755026  " clip-path="url(#panel-002-src-pf875b8d284)" style="fill: none; stroke: #d55e00" class="panel-002-scope" />
+                <path d="M 74.850834 85.455033  L 74.850834 78.616678  " clip-path="url(#panel-002-src-pf875b8d284)" style="fill: none; stroke: #d55e00" class="panel-002-scope" />
+                <path d="M 108.297444 73.640448  L 108.297444 66.77405  " clip-path="url(#panel-002-src-pf875b8d284)" style="fill: none; stroke: #d55e00" class="panel-002-scope" />
+                <path d="M 141.744055 66.460087  L 141.744055 60.731068  " clip-path="url(#panel-002-src-pf875b8d284)" style="fill: none; stroke: #d55e00" class="panel-002-scope" />
+                <path d="M 175.190666 62.493763  L 175.190666 57.610697  " clip-path="url(#panel-002-src-pf875b8d284)" style="fill: none; stroke: #d55e00" class="panel-002-scope" />
+                <path d="M 208.637276 60.174887  L 208.637276 54.552178  " clip-path="url(#panel-002-src-pf875b8d284)" style="fill: none; stroke: #d55e00" class="panel-002-scope" />
+                <path d="M 242.083887 59.946241  L 242.083887 52.232041  " clip-path="url(#panel-002-src-pf875b8d284)" style="fill: none; stroke: #d55e00" class="panel-002-scope" />
+              </g>
+              <g id="panel-002-src-line2d_20" class="panel-002-scope">
+                <defs class="panel-002-scope">
+                  <path id="panel-002-src-m463ca4c612" d="M 2 0  L -2 -0  " style="stroke: #d55e00" class="panel-002-scope" />
+                </defs>
+                <g clip-path="url(#panel-002-src-pf875b8d284)" class="panel-002-scope">
+                  <use xlink:href="#panel-002-src-m463ca4c612" x="41.404223" y="105.24393" style="fill: #d55e00; stroke: #d55e00" class="panel-002-scope" />
+                  <use xlink:href="#panel-002-src-m463ca4c612" x="74.850834" y="85.455033" style="fill: #d55e00; stroke: #d55e00" class="panel-002-scope" />
+                  <use xlink:href="#panel-002-src-m463ca4c612" x="108.297444" y="73.640448" style="fill: #d55e00; stroke: #d55e00" class="panel-002-scope" />
+                  <use xlink:href="#panel-002-src-m463ca4c612" x="141.744055" y="66.460087" style="fill: #d55e00; stroke: #d55e00" class="panel-002-scope" />
+                  <use xlink:href="#panel-002-src-m463ca4c612" x="175.190666" y="62.493763" style="fill: #d55e00; stroke: #d55e00" class="panel-002-scope" />
+                  <use xlink:href="#panel-002-src-m463ca4c612" x="208.637276" y="60.174887" style="fill: #d55e00; stroke: #d55e00" class="panel-002-scope" />
+                  <use xlink:href="#panel-002-src-m463ca4c612" x="242.083887" y="59.946241" style="fill: #d55e00; stroke: #d55e00" class="panel-002-scope" />
+                </g>
+              </g>
+              <g id="panel-002-src-line2d_21" class="panel-002-scope">
+                <g clip-path="url(#panel-002-src-pf875b8d284)" class="panel-002-scope">
+                  <use xlink:href="#panel-002-src-m463ca4c612" x="41.404223" y="100.755026" style="fill: #d55e00; stroke: #d55e00" class="panel-002-scope" />
+                  <use xlink:href="#panel-002-src-m463ca4c612" x="74.850834" y="78.616678" style="fill: #d55e00; stroke: #d55e00" class="panel-002-scope" />
+                  <use xlink:href="#panel-002-src-m463ca4c612" x="108.297444" y="66.77405" style="fill: #d55e00; stroke: #d55e00" class="panel-002-scope" />
+                  <use xlink:href="#panel-002-src-m463ca4c612" x="141.744055" y="60.731068" style="fill: #d55e00; stroke: #d55e00" class="panel-002-scope" />
+                  <use xlink:href="#panel-002-src-m463ca4c612" x="175.190666" y="57.610697" style="fill: #d55e00; stroke: #d55e00" class="panel-002-scope" />
+                  <use xlink:href="#panel-002-src-m463ca4c612" x="208.637276" y="54.552178" style="fill: #d55e00; stroke: #d55e00" class="panel-002-scope" />
+                  <use xlink:href="#panel-002-src-m463ca4c612" x="242.083887" y="52.232041" style="fill: #d55e00; stroke: #d55e00" class="panel-002-scope" />
+                </g>
+              </g>
+              <g id="panel-002-src-line2d_22" class="panel-002-scope">
+                <path d="M 41.404223 76.093423  L 74.850834 53.869106  L 108.297444 42.12073  L 141.744055 35.298209  L 175.190666 31.073392  L 208.637276 28.249673  L 242.083887 27.994794  " clip-path="url(#panel-002-src-pf875b8d284)" style="fill: none; stroke-dasharray: 8.32,2.08,1.3,2.08; stroke-dashoffset: 0; stroke: #0072b2; stroke-width: 1.3" class="panel-002-scope" />
+                <defs class="panel-002-scope">
+                  <path id="panel-002-src-m4620e6c29c" d="M 0 -1.9  L -1.9 1.9  L 1.9 1.9  z " style="stroke: #0072b2; stroke-linejoin: miter" class="panel-002-scope" />
+                </defs>
+                <g clip-path="url(#panel-002-src-pf875b8d284)" class="panel-002-scope">
+                  <use xlink:href="#panel-002-src-m4620e6c29c" x="41.404223" y="76.093423" style="fill: #0072b2; stroke: #0072b2; stroke-linejoin: miter" class="panel-002-scope" />
+                  <use xlink:href="#panel-002-src-m4620e6c29c" x="74.850834" y="53.869106" style="fill: #0072b2; stroke: #0072b2; stroke-linejoin: miter" class="panel-002-scope" />
+                  <use xlink:href="#panel-002-src-m4620e6c29c" x="108.297444" y="42.12073" style="fill: #0072b2; stroke: #0072b2; stroke-linejoin: miter" class="panel-002-scope" />
+                  <use xlink:href="#panel-002-src-m4620e6c29c" x="141.744055" y="35.298209" style="fill: #0072b2; stroke: #0072b2; stroke-linejoin: miter" class="panel-002-scope" />
+                  <use xlink:href="#panel-002-src-m4620e6c29c" x="175.190666" y="31.073392" style="fill: #0072b2; stroke: #0072b2; stroke-linejoin: miter" class="panel-002-scope" />
+                  <use xlink:href="#panel-002-src-m4620e6c29c" x="208.637276" y="28.249673" style="fill: #0072b2; stroke: #0072b2; stroke-linejoin: miter" class="panel-002-scope" />
+                  <use xlink:href="#panel-002-src-m4620e6c29c" x="242.083887" y="27.994794" style="fill: #0072b2; stroke: #0072b2; stroke-linejoin: miter" class="panel-002-scope" />
+                </g>
+              </g>
+              <g id="panel-002-src-LineCollection_3" class="panel-002-scope">
+                <path d="M 41.404223 79.633507  L 41.404223 72.553338  " clip-path="url(#panel-002-src-pf875b8d284)" style="fill: none; stroke: #0072b2" class="panel-002-scope" />
+                <path d="M 74.850834 57.216503  L 74.850834 50.52171  " clip-path="url(#panel-002-src-pf875b8d284)" style="fill: none; stroke: #0072b2" class="panel-002-scope" />
+                <path d="M 108.297444 45.994127  L 108.297444 38.247333  " clip-path="url(#panel-002-src-pf875b8d284)" style="fill: none; stroke: #0072b2" class="panel-002-scope" />
+                <path d="M 141.744055 38.747516  L 141.744055 31.848903  " clip-path="url(#panel-002-src-pf875b8d284)" style="fill: none; stroke: #0072b2" class="panel-002-scope" />
+                <path d="M 175.190666 36.069565  L 175.190666 26.07722  " clip-path="url(#panel-002-src-pf875b8d284)" style="fill: none; stroke: #0072b2" class="panel-002-scope" />
+                <path d="M 208.637276 31.452477  L 208.637276 25.046869  " clip-path="url(#panel-002-src-pf875b8d284)" style="fill: none; stroke: #0072b2" class="panel-002-scope" />
+                <path d="M 242.083887 32.023515  L 242.083887 23.966074  " clip-path="url(#panel-002-src-pf875b8d284)" style="fill: none; stroke: #0072b2" class="panel-002-scope" />
+              </g>
+              <g id="panel-002-src-line2d_23" class="panel-002-scope">
+                <defs class="panel-002-scope">
+                  <path id="panel-002-src-m2036d695cc" d="M 2 0  L -2 -0  " style="stroke: #0072b2" class="panel-002-scope" />
+                </defs>
+                <g clip-path="url(#panel-002-src-pf875b8d284)" class="panel-002-scope">
+                  <use xlink:href="#panel-002-src-m2036d695cc" x="41.404223" y="79.633507" style="fill: #0072b2; stroke: #0072b2" class="panel-002-scope" />
+                  <use xlink:href="#panel-002-src-m2036d695cc" x="74.850834" y="57.216503" style="fill: #0072b2; stroke: #0072b2" class="panel-002-scope" />
+                  <use xlink:href="#panel-002-src-m2036d695cc" x="108.297444" y="45.994127" style="fill: #0072b2; stroke: #0072b2" class="panel-002-scope" />
+                  <use xlink:href="#panel-002-src-m2036d695cc" x="141.744055" y="38.747516" style="fill: #0072b2; stroke: #0072b2" class="panel-002-scope" />
+                  <use xlink:href="#panel-002-src-m2036d695cc" x="175.190666" y="36.069565" style="fill: #0072b2; stroke: #0072b2" class="panel-002-scope" />
+                  <use xlink:href="#panel-002-src-m2036d695cc" x="208.637276" y="31.452477" style="fill: #0072b2; stroke: #0072b2" class="panel-002-scope" />
+                  <use xlink:href="#panel-002-src-m2036d695cc" x="242.083887" y="32.023515" style="fill: #0072b2; stroke: #0072b2" class="panel-002-scope" />
+                </g>
+              </g>
+              <g id="panel-002-src-line2d_24" class="panel-002-scope">
+                <g clip-path="url(#panel-002-src-pf875b8d284)" class="panel-002-scope">
+                  <use xlink:href="#panel-002-src-m2036d695cc" x="41.404223" y="72.553338" style="fill: #0072b2; stroke: #0072b2" class="panel-002-scope" />
+                  <use xlink:href="#panel-002-src-m2036d695cc" x="74.850834" y="50.52171" style="fill: #0072b2; stroke: #0072b2" class="panel-002-scope" />
+                  <use xlink:href="#panel-002-src-m2036d695cc" x="108.297444" y="38.247333" style="fill: #0072b2; stroke: #0072b2" class="panel-002-scope" />
+                  <use xlink:href="#panel-002-src-m2036d695cc" x="141.744055" y="31.848903" style="fill: #0072b2; stroke: #0072b2" class="panel-002-scope" />
+                  <use xlink:href="#panel-002-src-m2036d695cc" x="175.190666" y="26.07722" style="fill: #0072b2; stroke: #0072b2" class="panel-002-scope" />
+                  <use xlink:href="#panel-002-src-m2036d695cc" x="208.637276" y="25.046869" style="fill: #0072b2; stroke: #0072b2" class="panel-002-scope" />
+                  <use xlink:href="#panel-002-src-m2036d695cc" x="242.083887" y="23.966074" style="fill: #0072b2; stroke: #0072b2" class="panel-002-scope" />
+                </g>
+              </g>
+              <g id="panel-002-src-patch_3" class="panel-002-scope">
+                <path d="M 31.37024 141.6785  L 31.37024 18.36072  " style="fill: none; stroke: #000000; stroke-width: 0.65; stroke-linejoin: miter; stroke-linecap: square" class="panel-002-scope" />
+              </g>
+              <g id="panel-002-src-patch_4" class="panel-002-scope">
+                <path d="M 31.37024 141.6785  L 252.11787 141.6785  " style="fill: none; stroke: #000000; stroke-width: 0.65; stroke-linejoin: miter; stroke-linecap: square" class="panel-002-scope" />
+              </g>
+              <g id="panel-002-src-legend_1" class="panel-002-scope">
+                <g id="panel-002-src-line2d_25" class="panel-002-scope">
+                  <path d="M 189.839745 108.726547  L 197.339745 108.726547  L 204.839745 108.726547  " style="fill: none; stroke: #666a73; stroke-width: 1.3; stroke-linecap: square" class="panel-002-scope" />
+                  <g class="panel-002-scope">
+                    <use xlink:href="#panel-002-src-m5abd634048" x="197.339745" y="108.726547" style="fill: #666a73; stroke: #666a73" class="panel-002-scope" />
+                  </g>
+                </g>
+                <g id="panel-002-src-text_14" class="panel-002-scope">
+                  <text style="font-size: 7.5px; font-family: 'DejaVu Sans'; text-anchor: start" x="210.839745" y="111.351547" transform="rotate(-0 210.839745 111.351547)" class="panel-002-scope">Baseline</text>
+    </g>
+                <g id="panel-002-src-line2d_26" class="panel-002-scope">
+                  <path d="M 189.839745 119.735141  L 197.339745 119.735141  L 204.839745 119.735141  " style="fill: none; stroke-dasharray: 4.81,2.08; stroke-dashoffset: 0; stroke: #d55e00; stroke-width: 1.3" class="panel-002-scope" />
+                  <g class="panel-002-scope">
+                    <use xlink:href="#panel-002-src-me603ffe5cd" x="197.339745" y="119.735141" style="fill: #d55e00; stroke: #d55e00; stroke-linejoin: miter" class="panel-002-scope" />
+                  </g>
+                </g>
+                <g id="panel-002-src-text_15" class="panel-002-scope">
+                  <text style="font-size: 7.5px; font-family: 'DejaVu Sans'; text-anchor: start" x="210.839745" y="122.360141" transform="rotate(-0 210.839745 122.360141)" class="panel-002-scope">Context</text>
+    </g>
+                <g id="panel-002-src-line2d_27" class="panel-002-scope">
+                  <path d="M 189.839745 130.743735  L 197.339745 130.743735  L 204.839745 130.743735  " style="fill: none; stroke-dasharray: 8.32,2.08,1.3,2.08; stroke-dashoffset: 0; stroke: #0072b2; stroke-width: 1.3" class="panel-002-scope" />
+                  <g class="panel-002-scope">
+                    <use xlink:href="#panel-002-src-m4620e6c29c" x="197.339745" y="130.743735" style="fill: #0072b2; stroke: #0072b2; stroke-linejoin: miter" class="panel-002-scope" />
+                  </g>
+                </g>
+                <g id="panel-002-src-text_16" class="panel-002-scope">
+                  <text style="font-size: 7.5px; font-family: 'DejaVu Sans'; text-anchor: start" x="210.839745" y="133.368735" transform="rotate(-0 210.839745 133.368735)" class="panel-002-scope">Proposed</text>
+    </g>
+              </g>
+            </g>
+            <g id="panel-002-src-text_17" class="panel-002-scope">
+              <text style="font-weight: 700; font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle" x="127.559055" y="9.838834" transform="rotate(-0 127.559055 9.838834)" class="panel-002-scope">Synthetic learning curves</text>
+  </g>
+          </g>
+          <defs class="panel-002-scope">
+            <clipPath id="panel-002-src-pf875b8d284" class="panel-002-scope">
+              <rect x="31.37024" y="18.36072" width="220.74763" height="123.31778" class="panel-002-scope" />
+            </clipPath>
+          </defs>
+        </g>
+      </g>
+    </g>
+  </g>
+  <g id="panel-003">
+    <text id="panel-003-heading" x="101" y="96.5" font-family="Arial, Helvetica, sans-serif" font-size="3.175" font-weight="bold" fill="#22313F">c</text><g transform="translate(100 99.66666667) scale(0.33317901) translate(-0 -0)">
+      <g clip-path="url(#panel-003-viewport)">
+        <g class="panel-003-scope" id="panel-003-src-content-root" font-size="16">
+          <metadata class="panel-003-scope">
+            <rdf:RDF class="panel-003-scope">
+              <ns2:Work class="panel-003-scope">
+                <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" class="panel-003-scope" />
+                <dc:format class="panel-003-scope">image/svg+xml</dc:format>
+                <dc:creator class="panel-003-scope">
+                  <ns2:Agent class="panel-003-scope">
+                    <dc:title class="panel-003-scope">FigureFoundry 1.0.0; Matplotlib 3.10.8</dc:title>
+                  </ns2:Agent>
+                </dc:creator>
+              </ns2:Work>
+            </rdf:RDF>
+          </metadata>
+          <defs class="panel-003-scope">
+            <style type="text/css" class="panel-003-scope">*.panel-003-scope { stroke-linejoin: round; stroke-linecap: butt }</style>
+          </defs>
+          <g id="panel-003-src-figure_1" class="panel-003-scope">
+            <g id="panel-003-src-patch_1" class="panel-003-scope">
+              <path d="M 0 170.07874  L 255.11811 170.07874  L 255.11811 0  L 0 0  z " style="fill: #ffffff" class="panel-003-scope" />
+            </g>
+            <g id="panel-003-src-axes_1" class="panel-003-scope">
+              <g id="panel-003-src-patch_2" class="panel-003-scope">
+                <path d="M 31.37024 141.6785  L 252.11787 141.6785  L 252.11787 18.36072  L 31.37024 18.36072  z " style="fill: #ffffff" class="panel-003-scope" />
+              </g>
+              <g id="panel-003-src-matplotlib.axis_1" class="panel-003-scope">
+                <g id="panel-003-src-xtick_1" class="panel-003-scope">
+                  <g id="panel-003-src-line2d_1" class="panel-003-scope">
+                    <defs class="panel-003-scope">
+                      <path id="panel-003-src-md75c626034" d="M 0 0  L 0 3.5  " style="stroke: #000000; stroke-width: 0.65" class="panel-003-scope" />
+                    </defs>
+                    <g class="panel-003-scope">
+                      <use xlink:href="#panel-003-src-md75c626034" x="61.47219" y="141.6785" style="stroke: #000000; stroke-width: 0.65" class="panel-003-scope" />
+                    </g>
+                  </g>
+                  <g id="panel-003-src-text_1" class="panel-003-scope">
+                    <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: middle" x="61.47219" y="154.75725" transform="rotate(-0 61.47219 154.75725)" class="panel-003-scope">Baseline</text>
+     </g>
+                </g>
+                <g id="panel-003-src-xtick_2" class="panel-003-scope">
+                  <g id="panel-003-src-line2d_2" class="panel-003-scope">
+                    <g class="panel-003-scope">
+                      <use xlink:href="#panel-003-src-md75c626034" x="141.744055" y="141.6785" style="stroke: #000000; stroke-width: 0.65" class="panel-003-scope" />
+                    </g>
+                  </g>
+                  <g id="panel-003-src-text_2" class="panel-003-scope">
+                    <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: middle" x="141.744055" y="154.75725" transform="rotate(-0 141.744055 154.75725)" class="panel-003-scope">Context</text>
+     </g>
+                </g>
+                <g id="panel-003-src-xtick_3" class="panel-003-scope">
+                  <g id="panel-003-src-line2d_3" class="panel-003-scope">
+                    <g class="panel-003-scope">
+                      <use xlink:href="#panel-003-src-md75c626034" x="222.015921" y="141.6785" style="stroke: #000000; stroke-width: 0.65" class="panel-003-scope" />
+                    </g>
+                  </g>
+                  <g id="panel-003-src-text_3" class="panel-003-scope">
+                    <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: middle" x="222.015921" y="154.75725" transform="rotate(-0 222.015921 154.75725)" class="panel-003-scope">Proposed</text>
+     </g>
+                </g>
+                <g id="panel-003-src-text_4" class="panel-003-scope">
+                  <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: middle" x="141.744055" y="166.49975" transform="rotate(-0 141.744055 166.49975)" class="panel-003-scope">Method</text>
+    </g>
+              </g>
+              <g id="panel-003-src-matplotlib.axis_2" class="panel-003-scope">
+                <g id="panel-003-src-ytick_1" class="panel-003-scope">
+                  <g id="panel-003-src-line2d_4" class="panel-003-scope">
+                    <path d="M 31.37024 118.85086  L 252.11787 118.85086  " clip-path="url(#panel-003-src-pf875b8d284)" style="fill: none; stroke: #dde2e7; stroke-opacity: 0.7; stroke-width: 0.5; stroke-linecap: square" class="panel-003-scope" />
+                  </g>
+                  <g id="panel-003-src-line2d_5" class="panel-003-scope">
+                    <defs class="panel-003-scope">
+                      <path id="panel-003-src-mf9c7d941d0" d="M 0 0  L -3.5 0  " style="stroke: #000000; stroke-width: 0.65" class="panel-003-scope" />
+                    </defs>
+                    <g class="panel-003-scope">
+                      <use xlink:href="#panel-003-src-mf9c7d941d0" x="31.37024" y="118.85086" style="stroke: #000000; stroke-width: 0.65" class="panel-003-scope" />
+                    </g>
+                  </g>
+                  <g id="panel-003-src-text_5" class="panel-003-scope">
+                    <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: end" x="24.37024" y="121.890235" transform="rotate(-0 24.37024 121.890235)" class="panel-003-scope">60</text>
+     </g>
+                </g>
+                <g id="panel-003-src-ytick_2" class="panel-003-scope">
+                  <g id="panel-003-src-line2d_6" class="panel-003-scope">
+                    <path d="M 31.37024 95.342415  L 252.11787 95.342415  " clip-path="url(#panel-003-src-pf875b8d284)" style="fill: none; stroke: #dde2e7; stroke-opacity: 0.7; stroke-width: 0.5; stroke-linecap: square" class="panel-003-scope" />
+                  </g>
+                  <g id="panel-003-src-line2d_7" class="panel-003-scope">
+                    <g class="panel-003-scope">
+                      <use xlink:href="#panel-003-src-mf9c7d941d0" x="31.37024" y="95.342415" style="stroke: #000000; stroke-width: 0.65" class="panel-003-scope" />
+                    </g>
+                  </g>
+                  <g id="panel-003-src-text_6" class="panel-003-scope">
+                    <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: end" x="24.37024" y="98.38179" transform="rotate(-0 24.37024 98.38179)" class="panel-003-scope">65</text>
+     </g>
+                </g>
+                <g id="panel-003-src-ytick_3" class="panel-003-scope">
+                  <g id="panel-003-src-line2d_8" class="panel-003-scope">
+                    <path d="M 31.37024 71.83397  L 252.11787 71.83397  " clip-path="url(#panel-003-src-pf875b8d284)" style="fill: none; stroke: #dde2e7; stroke-opacity: 0.7; stroke-width: 0.5; stroke-linecap: square" class="panel-003-scope" />
+                  </g>
+                  <g id="panel-003-src-line2d_9" class="panel-003-scope">
+                    <g class="panel-003-scope">
+                      <use xlink:href="#panel-003-src-mf9c7d941d0" x="31.37024" y="71.83397" style="stroke: #000000; stroke-width: 0.65" class="panel-003-scope" />
+                    </g>
+                  </g>
+                  <g id="panel-003-src-text_7" class="panel-003-scope">
+                    <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: end" x="24.37024" y="74.873345" transform="rotate(-0 24.37024 74.873345)" class="panel-003-scope">70</text>
+     </g>
+                </g>
+                <g id="panel-003-src-ytick_4" class="panel-003-scope">
+                  <g id="panel-003-src-line2d_10" class="panel-003-scope">
+                    <path d="M 31.37024 48.325524  L 252.11787 48.325524  " clip-path="url(#panel-003-src-pf875b8d284)" style="fill: none; stroke: #dde2e7; stroke-opacity: 0.7; stroke-width: 0.5; stroke-linecap: square" class="panel-003-scope" />
+                  </g>
+                  <g id="panel-003-src-line2d_11" class="panel-003-scope">
+                    <g class="panel-003-scope">
+                      <use xlink:href="#panel-003-src-mf9c7d941d0" x="31.37024" y="48.325524" style="stroke: #000000; stroke-width: 0.65" class="panel-003-scope" />
+                    </g>
+                  </g>
+                  <g id="panel-003-src-text_8" class="panel-003-scope">
+                    <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: end" x="24.37024" y="51.364899" transform="rotate(-0 24.37024 51.364899)" class="panel-003-scope">75</text>
+     </g>
+                </g>
+                <g id="panel-003-src-ytick_5" class="panel-003-scope">
+                  <g id="panel-003-src-line2d_12" class="panel-003-scope">
+                    <path d="M 31.37024 24.817079  L 252.11787 24.817079  " clip-path="url(#panel-003-src-pf875b8d284)" style="fill: none; stroke: #dde2e7; stroke-opacity: 0.7; stroke-width: 0.5; stroke-linecap: square" class="panel-003-scope" />
+                  </g>
+                  <g id="panel-003-src-line2d_13" class="panel-003-scope">
+                    <g class="panel-003-scope">
+                      <use xlink:href="#panel-003-src-mf9c7d941d0" x="31.37024" y="24.817079" style="stroke: #000000; stroke-width: 0.65" class="panel-003-scope" />
+                    </g>
+                  </g>
+                  <g id="panel-003-src-text_9" class="panel-003-scope">
+                    <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: end" x="24.37024" y="27.856454" transform="rotate(-0 24.37024 27.856454)" class="panel-003-scope">80</text>
+     </g>
+                </g>
+                <g id="panel-003-src-text_10" class="panel-003-scope">
+                  <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: middle" x="8.52649" y="80.01961" transform="rotate(-90 8.52649 80.01961)" class="panel-003-scope">Task success (%)</text>
+    </g>
+              </g>
+              <g id="panel-003-src-PathCollection_1" class="panel-003-scope">
+                <defs class="panel-003-scope">
+                  <path id="panel-003-src-C0_0_a06607a5b0" d="M 0 1.5  C 0.397805 1.5 0.77937 1.341951 1.06066 1.06066  C 1.341951 0.77937 1.5 0.397805 1.5 -0  C 1.5 -0.397805 1.341951 -0.77937 1.06066 -1.06066  C 0.77937 -1.341951 0.397805 -1.5 0 -1.5  C -0.397805 -1.5 -0.77937 -1.341951 -1.06066 -1.06066  C -1.341951 -0.77937 -1.5 -0.397805 -1.5 0  C -1.5 0.397805 -1.341951 0.77937 -1.06066 1.06066  C -0.77937 1.341951 -0.397805 1.5 0 1.5  z " class="panel-003-scope" />
+                </defs>
+                <g clip-path="url(#panel-003-src-pf875b8d284)" class="panel-003-scope">
+                  <use xlink:href="#panel-003-src-C0_0_a06607a5b0" x="49.418362" y="127.276286" style="fill: #666a73; fill-opacity: 0.65" class="panel-003-scope" />
+                </g>
+                <g clip-path="url(#panel-003-src-pf875b8d284)" class="panel-003-scope">
+                  <use xlink:href="#panel-003-src-C0_0_a06607a5b0" x="52.955858" y="130.102001" style="fill: #666a73; fill-opacity: 0.65" class="panel-003-scope" />
+                </g>
+                <g clip-path="url(#panel-003-src-pf875b8d284)" class="panel-003-scope">
+                  <use xlink:href="#panel-003-src-C0_0_a06607a5b0" x="56.179395" y="124.003911" style="fill: #666a73; fill-opacity: 0.65" class="panel-003-scope" />
+                </g>
+                <g clip-path="url(#panel-003-src-pf875b8d284)" class="panel-003-scope">
+                  <use xlink:href="#panel-003-src-C0_0_a06607a5b0" x="63.430872" y="136.073147" style="fill: #666a73; fill-opacity: 0.65" class="panel-003-scope" />
+                </g>
+                <g clip-path="url(#panel-003-src-pf875b8d284)" class="panel-003-scope">
+                  <use xlink:href="#panel-003-src-C0_0_a06607a5b0" x="69.496085" y="128.254238" style="fill: #666a73; fill-opacity: 0.65" class="panel-003-scope" />
+                </g>
+                <g clip-path="url(#panel-003-src-pf875b8d284)" class="panel-003-scope">
+                  <use xlink:href="#panel-003-src-C0_0_a06607a5b0" x="73.708353" y="127.163446" style="fill: #666a73; fill-opacity: 0.65" class="panel-003-scope" />
+                </g>
+              </g>
+              <g id="panel-003-src-PathCollection_2" class="panel-003-scope">
+                <defs class="panel-003-scope">
+                  <path id="panel-003-src-C1_0_a06607a5b0" d="M 0 1.5  C 0.397805 1.5 0.77937 1.341951 1.06066 1.06066  C 1.341951 0.77937 1.5 0.397805 1.5 -0  C 1.5 -0.397805 1.341951 -0.77937 1.06066 -1.06066  C 0.77937 -1.341951 0.397805 -1.5 0 -1.5  C -0.397805 -1.5 -0.77937 -1.341951 -1.06066 -1.06066  C -1.341951 -0.77937 -1.5 -0.397805 -1.5 0  C -1.5 0.397805 -1.341951 0.77937 -1.06066 1.06066  C -0.77937 1.341951 -0.397805 1.5 0 1.5  z " class="panel-003-scope" />
+                </defs>
+                <g clip-path="url(#panel-003-src-pf875b8d284)" class="panel-003-scope">
+                  <use xlink:href="#panel-003-src-C1_0_a06607a5b0" x="140.845048" y="65.472584" style="fill: #d55e00; fill-opacity: 0.65" class="panel-003-scope" />
+                </g>
+                <g clip-path="url(#panel-003-src-pf875b8d284)" class="panel-003-scope">
+                  <use xlink:href="#panel-003-src-C1_0_a06607a5b0" x="132.601262" y="77.419576" style="fill: #d55e00; fill-opacity: 0.65" class="panel-003-scope" />
+                </g>
+                <g clip-path="url(#panel-003-src-pf875b8d284)" class="panel-003-scope">
+                  <use xlink:href="#panel-003-src-C1_0_a06607a5b0" x="152.427064" y="71.288574" style="fill: #d55e00; fill-opacity: 0.65" class="panel-003-scope" />
+                </g>
+                <g clip-path="url(#panel-003-src-pf875b8d284)" class="panel-003-scope">
+                  <use xlink:href="#panel-003-src-C1_0_a06607a5b0" x="138.148986" y="82.784203" style="fill: #d55e00; fill-opacity: 0.65" class="panel-003-scope" />
+                </g>
+                <g clip-path="url(#panel-003-src-pf875b8d284)" class="panel-003-scope">
+                  <use xlink:href="#panel-003-src-C1_0_a06607a5b0" x="130.267908" y="75.919737" style="fill: #d55e00; fill-opacity: 0.65" class="panel-003-scope" />
+                </g>
+                <g clip-path="url(#panel-003-src-pf875b8d284)" class="panel-003-scope">
+                  <use xlink:href="#panel-003-src-C1_0_a06607a5b0" x="133.04904" y="72.896551" style="fill: #d55e00; fill-opacity: 0.65" class="panel-003-scope" />
+                </g>
+              </g>
+              <g id="panel-003-src-PathCollection_3" class="panel-003-scope">
+                <defs class="panel-003-scope">
+                  <path id="panel-003-src-C2_0_a06607a5b0" d="M 0 1.5  C 0.397805 1.5 0.77937 1.341951 1.06066 1.06066  C 1.341951 0.77937 1.5 0.397805 1.5 -0  C 1.5 -0.397805 1.341951 -0.77937 1.06066 -1.06066  C 0.77937 -1.341951 0.397805 -1.5 0 -1.5  C -0.397805 -1.5 -0.77937 -1.341951 -1.06066 -1.06066  C -1.341951 -0.77937 -1.5 -0.397805 -1.5 0  C -1.5 0.397805 -1.341951 0.77937 -1.06066 1.06066  C -0.77937 1.341951 -0.397805 1.5 0 1.5  z " class="panel-003-scope" />
+                </defs>
+                <g clip-path="url(#panel-003-src-pf875b8d284)" class="panel-003-scope">
+                  <use xlink:href="#panel-003-src-C2_0_a06607a5b0" x="215.942002" y="23.966074" style="fill: #0072b2; fill-opacity: 0.65" class="panel-003-scope" />
+                </g>
+                <g clip-path="url(#panel-003-src-pf875b8d284)" class="panel-003-scope">
+                  <use xlink:href="#panel-003-src-C2_0_a06607a5b0" x="226.800358" y="37.126101" style="fill: #0072b2; fill-opacity: 0.65" class="panel-003-scope" />
+                </g>
+                <g clip-path="url(#panel-003-src-pf875b8d284)" class="panel-003-scope">
+                  <use xlink:href="#panel-003-src-C2_0_a06607a5b0" x="222.273005" y="28.061245" style="fill: #0072b2; fill-opacity: 0.65" class="panel-003-scope" />
+                </g>
+                <g clip-path="url(#panel-003-src-pf875b8d284)" class="panel-003-scope">
+                  <use xlink:href="#panel-003-src-C2_0_a06607a5b0" x="233.497079" y="25.418896" style="fill: #0072b2; fill-opacity: 0.65" class="panel-003-scope" />
+                </g>
+                <g clip-path="url(#panel-003-src-pf875b8d284)" class="panel-003-scope">
+                  <use xlink:href="#panel-003-src-C2_0_a06607a5b0" x="212.660465" y="36.90042" style="fill: #0072b2; fill-opacity: 0.65" class="panel-003-scope" />
+                </g>
+                <g clip-path="url(#panel-003-src-pf875b8d284)" class="panel-003-scope">
+                  <use xlink:href="#panel-003-src-C2_0_a06607a5b0" x="218.580042" y="24.299894" style="fill: #0072b2; fill-opacity: 0.65" class="panel-003-scope" />
+                </g>
+              </g>
+              <g id="panel-003-src-patch_3" class="panel-003-scope">
+                <path d="M 41.404223 129.640061  L 81.540156 129.640061  L 81.540156 127.191656  L 41.404223 127.191656  L 41.404223 129.640061  z " clip-path="url(#panel-003-src-pf875b8d284)" style="fill: #666a73; opacity: 0.35; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter" class="panel-003-scope" />
+              </g>
+              <g id="panel-003-src-line2d_14" class="panel-003-scope">
+                <path d="M 61.47219 129.640061  L 61.47219 130.102001  " clip-path="url(#panel-003-src-pf875b8d284)" style="fill: none; stroke: #000000; stroke-width: 0.7; stroke-linecap: square" class="panel-003-scope" />
+              </g>
+              <g id="panel-003-src-line2d_15" class="panel-003-scope">
+                <path d="M 61.47219 127.191656  L 61.47219 124.003911  " clip-path="url(#panel-003-src-pf875b8d284)" style="fill: none; stroke: #000000; stroke-width: 0.7; stroke-linecap: square" class="panel-003-scope" />
+              </g>
+              <g id="panel-003-src-line2d_16" class="panel-003-scope">
+                <path d="M 51.438206 130.102001  L 71.506173 130.102001  " clip-path="url(#panel-003-src-pf875b8d284)" style="fill: none; stroke: #000000; stroke-width: 0.7; stroke-linecap: square" class="panel-003-scope" />
+              </g>
+              <g id="panel-003-src-line2d_17" class="panel-003-scope">
+                <path d="M 51.438206 124.003911  L 71.506173 124.003911  " clip-path="url(#panel-003-src-pf875b8d284)" style="fill: none; stroke: #000000; stroke-width: 0.7; stroke-linecap: square" class="panel-003-scope" />
+              </g>
+              <g id="panel-003-src-patch_4" class="panel-003-scope">
+                <path d="M 121.676089 77.044616  L 161.812022 77.044616  L 161.812022 71.690568  L 121.676089 71.690568  L 121.676089 77.044616  z " clip-path="url(#panel-003-src-pf875b8d284)" style="fill: #d55e00; opacity: 0.35; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter" class="panel-003-scope" />
+              </g>
+              <g id="panel-003-src-line2d_18" class="panel-003-scope">
+                <path d="M 141.744055 77.044616  L 141.744055 82.784203  " clip-path="url(#panel-003-src-pf875b8d284)" style="fill: none; stroke: #000000; stroke-width: 0.7; stroke-linecap: square" class="panel-003-scope" />
+              </g>
+              <g id="panel-003-src-line2d_19" class="panel-003-scope">
+                <path d="M 141.744055 71.690568  L 141.744055 65.472584  " clip-path="url(#panel-003-src-pf875b8d284)" style="fill: none; stroke: #000000; stroke-width: 0.7; stroke-linecap: square" class="panel-003-scope" />
+              </g>
+              <g id="panel-003-src-line2d_20" class="panel-003-scope">
+                <path d="M 131.710072 82.784203  L 151.778038 82.784203  " clip-path="url(#panel-003-src-pf875b8d284)" style="fill: none; stroke: #000000; stroke-width: 0.7; stroke-linecap: square" class="panel-003-scope" />
+              </g>
+              <g id="panel-003-src-line2d_21" class="panel-003-scope">
+                <path d="M 131.710072 65.472584  L 151.778038 65.472584  " clip-path="url(#panel-003-src-pf875b8d284)" style="fill: none; stroke: #000000; stroke-width: 0.7; stroke-linecap: square" class="panel-003-scope" />
+              </g>
+              <g id="panel-003-src-patch_5" class="panel-003-scope">
+                <path d="M 201.947954 34.690626  L 242.083887 34.690626  L 242.083887 24.579644  L 201.947954 24.579644  L 201.947954 34.690626  z " clip-path="url(#panel-003-src-pf875b8d284)" style="fill: #0072b2; opacity: 0.35; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter" class="panel-003-scope" />
+              </g>
+              <g id="panel-003-src-line2d_22" class="panel-003-scope">
+                <path d="M 222.015921 34.690626  L 222.015921 37.126101  " clip-path="url(#panel-003-src-pf875b8d284)" style="fill: none; stroke: #000000; stroke-width: 0.7; stroke-linecap: square" class="panel-003-scope" />
+              </g>
+              <g id="panel-003-src-line2d_23" class="panel-003-scope">
+                <path d="M 222.015921 24.579644  L 222.015921 23.966074  " clip-path="url(#panel-003-src-pf875b8d284)" style="fill: none; stroke: #000000; stroke-width: 0.7; stroke-linecap: square" class="panel-003-scope" />
+              </g>
+              <g id="panel-003-src-line2d_24" class="panel-003-scope">
+                <path d="M 211.981937 37.126101  L 232.049904 37.126101  " clip-path="url(#panel-003-src-pf875b8d284)" style="fill: none; stroke: #000000; stroke-width: 0.7; stroke-linecap: square" class="panel-003-scope" />
+              </g>
+              <g id="panel-003-src-line2d_25" class="panel-003-scope">
+                <path d="M 211.981937 23.966074  L 232.049904 23.966074  " clip-path="url(#panel-003-src-pf875b8d284)" style="fill: none; stroke: #000000; stroke-width: 0.7; stroke-linecap: square" class="panel-003-scope" />
+              </g>
+              <g id="panel-003-src-line2d_26" class="panel-003-scope">
+                <path d="M 41.404223 127.765262  L 81.540156 127.765262  " clip-path="url(#panel-003-src-pf875b8d284)" style="fill: none; stroke: #222222; stroke-width: 1.1" class="panel-003-scope" />
+              </g>
+              <g id="panel-003-src-line2d_27" class="panel-003-scope">
+                <path d="M 121.676089 74.408144  L 161.812022 74.408144  " clip-path="url(#panel-003-src-pf875b8d284)" style="fill: none; stroke: #222222; stroke-width: 1.1" class="panel-003-scope" />
+              </g>
+              <g id="panel-003-src-line2d_28" class="panel-003-scope">
+                <path d="M 201.947954 26.74007  L 242.083887 26.74007  " clip-path="url(#panel-003-src-pf875b8d284)" style="fill: none; stroke: #222222; stroke-width: 1.1" class="panel-003-scope" />
+              </g>
+              <g id="panel-003-src-patch_6" class="panel-003-scope">
+                <path d="M 31.37024 141.6785  L 31.37024 18.36072  " style="fill: none; stroke: #000000; stroke-width: 0.65; stroke-linejoin: miter; stroke-linecap: square" class="panel-003-scope" />
+              </g>
+              <g id="panel-003-src-patch_7" class="panel-003-scope">
+                <path d="M 31.37024 141.6785  L 252.11787 141.6785  " style="fill: none; stroke: #000000; stroke-width: 0.65; stroke-linejoin: miter; stroke-linecap: square" class="panel-003-scope" />
+              </g>
+            </g>
+            <g id="panel-003-src-text_11" class="panel-003-scope">
+              <text style="font-weight: 700; font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle" x="127.559055" y="9.838834" transform="rotate(-0 127.559055 9.838834)" class="panel-003-scope">Synthetic run distribution</text>
+  </g>
+          </g>
+          <defs class="panel-003-scope">
+            <clipPath id="panel-003-src-pf875b8d284" class="panel-003-scope">
+              <rect x="31.37024" y="18.36072" width="220.74763" height="123.31778" class="panel-003-scope" />
+            </clipPath>
+          </defs>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

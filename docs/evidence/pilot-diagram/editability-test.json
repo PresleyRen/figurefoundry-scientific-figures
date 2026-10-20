@@ -1,0 +1,76 @@
+{
+  "passed": true,
+  "tested_method": "Direct native SVG XML edit followed by Inkscape PNG rendering and FigureFoundry audit.",
+  "source": "workflow-180mm.svg",
+  "disposable_copy": "workflow-180mm-editability-test.svg",
+  "source_sha256_before": "df67152e01638552b91cfca2336922048c2b33a14a1393d557ea0a76ecf623d3",
+  "source_sha256_after": "df67152e01638552b91cfca2336922048c2b33a14a1393d557ea0a76ecf623d3",
+  "source_unchanged": true,
+  "text_edit": {
+    "node_id": "result",
+    "before": "Result",
+    "after": "Output"
+  },
+  "shape_edit": {
+    "node_id": "result",
+    "shape": "ellipse",
+    "property": "fill",
+    "before": "#EEEAF7",
+    "after": "#DDEFE1"
+  },
+  "all_path_geometries_and_attributes_unchanged": true,
+  "rendered_preview_changes_confined_to_result_ellipse": true,
+  "rendered_preview_difference_bounds_px": [
+    1099,
+    227,
+    1240,
+    325
+  ],
+  "allowed_result_region_px": [
+    1095,
+    223,
+    1245,
+    330
+  ],
+  "element_differences": [
+    {
+      "element_index": 58,
+      "tag": "title",
+      "before_text": "Result",
+      "after_text": "Output",
+      "changed_attributes": {}
+    },
+    {
+      "element_index": 59,
+      "tag": "ellipse",
+      "before_text": null,
+      "after_text": null,
+      "changed_attributes": {
+        "fill": [
+          "#EEEAF7",
+          "#DDEFE1"
+        ]
+      }
+    },
+    {
+      "element_index": 60,
+      "tag": "text",
+      "before_text": null,
+      "after_text": null,
+      "changed_attributes": {
+        "aria-label": [
+          "Result",
+          "Output"
+        ]
+      }
+    },
+    {
+      "element_index": 61,
+      "tag": "tspan",
+      "before_text": "Result",
+      "after_text": "Output",
+      "changed_attributes": {}
+    }
+  ],
+  "limitation": "This tests native XML editing and Inkscape rendering, not interactive editing in every SVG editor."
+}

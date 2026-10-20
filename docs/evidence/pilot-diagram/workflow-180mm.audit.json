@@ -1,0 +1,41 @@
+{
+  "passed": true,
+  "errors": [],
+  "warnings": [
+    "Visual inspection remains required for clipping, overlap, glyph availability, and journal-specific presentation requirements."
+  ],
+  "metrics": {
+    "text_count": 8,
+    "visible_text_count": 8,
+    "path_count": 10,
+    "image_count": 0,
+    "element_count": 74,
+    "width_mm": 180.0,
+    "height_mm": 80.0,
+    "min_font_pt": 6.999998740157481,
+    "max_font_pt": 8.49999968503937,
+    "labels": [
+      "Recheck required",
+      "Specimen",
+      "Preparation",
+      "Assay",
+      "Analysis",
+      "Result",
+      "Quality control",
+      "Reference database"
+    ],
+    "expected_labels_checked": 8,
+    "limitations": [
+      "Static checks do not certify journal acceptance, scientific accuracy, or visual quality.",
+      "Font sizes are conservative geometric estimates; installed fonts, glyph coverage, clipping, overlaps, and rendered bounds require visual inspection.",
+      "Paths cannot reliably be distinguished as letters versus scientific geometry; supply every required label through expected_labels to detect missing live text."
+    ],
+    "file_size_bytes": 6741,
+    "viewbox": [
+      0.0,
+      0.0,
+      180.0,
+      80.0
+    ]
+  }
+}

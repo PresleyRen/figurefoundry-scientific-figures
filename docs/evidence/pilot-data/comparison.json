@@ -1,0 +1,97 @@
+{
+  "passed": true,
+  "checked_date": "2026-10-20",
+  "scope": "Re-run the original supplied-data two-panel task using the final revised toolkit. This valid-data line/box task does not exercise a colorbar or malformed-header rejection.",
+  "initial_snapshot": "snapshots/start/toolkit",
+  "final_snapshot": "toolkit",
+  "source_modules": {
+    "figurefoundry.py": {
+      "initial_sha256": "9de81fa74e7d9a2f697a31652948efb8eccb6f5aa0fe275ad1902f8ebdbbd58d",
+      "final_sha256": "1105f28a7cf56a24c617003ee23c4f1508d48166bf279688a1030a4aaf3ebe97",
+      "changed": true
+    },
+    "ff_data.py": {
+      "initial_sha256": "414867f085f488c78acc486ff37e3d490b27e81c4ce1233d52029e8dce046172",
+      "final_sha256": "26e05753630b5d38ca46fe045d8d02720a5943a1b919e1855f603dda25d46144",
+      "changed": true
+    },
+    "ff_plots.py": {
+      "initial_sha256": "f1e4a17361f55f1289d6ff0a3ca5c9a56fad243dd2519dab21b2a8b6625f096c",
+      "final_sha256": "3f39c9aebfb267dd66e10cef2e03aef2dfbdf286622be234aa7837d9de8a183b",
+      "changed": true
+    },
+    "ff_export.py": {
+      "initial_sha256": "1403c42cafdbbb2e6aa0687f37a5279675ae31adceccf966ed6821d33745472d",
+      "final_sha256": "1403c42cafdbbb2e6aa0687f37a5279675ae31adceccf966ed6821d33745472d",
+      "changed": false
+    },
+    "ff_svg.py": {
+      "initial_sha256": "6b46e74650811b60200a485420a70667b0cb53124e8f75a295195ba71505fc64",
+      "final_sha256": "6b46e74650811b60200a485420a70667b0cb53124e8f75a295195ba71505fc64",
+      "changed": false
+    }
+  },
+  "output_files": {
+    "observations.csv": {
+      "initial_sha256": "2676fc50d3448b7b7ff6b3457efb204b5725749035108c0771b232c1e7d58061",
+      "final_sha256": "2676fc50d3448b7b7ff6b3457efb204b5725749035108c0771b232c1e7d58061",
+      "byte_identical": true
+    },
+    "figure-spec.json": {
+      "initial_sha256": "b0b88d192ef3fbf1257dde65ebd02fb9fae04cc5a68377fc5834b51a80e5161c",
+      "final_sha256": "b0b88d192ef3fbf1257dde65ebd02fb9fae04cc5a68377fc5834b51a80e5161c",
+      "byte_identical": true
+    },
+    "pilot-figure.svg": {
+      "initial_sha256": "2dca2ff61aee0eff4d1550d58a8197c4118acc70c86d650bc31b9278049a31c9",
+      "final_sha256": "2dca2ff61aee0eff4d1550d58a8197c4118acc70c86d650bc31b9278049a31c9",
+      "byte_identical": true
+    },
+    "pilot-figure.pdf": {
+      "initial_sha256": "cc3ef2ef27e6523d98ea2402a39209a0460a1db76f9a4dfec6366ac18011b853",
+      "final_sha256": "cc3ef2ef27e6523d98ea2402a39209a0460a1db76f9a4dfec6366ac18011b853",
+      "byte_identical": true
+    },
+    "pilot-figure.png": {
+      "initial_sha256": "3e54f89380417c90a53a6b248bd34a5db6d69d77e4ffe48ce47177ad5e6c3b5f",
+      "final_sha256": "3e54f89380417c90a53a6b248bd34a5db6d69d77e4ffe48ce47177ad5e6c3b5f",
+      "byte_identical": true
+    },
+    "final-time.csv": {
+      "initial_sha256": "d805bed0f860f0419cc9c9a17e3c507bb51c5a05d79150e3cfd5c7db598cac1f",
+      "final_sha256": "d805bed0f860f0419cc9c9a17e3c507bb51c5a05d79150e3cfd5c7db598cac1f",
+      "byte_identical": true
+    },
+    "summary-statistics.csv": {
+      "initial_sha256": "418b73e91b72a5470bca8530b63bed9f42328a0475f590df51155a2b36d1d03b",
+      "final_sha256": "418b73e91b72a5470bca8530b63bed9f42328a0475f590df51155a2b36d1d03b",
+      "byte_identical": true
+    }
+  },
+  "statistics": {
+    "group_time_cells_compared": 8,
+    "maximum_absolute_difference_by_field": {
+      "estimate": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "n": 0.0,
+      "observations": 0.0,
+      "missing": 0.0
+    },
+    "panel_statistics_identical": true,
+    "all_six_endpoint_values_identical": true
+  },
+  "final_svg_audit": {
+    "passed": true,
+    "metrics_identical_to_initial": true,
+    "visible_text_count": 36,
+    "image_count": 0,
+    "min_font_pt": 7.499999999999999
+  },
+  "repeat_reproduction_and_native_edit_test": {
+    "passed": true,
+    "report": "review-results.json"
+  },
+  "metadata_difference": "data-analysis.json and pilot-figure.manifest.json intentionally identify the final toolkit snapshot and updated provenance/review records; source and image data did not change.",
+  "conclusion": "No regression observed in this supplied-data task: all means, CI endpoints, independent sample sizes, endpoint observations, and the complete SVG/PDF/PNG are unchanged."
+}

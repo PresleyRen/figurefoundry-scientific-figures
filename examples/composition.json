@@ -1,0 +1,10 @@
+{
+  "width_mm": 190,
+  "height_mm": 160,
+  "min_font_pt": 6,
+  "panels": [
+    {"path": "outputs/diagram.svg", "x_mm": 5, "y_mm": 0, "width_mm": 180, "height_mm": 90, "label": "a"},
+    {"path": "outputs/line.svg", "x_mm": 5, "y_mm": 93, "width_mm": 90, "height_mm": 65, "label": "b"},
+    {"path": "outputs/distribution.svg", "x_mm": 100, "y_mm": 93, "width_mm": 85, "height_mm": 65, "label": "c"}
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "name": "FigureFoundry",
+  "version": "1.0.0",
+  "git_commit": null,
+  "git_status_note": "Source supplied as a directory without Git metadata; file hashes identify the exact copied code.",
+  "modules": {
+    "figurefoundry.py": {
+      "original_path": "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/skills/figurefoundry/scripts/figurefoundry.py",
+      "sha256": "1105f28a7cf56a24c617003ee23c4f1508d48166bf279688a1030a4aaf3ebe97"
+    },
+    "ff_data.py": {
+      "original_path": "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/skills/figurefoundry/scripts/ff_data.py",
+      "sha256": "26e05753630b5d38ca46fe045d8d02720a5943a1b919e1855f603dda25d46144"
+    },
+    "ff_plots.py": {
+      "original_path": "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/skills/figurefoundry/scripts/ff_plots.py",
+      "sha256": "3f39c9aebfb267dd66e10cef2e03aef2dfbdf286622be234aa7837d9de8a183b"
+    },
+    "ff_export.py": {
+      "original_path": "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/skills/figurefoundry/scripts/ff_export.py",
+      "sha256": "1403c42cafdbbb2e6aa0687f37a5279675ae31adceccf966ed6821d33745472d"
+    },
+    "ff_svg.py": {
+      "original_path": "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/skills/figurefoundry/scripts/ff_svg.py",
+      "sha256": "6b46e74650811b60200a485420a70667b0cb53124e8f75a295195ba71505fc64"
+    }
+  },
+  "snapshot_phase": "final frozen revision",
+  "initial_snapshot": "snapshots/start/toolkit/SOURCE.json",
+  "snapshot_note": "Copied after explicit confirmation that these five engine modules were frozen."
+}

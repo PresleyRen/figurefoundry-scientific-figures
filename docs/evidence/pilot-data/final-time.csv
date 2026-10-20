@@ -1,0 +1,7 @@
+group,subject,time,response
+Control,C1,3,12
+Control,C2,3,13
+Control,C3,3,14
+Treatment,T1,3,16
+Treatment,T2,3,17
+Treatment,T3,3,18

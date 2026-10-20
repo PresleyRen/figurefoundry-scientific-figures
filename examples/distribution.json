@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "data_status": "synthetic",
+  "palette": {
+    "Baseline": "#666A73",
+    "Context": "#D55E00",
+    "Proposed": "#0072B2"
+  },
+  "claim": "Demonstrate reproducible vector plots; these are synthetic values, not experimental findings.",
+  "title": "Synthetic run distribution",
+  "figure": {
+    "width_mm": 90,
+    "height_mm": 60,
+    "font_pt": 8,
+    "min_font_pt": 6
+  },
+  "panels": [
+    {
+      "kind": "box",
+      "data": "data/endpoints.csv",
+      "x": "method",
+      "y": "success",
+      "order": [
+        "Baseline",
+        "Context",
+        "Proposed"
+      ],
+      "xlabel": "Method",
+      "ylabel": "Task success (%)",
+      "title": ""
+    }
+  ]
+}

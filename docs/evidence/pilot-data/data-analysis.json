@@ -1,0 +1,238 @@
+{
+  "data_status": "synthetic",
+  "original_source": "../pilot-input/observations.csv (byte-identical copy retained in this package)",
+  "input": {
+    "file": "observations.csv",
+    "sha256": "2676fc50d3448b7b7ff6b3457efb204b5725749035108c0771b232c1e7d58061",
+    "rows": 24,
+    "columns": [
+      "group",
+      "subject",
+      "time",
+      "response"
+    ],
+    "missing_by_column": {
+      "group": 0,
+      "subject": 0,
+      "time": 0,
+      "response": 0
+    }
+  },
+  "units": {
+    "time": "not supplied",
+    "response": "not supplied"
+  },
+  "study_design": {
+    "independent_unit": "subject",
+    "subjects_total": 6,
+    "subjects_by_group": {
+      "Control": 3,
+      "Treatment": 3
+    },
+    "time_points": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "measurements_per_subject": {
+      "C1": 4,
+      "C2": 4,
+      "C3": 4,
+      "T1": 4,
+      "T2": 4,
+      "T3": 4
+    },
+    "duplicate_group_subject_time_rows": 0,
+    "all_trajectories_complete": true
+  },
+  "statistics": {
+    "estimator": "mean",
+    "uncertainty": "ci95",
+    "independent_unit": "subject",
+    "within_unit": null,
+    "confidence_level": 0.95,
+    "bootstrap_draws": null,
+    "random_seed": null,
+    "warnings": [],
+    "groups": [
+      {
+        "time": 0,
+        "group": "Control",
+        "estimate": 10.0,
+        "lower": 7.51586228824967,
+        "upper": 12.48413771175033,
+        "n": 3,
+        "observations": 3,
+        "missing": 0
+      },
+      {
+        "time": 1,
+        "group": "Control",
+        "estimate": 11.0,
+        "lower": 8.51586228824967,
+        "upper": 13.48413771175033,
+        "n": 3,
+        "observations": 3,
+        "missing": 0
+      },
+      {
+        "time": 2,
+        "group": "Control",
+        "estimate": 12.0,
+        "lower": 9.51586228824967,
+        "upper": 14.48413771175033,
+        "n": 3,
+        "observations": 3,
+        "missing": 0
+      },
+      {
+        "time": 3,
+        "group": "Control",
+        "estimate": 13.0,
+        "lower": 10.51586228824967,
+        "upper": 15.48413771175033,
+        "n": 3,
+        "observations": 3,
+        "missing": 0
+      },
+      {
+        "time": 0,
+        "group": "Treatment",
+        "estimate": 11.0,
+        "lower": 8.51586228824967,
+        "upper": 13.48413771175033,
+        "n": 3,
+        "observations": 3,
+        "missing": 0
+      },
+      {
+        "time": 1,
+        "group": "Treatment",
+        "estimate": 13.0,
+        "lower": 10.51586228824967,
+        "upper": 15.48413771175033,
+        "n": 3,
+        "observations": 3,
+        "missing": 0
+      },
+      {
+        "time": 2,
+        "group": "Treatment",
+        "estimate": 15.0,
+        "lower": 12.51586228824967,
+        "upper": 17.48413771175033,
+        "n": 3,
+        "observations": 3,
+        "missing": 0
+      },
+      {
+        "time": 3,
+        "group": "Treatment",
+        "estimate": 17.0,
+        "lower": 14.51586228824967,
+        "upper": 19.48413771175033,
+        "n": 3,
+        "observations": 3,
+        "missing": 0
+      }
+    ]
+  },
+  "ci_definition": "Pointwise arithmetic mean ± t(0.975, n−1) × sample SD/√n across independent subjects separately within each group and time. Sample SD uses n−1. These are not simultaneous bands, within-subject change intervals, or between-group tests. The t interval assumes independent subjects and approximately normal marginal responses within each group/time.",
+  "time_dependence": "The same subjects recur over time. Time points are not pooled as independent replicates. Within a group×time cell each subject contributes exactly one observation, so no within_unit reduction is needed. Lines/bands connect sampled time points as visual guides; no fitted longitudinal model is asserted.",
+  "endpoint_definition": "Only rows at the global maximum observed time are selected for panel b; one response per subject. Box: Q1–Q3, median line, whiskers at most 1.5 IQR from the hinges. All individual values are overlaid. Horizontal jitter with NumPy seed 1729 affects categorical position only; response values are unchanged.",
+  "endpoint_summary": [
+    {
+      "group": "Control",
+      "time": 3,
+      "n_subjects": 3,
+      "values": [
+        12.0,
+        13.0,
+        14.0
+      ],
+      "q1": 12.5,
+      "median": 13.0,
+      "q3": 13.5,
+      "whisker_low": 12.0,
+      "whisker_high": 14.0
+    },
+    {
+      "group": "Treatment",
+      "time": 3,
+      "n_subjects": 3,
+      "values": [
+        16.0,
+        17.0,
+        18.0
+      ],
+      "q1": 16.5,
+      "median": 17.0,
+      "q3": 17.5,
+      "whisker_low": 16.0,
+      "whisker_high": 18.0
+    }
+  ],
+  "transformations": [
+    "Select time == max(time) for panel b",
+    "Arithmetic means and t intervals for panel a",
+    "Quartiles and fixed-seed horizontal jitter for panel b"
+  ],
+  "exclusions": 0,
+  "imputations": 0,
+  "smoothing": null,
+  "normalization": null,
+  "hypothesis_tests": null,
+  "software": {
+    "matplotlib": "3.10.8",
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "scipy": "1.17.0"
+  },
+  "toolkit_snapshot": {
+    "name": "FigureFoundry",
+    "version": "1.0.0",
+    "git_commit": null,
+    "git_status_note": "Source supplied as a directory without Git metadata; file hashes identify the exact copied code.",
+    "modules": {
+      "figurefoundry.py": {
+        "original_path": "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/skills/figurefoundry/scripts/figurefoundry.py",
+        "sha256": "1105f28a7cf56a24c617003ee23c4f1508d48166bf279688a1030a4aaf3ebe97"
+      },
+      "ff_data.py": {
+        "original_path": "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/skills/figurefoundry/scripts/ff_data.py",
+        "sha256": "26e05753630b5d38ca46fe045d8d02720a5943a1b919e1855f603dda25d46144"
+      },
+      "ff_plots.py": {
+        "original_path": "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/skills/figurefoundry/scripts/ff_plots.py",
+        "sha256": "3f39c9aebfb267dd66e10cef2e03aef2dfbdf286622be234aa7837d9de8a183b"
+      },
+      "ff_export.py": {
+        "original_path": "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/skills/figurefoundry/scripts/ff_export.py",
+        "sha256": "1403c42cafdbbb2e6aa0687f37a5279675ae31adceccf966ed6821d33745472d"
+      },
+      "ff_svg.py": {
+        "original_path": "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/skills/figurefoundry/scripts/ff_svg.py",
+        "sha256": "6b46e74650811b60200a485420a70667b0cb53124e8f75a295195ba71505fc64"
+      }
+    },
+    "snapshot_phase": "final frozen revision",
+    "initial_snapshot": "snapshots/start/toolkit/SOURCE.json",
+    "snapshot_note": "Copied after explicit confirmation that these five engine modules were frozen."
+  },
+  "source_files": {
+    "reproduce.py": "36640be367c0b4b05b7ef6ca8a2093846635ef5042130008defca30f368461af",
+    "figure-spec.json": "b0b88d192ef3fbf1257dde65ebd02fb9fae04cc5a68377fc5834b51a80e5161c",
+    "observations.csv": "2676fc50d3448b7b7ff6b3457efb204b5725749035108c0771b232c1e7d58061",
+    "final-time.csv": "d805bed0f860f0419cc9c9a17e3c507bb51c5a05d79150e3cfd5c7db598cac1f"
+  },
+  "command": "python reproduce.py --out-dir ./rebuild",
+  "journal_status": {
+    "status": "planning profile",
+    "journal": null,
+    "article_type": null,
+    "submission_stage": null,
+    "requested_width_mm": 180,
+    "note": "No target journal, article type or submission stage was supplied. No journal-specific compliance claim is made; official journal requirements have not been checked."
+  }
+}

@@ -1,0 +1,1 @@
+-r skills/figurefoundry/assets/requirements.txt

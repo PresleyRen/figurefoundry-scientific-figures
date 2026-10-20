@@ -1,0 +1,26 @@
+{
+  "width_mm": 180,
+  "height_mm": 85,
+  "title": "Retrieval-augmented agent: explicit topology",
+  "font_pt": 8,
+  "min_font_pt": 6,
+  "groups": [
+    {"id": "resources", "label": "Resources", "x": 77.5, "y": 56.5, "width": 98, "height": 26.5, "fill": "#F7F9FC"}
+  ],
+  "nodes": [
+    {"id": "question", "label": "Question", "x": 6, "y": 30, "width": 25, "height": 18, "shape": "roundrect", "role": "input"},
+    {"id": "planner", "label": "Agent\nplanner", "x": 42, "y": 30, "width": 30, "height": 18, "shape": "roundrect", "role": "control"},
+    {"id": "retriever", "label": "Evidence\nretrieval", "x": 83, "y": 30, "width": 33, "height": 18, "shape": "roundrect", "role": "process"},
+    {"id": "generator", "label": "Answer with\nsource citations", "x": 131, "y": 30, "width": 42, "height": 18, "shape": "roundrect", "role": "output"},
+    {"id": "vector_index", "label": "Curated corpus\nVector index", "x": 79, "y": 64, "width": 40, "height": 16, "shape": "cylinder", "role": "evidence"},
+    {"id": "tools", "label": "Tools / APIs", "x": 138, "y": 64, "width": 35, "height": 16, "shape": "rect", "role": "neutral"}
+  ],
+  "edges": [
+    {"source": "question", "target": "planner", "kind": "forward"},
+    {"source": "planner", "target": "retriever", "kind": "forward"},
+    {"source": "retriever", "target": "generator", "kind": "forward", "label": "context"},
+    {"source": "vector_index", "target": "retriever", "kind": "forward"},
+    {"source": "tools", "target": "generator", "kind": "bidirectional"},
+    {"source": "generator", "target": "planner", "kind": "feedback", "label": "evidence check / feedback"}
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "data_status": "synthetic",
+  "palette": {
+    "Baseline": "#666A73",
+    "Context": "#D55E00",
+    "Proposed": "#0072B2"
+  },
+  "claim": "Demonstrate reproducible vector plots; these are synthetic values, not experimental findings.",
+  "title": "Synthetic learning curves",
+  "figure": {
+    "width_mm": 90,
+    "height_mm": 60,
+    "font_pt": 8,
+    "min_font_pt": 6
+  },
+  "panels": [
+    {
+      "kind": "line",
+      "data": "data/learning.csv",
+      "x": "epoch",
+      "y": "success",
+      "hue": "method",
+      "unit": "seed",
+      "estimator": "mean",
+      "error": "ci95",
+      "hue_order": [
+        "Baseline",
+        "Context",
+        "Proposed"
+      ],
+      "xlabel": "Training epoch",
+      "ylabel": "Task success (%)",
+      "title": "",
+      "legend_loc": "lower right"
+    }
+  ]
+}

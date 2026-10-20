@@ -1,0 +1,197 @@
+{
+  "passed": true,
+  "checked_date": "2026-10-20",
+  "numeric_validation": {
+    "method": "Independent Python statistics plus analytic Student-t(df=2) quantile",
+    "t_critical": 4.302652729749464,
+    "cells": [
+      {
+        "group": "Control",
+        "time": 0,
+        "mean": 10.0,
+        "n_subjects": 3,
+        "sample_sd": 1.0,
+        "ci_half_width": 2.484137711750331
+      },
+      {
+        "group": "Control",
+        "time": 1,
+        "mean": 11.0,
+        "n_subjects": 3,
+        "sample_sd": 1.0,
+        "ci_half_width": 2.484137711750331
+      },
+      {
+        "group": "Control",
+        "time": 2,
+        "mean": 12.0,
+        "n_subjects": 3,
+        "sample_sd": 1.0,
+        "ci_half_width": 2.484137711750331
+      },
+      {
+        "group": "Control",
+        "time": 3,
+        "mean": 13.0,
+        "n_subjects": 3,
+        "sample_sd": 1.0,
+        "ci_half_width": 2.484137711750331
+      },
+      {
+        "group": "Treatment",
+        "time": 0,
+        "mean": 11.0,
+        "n_subjects": 3,
+        "sample_sd": 1.0,
+        "ci_half_width": 2.484137711750331
+      },
+      {
+        "group": "Treatment",
+        "time": 1,
+        "mean": 13.0,
+        "n_subjects": 3,
+        "sample_sd": 1.0,
+        "ci_half_width": 2.484137711750331
+      },
+      {
+        "group": "Treatment",
+        "time": 2,
+        "mean": 15.0,
+        "n_subjects": 3,
+        "sample_sd": 1.0,
+        "ci_half_width": 2.484137711750331
+      },
+      {
+        "group": "Treatment",
+        "time": 3,
+        "mean": 17.0,
+        "n_subjects": 3,
+        "sample_sd": 1.0,
+        "ci_half_width": 2.484137711750331
+      }
+    ],
+    "endpoint_values": {
+      "Control": [
+        12,
+        13,
+        14
+      ],
+      "Treatment": [
+        16,
+        17,
+        18
+      ]
+    }
+  },
+  "structural_validation": {
+    "passed": true,
+    "errors": [],
+    "warnings": [
+      "Visual inspection remains required for clipping, overlap, glyph availability, and journal-specific presentation requirements."
+    ],
+    "metrics": {
+      "text_count": 36,
+      "visible_text_count": 36,
+      "path_count": 57,
+      "image_count": 0,
+      "element_count": 362,
+      "width_mm": 179.9999998333333,
+      "height_mm": 89.99999991666665,
+      "min_font_pt": 7.499999999999999,
+      "max_font_pt": 8.999999999999998,
+      "labels": [
+        "0.0",
+        "0.5",
+        "1.0",
+        "1.5",
+        "2.0",
+        "2.5",
+        "3.0",
+        "Time",
+        "6",
+        "8",
+        "10",
+        "12",
+        "14",
+        "16",
+        "18",
+        "20",
+        "Response",
+        "Mean and 95% CI",
+        "a",
+        "Control",
+        "Treatment",
+        "Control",
+        "Treatment",
+        "Group (3 subjects each)",
+        "6",
+        "8",
+        "10",
+        "12",
+        "14",
+        "16",
+        "18",
+        "20",
+        "Response",
+        "Final time point (time = 3)",
+        "b",
+        "Synthetic repeated-measures data"
+      ],
+      "expected_labels_checked": 25,
+      "limitations": [
+        "Static checks do not certify journal acceptance, scientific accuracy, or visual quality.",
+        "Font sizes are conservative geometric estimates; installed fonts, glyph coverage, clipping, overlaps, and rendered bounds require visual inspection.",
+        "Paths cannot reliably be distinguished as letters versus scientific geometry; supply every required label through expected_labels to detect missing live text."
+      ],
+      "file_size_bytes": 30496,
+      "viewbox": [
+        0.0,
+        0.0,
+        510.23622,
+        255.11811
+      ]
+    }
+  },
+  "renderer": "Inkscape 1.2.2 (b0a8486541, 2022-12-01)",
+  "editability": {
+    "passed": true,
+    "copy": "review/editability-test.svg",
+    "label_edit": "Time → Time (edited)",
+    "native_path_edit": "Control mean curve stroke #0072b2 → #8e44ad; stroke-width 1.3 → 2.6",
+    "changed_text_region_pixels": 1196,
+    "changed_curve_region_pixels": 3673,
+    "master_unchanged": true
+  },
+  "reproduction": {
+    "command": "python reproduce.py --out-dir <fresh temporary directory>",
+    "returncode": 0,
+    "stdout": "{\n  \"passed\": true,\n  \"output\": \"/tmp/figurefoundry-pilot-reproduction-f9erv0v_\",\n  \"subjects_total\": 6,\n  \"final_time\": 3.0,\n  \"width_mm\": 180,\n  \"height_mm\": 90,\n  \"minimum_font_pt\": 7.499999999999999\n}\n",
+    "stderr": "",
+    "byte_identical": {
+      "pilot-figure.svg": {
+        "sha256": "2dca2ff61aee0eff4d1550d58a8197c4118acc70c86d650bc31b9278049a31c9",
+        "repeat_sha256": "2dca2ff61aee0eff4d1550d58a8197c4118acc70c86d650bc31b9278049a31c9"
+      },
+      "pilot-figure.pdf": {
+        "sha256": "cc3ef2ef27e6523d98ea2402a39209a0460a1db76f9a4dfec6366ac18011b853",
+        "repeat_sha256": "cc3ef2ef27e6523d98ea2402a39209a0460a1db76f9a4dfec6366ac18011b853"
+      },
+      "pilot-figure.png": {
+        "sha256": "3e54f89380417c90a53a6b248bd34a5db6d69d77e4ffe48ce47177ad5e6c3b5f",
+        "repeat_sha256": "3e54f89380417c90a53a6b248bd34a5db6d69d77e4ffe48ce47177ad5e6c3b5f"
+      },
+      "final-time.csv": {
+        "sha256": "d805bed0f860f0419cc9c9a17e3c507bb51c5a05d79150e3cfd5c7db598cac1f",
+        "repeat_sha256": "d805bed0f860f0419cc9c9a17e3c507bb51c5a05d79150e3cfd5c7db598cac1f"
+      },
+      "summary-statistics.csv": {
+        "sha256": "418b73e91b72a5470bca8530b63bed9f42328a0475f590df51155a2b36d1d03b",
+        "repeat_sha256": "418b73e91b72a5470bca8530b63bed9f42328a0475f590df51155a2b36d1d03b"
+      }
+    }
+  },
+  "original_data_sha256": "2676fc50d3448b7b7ff6b3457efb204b5725749035108c0771b232c1e7d58061",
+  "master_svg_sha256": "2dca2ff61aee0eff4d1550d58a8197c4118acc70c86d650bc31b9278049a31c9",
+  "original_source_unchanged": true,
+  "visual_review_status": "completed_for_requested_scope; see visual-review.json"
+}

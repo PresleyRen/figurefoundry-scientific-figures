@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "claim": "Describe groupwise mean responses over time and the observed distribution at the final time point. Supplied synthetic demonstration data; no hypothesis tests.",
+  "data_status": "synthetic",
+  "title": "Synthetic repeated-measures data",
+  "figure": {
+    "width_mm": 180,
+    "height_mm": 90,
+    "rows": 1,
+    "cols": 2,
+    "font_pt": 8,
+    "min_font_pt": 7,
+    "font_family": "DejaVu Sans",
+    "preview_dpi": 300
+  },
+  "palette": {
+    "Control": "#0072B2",
+    "Treatment": "#D55E00"
+  },
+  "formats": ["svg", "pdf", "png"],
+  "journal": {
+    "status": "planning profile",
+    "journal": null,
+    "article_type": null,
+    "submission_stage": null,
+    "requested_width_mm": 180,
+    "note": "No target journal, article type or submission stage was supplied. No journal-specific compliance claim is made; official journal requirements have not been checked."
+  },
+  "panels": [
+    {
+      "id": "a",
+      "kind": "line",
+      "data": "observations.csv",
+      "x": "time",
+      "y": "response",
+      "hue": "group",
+      "hue_order": ["Control", "Treatment"],
+      "unit": "subject",
+      "estimator": "mean",
+      "error": "ci95",
+      "title": "Mean and 95% CI",
+      "xlabel": "Time",
+      "ylabel": "Response",
+      "xlim": [-0.15, 3.15],
+      "ylim": [6, 20],
+      "legend_loc": "upper left",
+      "legend": true
+    },
+    {
+      "id": "b",
+      "kind": "box",
+      "data": "final-time.csv",
+      "x": "group",
+      "y": "response",
+      "order": ["Control", "Treatment"],
+      "raw_points": true,
+      "seed": 1729,
+      "title": "Final time point (time = 3)",
+      "xlabel": "Group (3 subjects each)",
+      "ylabel": "Response",
+      "xlim": [-0.6, 1.6],
+      "ylim": [6, 20],
+      "legend": false
+    }
+  ]
+}

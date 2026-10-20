@@ -1,0 +1,32 @@
+{
+  "status": "passed",
+  "review_type": "Manual inspection of rendered images through the image viewer, alongside explicit SVG/topology checks.",
+  "reviewed_files": [
+    "workflow-180mm.png",
+    "workflow-narrow-120mm.png",
+    "workflow-180mm-editability-test.png",
+    "qa/workflow-180mm-96dpi.png",
+    "qa/workflow-narrow-120mm-96dpi.png",
+    "qa/workflow-180mm-grayscale.png",
+    "qa/workflow-narrow-120mm-grayscale.png"
+  ],
+  "masters_sha256": {
+    "workflow-180mm-editability-test.svg": "cf6116038b92446723cae22bd5303d6526227e46635e58a886efb0708bff42bf",
+    "workflow-180mm.svg": "df67152e01638552b91cfca2336922048c2b33a14a1393d557ea0a76ecf623d3",
+    "workflow-narrow-120mm.svg": "213aea32b04d62ae7c94ebc9203d6ca25227941d5df4dc77cc6cd23f6a7557b4"
+  },
+  "observations": {
+    "main_path": "Five nodes on a single left-to-right baseline; every arrowhead points to the specified target.",
+    "narrow_path": "Top row runs left to right through Assay, then down to Analysis and left to Result.",
+    "quality_control": "Assay enters Quality control; dashed Recheck required feedback ends on Preparation.",
+    "reference_database": "Arrow ends on Analysis in both layouts; no edge connects database and Result.",
+    "labels": "All visible text labels are readable without truncation; two-line database label preserved.",
+    "grayscale": "Directions and feedback remain distinguishable through arrowheads, dashed stroke and condition text.",
+    "correction": "Both database cylinders enlarged to 21 mm height after the first preview to improve clearance above Reference.",
+    "editability": "Independent copy visibly displays Output in a green ellipse; original Result master remains unchanged."
+  },
+  "limitations": [
+    "96 dpi previews do not prove exact physical on-screen size or replace a printed proof.",
+    "Review does not certify a journal submission or compatibility with every editor."
+  ]
+}

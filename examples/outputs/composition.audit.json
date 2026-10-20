@@ -1,0 +1,146 @@
+{
+  "output": "composition.svg",
+  "width_mm": 190.0,
+  "height_mm": 160.0,
+  "panels": [
+    {
+      "source": "diagram.svg",
+      "id": "panel-001",
+      "placement": {
+        "x_mm": 5.0,
+        "y_mm": 0.0,
+        "width_mm": 180.0,
+        "height_mm": 90.0
+      },
+      "uniform_scale": 1.0,
+      "content_bounds_mm": {
+        "x": 5.0,
+        "y": 5.0,
+        "width": 180.0,
+        "height": 85.0
+      },
+      "renamed_ids": 23,
+      "label": "a"
+    },
+    {
+      "source": "line.svg",
+      "id": "panel-002",
+      "placement": {
+        "x_mm": 5.0,
+        "y_mm": 93.0,
+        "width_mm": 90.0,
+        "height_mm": 65.0
+      },
+      "uniform_scale": 0.35277777810442384,
+      "content_bounds_mm": {
+        "x": 5.0,
+        "y": 98.0,
+        "width": 90.0,
+        "height": 60.0
+      },
+      "renamed_ids": 82,
+      "label": "b"
+    },
+    {
+      "source": "distribution.svg",
+      "id": "panel-003",
+      "placement": {
+        "x_mm": 100.0,
+        "y_mm": 93.0,
+        "width_mm": 85.0,
+        "height_mm": 65.0
+      },
+      "uniform_scale": 0.3331790126541781,
+      "content_bounds_mm": {
+        "x": 100.0,
+        "y": 99.66666666666666,
+        "width": 85.0,
+        "height": 56.66666666666667
+      },
+      "renamed_ids": 67,
+      "label": "c"
+    }
+  ],
+  "warnings": [
+    "Panel 3: requested box has a different aspect ratio; uniform scaling preserves geometry and adds whitespace"
+  ],
+  "audit": {
+    "passed": true,
+    "errors": [],
+    "warnings": [
+      "Only the presence of editable text was checked. Supply expected_labels to verify all intended labels and detect partially outlined exports.",
+      "Visual inspection remains required for clipping, overlap, glyph availability, and journal-specific presentation requirements."
+    ],
+    "metrics": {
+      "text_count": 41,
+      "visible_text_count": 41,
+      "path_count": 87,
+      "image_count": 0,
+      "element_count": 540,
+      "width_mm": 190.0,
+      "height_mm": 160.0,
+      "min_font_pt": 6.999998740157482,
+      "max_font_pt": 9.000000056692915,
+      "labels": [
+        "a",
+        "Resources",
+        "context",
+        "evidence check / feedback",
+        "Question",
+        "Agent planner",
+        "Evidence retrieval",
+        "Answer with source citations",
+        "Curated corpus Vector index",
+        "Tools / APIs",
+        "Retrieval-augmented agent: explicit topology",
+        "b",
+        "0",
+        "5",
+        "10",
+        "15",
+        "20",
+        "25",
+        "30",
+        "Training epoch",
+        "50",
+        "60",
+        "70",
+        "80",
+        "Task success (%)",
+        "Baseline",
+        "Context",
+        "Proposed",
+        "Synthetic learning curves",
+        "c",
+        "Baseline",
+        "Context",
+        "Proposed",
+        "Method",
+        "60",
+        "65",
+        "70",
+        "75",
+        "80",
+        "Task success (%)",
+        "Synthetic run distribution"
+      ],
+      "expected_labels_checked": 0,
+      "limitations": [
+        "Static checks do not certify journal acceptance, scientific accuracy, or visual quality.",
+        "Font sizes are conservative geometric estimates; installed fonts, glyph coverage, clipping, overlaps, and rendered bounds require visual inspection.",
+        "Paths cannot reliably be distinguished as letters versus scientific geometry; supply every required label through expected_labels to detect missing live text."
+      ],
+      "file_size_bytes": 74268,
+      "viewbox": [
+        0.0,
+        0.0,
+        190.0,
+        160.0
+      ]
+    }
+  },
+  "passed": true,
+  "review_notes": [
+    "Inspect the complete composition at its final physical size for collisions, whitespace, clipping, and readable labels."
+  ]
+}

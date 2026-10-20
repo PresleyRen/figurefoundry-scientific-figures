@@ -1,0 +1,43 @@
+{
+  "passed": true,
+  "errors": [],
+  "warnings": [
+    "Visual inspection remains required for clipping, overlap, glyph availability, and journal-specific presentation requirements."
+  ],
+  "metrics": {
+    "text_count": 10,
+    "visible_text_count": 10,
+    "path_count": 9,
+    "image_count": 0,
+    "element_count": 80,
+    "width_mm": 180.0,
+    "height_mm": 85.00000000000001,
+    "min_font_pt": 6.999998740157481,
+    "max_font_pt": 8.999999999999998,
+    "labels": [
+      "Resources",
+      "context",
+      "evidence check / feedback",
+      "Question",
+      "Agent planner",
+      "Evidence retrieval",
+      "Answer with source citations",
+      "Curated corpus Vector index",
+      "Tools / APIs",
+      "Retrieval-augmented agent: explicit topology"
+    ],
+    "expected_labels_checked": 6,
+    "limitations": [
+      "Static checks do not certify journal acceptance, scientific accuracy, or visual quality.",
+      "Font sizes are conservative geometric estimates; installed fonts, glyph coverage, clipping, overlaps, and rendered bounds require visual inspection.",
+      "Paths cannot reliably be distinguished as letters versus scientific geometry; supply every required label through expected_labels to detect missing live text."
+    ],
+    "file_size_bytes": 7520,
+    "viewbox": [
+      0.0,
+      0.0,
+      180.0,
+      85.0
+    ]
+  }
+}

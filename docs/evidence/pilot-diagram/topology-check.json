@@ -1,0 +1,98 @@
+{
+  "passed": true,
+  "variant_changes_scientific_connections": false,
+  "checks": [
+    {
+      "master": "workflow-180mm.svg",
+      "node_count": 7,
+      "edge_count": 7,
+      "all_required_labels_live": 8,
+      "all_edges_directed": true,
+      "feedback_dashed": true,
+      "exact_topology_matches_user_source": true,
+      "edges": [
+        [
+          "specimen",
+          "preparation",
+          "forward"
+        ],
+        [
+          "preparation",
+          "assay",
+          "forward"
+        ],
+        [
+          "assay",
+          "analysis",
+          "forward"
+        ],
+        [
+          "analysis",
+          "result",
+          "forward"
+        ],
+        [
+          "assay",
+          "quality-control",
+          "forward"
+        ],
+        [
+          "quality-control",
+          "preparation",
+          "feedback"
+        ],
+        [
+          "reference-database",
+          "analysis",
+          "forward"
+        ]
+      ]
+    },
+    {
+      "master": "workflow-narrow-120mm.svg",
+      "node_count": 7,
+      "edge_count": 7,
+      "all_required_labels_live": 8,
+      "all_edges_directed": true,
+      "feedback_dashed": true,
+      "exact_topology_matches_user_source": true,
+      "edges": [
+        [
+          "specimen",
+          "preparation",
+          "forward"
+        ],
+        [
+          "preparation",
+          "assay",
+          "forward"
+        ],
+        [
+          "assay",
+          "analysis",
+          "forward"
+        ],
+        [
+          "analysis",
+          "result",
+          "forward"
+        ],
+        [
+          "assay",
+          "quality-control",
+          "forward"
+        ],
+        [
+          "quality-control",
+          "preparation",
+          "feedback"
+        ],
+        [
+          "reference-database",
+          "analysis",
+          "forward"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "journal": "Generic planning profile — replace with your exact journal",
+  "article_type": "Research article",
+  "stage": "Planning",
+  "status": "planning",
+  "source_urls": [],
+  "checked_on": null,
+  "width_mm": 180,
+  "height_mm": 130,
+  "min_font_pt": 6,
+  "font_family": "DejaVu Sans",
+  "submission_formats": ["pdf"],
+  "notes": "These are demonstration dimensions, not a journal's official requirements."
+}

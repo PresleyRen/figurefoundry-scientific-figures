@@ -1,0 +1,38 @@
+{
+  "evidence_status": "User-described schematic; no experimental observations or quantitative data supplied.",
+  "source_request": "Specimen进入Preparation，再进入Assay和Analysis，Analysis产出Result；Quality control接收Assay信息，在需复核时反馈Preparation；Reference database给Analysis提供对照。",
+  "interpretation": "The supplied main path is sequential: Specimen → Preparation → Assay → Analysis → Result.",
+  "nodes": {
+    "specimen": "Specimen",
+    "preparation": "Preparation",
+    "assay": "Assay",
+    "analysis": "Analysis",
+    "result": "Result",
+    "quality-control": "Quality control",
+    "reference-database": "Reference database"
+  },
+  "edges": [
+    {"source": "specimen", "target": "preparation", "meaning": "Specimen enters preparation.", "kind": "forward"},
+    {"source": "preparation", "target": "assay", "meaning": "Preparation feeds assay.", "kind": "forward"},
+    {"source": "assay", "target": "analysis", "meaning": "Assay feeds analysis.", "kind": "forward"},
+    {"source": "analysis", "target": "result", "meaning": "Analysis produces result.", "kind": "forward"},
+    {"source": "assay", "target": "quality-control", "meaning": "Quality control receives assay information.", "kind": "forward"},
+    {"source": "quality-control", "target": "preparation", "meaning": "Quality control returns to preparation when recheck is required.", "condition": "Recheck required", "kind": "feedback"},
+    {"source": "reference-database", "target": "analysis", "meaning": "Reference database supplies the comparator for analysis.", "kind": "forward"}
+  ],
+  "scientific_constraints": [
+    "Keep exactly these seven nodes and seven directed edges.",
+    "The conditional feedback targets Preparation.",
+    "Reference database feeds Analysis.",
+    "Do not add a pass/fail branch, replicate counts, timing, parameters or unprovided causal mechanisms.",
+    "The narrow layout changes positions and arrow routing only."
+  ],
+  "journal_profile": {
+    "status": "planning profile",
+    "reason": "No target journal, article type or submission stage was supplied.",
+    "main_dimensions_mm": [180, 80],
+    "narrow_dimensions_mm": [120, 94],
+    "declared_node_font_pt": 8.5,
+    "feedback_label_font_pt": 7
+  }
+}

@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="180mm" height="80mm" viewBox="0 0 180 80" version="1.1" role="img" aria-labelledby="figure-title">
+  <title id="figure-title">Scientific diagram</title>
+  <desc>Native editable vector diagram; connections follow the supplied specification. Dashed directed edges indicate feedback.</desc>
+  <defs>
+    <marker id="edge-arrow" markerWidth="4" markerHeight="4" refX="3.5" refY="2" orient="auto" markerUnits="strokeWidth" viewBox="0 0 4 4">
+      <path d="M 0 0 L 4 2 L 0 4 Z" fill="#516172" />
+    </marker>
+    <marker id="edge-arrow-start" markerWidth="4" markerHeight="4" refX="0.5" refY="2" orient="auto" markerUnits="strokeWidth" viewBox="0 0 4 4">
+      <path d="M 4 0 L 0 2 L 4 4 Z" fill="#516172" />
+    </marker>
+  </defs>
+  <g id="diagram-groups" />
+  <g id="diagram-edges">
+    <g id="edge-1-specimen-to-preparation" data-kind="forward">
+      <title>specimen → preparation (forward)</title>
+      <path d="M 30 39 L 41 39" fill="none" stroke="#516172" stroke-width="0.38" stroke-linejoin="round" marker-end="url(#edge-arrow)" />
+    </g>
+    <g id="edge-2-preparation-to-assay" data-kind="forward">
+      <title>preparation → assay (forward)</title>
+      <path d="M 70 39 L 81 39" fill="none" stroke="#516172" stroke-width="0.38" stroke-linejoin="round" marker-end="url(#edge-arrow)" />
+    </g>
+    <g id="edge-3-assay-to-analysis" data-kind="forward">
+      <title>assay → analysis (forward)</title>
+      <path d="M 106 39 L 117 39" fill="none" stroke="#516172" stroke-width="0.38" stroke-linejoin="round" marker-end="url(#edge-arrow)" />
+    </g>
+    <g id="edge-4-analysis-to-result" data-kind="forward">
+      <title>analysis → result (forward)</title>
+      <path d="M 144 39 L 155 39" fill="none" stroke="#516172" stroke-width="0.38" stroke-linejoin="round" marker-end="url(#edge-arrow)" />
+    </g>
+    <g id="edge-5-assay-to-quality-control" data-kind="forward">
+      <title>assay → quality-control (forward)</title>
+      <path d="M 93.5 32 L 93.5 21" fill="none" stroke="#516172" stroke-width="0.38" stroke-linejoin="round" marker-end="url(#edge-arrow)" />
+    </g>
+    <g id="edge-6-quality-control-to-preparation" data-kind="feedback">
+      <title>quality-control → preparation (feedback)</title>
+      <path d="M 77.5 14 L 66 14 L 55.5 14 L 55.5 26 L 55.5 32" fill="none" stroke="#516172" stroke-width="0.38" stroke-linejoin="round" stroke-dasharray="1.5 1" marker-end="url(#edge-arrow)" />
+    </g>
+    <g id="edge-7-reference-database-to-analysis" data-kind="forward">
+      <title>reference-database → analysis (forward)</title>
+      <path d="M 130.5 55 L 130.5 46" fill="none" stroke="#516172" stroke-width="0.38" stroke-linejoin="round" marker-end="url(#edge-arrow)" />
+    </g>
+  </g>
+  <g id="diagram-edge-labels">
+    <g id="edge-6-quality-control-to-preparation-label">
+      <rect x="43.399847" y="10.365278" width="24.200306" height="3.669444" rx="0.8" fill="white" opacity="0.96" />
+      <text x="55.5" text-anchor="middle" font-family="Arial, Helvetica, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="2.469444" fill="#22313F" font-weight="normal" aria-label="Recheck required"><tspan x="55.5" y="13.039611">Recheck required</tspan></text></g>
+  </g>
+  <g id="diagram-nodes">
+    <g id="node-1-specimen" data-node-id="specimen">
+      <title>Specimen</title>
+      <ellipse cx="17.5" cy="39" rx="12.5" ry="7" fill="#EAF2F8" stroke="#516172" stroke-width="0.32" />
+      <text x="17.5" text-anchor="middle" font-family="Arial, Helvetica, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="2.998611" fill="#22313F" font-weight="normal" aria-label="Specimen"><tspan x="17.5" y="40.019528">Specimen</tspan></text></g>
+    <g id="node-2-preparation" data-node-id="preparation">
+      <title>Preparation</title>
+      <rect x="41" y="32" width="29" height="14" rx="1.8" fill="#E8F1EC" stroke="#516172" stroke-width="0.32" />
+      <text x="55.5" text-anchor="middle" font-family="Arial, Helvetica, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="2.998611" fill="#22313F" font-weight="normal" aria-label="Preparation"><tspan x="55.5" y="40.019528">Preparation</tspan></text></g>
+    <g id="node-3-assay" data-node-id="assay">
+      <title>Assay</title>
+      <rect x="81" y="32" width="25" height="14" rx="1.8" fill="#E8F1EC" stroke="#516172" stroke-width="0.32" />
+      <text x="93.5" text-anchor="middle" font-family="Arial, Helvetica, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="2.998611" fill="#22313F" font-weight="normal" aria-label="Assay"><tspan x="93.5" y="40.019528">Assay</tspan></text></g>
+    <g id="node-4-analysis" data-node-id="analysis">
+      <title>Analysis</title>
+      <rect x="117" y="32" width="27" height="14" rx="1.8" fill="#E8F1EC" stroke="#516172" stroke-width="0.32" />
+      <text x="130.5" text-anchor="middle" font-family="Arial, Helvetica, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="2.998611" fill="#22313F" font-weight="normal" aria-label="Analysis"><tspan x="130.5" y="40.019528">Analysis</tspan></text></g>
+    <g id="node-5-result" data-node-id="result">
+      <title>Result</title>
+      <ellipse cx="165" cy="39" rx="10" ry="7" fill="#EEEAF7" stroke="#516172" stroke-width="0.32" />
+      <text x="165" text-anchor="middle" font-family="Arial, Helvetica, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="2.998611" fill="#22313F" font-weight="normal" aria-label="Result"><tspan x="165" y="40.019528">Result</tspan></text></g>
+    <g id="node-6-quality-control" data-node-id="quality-control">
+      <title>Quality control</title>
+      <rect x="77.5" y="7" width="32" height="14" rx="1.8" fill="#FBEDEC" stroke="#516172" stroke-width="0.32" />
+      <text x="93.5" text-anchor="middle" font-family="Arial, Helvetica, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="2.998611" fill="#22313F" font-weight="normal" aria-label="Quality control"><tspan x="93.5" y="15.019528">Quality control</tspan></text></g>
+    <g id="node-7-reference-database" data-node-id="reference-database">
+      <title>Reference database</title>
+      <path d="M 113.5 58 A 17 3 0 0 1 147.5 58 L 147.5 73 A 17 3 0 0 1 113.5 73 Z" fill="#FFF3DB" stroke="#516172" stroke-width="0.32" />
+      <ellipse cx="130.5" cy="58" rx="17" ry="3" fill="#FFF3DB" stroke="#516172" stroke-width="0.32" />
+      <text x="130.5" text-anchor="middle" font-family="Arial, Helvetica, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="2.998611" fill="#22313F" font-weight="normal" aria-label="Reference database"><tspan x="130.5" y="64.600417">Reference</tspan> <tspan x="130.5" y="68.438639">database</tspan></text></g>
+  </g>
+</svg>

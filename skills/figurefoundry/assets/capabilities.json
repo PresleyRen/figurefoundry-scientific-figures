@@ -1,0 +1,419 @@
+{
+  "schema_version": 1,
+  "version": "1.0.0",
+  "path_convention": "module/reference are relative to this skill; tests relative to repository root",
+  "status_note": "native identifies bundled code, not universal scientific or journal certification. Execution evidence is docs/TEST_REPORT.md.",
+  "capabilities": [
+    {
+      "id": "FF-PLOT-01",
+      "name": "折线与学习曲线",
+      "kind": "line",
+      "status": "native",
+      "module": "scripts/ff_plots.py",
+      "reference": "references/plot-spec.md",
+      "tests": "tests/test_plot_engine.py",
+      "keywords": [
+        "line",
+        "experimental",
+        "科研绘图"
+      ]
+    },
+    {
+      "id": "FF-PLOT-02",
+      "name": "分组柱图与误差区间",
+      "kind": "bar",
+      "status": "native",
+      "module": "scripts/ff_plots.py",
+      "reference": "references/plot-spec.md",
+      "tests": "tests/test_plot_engine.py",
+      "keywords": [
+        "bar",
+        "experimental",
+        "科研绘图"
+      ]
+    },
+    {
+      "id": "FF-PLOT-03",
+      "name": "散点与显式OLS",
+      "kind": "scatter",
+      "status": "native",
+      "module": "scripts/ff_plots.py",
+      "reference": "references/plot-spec.md",
+      "tests": "tests/test_plot_engine.py",
+      "keywords": [
+        "scatter",
+        "experimental",
+        "科研绘图"
+      ]
+    },
+    {
+      "id": "FF-PLOT-04",
+      "name": "箱线与原始点",
+      "kind": "box",
+      "status": "native",
+      "module": "scripts/ff_plots.py",
+      "reference": "references/plot-spec.md",
+      "tests": "tests/test_plot_engine.py",
+      "keywords": [
+        "box",
+        "experimental",
+        "科研绘图"
+      ]
+    },
+    {
+      "id": "FF-PLOT-05",
+      "name": "小提琴与原始点",
+      "kind": "violin",
+      "status": "native",
+      "module": "scripts/ff_plots.py",
+      "reference": "references/plot-spec.md",
+      "tests": "tests/test_plot_engine.py",
+      "keywords": [
+        "violin",
+        "experimental",
+        "科研绘图"
+      ]
+    },
+    {
+      "id": "FF-PLOT-06",
+      "name": "共同分箱直方图",
+      "kind": "hist",
+      "status": "native",
+      "module": "scripts/ff_plots.py",
+      "reference": "references/plot-spec.md",
+      "tests": "tests/test_plot_engine.py",
+      "keywords": [
+        "hist",
+        "experimental",
+        "科研绘图"
+      ]
+    },
+    {
+      "id": "FF-PLOT-07",
+      "name": "经验累积分布",
+      "kind": "ecdf",
+      "status": "native",
+      "module": "scripts/ff_plots.py",
+      "reference": "references/plot-spec.md",
+      "tests": "tests/test_plot_engine.py",
+      "keywords": [
+        "ecdf",
+        "experimental",
+        "科研绘图"
+      ]
+    },
+    {
+      "id": "FF-PLOT-08",
+      "name": "原生矢量热图",
+      "kind": "heatmap",
+      "status": "native",
+      "module": "scripts/ff_plots.py",
+      "reference": "references/plot-spec.md",
+      "tests": "tests/test_plot_engine.py",
+      "keywords": [
+        "heatmap",
+        "experimental",
+        "科研绘图"
+      ]
+    },
+    {
+      "id": "FF-PLOT-09",
+      "name": "混淆矩阵",
+      "kind": "confusion",
+      "status": "native",
+      "module": "scripts/ff_plots.py",
+      "reference": "references/plot-spec.md",
+      "tests": "tests/test_plot_engine.py",
+      "keywords": [
+        "confusion",
+        "experimental",
+        "科研绘图"
+      ]
+    },
+    {
+      "id": "FF-PLOT-10",
+      "name": "阈值精确ROC",
+      "kind": "roc",
+      "status": "native",
+      "module": "scripts/ff_plots.py",
+      "reference": "references/plot-spec.md",
+      "tests": "tests/test_plot_engine.py",
+      "keywords": [
+        "roc",
+        "experimental",
+        "科研绘图"
+      ]
+    },
+    {
+      "id": "FF-PLOT-11",
+      "name": "精确PR与AP",
+      "kind": "pr",
+      "status": "native",
+      "module": "scripts/ff_plots.py",
+      "reference": "references/plot-spec.md",
+      "tests": "tests/test_plot_engine.py",
+      "keywords": [
+        "pr",
+        "experimental",
+        "科研绘图"
+      ]
+    },
+    {
+      "id": "FF-PLOT-12",
+      "name": "外部效应与区间森林图",
+      "kind": "forest",
+      "status": "native",
+      "module": "scripts/ff_plots.py",
+      "reference": "references/plot-spec.md",
+      "tests": "tests/test_plot_engine.py",
+      "keywords": [
+        "forest",
+        "experimental",
+        "科研绘图"
+      ]
+    },
+    {
+      "id": "FF-PLOT-13",
+      "name": "质量成本Pareto图",
+      "kind": "pareto",
+      "status": "native",
+      "module": "scripts/ff_plots.py",
+      "reference": "references/plot-spec.md",
+      "tests": "tests/test_plot_engine.py",
+      "keywords": [
+        "pareto",
+        "experimental",
+        "科研绘图"
+      ]
+    },
+    {
+      "id": "FF-PLOT-14",
+      "name": "堆叠组成图",
+      "kind": "stacked_bar",
+      "status": "native",
+      "module": "scripts/ff_plots.py",
+      "reference": "references/plot-spec.md",
+      "tests": "tests/test_plot_engine.py",
+      "keywords": [
+        "stacked_bar",
+        "experimental",
+        "科研绘图"
+      ]
+    },
+    {
+      "id": "FF-PLOT-15",
+      "name": "含阴性结果的火山图",
+      "kind": "volcano",
+      "status": "native",
+      "module": "scripts/ff_plots.py",
+      "reference": "references/plot-spec.md",
+      "tests": "tests/test_plot_engine.py",
+      "keywords": [
+        "volcano",
+        "experimental",
+        "科研绘图"
+      ]
+    },
+    {
+      "id": "FF-PLOT-16",
+      "name": "相关矩阵",
+      "kind": "correlation",
+      "status": "native",
+      "module": "scripts/ff_plots.py",
+      "reference": "references/plot-spec.md",
+      "tests": "tests/test_plot_engine.py",
+      "keywords": [
+        "correlation",
+        "experimental",
+        "科研绘图"
+      ]
+    },
+    {
+      "id": "FF-DATA-01",
+      "name": "原始表格读取与缺失值检查",
+      "status": "native",
+      "module": "scripts/ff_data.py",
+      "reference": "references/scientific-integrity.md",
+      "tests": "tests/test_cli_and_data.py",
+      "keywords": [
+        "csv",
+        "tsv",
+        "json",
+        "jsonl",
+        "xlsx",
+        "data"
+      ]
+    },
+    {
+      "id": "FF-STATS-01",
+      "name": "独立重复、SD/SEM/tCI/Bootstrap",
+      "status": "native",
+      "module": "scripts/ff_data.py",
+      "reference": "references/plot-spec.md",
+      "tests": "tests/test_plot_engine.py",
+      "keywords": [
+        "statistics",
+        "seed",
+        "subject",
+        "error bars"
+      ]
+    },
+    {
+      "id": "FF-EXPORT-01",
+      "name": "精确尺寸、live text、来源manifest",
+      "status": "native",
+      "module": "scripts/ff_export.py",
+      "reference": "references/svg-contract.md",
+      "tests": "tests/test_conflicts.py",
+      "keywords": [
+        "export",
+        "SVG",
+        "PDF",
+        "PNG",
+        "watermark"
+      ]
+    },
+    {
+      "id": "FF-SVG-01",
+      "name": "严格SVG结构、标签与字号审核",
+      "status": "native",
+      "module": "scripts/ff_svg.py",
+      "reference": "references/svg-contract.md",
+      "tests": "tests/test_svg_audit.py",
+      "keywords": [
+        "audit",
+        "text",
+        "font",
+        "editable",
+        "安全"
+      ]
+    },
+    {
+      "id": "FF-DIAGRAM-01",
+      "name": "原生节点、分组、反馈和机制图",
+      "status": "native",
+      "module": "scripts/ff_diagram.py",
+      "reference": "references/diagram-spec.md",
+      "tests": "tests/test_diagrams.py",
+      "keywords": [
+        "diagram",
+        "Agent",
+        "RAG",
+        "mechanism",
+        "workflow"
+      ]
+    },
+    {
+      "id": "FF-COMPOSE-01",
+      "name": "原生SVG拼版与引用隔离",
+      "status": "native",
+      "module": "scripts/ff_compose.py",
+      "reference": "references/svg-contract.md",
+      "tests": "tests/test_diagrams.py",
+      "keywords": [
+        "compose",
+        "panels",
+        "layout",
+        "IDs"
+      ]
+    },
+    {
+      "id": "FF-JOURNAL-01",
+      "name": "当前期刊规范工作流与记录检查",
+      "status": "workflow+native-check",
+      "module": "scripts/ff_journal.py",
+      "reference": "references/journal-workflow.md",
+      "tests": "tests/test_cli_and_data.py",
+      "keywords": [
+        "journal",
+        "Nature",
+        "Science",
+        "IEEE",
+        "Elsevier"
+      ]
+    },
+    {
+      "id": "FF-STYLE-01",
+      "name": "语义配色与最终尺寸审阅",
+      "status": "workflow+native-style",
+      "module": "scripts/ff_plots.py",
+      "reference": "references/chart-selection.md",
+      "tests": "tests/test_conflicts.py",
+      "keywords": [
+        "style",
+        "palette",
+        "grayscale",
+        "spines"
+      ]
+    },
+    {
+      "id": "FF-CUSTOM-01",
+      "name": "自定义Matplotlib/Seaborn专业图",
+      "status": "custom-source",
+      "module": "scripts/ff_export.py",
+      "reference": "references/optional-backends.md",
+      "tests": "tests/test_conflicts.py",
+      "keywords": [
+        "seaborn",
+        "matplotlib",
+        "custom",
+        "survival",
+        "UMAP",
+        "t-SNE",
+        "omics"
+      ]
+    },
+    {
+      "id": "FF-OPTION-R",
+      "name": "R/ggplot2/svglite项目延续",
+      "status": "optional-not-runtime-tested",
+      "module": null,
+      "reference": "references/optional-backends.md",
+      "tests": null,
+      "keywords": [
+        "R",
+        "ggplot2",
+        "svglite"
+      ]
+    },
+    {
+      "id": "FF-OPTION-TIKZ",
+      "name": "TikZ几何源与SVG编辑性评估",
+      "status": "optional-not-runtime-tested",
+      "module": null,
+      "reference": "references/optional-backends.md",
+      "tests": null,
+      "keywords": [
+        "TikZ",
+        "LaTeX",
+        "dvisvgm"
+      ]
+    },
+    {
+      "id": "FF-OPTION-DRAWIO",
+      "name": "Draw.io语义源与重新导出",
+      "status": "optional-not-runtime-tested",
+      "module": null,
+      "reference": "references/optional-backends.md",
+      "tests": null,
+      "keywords": [
+        "Draw.io",
+        "mxGraph",
+        "architecture"
+      ]
+    },
+    {
+      "id": "FF-OPTION-PLOTLY",
+      "name": "Plotly静态SVG路线",
+      "status": "optional-not-runtime-tested",
+      "module": null,
+      "reference": "references/optional-backends.md",
+      "tests": null,
+      "keywords": [
+        "Plotly",
+        "WebGL",
+        "interactive"
+      ]
+    }
+  ]
+}

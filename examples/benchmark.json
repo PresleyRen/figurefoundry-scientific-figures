@@ -1,0 +1,90 @@
+{
+  "version": 1,
+  "data_status": "synthetic",
+  "palette": {
+    "Baseline": "#666A73",
+    "Context": "#D55E00",
+    "Proposed": "#0072B2"
+  },
+  "claim": "Demonstrate reproducible vector plots; these are synthetic values, not experimental findings.",
+  "title": "Synthetic benchmark: evidence in four views",
+  "figure": {
+    "width_mm": 180,
+    "height_mm": 135,
+    "rows": 2,
+    "cols": 2,
+    "font_pt": 8,
+    "min_font_pt": 6
+  },
+  "panels": [
+    {
+      "kind": "line",
+      "data": "data/learning.csv",
+      "x": "epoch",
+      "y": "success",
+      "hue": "method",
+      "unit": "seed",
+      "estimator": "mean",
+      "error": "ci95",
+      "hue_order": [
+        "Baseline",
+        "Context",
+        "Proposed"
+      ],
+      "xlabel": "Training epoch",
+      "ylabel": "Task success (%)",
+      "title": "Learning dynamics",
+      "legend_loc": "lower right"
+    },
+    {
+      "kind": "box",
+      "data": "data/endpoints.csv",
+      "x": "method",
+      "y": "success",
+      "order": [
+        "Baseline",
+        "Context",
+        "Proposed"
+      ],
+      "xlabel": "Method",
+      "ylabel": "Task success (%)",
+      "title": "Independent run variation"
+    },
+    {
+      "kind": "heatmap",
+      "data": "data/tasks.csv",
+      "x": "task",
+      "y": "method",
+      "value": "success",
+      "x_order": [
+        "Reasoning",
+        "Retrieval",
+        "Planning",
+        "Tools"
+      ],
+      "y_order": [
+        "Baseline",
+        "Context",
+        "Proposed"
+      ],
+      "xlabel": "Task family",
+      "title": "Performance by task",
+      "number_format": ".0f",
+      "colorbar_label": "Success (%)",
+      "vmin": 45,
+      "vmax": 85,
+      "x_tick_rotation": 20
+    },
+    {
+      "kind": "pareto",
+      "data": "data/pareto.csv",
+      "x": "cost",
+      "y": "success",
+      "label": "method",
+      "xlabel": "Relative inference cost",
+      "ylabel": "Task success (%)",
+      "title": "Quality–cost trade-off",
+      "legend_loc": "lower right"
+    }
+  ]
+}

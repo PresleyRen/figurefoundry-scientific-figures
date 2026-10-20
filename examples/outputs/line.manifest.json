@@ -1,0 +1,401 @@
+{
+  "schema_version": 1,
+  "generator": "FigureFoundry",
+  "version": "1.0.0",
+  "environment": {
+    "python": "3.12.14",
+    "matplotlib": "3.10.8"
+  },
+  "master": "line.svg",
+  "width_mm": 90.0,
+  "height_mm": 60.0,
+  "minimum_font_pt": 6.0,
+  "text_mode": "live-svg-text",
+  "raster_preview_dpi": 300,
+  "expected_labels": [
+    "Training epoch",
+    "Task success (%)",
+    "Baseline",
+    "Context",
+    "Proposed",
+    "Synthetic learning curves",
+    "0",
+    "5",
+    "10",
+    "15",
+    "20",
+    "25",
+    "30",
+    "50",
+    "60",
+    "70",
+    "80"
+  ],
+  "files": {
+    "svg": {
+      "name": "line.svg",
+      "sha256": "fbf82863f1ad00f696b3bbd27bf72e9dcaa3a2910c22d209b33893a99b880004"
+    },
+    "pdf": {
+      "name": "line.pdf",
+      "sha256": "310fbe1bfd89d4b96766486f7fc34127af1b25ff1f74a5db5daee82696f0dd8b"
+    },
+    "png": {
+      "name": "line.png",
+      "sha256": "8f44a3c78276c3219b0d9ba6d96441dc8afc66f586a57c30d5f7659d03dd5b9b"
+    }
+  },
+  "svg_audit": {
+    "passed": true,
+    "errors": [],
+    "warnings": [
+      "Visual inspection remains required for clipping, overlap, glyph availability, and journal-specific presentation requirements."
+    ],
+    "metrics": {
+      "text_count": 17,
+      "visible_text_count": 17,
+      "path_count": 46,
+      "image_count": 0,
+      "element_count": 264,
+      "width_mm": 89.99999991666665,
+      "height_mm": 59.99999994444445,
+      "min_font_pt": 7.499999999999999,
+      "max_font_pt": 8.999999999999998,
+      "labels": [
+        "0",
+        "5",
+        "10",
+        "15",
+        "20",
+        "25",
+        "30",
+        "Training epoch",
+        "50",
+        "60",
+        "70",
+        "80",
+        "Task success (%)",
+        "Baseline",
+        "Context",
+        "Proposed",
+        "Synthetic learning curves"
+      ],
+      "expected_labels_checked": 17,
+      "limitations": [
+        "Static checks do not certify journal acceptance, scientific accuracy, or visual quality.",
+        "Font sizes are conservative geometric estimates; installed fonts, glyph coverage, clipping, overlaps, and rendered bounds require visual inspection.",
+        "Paths cannot reliably be distinguished as letters versus scientific geometry; supply every required label through expected_labels to detect missing live text."
+      ],
+      "file_size_bytes": 24355,
+      "viewbox": [
+        0.0,
+        0.0,
+        255.11811,
+        170.07874
+      ]
+    }
+  },
+  "provenance": {
+    "claim": "Demonstrate reproducible vector plots; these are synthetic values, not experimental findings.",
+    "data_status": "synthetic",
+    "journal": {
+      "status": "not specified"
+    },
+    "panels": [
+      {
+        "id": "a",
+        "kind": "line",
+        "source": {
+          "file": "learning.csv",
+          "sha256": "5b1a4624a7c428f8447cf40357609c3df8e80cb343c9246e6da91c9a8453dfcc",
+          "rows": 126,
+          "columns": [
+            "method",
+            "seed",
+            "epoch",
+            "success"
+          ],
+          "missing_by_column": {
+            "method": 0,
+            "seed": 0,
+            "epoch": 0,
+            "success": 0
+          }
+        },
+        "warnings": [],
+        "statistics": {
+          "estimator": "mean",
+          "uncertainty": "ci95",
+          "independent_unit": "seed",
+          "within_unit": null,
+          "confidence_level": 0.95,
+          "bootstrap_draws": null,
+          "random_seed": null,
+          "warnings": [],
+          "groups": [
+            {
+              "epoch": 0,
+              "method": "Baseline",
+              "estimate": 43.74483333333333,
+              "lower": 42.226784228096186,
+              "upper": 45.26288243857048,
+              "n": 6,
+              "observations": 6,
+              "missing": 0
+            },
+            {
+              "epoch": 5,
+              "method": "Baseline",
+              "estimate": 49.9595,
+              "lower": 48.87042529148849,
+              "upper": 51.04857470851151,
+              "n": 6,
+              "observations": 6,
+              "missing": 0
+            },
+            {
+              "epoch": 10,
+              "method": "Baseline",
+              "estimate": 53.90716666666666,
+              "lower": 52.89496971652622,
+              "upper": 54.919363616807104,
+              "n": 6,
+              "observations": 6,
+              "missing": 0
+            },
+            {
+              "epoch": 15,
+              "method": "Baseline",
+              "estimate": 55.82233333333334,
+              "lower": 54.533985914922845,
+              "upper": 57.110680751743836,
+              "n": 6,
+              "observations": 6,
+              "missing": 0
+            },
+            {
+              "epoch": 20,
+              "method": "Baseline",
+              "estimate": 56.92883333333334,
+              "lower": 55.818258198266676,
+              "upper": 58.0394084684,
+              "n": 6,
+              "observations": 6,
+              "missing": 0
+            },
+            {
+              "epoch": 25,
+              "method": "Baseline",
+              "estimate": 57.470666666666666,
+              "lower": 55.97208011787631,
+              "upper": 58.96925321545702,
+              "n": 6,
+              "observations": 6,
+              "missing": 0
+            },
+            {
+              "epoch": 30,
+              "method": "Baseline",
+              "estimate": 57.88133333333334,
+              "lower": 56.97251584853155,
+              "upper": 58.790150818135125,
+              "n": 6,
+              "observations": 6,
+              "missing": 0
+            },
+            {
+              "epoch": 0,
+              "method": "Context",
+              "estimate": 53.49450000000001,
+              "lower": 52.72984810875429,
+              "upper": 54.25915189124573,
+              "n": 6,
+              "observations": 6,
+              "missing": 0
+            },
+            {
+              "epoch": 5,
+              "method": "Context",
+              "estimate": 60.63649999999999,
+              "lower": 59.47163613049027,
+              "upper": 61.801363869509714,
+              "n": 6,
+              "observations": 6,
+              "missing": 0
+            },
+            {
+              "epoch": 10,
+              "method": "Context",
+              "estimate": 64.66633333333333,
+              "lower": 63.4966924845631,
+              "upper": 65.83597418210356,
+              "n": 6,
+              "observations": 6,
+              "missing": 0
+            },
+            {
+              "epoch": 15,
+              "method": "Context",
+              "estimate": 66.91883333333334,
+              "lower": 65.9429368614598,
+              "upper": 67.89472980520688,
+              "n": 6,
+              "observations": 6,
+              "missing": 0
+            },
+            {
+              "epoch": 20,
+              "method": "Context",
+              "estimate": 68.12599999999999,
+              "lower": 67.2942053690459,
+              "upper": 68.95779463095408,
+              "n": 6,
+              "observations": 6,
+              "missing": 0
+            },
+            {
+              "epoch": 25,
+              "method": "Context",
+              "estimate": 69.04199999999999,
+              "lower": 68.0842125685264,
+              "upper": 69.99978743147358,
+              "n": 6,
+              "observations": 6,
+              "missing": 0
+            },
+            {
+              "epoch": 30,
+              "method": "Context",
+              "estimate": 69.47616666666666,
+              "lower": 68.16210906491904,
+              "upper": 70.79022426841428,
+              "n": 6,
+              "observations": 6,
+              "missing": 0
+            },
+            {
+              "epoch": 0,
+              "method": "Proposed",
+              "estimate": 62.661,
+              "lower": 61.454944839983064,
+              "upper": 63.86705516001694,
+              "n": 6,
+              "observations": 6,
+              "missing": 0
+            },
+            {
+              "epoch": 5,
+              "method": "Proposed",
+              "estimate": 70.2325,
+              "lower": 69.09209093615053,
+              "upper": 71.37290906384948,
+              "n": 6,
+              "observations": 6,
+              "missing": 0
+            },
+            {
+              "epoch": 10,
+              "method": "Proposed",
+              "estimate": 74.23500000000001,
+              "lower": 72.91539020185628,
+              "upper": 75.55460979814374,
+              "n": 6,
+              "observations": 6,
+              "missing": 0
+            },
+            {
+              "epoch": 15,
+              "method": "Proposed",
+              "estimate": 76.55933333333333,
+              "lower": 75.38420499973911,
+              "upper": 77.73446166692754,
+              "n": 6,
+              "observations": 6,
+              "missing": 0
+            },
+            {
+              "epoch": 20,
+              "method": "Proposed",
+              "estimate": 77.99866666666667,
+              "lower": 76.29654356809617,
+              "upper": 79.70078976523716,
+              "n": 6,
+              "observations": 6,
+              "missing": 0
+            },
+            {
+              "epoch": 25,
+              "method": "Proposed",
+              "estimate": 78.96066666666665,
+              "lower": 77.86951807754636,
+              "upper": 80.05181525578695,
+              "n": 6,
+              "observations": 6,
+              "missing": 0
+            },
+            {
+              "epoch": 30,
+              "method": "Proposed",
+              "estimate": 79.0475,
+              "lower": 77.67497366157318,
+              "upper": 80.42002633842682,
+              "n": 6,
+              "observations": 6,
+              "missing": 0
+            }
+          ]
+        }
+      }
+    ],
+    "spec": {
+      "version": 1,
+      "data_status": "synthetic",
+      "palette": {
+        "Baseline": "#666A73",
+        "Context": "#D55E00",
+        "Proposed": "#0072B2"
+      },
+      "claim": "Demonstrate reproducible vector plots; these are synthetic values, not experimental findings.",
+      "title": "Synthetic learning curves",
+      "figure": {
+        "width_mm": 90,
+        "height_mm": 60,
+        "font_pt": 8,
+        "min_font_pt": 6
+      },
+      "panels": [
+        {
+          "kind": "line",
+          "data": "data/learning.csv",
+          "x": "epoch",
+          "y": "success",
+          "hue": "method",
+          "unit": "seed",
+          "estimator": "mean",
+          "error": "ci95",
+          "hue_order": [
+            "Baseline",
+            "Context",
+            "Proposed"
+          ],
+          "xlabel": "Training epoch",
+          "ylabel": "Task success (%)",
+          "title": "",
+          "legend_loc": "lower right"
+        }
+      ]
+    },
+    "transformations": "Only explicit plot aggregations/transforms recorded in this manifest."
+  },
+  "manual_review": {
+    "status": "required",
+    "items": [
+      "scientific meaning",
+      "label collisions",
+      "font availability",
+      "grayscale readability",
+      "current journal and submission stage"
+    ]
+  },
+  "journal_acceptance": "not-certified"
+}

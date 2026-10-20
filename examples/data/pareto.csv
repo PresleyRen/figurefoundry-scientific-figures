@@ -1,0 +1,6 @@
+method,cost,success
+Base,1.0,58
+Context,1.5,68
+Proposed,2.0,80
+Large,3.2,81
+Variant,2.6,73

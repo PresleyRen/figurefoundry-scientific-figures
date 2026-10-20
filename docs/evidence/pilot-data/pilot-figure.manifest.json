@@ -1,0 +1,403 @@
+{
+  "schema_version": 1,
+  "generator": "FigureFoundry",
+  "version": "1.0.0",
+  "environment": {
+    "python": "3.12.14",
+    "matplotlib": "3.10.8"
+  },
+  "master": "pilot-figure.svg",
+  "width_mm": 180.0,
+  "height_mm": 90.0,
+  "minimum_font_pt": 7.0,
+  "text_mode": "live-svg-text",
+  "raster_preview_dpi": 300,
+  "expected_labels": [
+    "Time",
+    "Response",
+    "Mean and 95% CI",
+    "a",
+    "Control",
+    "Treatment",
+    "Group (3 subjects each)",
+    "Final time point (time = 3)",
+    "b",
+    "Synthetic repeated-measures data",
+    "0.0",
+    "0.5",
+    "1.0",
+    "1.5",
+    "2.0",
+    "2.5",
+    "3.0",
+    "6",
+    "8",
+    "10",
+    "12",
+    "14",
+    "16",
+    "18",
+    "20"
+  ],
+  "files": {
+    "svg": {
+      "name": "pilot-figure.svg",
+      "sha256": "2dca2ff61aee0eff4d1550d58a8197c4118acc70c86d650bc31b9278049a31c9"
+    },
+    "pdf": {
+      "name": "pilot-figure.pdf",
+      "sha256": "cc3ef2ef27e6523d98ea2402a39209a0460a1db76f9a4dfec6366ac18011b853"
+    },
+    "png": {
+      "name": "pilot-figure.png",
+      "sha256": "3e54f89380417c90a53a6b248bd34a5db6d69d77e4ffe48ce47177ad5e6c3b5f"
+    }
+  },
+  "svg_audit": {
+    "passed": true,
+    "errors": [],
+    "warnings": [
+      "Visual inspection remains required for clipping, overlap, glyph availability, and journal-specific presentation requirements."
+    ],
+    "metrics": {
+      "text_count": 36,
+      "visible_text_count": 36,
+      "path_count": 57,
+      "image_count": 0,
+      "element_count": 362,
+      "width_mm": 179.9999998333333,
+      "height_mm": 89.99999991666665,
+      "min_font_pt": 7.499999999999999,
+      "max_font_pt": 8.999999999999998,
+      "labels": [
+        "0.0",
+        "0.5",
+        "1.0",
+        "1.5",
+        "2.0",
+        "2.5",
+        "3.0",
+        "Time",
+        "6",
+        "8",
+        "10",
+        "12",
+        "14",
+        "16",
+        "18",
+        "20",
+        "Response",
+        "Mean and 95% CI",
+        "a",
+        "Control",
+        "Treatment",
+        "Control",
+        "Treatment",
+        "Group (3 subjects each)",
+        "6",
+        "8",
+        "10",
+        "12",
+        "14",
+        "16",
+        "18",
+        "20",
+        "Response",
+        "Final time point (time = 3)",
+        "b",
+        "Synthetic repeated-measures data"
+      ],
+      "expected_labels_checked": 25,
+      "limitations": [
+        "Static checks do not certify journal acceptance, scientific accuracy, or visual quality.",
+        "Font sizes are conservative geometric estimates; installed fonts, glyph coverage, clipping, overlaps, and rendered bounds require visual inspection.",
+        "Paths cannot reliably be distinguished as letters versus scientific geometry; supply every required label through expected_labels to detect missing live text."
+      ],
+      "file_size_bytes": 30496,
+      "viewbox": [
+        0.0,
+        0.0,
+        510.23622,
+        255.11811
+      ]
+    }
+  },
+  "provenance": {
+    "claim": "Describe groupwise mean responses over time and the observed distribution at the final time point. Supplied synthetic demonstration data; no hypothesis tests.",
+    "data_status": "synthetic",
+    "journal": {
+      "status": "planning profile",
+      "journal": null,
+      "article_type": null,
+      "submission_stage": null,
+      "requested_width_mm": 180,
+      "note": "No target journal, article type or submission stage was supplied. No journal-specific compliance claim is made; official journal requirements have not been checked."
+    },
+    "panels": [
+      {
+        "id": "a",
+        "kind": "line",
+        "source": {
+          "file": "observations.csv",
+          "sha256": "2676fc50d3448b7b7ff6b3457efb204b5725749035108c0771b232c1e7d58061",
+          "rows": 24,
+          "columns": [
+            "group",
+            "subject",
+            "time",
+            "response"
+          ],
+          "missing_by_column": {
+            "group": 0,
+            "subject": 0,
+            "time": 0,
+            "response": 0
+          }
+        },
+        "warnings": [
+          "Explicit xlim applied; visually verify excluded observations are disclosed.",
+          "Explicit ylim applied; visually verify excluded observations are disclosed."
+        ],
+        "statistics": {
+          "estimator": "mean",
+          "uncertainty": "ci95",
+          "independent_unit": "subject",
+          "within_unit": null,
+          "confidence_level": 0.95,
+          "bootstrap_draws": null,
+          "random_seed": null,
+          "warnings": [],
+          "groups": [
+            {
+              "time": 0,
+              "group": "Control",
+              "estimate": 10.0,
+              "lower": 7.51586228824967,
+              "upper": 12.48413771175033,
+              "n": 3,
+              "observations": 3,
+              "missing": 0
+            },
+            {
+              "time": 1,
+              "group": "Control",
+              "estimate": 11.0,
+              "lower": 8.51586228824967,
+              "upper": 13.48413771175033,
+              "n": 3,
+              "observations": 3,
+              "missing": 0
+            },
+            {
+              "time": 2,
+              "group": "Control",
+              "estimate": 12.0,
+              "lower": 9.51586228824967,
+              "upper": 14.48413771175033,
+              "n": 3,
+              "observations": 3,
+              "missing": 0
+            },
+            {
+              "time": 3,
+              "group": "Control",
+              "estimate": 13.0,
+              "lower": 10.51586228824967,
+              "upper": 15.48413771175033,
+              "n": 3,
+              "observations": 3,
+              "missing": 0
+            },
+            {
+              "time": 0,
+              "group": "Treatment",
+              "estimate": 11.0,
+              "lower": 8.51586228824967,
+              "upper": 13.48413771175033,
+              "n": 3,
+              "observations": 3,
+              "missing": 0
+            },
+            {
+              "time": 1,
+              "group": "Treatment",
+              "estimate": 13.0,
+              "lower": 10.51586228824967,
+              "upper": 15.48413771175033,
+              "n": 3,
+              "observations": 3,
+              "missing": 0
+            },
+            {
+              "time": 2,
+              "group": "Treatment",
+              "estimate": 15.0,
+              "lower": 12.51586228824967,
+              "upper": 17.48413771175033,
+              "n": 3,
+              "observations": 3,
+              "missing": 0
+            },
+            {
+              "time": 3,
+              "group": "Treatment",
+              "estimate": 17.0,
+              "lower": 14.51586228824967,
+              "upper": 19.48413771175033,
+              "n": 3,
+              "observations": 3,
+              "missing": 0
+            }
+          ]
+        },
+        "xlim": [
+          -0.15,
+          3.15
+        ],
+        "ylim": [
+          6,
+          20
+        ]
+      },
+      {
+        "id": "b",
+        "kind": "box",
+        "source": {
+          "file": "final-time.csv",
+          "sha256": "d805bed0f860f0419cc9c9a17e3c507bb51c5a05d79150e3cfd5c7db598cac1f",
+          "rows": 6,
+          "columns": [
+            "group",
+            "subject",
+            "time",
+            "response"
+          ],
+          "missing_by_column": {
+            "group": 0,
+            "subject": 0,
+            "time": 0,
+            "response": 0
+          }
+        },
+        "warnings": [
+          "Explicit xlim applied; visually verify excluded observations are disclosed.",
+          "Explicit ylim applied; visually verify excluded observations are disclosed."
+        ],
+        "sample_sizes": {
+          "Control": 3,
+          "Treatment": 3
+        },
+        "xlim": [
+          -0.6,
+          1.6
+        ],
+        "ylim": [
+          6,
+          20
+        ]
+      }
+    ],
+    "spec": {
+      "version": 1,
+      "claim": "Describe groupwise mean responses over time and the observed distribution at the final time point. Supplied synthetic demonstration data; no hypothesis tests.",
+      "data_status": "synthetic",
+      "title": "Synthetic repeated-measures data",
+      "figure": {
+        "width_mm": 180,
+        "height_mm": 90,
+        "rows": 1,
+        "cols": 2,
+        "font_pt": 8,
+        "min_font_pt": 7,
+        "font_family": "DejaVu Sans",
+        "preview_dpi": 300
+      },
+      "palette": {
+        "Control": "#0072B2",
+        "Treatment": "#D55E00"
+      },
+      "formats": [
+        "svg",
+        "pdf",
+        "png"
+      ],
+      "journal": {
+        "status": "planning profile",
+        "journal": null,
+        "article_type": null,
+        "submission_stage": null,
+        "requested_width_mm": 180,
+        "note": "No target journal, article type or submission stage was supplied. No journal-specific compliance claim is made; official journal requirements have not been checked."
+      },
+      "panels": [
+        {
+          "id": "a",
+          "kind": "line",
+          "data": "observations.csv",
+          "x": "time",
+          "y": "response",
+          "hue": "group",
+          "hue_order": [
+            "Control",
+            "Treatment"
+          ],
+          "unit": "subject",
+          "estimator": "mean",
+          "error": "ci95",
+          "title": "Mean and 95% CI",
+          "xlabel": "Time",
+          "ylabel": "Response",
+          "xlim": [
+            -0.15,
+            3.15
+          ],
+          "ylim": [
+            6,
+            20
+          ],
+          "legend_loc": "upper left",
+          "legend": true
+        },
+        {
+          "id": "b",
+          "kind": "box",
+          "data": "final-time.csv",
+          "x": "group",
+          "y": "response",
+          "order": [
+            "Control",
+            "Treatment"
+          ],
+          "raw_points": true,
+          "seed": 1729,
+          "title": "Final time point (time = 3)",
+          "xlabel": "Group (3 subjects each)",
+          "ylabel": "Response",
+          "xlim": [
+            -0.6,
+            1.6
+          ],
+          "ylim": [
+            6,
+            20
+          ],
+          "legend": false
+        }
+      ]
+    },
+    "transformations": "Only explicit plot aggregations/transforms recorded in this manifest.",
+    "analysis_record": "data-analysis.json",
+    "analysis_record_sha256": "7bbcaf8f6203f542ba1be25b8360cbaf835c6d8640e5a8afaa1b7df1ce4b9e0d",
+    "source_script": "reproduce.py",
+    "reproduction_review": "review-results.json",
+    "full_review": "REVIEW.md",
+    "revision_comparison": "revision-review/comparison.json"
+  },
+  "manual_review": {
+    "status": "completed_for_requested_scope",
+    "record": "visual-review.json",
+    "checked_date": "2026-10-20",
+    "journal_requirement_review": "No named target venue; planning profile only."
+  },
+  "journal_acceptance": "not-certified"
+}

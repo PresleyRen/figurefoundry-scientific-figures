@@ -1,0 +1,4 @@
+interface:
+  display_name: "FigureFoundry · 科研图铸"
+  short_description: "Journal-aware scientific plots and editable SVG figures"
+  default_prompt: "Use $figurefoundry to turn my experimental data and target journal requirements into editable SVG figures."

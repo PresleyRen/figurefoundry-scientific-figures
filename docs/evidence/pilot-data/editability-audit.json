@@ -1,0 +1,69 @@
+{
+  "passed": true,
+  "errors": [],
+  "warnings": [
+    "Visual inspection remains required for clipping, overlap, glyph availability, and journal-specific presentation requirements."
+  ],
+  "metrics": {
+    "text_count": 36,
+    "visible_text_count": 36,
+    "path_count": 57,
+    "image_count": 0,
+    "element_count": 362,
+    "width_mm": 179.9999998333333,
+    "height_mm": 89.99999991666665,
+    "min_font_pt": 7.499999999999999,
+    "max_font_pt": 8.999999999999998,
+    "labels": [
+      "0.0",
+      "0.5",
+      "1.0",
+      "1.5",
+      "2.0",
+      "2.5",
+      "3.0",
+      "Time (edited)",
+      "6",
+      "8",
+      "10",
+      "12",
+      "14",
+      "16",
+      "18",
+      "20",
+      "Response",
+      "Mean and 95% CI",
+      "a",
+      "Control",
+      "Treatment",
+      "Control",
+      "Treatment",
+      "Group (3 subjects each)",
+      "6",
+      "8",
+      "10",
+      "12",
+      "14",
+      "16",
+      "18",
+      "20",
+      "Response",
+      "Final time point (time = 3)",
+      "b",
+      "Synthetic repeated-measures data"
+    ],
+    "expected_labels_checked": 25,
+    "limitations": [
+      "Static checks do not certify journal acceptance, scientific accuracy, or visual quality.",
+      "Font sizes are conservative geometric estimates; installed fonts, glyph coverage, clipping, overlaps, and rendered bounds require visual inspection.",
+      "Paths cannot reliably be distinguished as letters versus scientific geometry; supply every required label through expected_labels to detect missing live text."
+    ],
+    "file_size_bytes": 30611,
+    "viewbox": [
+      0.0,
+      0.0,
+      510.23622,
+      255.11811
+    ]
+  }
+}

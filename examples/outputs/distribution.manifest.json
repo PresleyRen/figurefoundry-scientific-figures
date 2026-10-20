@@ -1,0 +1,167 @@
+{
+  "schema_version": 1,
+  "generator": "FigureFoundry",
+  "version": "1.0.0",
+  "environment": {
+    "python": "3.12.14",
+    "matplotlib": "3.10.8"
+  },
+  "master": "distribution.svg",
+  "width_mm": 90.0,
+  "height_mm": 60.0,
+  "minimum_font_pt": 6.0,
+  "text_mode": "live-svg-text",
+  "raster_preview_dpi": 300,
+  "expected_labels": [
+    "Method",
+    "Task success (%)",
+    "Synthetic run distribution",
+    "Baseline",
+    "Context",
+    "Proposed",
+    "60",
+    "65",
+    "70",
+    "75",
+    "80"
+  ],
+  "files": {
+    "svg": {
+      "name": "distribution.svg",
+      "sha256": "b3110f801813a69af7ccb043485f11750db22a06bf65252926fcaba5f83d3810"
+    },
+    "pdf": {
+      "name": "distribution.pdf",
+      "sha256": "4de83f257e8eeff1dddd0f9239e9d656631067784b477dd7f39bb29eea1ad763"
+    },
+    "png": {
+      "name": "distribution.png",
+      "sha256": "e7999f35444660712ffdfd5bb7355138613050d1cc6ade9782be0a7981633276"
+    }
+  },
+  "svg_audit": {
+    "passed": true,
+    "errors": [],
+    "warnings": [
+      "Visual inspection remains required for clipping, overlap, glyph availability, and journal-specific presentation requirements."
+    ],
+    "metrics": {
+      "text_count": 11,
+      "visible_text_count": 11,
+      "path_count": 32,
+      "image_count": 0,
+      "element_count": 175,
+      "width_mm": 89.99999991666665,
+      "height_mm": 59.99999994444445,
+      "min_font_pt": 7.999999999999999,
+      "max_font_pt": 8.999999999999998,
+      "labels": [
+        "Baseline",
+        "Context",
+        "Proposed",
+        "Method",
+        "60",
+        "65",
+        "70",
+        "75",
+        "80",
+        "Task success (%)",
+        "Synthetic run distribution"
+      ],
+      "expected_labels_checked": 11,
+      "limitations": [
+        "Static checks do not certify journal acceptance, scientific accuracy, or visual quality.",
+        "Font sizes are conservative geometric estimates; installed fonts, glyph coverage, clipping, overlaps, and rendered bounds require visual inspection.",
+        "Paths cannot reliably be distinguished as letters versus scientific geometry; supply every required label through expected_labels to detect missing live text."
+      ],
+      "file_size_bytes": 15059,
+      "viewbox": [
+        0.0,
+        0.0,
+        255.11811,
+        170.07874
+      ]
+    }
+  },
+  "provenance": {
+    "claim": "Demonstrate reproducible vector plots; these are synthetic values, not experimental findings.",
+    "data_status": "synthetic",
+    "journal": {
+      "status": "not specified"
+    },
+    "panels": [
+      {
+        "id": "a",
+        "kind": "box",
+        "source": {
+          "file": "endpoints.csv",
+          "sha256": "a9aa06b7f103e1fb77569d4cc5c0fcec7491552336c3172dec07d8521ce6155b",
+          "rows": 18,
+          "columns": [
+            "method",
+            "seed",
+            "success",
+            "latency"
+          ],
+          "missing_by_column": {
+            "method": 0,
+            "seed": 0,
+            "success": 0,
+            "latency": 0
+          }
+        },
+        "warnings": [],
+        "sample_sizes": {
+          "Baseline": 6,
+          "Context": 6,
+          "Proposed": 6
+        }
+      }
+    ],
+    "spec": {
+      "version": 1,
+      "data_status": "synthetic",
+      "palette": {
+        "Baseline": "#666A73",
+        "Context": "#D55E00",
+        "Proposed": "#0072B2"
+      },
+      "claim": "Demonstrate reproducible vector plots; these are synthetic values, not experimental findings.",
+      "title": "Synthetic run distribution",
+      "figure": {
+        "width_mm": 90,
+        "height_mm": 60,
+        "font_pt": 8,
+        "min_font_pt": 6
+      },
+      "panels": [
+        {
+          "kind": "box",
+          "data": "data/endpoints.csv",
+          "x": "method",
+          "y": "success",
+          "order": [
+            "Baseline",
+            "Context",
+            "Proposed"
+          ],
+          "xlabel": "Method",
+          "ylabel": "Task success (%)",
+          "title": ""
+        }
+      ]
+    },
+    "transformations": "Only explicit plot aggregations/transforms recorded in this manifest."
+  },
+  "manual_review": {
+    "status": "required",
+    "items": [
+      "scientific meaning",
+      "label collisions",
+      "font availability",
+      "grayscale readability",
+      "current journal and submission stage"
+    ]
+  },
+  "journal_acceptance": "not-certified"
+}

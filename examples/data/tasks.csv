@@ -1,0 +1,13 @@
+method,task,success
+Baseline,Reasoning,58
+Baseline,Retrieval,54
+Baseline,Planning,49
+Baseline,Tools,61
+Context,Reasoning,68
+Context,Retrieval,63
+Context,Planning,57
+Context,Tools,72
+Proposed,Reasoning,79
+Proposed,Retrieval,75
+Proposed,Planning,69
+Proposed,Tools,81

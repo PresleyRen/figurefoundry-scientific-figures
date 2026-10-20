@@ -1,0 +1,24 @@
+{
+  "width_mm": 120,
+  "height_mm": 94,
+  "font_pt": 8.5,
+  "min_font_pt": 7,
+  "nodes": [
+    {"id": "specimen", "label": "Specimen", "x": 5, "y": 36, "width": 28, "height": 14, "shape": "ellipse", "role": "input"},
+    {"id": "preparation", "label": "Preparation", "x": 43, "y": 36, "width": 31, "height": 14, "role": "process"},
+    {"id": "assay", "label": "Assay", "x": 85, "y": 36, "width": 29, "height": 14, "role": "process"},
+    {"id": "analysis", "label": "Analysis", "x": 85, "y": 66, "width": 29, "height": 14, "role": "process"},
+    {"id": "result", "label": "Result", "x": 43, "y": 66, "width": 31, "height": 14, "shape": "ellipse", "role": "output"},
+    {"id": "quality-control", "label": "Quality control", "x": 43, "y": 7, "width": 31, "height": 14, "role": "control"},
+    {"id": "reference-database", "label": "Reference database", "x": 5, "y": 61, "width": 29, "height": 21, "shape": "cylinder", "role": "evidence"}
+  ],
+  "edges": [
+    {"source": "specimen", "target": "preparation", "kind": "forward"},
+    {"source": "preparation", "target": "assay", "kind": "forward"},
+    {"source": "assay", "target": "analysis", "kind": "forward"},
+    {"source": "analysis", "target": "result", "kind": "forward"},
+    {"source": "assay", "target": "quality-control", "kind": "forward", "points": [[99.5, 14], [81, 14]]},
+    {"source": "quality-control", "target": "preparation", "kind": "feedback", "label": "Recheck required", "points": [[58.5, 28.5]]},
+    {"source": "reference-database", "target": "analysis", "kind": "forward", "points": [[19.5, 88], [99.5, 88]]}
+  ]
+}
