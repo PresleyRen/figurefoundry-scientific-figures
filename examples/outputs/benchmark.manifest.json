@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "generator": "FigureFoundry",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "environment": {
     "python": "3.12.14",
     "matplotlib": "3.10.8"
@@ -76,15 +76,15 @@
   "files": {
     "svg": {
       "name": "benchmark.svg",
-      "sha256": "722954d3fe5656bb25b56e9570fa3ce0c3e694243f2c49df026c05f91ba89532"
+      "sha256": "3e460413573746cfacc7a154aec28552b87b49f18df5db15352684342300a1d3"
     },
     "pdf": {
       "name": "benchmark.pdf",
-      "sha256": "78965aa871eb952e6f0fb0e99625f94ec84942fecbd39799f221257ae7741adf"
+      "sha256": "18ddf232ad63fa7032634203b1e4894ee24d226d05d355cd3a99e85e53a5bd47"
     },
     "png": {
       "name": "benchmark.png",
-      "sha256": "9d5d6230ad0d0d2e9d5bf9804efab6ed328010388b14c0f788080572359e34b5"
+      "sha256": "58a95e35204ef4143c257db8ee3d6662b573e3ccc9076b25b5ae242ccffd06c3"
     }
   },
   "svg_audit": {
@@ -232,6 +232,12 @@
           }
         },
         "warnings": [],
+        "grid": [
+          0,
+          0,
+          1,
+          1
+        ],
         "statistics": {
           "estimator": "mean",
           "uncertainty": "ci95",
@@ -476,6 +482,12 @@
           }
         },
         "warnings": [],
+        "grid": [
+          0,
+          1,
+          1,
+          1
+        ],
         "sample_sizes": {
           "Baseline": 6,
           "Context": 6,
@@ -501,6 +513,12 @@
           }
         },
         "warnings": [],
+        "grid": [
+          1,
+          0,
+          1,
+          1
+        ],
         "matrix": [
           [
             58.0,
@@ -520,7 +538,12 @@
             69.0,
             81.0
           ]
-        ]
+        ],
+        "color_normalization": {
+          "kind": "linear",
+          "vmin": 45.0,
+          "vmax": 85.0
+        }
       },
       {
         "id": "d",
@@ -541,6 +564,12 @@
           }
         },
         "warnings": [],
+        "grid": [
+          1,
+          1,
+          1,
+          1
+        ],
         "frontier_indices": [
           0,
           1,
@@ -637,6 +666,44 @@
           "title": "Quality–cost trade-off",
           "legend_loc": "lower right"
         }
+      ]
+    },
+    "layout": {
+      "rows": 2,
+      "cols": 2,
+      "width_ratios": [
+        1,
+        1
+      ],
+      "height_ratios": [
+        1,
+        1
+      ],
+      "panel_grid": [
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ]
       ]
     },
     "transformations": "Only explicit plot aggregations/transforms recorded in this manifest."

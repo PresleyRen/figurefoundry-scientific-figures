@@ -44,8 +44,12 @@ def main():
         "environment": {"python": platform.python_version(), "platform": platform.system(),
                         "packages": {name: importlib.metadata.version(name) for name in
                                      ("matplotlib", "numpy", "pandas", "scipy", "openpyxl")}},
-        "scope": "Automated behavioral tests. 16 chart exports are subtests within one test method. Visual and independent-use evidence is recorded separately.",
+        "scope": "Automated behavioral test methods. The 16 native charts, five themes, five normalizations and four Seaborn recipes use subtests; they are not additional method counts. Visual and independent-use evidence is recorded separately.",
     }
+    try:
+        report["environment"]["packages"]["seaborn"] = importlib.metadata.version("seaborn")
+    except importlib.metadata.PackageNotFoundError:
+        report["environment"]["packages"]["seaborn"] = "not installed"
     if args.report:
         args.report.parent.mkdir(parents=True, exist_ok=True)
         args.report.write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")

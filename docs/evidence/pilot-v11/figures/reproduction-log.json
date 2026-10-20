@@ -1,0 +1,228 @@
+[
+  {
+    "name": "figure-1-plot",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/source/figurefoundry/scripts/figurefoundry.py",
+      "plot",
+      "--spec",
+      "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/specs/figure-1-learning-v2.json",
+      "--out",
+      "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/figures/figure-1-upstream"
+    ],
+    "cwd": "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11",
+    "returncode": 0
+  },
+  {
+    "name": "figure-1-annotate",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/source/figurefoundry/scripts/figurefoundry.py",
+      "annotate",
+      "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/figures/figure-1-upstream.svg",
+      "--title",
+      "Synthetic learning trajectories",
+      "--description",
+      "Synthetic learning-trajectory plot. The horizontal axis shows training epochs 0 through 30 and the vertical axis task success from 40 to 85 percent. Gray dashed circles identify Baseline, orange dotted triangles Context, and blue solid squares Proposed. All three mean curves increase, with Proposed highest at every observed epoch. From epoch 0 to 30, means change from 43.745 to 57.881 percent, 53.495 to 69.476 percent, and 62.661 to 79.048 percent, respectively. Error bars and translucent bands show sample SD across six runs per method.",
+      "--out",
+      "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/figures/figure-1-before-polish.svg",
+      "--min-font-pt",
+      "7"
+    ],
+    "cwd": "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11",
+    "returncode": 0
+  },
+  {
+    "name": "figure-1-revision",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/source/figurefoundry/scripts/figurefoundry.py",
+      "revision",
+      "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/figures/figure-1-before-polish.svg",
+      "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/figures/figure-1.svg",
+      "--min-font-pt",
+      "7"
+    ],
+    "cwd": "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11",
+    "returncode": 0
+  },
+  {
+    "name": "figure-1-audit",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/source/figurefoundry/scripts/figurefoundry.py",
+      "audit",
+      "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/figures/figure-1.svg",
+      "--min-font-pt",
+      "7",
+      "--width-mm",
+      "180",
+      "--height-mm",
+      "85",
+      "--labels",
+      "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/figures/figure-1-labels.json"
+    ],
+    "cwd": "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11",
+    "returncode": 0
+  },
+  {
+    "name": "figure-1-png",
+    "command": [
+      "inkscape",
+      "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/figures/figure-1.svg",
+      "--export-type=png",
+      "--export-filename=/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/figures/figure-1.png",
+      "--export-dpi=300"
+    ],
+    "cwd": "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11",
+    "returncode": 0
+  },
+  {
+    "name": "figure-1-pdf",
+    "command": [
+      "inkscape",
+      "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/figures/figure-1.svg",
+      "--export-type=pdf",
+      "--export-filename=/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/figures/figure-1.pdf"
+    ],
+    "cwd": "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11",
+    "returncode": 0
+  },
+  {
+    "name": "figure-1-96dpi",
+    "command": [
+      "inkscape",
+      "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/figures/figure-1.svg",
+      "--export-type=png",
+      "--export-filename=/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/figures/figure-1-96dpi.png",
+      "--export-dpi=96"
+    ],
+    "cwd": "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11",
+    "returncode": 0
+  },
+  {
+    "name": "figure-1-grayscale-96dpi",
+    "command": [
+      "inkscape",
+      "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/figures/figure-1-grayscale.svg",
+      "--export-type=png",
+      "--export-filename=/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/figures/figure-1-grayscale-96dpi.png",
+      "--export-dpi=96"
+    ],
+    "cwd": "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11",
+    "returncode": 0
+  },
+  {
+    "name": "figure-2-plot",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/source/figurefoundry/scripts/figurefoundry.py",
+      "plot",
+      "--spec",
+      "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/specs/figure-2-horizontal-v2.json",
+      "--out",
+      "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/figures/figure-2-upstream"
+    ],
+    "cwd": "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11",
+    "returncode": 0
+  },
+  {
+    "name": "figure-2-annotate",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/source/figurefoundry/scripts/figurefoundry.py",
+      "annotate",
+      "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/figures/figure-2-upstream.svg",
+      "--title",
+      "Synthetic final results and run variation",
+      "--description",
+      "Synthetic final-results figure with two horizontal panels. Left: zero-baseline bars compare mean task success with sample SD error bars across six runs per method. Baseline is about 57.9 percent, Context 69.5 percent and Proposed 79.0 percent. Right: eighteen unconnected points show all six seed-labeled runs per method on a 50 to 85 percent scale. Baseline gray circles range from 56.337 to 58.904 percent, Context orange triangles from 67.671 to 71.353 percent, and Proposed blue squares from 77.382 to 80.181 percent. A three-marker legend identifies methods. Proposed has the highest mean in these Synthetic data.",
+      "--out",
+      "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/figures/figure-2-before-polish.svg",
+      "--min-font-pt",
+      "7"
+    ],
+    "cwd": "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11",
+    "returncode": 0
+  },
+  {
+    "name": "figure-2-revision",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/source/figurefoundry/scripts/figurefoundry.py",
+      "revision",
+      "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/figures/figure-2-before-polish.svg",
+      "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/figures/figure-2.svg",
+      "--min-font-pt",
+      "7"
+    ],
+    "cwd": "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11",
+    "returncode": 0
+  },
+  {
+    "name": "figure-2-audit",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/source/figurefoundry/scripts/figurefoundry.py",
+      "audit",
+      "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/figures/figure-2.svg",
+      "--min-font-pt",
+      "7",
+      "--width-mm",
+      "180",
+      "--height-mm",
+      "90",
+      "--labels",
+      "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/figures/figure-2-labels.json"
+    ],
+    "cwd": "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11",
+    "returncode": 0
+  },
+  {
+    "name": "figure-2-png",
+    "command": [
+      "inkscape",
+      "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/figures/figure-2.svg",
+      "--export-type=png",
+      "--export-filename=/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/figures/figure-2.png",
+      "--export-dpi=300"
+    ],
+    "cwd": "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11",
+    "returncode": 0
+  },
+  {
+    "name": "figure-2-pdf",
+    "command": [
+      "inkscape",
+      "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/figures/figure-2.svg",
+      "--export-type=pdf",
+      "--export-filename=/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/figures/figure-2.pdf"
+    ],
+    "cwd": "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11",
+    "returncode": 0
+  },
+  {
+    "name": "figure-2-96dpi",
+    "command": [
+      "inkscape",
+      "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/figures/figure-2.svg",
+      "--export-type=png",
+      "--export-filename=/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/figures/figure-2-96dpi.png",
+      "--export-dpi=96"
+    ],
+    "cwd": "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11",
+    "returncode": 0
+  },
+  {
+    "name": "figure-2-grayscale-96dpi",
+    "command": [
+      "inkscape",
+      "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/figures/figure-2-grayscale.svg",
+      "--export-type=png",
+      "--export-filename=/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/figures/figure-2-grayscale-96dpi.png",
+      "--export-dpi=96"
+    ],
+    "cwd": "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11",
+    "returncode": 0
+  }
+]

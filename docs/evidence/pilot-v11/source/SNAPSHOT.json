@@ -1,0 +1,76 @@
+{
+  "version": "1.1.0",
+  "copied_without_modification": true,
+  "files": [
+    {
+      "original": "skills/figurefoundry/scripts/ff_compose.py",
+      "snapshot": "source/figurefoundry/scripts/ff_compose.py",
+      "sha256": "62910a6d082241107ce602d42e8a80ae48ed7d2a78ce42dccc2ce62938dbf45a"
+    },
+    {
+      "original": "skills/figurefoundry/scripts/ff_data.py",
+      "snapshot": "source/figurefoundry/scripts/ff_data.py",
+      "sha256": "8cf8b7688b89e46cc0a5caf88881ddc8d12181fbb4e4a5e637907eaf3db2e43e"
+    },
+    {
+      "original": "skills/figurefoundry/scripts/ff_diagram.py",
+      "snapshot": "source/figurefoundry/scripts/ff_diagram.py",
+      "sha256": "2883e802d506deea16a0e8d68e5f93fe304d0df2bb7ffb0a6c6b0232ff333391"
+    },
+    {
+      "original": "skills/figurefoundry/scripts/ff_export.py",
+      "snapshot": "source/figurefoundry/scripts/ff_export.py",
+      "sha256": "fb6eb070c7fe72b34505f25dbc95e55f6e6bbc2d4914fc7bc77325cc583f14cb"
+    },
+    {
+      "original": "skills/figurefoundry/scripts/ff_inventory.py",
+      "snapshot": "source/figurefoundry/scripts/ff_inventory.py",
+      "sha256": "2a4cee09535ebaf429857e571becd3a15db302a8477671c22ac34febcebcaff4"
+    },
+    {
+      "original": "skills/figurefoundry/scripts/ff_journal.py",
+      "snapshot": "source/figurefoundry/scripts/ff_journal.py",
+      "sha256": "1c547ece789d7bb48eb31072f7743ea4a6a258842dc00c89f040dce3d4bd2a84"
+    },
+    {
+      "original": "skills/figurefoundry/scripts/ff_plots.py",
+      "snapshot": "source/figurefoundry/scripts/ff_plots.py",
+      "sha256": "03edb2e8b7623f8940dc4c428fddb07626e64797f5b162be970879ed72171dee"
+    },
+    {
+      "original": "skills/figurefoundry/scripts/ff_project.py",
+      "snapshot": "source/figurefoundry/scripts/ff_project.py",
+      "sha256": "1813bc9e8c656fb38261383d65809d13f7bd0c750d9de1801648a50e127c78fe"
+    },
+    {
+      "original": "skills/figurefoundry/scripts/ff_quality.py",
+      "snapshot": "source/figurefoundry/scripts/ff_quality.py",
+      "sha256": "2c97ae34c10b558cb045a8eb0d3ea2ee5a90ce92c04d755924cb18202a57d1ba"
+    },
+    {
+      "original": "skills/figurefoundry/scripts/ff_reference.py",
+      "snapshot": "source/figurefoundry/scripts/ff_reference.py",
+      "sha256": "a481cd38cfc768232874bbbbe710232579877ed3527e73f954119f28b87b41e2"
+    },
+    {
+      "original": "skills/figurefoundry/scripts/ff_seaborn.py",
+      "snapshot": "source/figurefoundry/scripts/ff_seaborn.py",
+      "sha256": "f2fabad1a4d7279a97c218496dfffc0ee303c18f9fa14122221e92fa52a783e3"
+    },
+    {
+      "original": "skills/figurefoundry/scripts/ff_style.py",
+      "snapshot": "source/figurefoundry/scripts/ff_style.py",
+      "sha256": "6282e6ce5420b25c1e965608f03a78c2e1eb4466f0369a87fe1402f730faee67"
+    },
+    {
+      "original": "skills/figurefoundry/scripts/ff_svg.py",
+      "snapshot": "source/figurefoundry/scripts/ff_svg.py",
+      "sha256": "6b46e74650811b60200a485420a70667b0cb53124e8f75a295195ba71505fc64"
+    },
+    {
+      "original": "skills/figurefoundry/scripts/figurefoundry.py",
+      "snapshot": "source/figurefoundry/scripts/figurefoundry.py",
+      "sha256": "51b521733e9265b1e0355b228b884e24e26b40a4a57f34493a9e81aee53cbff7"
+    }
+  ]
+}

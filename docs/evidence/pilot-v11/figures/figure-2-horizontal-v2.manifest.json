@@ -1,0 +1,443 @@
+{
+  "schema_version": 1,
+  "generator": "FigureFoundry",
+  "version": "1.1.0",
+  "environment": {
+    "python": "3.12.14",
+    "matplotlib": "3.10.8"
+  },
+  "master": "figure-2-horizontal-v2.svg",
+  "width_mm": 180.0,
+  "height_mm": 90.0,
+  "minimum_font_pt": 7.0,
+  "text_mode": "live-svg-text",
+  "raster_preview_dpi": 300,
+  "expected_labels": [
+    "Method",
+    "Task success (%)",
+    "(a) Final mean ± SD (n = 6)",
+    "Run (seed ID)",
+    "(b) Individual runs (expanded scale)",
+    "Baseline",
+    "Context",
+    "Proposed",
+    "Synthetic final results and run variation",
+    "0",
+    "20",
+    "40",
+    "60",
+    "80",
+    "100",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "50",
+    "55",
+    "65",
+    "70",
+    "75",
+    "85"
+  ],
+  "files": {
+    "svg": {
+      "name": "figure-2-horizontal-v2.svg",
+      "sha256": "9500d94a1987c8c68c562f6fbd07d24156f824ca483949d3002cc63ca65e3171"
+    },
+    "pdf": {
+      "name": "figure-2-horizontal-v2.pdf",
+      "sha256": "25cfeb4f585109b5c478628a4bb2d5df0469069a09aa73551b2885853de1b0e9"
+    },
+    "png": {
+      "name": "figure-2-horizontal-v2.png",
+      "sha256": "31b17eab7454aa434f8e56ee616dbddc49256b65a335eab039e126b178e815e6"
+    }
+  },
+  "svg_audit": {
+    "passed": true,
+    "errors": [],
+    "warnings": [
+      "Visual inspection remains required for clipping, overlap, glyph availability, and journal-specific presentation requirements."
+    ],
+    "metrics": {
+      "text_count": 33,
+      "visible_text_count": 33,
+      "path_count": 34,
+      "image_count": 0,
+      "element_count": 291,
+      "width_mm": 179.9999998333333,
+      "height_mm": 89.99999991666665,
+      "min_font_pt": 7.499999999999999,
+      "max_font_pt": 9.499999999999998,
+      "labels": [
+        "Baseline",
+        "Context",
+        "Proposed",
+        "Method",
+        "0",
+        "20",
+        "40",
+        "60",
+        "80",
+        "100",
+        "Task success (%)",
+        "(a) Final mean ± SD (n = 6)",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "Run (seed ID)",
+        "50",
+        "55",
+        "60",
+        "65",
+        "70",
+        "75",
+        "80",
+        "85",
+        "Task success (%)",
+        "(b) Individual runs (expanded scale)",
+        "Baseline",
+        "Context",
+        "Proposed",
+        "Synthetic final results and run variation"
+      ],
+      "expected_labels_checked": 27,
+      "limitations": [
+        "Static checks do not certify journal acceptance, scientific accuracy, or visual quality.",
+        "Font sizes are conservative geometric estimates; installed fonts, glyph coverage, clipping, overlaps, and rendered bounds require visual inspection.",
+        "Paths cannot reliably be distinguished as letters versus scientific geometry; supply every required label through expected_labels to detect missing live text."
+      ],
+      "file_size_bytes": 24491,
+      "viewbox": [
+        0.0,
+        0.0,
+        510.23622,
+        255.11811
+      ]
+    }
+  },
+  "provenance": {
+    "claim": "Synthetic endpoints retain all six independent runs per method; Proposed has the highest final mean. Run identifiers are labels, not a continuous process or evidence of cross-method pairing.",
+    "data_status": "synthetic",
+    "journal": {
+      "status": "not specified"
+    },
+    "panels": [
+      {
+        "id": "a",
+        "kind": "bar",
+        "source": {
+          "file": "endpoints.csv",
+          "sha256": "a9aa06b7f103e1fb77569d4cc5c0fcec7491552336c3172dec07d8521ce6155b",
+          "rows": 18,
+          "columns": [
+            "method",
+            "seed",
+            "success",
+            "latency"
+          ],
+          "missing_by_column": {
+            "method": 0,
+            "seed": 0,
+            "success": 0,
+            "latency": 0
+          }
+        },
+        "warnings": [
+          "Explicit ylim applied; visually verify excluded observations are disclosed."
+        ],
+        "grid": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "statistics": {
+          "estimator": "mean",
+          "uncertainty": "sd",
+          "independent_unit": "seed",
+          "within_unit": null,
+          "confidence_level": null,
+          "bootstrap_draws": null,
+          "random_seed": null,
+          "warnings": [],
+          "groups": [
+            {
+              "method": "Baseline",
+              "estimate": 57.88133333333334,
+              "lower": 57.01532740571698,
+              "upper": 58.747339260949694,
+              "n": 6,
+              "observations": 6,
+              "missing": 0
+            },
+            {
+              "method": "Context",
+              "estimate": 69.47616666666666,
+              "lower": 68.2240102201047,
+              "upper": 70.72832311322861,
+              "n": 6,
+              "observations": 6,
+              "missing": 0
+            },
+            {
+              "method": "Proposed",
+              "estimate": 79.0475,
+              "lower": 77.73962909658484,
+              "upper": 80.35537090341516,
+              "n": 6,
+              "observations": 6,
+              "missing": 0
+            }
+          ]
+        },
+        "ylim": [
+          0,
+          100
+        ]
+      },
+      {
+        "id": "b",
+        "kind": "scatter",
+        "source": {
+          "file": "endpoints.csv",
+          "sha256": "a9aa06b7f103e1fb77569d4cc5c0fcec7491552336c3172dec07d8521ce6155b",
+          "rows": 18,
+          "columns": [
+            "method",
+            "seed",
+            "success",
+            "latency"
+          ],
+          "missing_by_column": {
+            "method": 0,
+            "seed": 0,
+            "success": 0,
+            "latency": 0
+          }
+        },
+        "warnings": [
+          "Explicit xlim applied; visually verify excluded observations are disclosed.",
+          "Explicit ylim applied; visually verify excluded observations are disclosed."
+        ],
+        "grid": [
+          0,
+          1,
+          1,
+          1
+        ],
+        "xlim": [
+          0.5,
+          6.5
+        ],
+        "ylim": [
+          50,
+          85
+        ]
+      }
+    ],
+    "spec": {
+      "version": 1,
+      "defaults": "plot-defaults.json",
+      "data_status": "synthetic",
+      "claim": "Synthetic endpoints retain all six independent runs per method; Proposed has the highest final mean. Run identifiers are labels, not a continuous process or evidence of cross-method pairing.",
+      "title": "Synthetic final results and run variation",
+      "figure": {
+        "font_family": "DejaVu Sans",
+        "font_pt": 8.5,
+        "axis_font_pt": 8.5,
+        "tick_font_pt": 7.5,
+        "legend_font_pt": 8,
+        "panel_font_pt": 8.5,
+        "panel_label_position": "center",
+        "grid": "y",
+        "min_font_pt": 7,
+        "preview_dpi": 300,
+        "panel_label_style": "integrated",
+        "width_mm": 180,
+        "height_mm": 90,
+        "rows": 1,
+        "cols": 2,
+        "width_ratios": [
+          1,
+          1.15
+        ]
+      },
+      "panels": [
+        {
+          "linewidth": 1.35,
+          "markersize": 3.8,
+          "id": "a",
+          "kind": "bar",
+          "data": "../data/endpoints.csv",
+          "x": "method",
+          "y": "success",
+          "order": [
+            "Baseline",
+            "Context",
+            "Proposed"
+          ],
+          "unit": "seed",
+          "estimator": "mean",
+          "error": "sd",
+          "raw_points": false,
+          "xlabel": "Method",
+          "ylabel": "Task success (%)",
+          "ylim": [
+            0,
+            100
+          ],
+          "title": "Final mean ± SD (n = 6)",
+          "legend": false
+        },
+        {
+          "linewidth": 1.35,
+          "markersize": 3.8,
+          "id": "b",
+          "kind": "scatter",
+          "data": "../data/endpoints.csv",
+          "x": "seed",
+          "y": "success",
+          "hue": "method",
+          "hue_order": [
+            "Baseline",
+            "Context",
+            "Proposed"
+          ],
+          "point_size": 23,
+          "xlabel": "Run (seed ID)",
+          "ylabel": "Task success (%)",
+          "xlim": [
+            0.5,
+            6.5
+          ],
+          "ylim": [
+            50,
+            85
+          ],
+          "title": "Individual runs (expanded scale)",
+          "legend": true,
+          "legend_loc": "lower center",
+          "legend_cols": 3
+        }
+      ],
+      "palette": {
+        "Baseline": {
+          "color": "#666A73",
+          "marker": "o",
+          "linestyle": "--"
+        },
+        "Context": {
+          "color": "#D55E00",
+          "marker": "^",
+          "linestyle": ":"
+        },
+        "Proposed": {
+          "color": "#0072B2",
+          "marker": "s",
+          "linestyle": "-"
+        }
+      },
+      "style_provenance": {
+        "theme": "compact",
+        "defaults": {
+          "path": "plot-defaults.json",
+          "sha256": "7e1e45bce23e25c74ccf82177acbe75e53bbc3d29a72d8e2976e539fd0815ec0"
+        },
+        "precedence": [
+          "theme",
+          "project defaults",
+          "figure specification"
+        ],
+        "style_sha256": "00243f2ca865b2e387fb9c73c023e8bcacaf6da171012c93259f50e7c617205a",
+        "resolved": {
+          "theme": "compact",
+          "figure": {
+            "font_family": "DejaVu Sans",
+            "font_pt": 8.5,
+            "axis_font_pt": 8.5,
+            "tick_font_pt": 7.5,
+            "legend_font_pt": 8,
+            "panel_font_pt": 8.5,
+            "panel_label_position": "center",
+            "grid": "y",
+            "min_font_pt": 7,
+            "panel_label_style": "integrated"
+          },
+          "panel_defaults": {
+            "linewidth": 1.35,
+            "markersize": 3.8
+          },
+          "palette": [
+            [
+              "Baseline",
+              {
+                "color": "#666A73",
+                "marker": "o",
+                "linestyle": "--"
+              }
+            ],
+            [
+              "Context",
+              {
+                "color": "#D55E00",
+                "marker": "^",
+                "linestyle": ":"
+              }
+            ],
+            [
+              "Proposed",
+              {
+                "color": "#0072B2",
+                "marker": "s",
+                "linestyle": "-"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    "layout": {
+      "rows": 1,
+      "cols": 2,
+      "width_ratios": [
+        1,
+        1.15
+      ],
+      "height_ratios": [
+        1
+      ],
+      "panel_grid": [
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    "transformations": "Only explicit plot aggregations/transforms recorded in this manifest."
+  },
+  "manual_review": {
+    "status": "required",
+    "items": [
+      "scientific meaning",
+      "label collisions",
+      "font availability",
+      "grayscale readability",
+      "current journal and submission stage"
+    ]
+  },
+  "journal_acceptance": "not-certified"
+}

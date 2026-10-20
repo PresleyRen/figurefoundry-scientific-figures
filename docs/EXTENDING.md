@@ -1,5 +1,34 @@
 # 扩展 FigureFoundry：从能力编号定位
 
+## 三层索引，先定位再修改
+
+| 想找什么 | 索引文件 | 命令 |
+|---|---|---|
+| 某个来源 Skill 的具体特点、与谁互补、怎样继续补 | `assets/source-coverage.json` | `coverage --source S08` 或 `coverage --query 主源` |
+| 已有模块、说明与测试 | `assets/capabilities.json` | `capabilities --query 灰度` |
+| 专业实验图的字段和接入方法 | `assets/specialty-routes.json` | `atlas --query 相图` |
+
+上述路径相对 `skills/figurefoundry/`。`Sxx-Fxx` 表示来源特点，`FF-*` 表示可复用能力，
+`SP-*` 表示专业任务路线。一个能力可以补足多个来源的短板，一个专业任务可以组合几个能力。
+`coverage` 的每条结果直接返回 `extension.target` 和 `extension.how`，作为下一次修改的起点。
+
+### 常见扩展落点
+
+| 模块 | 负责内容 | 扩充时的关键验证 |
+|---|---|---|
+| `ff_data.py` / `ff_plots.py` | 表格、独立单位、估计、图型、拟合、GridSpec、norm | 手算答案、合法阴性、源值不变、真实 SVG |
+| `ff_style.py` | 具名样式、项目默认值、合并优先级 | 相同风格不同数据的 identity；字段实际生效 |
+| `ff_project.py` | 图集、实体/数量、候选、共享角色、冻结主源 | snapshot 独立副本、路径身份、来源 SHA、选中版本 |
+| `ff_quality.py` | 对比度、CIE L*、SVG 描述、样式编辑差分 | 解析端点、tspan 单位与空格、几何保持 |
+| `ff_reference.py` | 论文 HTML 图件和文献 benchmark 来源 | 嵌套归属、原文上下文、相对 URL、缺失信息 |
+| `ff_inventory.py` | Python/Notebook 布局与导出位置 | 真实行号/单元、动态表达式保持、输入不执行 |
+| `ff_seaborn.py` | 分面、Pair/Joint/Cluster 和显式权重配方 | 隐藏 Axis、共同分箱、行数、矢量色条和文字 |
+| `ff_diagram.py` / `ff_compose.py` | 科学关系和原生拼版 | 逐源标签、引用隔离、最终缩放字号 |
+
+修改索引后运行 `python tools/render_coverage.py` 重建 [COVERAGE.md](COVERAGE.md)。
+包校验会检查固定来源 URL、特点/能力编号、实现与测试路径、互补来源及扩展目标；
+`test_coverage_navigation.py` 用真实中英查询和失效路径反例验证这些入口。
+
 能力索引为 `skills/figurefoundry/assets/capabilities.json`。`module` 与 `reference`
 相对技能目录，`tests` 相对仓库根目录。每个 FF 编号固定代表一个能力；重构可改路径，
 不要把旧编号赋给不相关能力。检索：
@@ -55,13 +84,18 @@ python skills/figurefoundry/scripts/figurefoundry.py capabilities --query FF-SVG
 编号。先比较可观察行为，再决定保留何种实现。许可不清楚时只参考一般方法，不能
 直接复制整套代码/素材。
 
+在 `source-coverage.json` 为该来源逐特点建立 `S17-F01` 等记录，标明 `native`、
+`recipe`、`workflow` 或 `external-adapter`。每项填写相关 FF 能力、实现文件、参考页、
+测试、互补来源与下一步扩展位置。可复用旧模块时直接关联，不另建一份矛盾的规则。
+新的专业关键词写入 `specialty-routes.json`，配套 atlas 的问题、输入与方法说明。
+
 ## 5. 发布回归
 
 ```bash
 python tools/check_package.py
-python -m unittest discover -s tests -v
-python examples/generate_examples.py
 python tools/run_checks.py --report docs/test-results.json
+python examples/generate_examples.py
+python examples/custom_seaborn.py --out build/seaborn-check
 ```
 
 复核 `docs/TEST_REPORT.md` 与当前代码的实际差异，写明自动、人工、独立试用和未跑

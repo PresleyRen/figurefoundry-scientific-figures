@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "generator": "FigureFoundry",
+  "version": "1.1.0",
+  "environment": {
+    "python": "3.12.14",
+    "matplotlib": "3.10.8"
+  },
+  "master": "pair.svg",
+  "width_mm": 160.0,
+  "height_mm": 150.0,
+  "minimum_font_pt": 6.0,
+  "text_mode": "live-svg-text",
+  "raster_preview_dpi": 300,
+  "expected_labels": [
+    "response",
+    "dose",
+    "signal",
+    "Synthetic demonstration · pair",
+    "Method",
+    "Baseline",
+    "Proposed",
+    "2",
+    "4",
+    "6",
+    "2.5",
+    "5.0",
+    "7.5",
+    "3"
+  ],
+  "files": {
+    "svg": {
+      "name": "pair.svg",
+      "sha256": "005e2a3666579d22ea7c4ee3baaad415825975d839430643c1396342ef38a8a1"
+    },
+    "png": {
+      "name": "pair.png",
+      "sha256": "6b3ebdf5a9286ab0dcbc14ed7f86dfea6750b40462772814100e2bb4cfeb0b27"
+    }
+  },
+  "svg_audit": {
+    "passed": true,
+    "errors": [],
+    "warnings": [
+      "Visual inspection remains required for clipping, overlap, glyph availability, and journal-specific presentation requirements."
+    ],
+    "metrics": {
+      "text_count": 24,
+      "visible_text_count": 24,
+      "path_count": 26,
+      "image_count": 0,
+      "element_count": 414,
+      "width_mm": 159.99999996944445,
+      "height_mm": 149.9999998611111,
+      "min_font_pt": 7.0,
+      "max_font_pt": 9.0,
+      "labels": [
+        "2",
+        "4",
+        "6",
+        "response",
+        "2.5",
+        "5.0",
+        "7.5",
+        "dose",
+        "2",
+        "3",
+        "4",
+        "signal",
+        "2.5",
+        "5.0",
+        "7.5",
+        "response",
+        "2",
+        "3",
+        "4",
+        "signal",
+        "Synthetic demonstration · pair",
+        "Method",
+        "Baseline",
+        "Proposed"
+      ],
+      "expected_labels_checked": 14,
+      "limitations": [
+        "Static checks do not certify journal acceptance, scientific accuracy, or visual quality.",
+        "Font sizes are conservative geometric estimates; installed fonts, glyph coverage, clipping, overlaps, and rendered bounds require visual inspection.",
+        "Paths cannot reliably be distinguished as letters versus scientific geometry; supply every required label through expected_labels to detect missing live text."
+      ],
+      "file_size_bytes": 32968,
+      "viewbox": [
+        0.0,
+        0.0,
+        453.543307,
+        425.19685
+      ]
+    }
+  },
+  "provenance": {
+    "data_status": "synthetic",
+    "source": {
+      "seed": 2718
+    },
+    "analysis": {
+      "recipe": "pair",
+      "rows": 48,
+      "estimator": "none; individual observations",
+      "seaborn": "0.13.2",
+      "method_order": [
+        "Baseline",
+        "Proposed"
+      ],
+      "histogram_bins": {
+        "dose": [
+          0.5,
+          1.5714285714285714,
+          2.642857142857143,
+          3.7142857142857144,
+          4.785714285714286,
+          5.857142857142857,
+          6.928571428571429,
+          8.0
+        ],
+        "response": [
+          0.43267812532656236,
+          1.4008773637386853,
+          2.369076602150808,
+          3.3372758405629313,
+          4.3054750789750535,
+          5.273674317387177,
+          6.2418735557993,
+          7.210072794211422
+        ],
+        "signal": [
+          1.9686595091748789,
+          2.337322109948112,
+          2.705984710721345,
+          3.0746473114945783,
+          3.443309912267811,
+          3.8119725130410442,
+          4.180635113814278,
+          4.54929771458751
+        ]
+      },
+      "histogram_density_scales": "independent per variable; shared between methods"
+    }
+  },
+  "manual_review": {
+    "status": "required",
+    "items": [
+      "scientific meaning",
+      "label collisions",
+      "font availability",
+      "grayscale readability",
+      "current journal and submission stage"
+    ]
+  },
+  "journal_acceptance": "not-certified"
+}

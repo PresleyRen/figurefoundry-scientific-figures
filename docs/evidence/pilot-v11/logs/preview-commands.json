@@ -1,0 +1,101 @@
+[
+  {
+    "name": "figure-1-learning-96dpi",
+    "command": [
+      "inkscape",
+      "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/figures/figure-1-learning.svg",
+      "--export-type=png",
+      "--export-filename=/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/qa/figure-1-learning-96dpi.png",
+      "--export-dpi=96"
+    ],
+    "returncode": 0
+  },
+  {
+    "name": "figure-1-learning-300dpi",
+    "command": [
+      "inkscape",
+      "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/figures/figure-1-learning.svg",
+      "--export-type=png",
+      "--export-filename=/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/qa/figure-1-learning-300dpi.png",
+      "--export-dpi=300"
+    ],
+    "returncode": 0
+  },
+  {
+    "name": "figure-1-learning-gray-96dpi",
+    "command": [
+      "inkscape",
+      "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/qa/figure-1-learning-grayscale.svg",
+      "--export-type=png",
+      "--export-filename=/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/qa/figure-1-learning-grayscale-96dpi.png",
+      "--export-dpi=96"
+    ],
+    "returncode": 0
+  },
+  {
+    "name": "figure-2-horizontal-96dpi",
+    "command": [
+      "inkscape",
+      "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/figures/figure-2-horizontal.svg",
+      "--export-type=png",
+      "--export-filename=/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/qa/figure-2-horizontal-96dpi.png",
+      "--export-dpi=96"
+    ],
+    "returncode": 0
+  },
+  {
+    "name": "figure-2-horizontal-300dpi",
+    "command": [
+      "inkscape",
+      "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/figures/figure-2-horizontal.svg",
+      "--export-type=png",
+      "--export-filename=/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/qa/figure-2-horizontal-300dpi.png",
+      "--export-dpi=300"
+    ],
+    "returncode": 0
+  },
+  {
+    "name": "figure-2-horizontal-gray-96dpi",
+    "command": [
+      "inkscape",
+      "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/qa/figure-2-horizontal-grayscale.svg",
+      "--export-type=png",
+      "--export-filename=/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/qa/figure-2-horizontal-grayscale-96dpi.png",
+      "--export-dpi=96"
+    ],
+    "returncode": 0
+  },
+  {
+    "name": "figure-2-stacked-96dpi",
+    "command": [
+      "inkscape",
+      "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/figures/figure-2-stacked.svg",
+      "--export-type=png",
+      "--export-filename=/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/qa/figure-2-stacked-96dpi.png",
+      "--export-dpi=96"
+    ],
+    "returncode": 0
+  },
+  {
+    "name": "figure-2-stacked-300dpi",
+    "command": [
+      "inkscape",
+      "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/figures/figure-2-stacked.svg",
+      "--export-type=png",
+      "--export-filename=/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/qa/figure-2-stacked-300dpi.png",
+      "--export-dpi=300"
+    ],
+    "returncode": 0
+  },
+  {
+    "name": "figure-2-stacked-gray-96dpi",
+    "command": [
+      "inkscape",
+      "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/qa/figure-2-stacked-grayscale.svg",
+      "--export-type=png",
+      "--export-filename=/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/qa/figure-2-stacked-grayscale-96dpi.png",
+      "--export-dpi=96"
+    ],
+    "returncode": 0
+  }
+]

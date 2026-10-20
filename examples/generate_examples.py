@@ -74,6 +74,9 @@ def main():
         save_json(EXAMPLES / (name + ".json"), spec)
         result = render_plots(spec, EXAMPLES / "outputs" / name, base_dir=EXAMPLES, overwrite=True)
         print(f"{name}: passed={result['svg_audit']['passed']} text={result['svg_audit']['metrics']['text_count']} images=0")
+    asymmetric = json.loads((EXAMPLES / "asymmetric.json").read_text())
+    result = render_plots(asymmetric, EXAMPLES / "outputs" / "asymmetric", base_dir=EXAMPLES, overwrite=True)
+    print(f"asymmetric: passed={result['svg_audit']['passed']}")
     diagram_spec = json.loads((EXAMPLES / "diagram.json").read_text())
     render_diagram(diagram_spec, EXAMPLES / "outputs" / "diagram.svg")
     diagram_audit = audit_svg(EXAMPLES / "outputs" / "diagram.svg", min_font_pt=6,

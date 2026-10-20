@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "defaults": "plot-defaults.json",
+  "data_status": "synthetic",
+  "claim": "Synthetic demonstration: mean task success increases with epoch; Proposed has the highest mean at all seven observed epochs. No experimental superiority claim is made.",
+  "title": "Synthetic learning trajectories",
+  "figure": {
+    "width_mm": 180,
+    "height_mm": 85
+  },
+  "panels": [
+    {
+      "kind": "line",
+      "data": "../data/learning.csv",
+      "x": "epoch",
+      "y": "success",
+      "hue": "method",
+      "hue_order": [
+        "Baseline",
+        "Context",
+        "Proposed"
+      ],
+      "unit": "seed",
+      "estimator": "mean",
+      "error": "sd",
+      "xlabel": "Training epoch",
+      "ylabel": "Task success (%)",
+      "xlim": [
+        -0.8,
+        30.8
+      ],
+      "ylim": [
+        40,
+        85
+      ],
+      "title": "Mean ± SD across 6 runs per method",
+      "legend_loc": "lower right"
+    }
+  ]
+}

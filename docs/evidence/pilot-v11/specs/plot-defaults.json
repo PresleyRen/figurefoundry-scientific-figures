@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "theme": "compact",
+  "figure": {
+    "font_family": "DejaVu Sans",
+    "font_pt": 8.5,
+    "axis_font_pt": 8.5,
+    "tick_font_pt": 7.5,
+    "legend_font_pt": 8,
+    "panel_font_pt": 8.5,
+    "min_font_pt": 7,
+    "preview_dpi": 300,
+    "grid": "y",
+    "panel_label_style": "integrated"
+  },
+  "palette": {
+    "Baseline": {
+      "color": "#666A73",
+      "marker": "o",
+      "linestyle": "--"
+    },
+    "Context": {
+      "color": "#D55E00",
+      "marker": "^",
+      "linestyle": ":"
+    },
+    "Proposed": {
+      "color": "#0072B2",
+      "marker": "s",
+      "linestyle": "-"
+    }
+  },
+  "panel_defaults": {
+    "linewidth": 1.35,
+    "markersize": 3.8
+  }
+}

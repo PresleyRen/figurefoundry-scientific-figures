@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "generator": "FigureFoundry",
+  "version": "1.1.0",
+  "environment": {
+    "python": "3.12.14",
+    "matplotlib": "3.10.8"
+  },
+  "master": "facet.svg",
+  "width_mm": 180.0,
+  "height_mm": 78.0,
+  "minimum_font_pt": 6.0,
+  "text_mode": "live-svg-text",
+  "raster_preview_dpi": 300,
+  "expected_labels": [
+    "Dose (a.u.)",
+    "Response (a.u.)",
+    "Early",
+    "Method",
+    "Baseline",
+    "Proposed",
+    "Late",
+    "Synthetic demonstration · facet",
+    "2",
+    "4",
+    "6",
+    "8"
+  ],
+  "files": {
+    "svg": {
+      "name": "facet.svg",
+      "sha256": "810162c3a85f9573b5bf72e5fc864c08bf0f83edd1dd51ad9c7d9adf38143536"
+    },
+    "png": {
+      "name": "facet.png",
+      "sha256": "f42131b96a910cf71349d074f1b9f344c18c0fdc1e085bd6f44d0dae61fb2f23"
+    }
+  },
+  "svg_audit": {
+    "passed": true,
+    "errors": [],
+    "warnings": [
+      "Visual inspection remains required for clipping, overlap, glyph availability, and journal-specific presentation requirements."
+    ],
+    "metrics": {
+      "text_count": 20,
+      "visible_text_count": 20,
+      "path_count": 11,
+      "image_count": 0,
+      "element_count": 204,
+      "width_mm": 179.9999998333333,
+      "height_mm": 77.99999992777776,
+      "min_font_pt": 6.999999999999999,
+      "max_font_pt": 8.999999999999998,
+      "labels": [
+        "2",
+        "4",
+        "6",
+        "8",
+        "Dose (a.u.)",
+        "2",
+        "4",
+        "6",
+        "Response (a.u.)",
+        "Early",
+        "Method",
+        "Baseline",
+        "Proposed",
+        "2",
+        "4",
+        "6",
+        "8",
+        "Dose (a.u.)",
+        "Late",
+        "Synthetic demonstration · facet"
+      ],
+      "expected_labels_checked": 12,
+      "limitations": [
+        "Static checks do not certify journal acceptance, scientific accuracy, or visual quality.",
+        "Font sizes are conservative geometric estimates; installed fonts, glyph coverage, clipping, overlaps, and rendered bounds require visual inspection.",
+        "Paths cannot reliably be distinguished as letters versus scientific geometry; supply every required label through expected_labels to detect missing live text."
+      ],
+      "file_size_bytes": 17028,
+      "viewbox": [
+        0.0,
+        0.0,
+        510.23622,
+        221.102362
+      ]
+    }
+  },
+  "provenance": {
+    "data_status": "synthetic",
+    "source": {
+      "seed": 2718
+    },
+    "analysis": {
+      "recipe": "facet",
+      "rows": 48,
+      "estimator": "none; individual observations",
+      "seaborn": "0.13.2",
+      "method_order": [
+        "Baseline",
+        "Proposed"
+      ]
+    }
+  },
+  "manual_review": {
+    "status": "required",
+    "items": [
+      "scientific meaning",
+      "label collisions",
+      "font availability",
+      "grayscale readability",
+      "current journal and submission stage"
+    ]
+  },
+  "journal_acceptance": "not-certified"
+}

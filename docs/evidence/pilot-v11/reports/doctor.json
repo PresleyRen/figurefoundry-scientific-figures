@@ -1,0 +1,25 @@
+{
+  "version": "1.1.0",
+  "native_data_plotting_available": true,
+  "native_svg_diagrams_and_audit": true,
+  "python_packages": {
+    "matplotlib": true,
+    "numpy": true,
+    "pandas": true,
+    "scipy": true,
+    "openpyxl": true
+  },
+  "optional_packages": {
+    "seaborn": true,
+    "plotly": false,
+    "xlrd": true
+  },
+  "optional_executables": {
+    "inkscape": true,
+    "Rscript": false,
+    "pdflatex": true,
+    "dvisvgm": false,
+    "dot": false
+  },
+  "note": "Presence is not an integration test. Optional backend export still requires a final SVG audit."
+}

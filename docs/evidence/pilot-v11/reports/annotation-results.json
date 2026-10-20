@@ -1,0 +1,143 @@
+{
+  "figure-1": {
+    "passed": true,
+    "output": "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/figures/figure-1-before-polish.svg",
+    "audit": {
+      "passed": true,
+      "errors": [],
+      "warnings": [
+        "Only the presence of editable text was checked. Supply expected_labels to verify all intended labels and detect partially outlined exports.",
+        "Visual inspection remains required for clipping, overlap, glyph availability, and journal-specific presentation requirements."
+      ],
+      "metrics": {
+        "text_count": 24,
+        "visible_text_count": 24,
+        "path_count": 52,
+        "image_count": 0,
+        "element_count": 316,
+        "width_mm": 179.9999998333333,
+        "height_mm": 85.00000003888889,
+        "min_font_pt": 7.499999999999999,
+        "max_font_pt": 9.499999999999998,
+        "labels": [
+          "0",
+          "5",
+          "10",
+          "15",
+          "20",
+          "25",
+          "30",
+          "Training epoch",
+          "40",
+          "45",
+          "50",
+          "55",
+          "60",
+          "65",
+          "70",
+          "75",
+          "80",
+          "85",
+          "Task success (%)",
+          "Mean ± SD across 6 runs per method",
+          "Baseline",
+          "Context",
+          "Proposed",
+          "Synthetic learning trajectories"
+        ],
+        "expected_labels_checked": 0,
+        "limitations": [
+          "Static checks do not certify journal acceptance, scientific accuracy, or visual quality.",
+          "Font sizes are conservative geometric estimates; installed fonts, glyph coverage, clipping, overlaps, and rendered bounds require visual inspection.",
+          "Paths cannot reliably be distinguished as letters versus scientific geometry; supply every required label through expected_labels to detect missing live text."
+        ],
+        "file_size_bytes": 29035,
+        "viewbox": [
+          0.0,
+          0.0,
+          510.23622,
+          240.944882
+        ]
+      }
+    },
+    "title": "Synthetic learning trajectories",
+    "description": "Synthetic learning-trajectory plot. The horizontal axis shows training epochs 0 through 30 and the vertical axis task success from 40 to 85 percent. Gray dashed circles identify Baseline, orange dotted triangles Context, and blue solid squares Proposed. All three mean curves increase, with Proposed highest at every observed epoch. From epoch 0 to 30, means change from 43.745 to 57.881 percent, 53.495 to 69.476 percent, and 62.661 to 79.048 percent, respectively. Error bars and translucent bands show sample SD across six runs per method.",
+    "source_sha256": "c3e5718209bd93a9da5eee920e3af33194e4acfc3e3c970d68875b97c223772b",
+    "output_sha256": "b2c511ed7f334cde2aa82e448d76b6fabe4d458e29f7048d6485b9be4a5febbf"
+  },
+  "figure-2": {
+    "passed": true,
+    "output": "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/figures/figure-2-before-polish.svg",
+    "audit": {
+      "passed": true,
+      "errors": [],
+      "warnings": [
+        "Only the presence of editable text was checked. Supply expected_labels to verify all intended labels and detect partially outlined exports.",
+        "Visual inspection remains required for clipping, overlap, glyph availability, and journal-specific presentation requirements."
+      ],
+      "metrics": {
+        "text_count": 33,
+        "visible_text_count": 33,
+        "path_count": 34,
+        "image_count": 0,
+        "element_count": 293,
+        "width_mm": 179.9999998333333,
+        "height_mm": 89.99999991666665,
+        "min_font_pt": 7.499999999999999,
+        "max_font_pt": 9.499999999999998,
+        "labels": [
+          "Baseline",
+          "Context",
+          "Proposed",
+          "Method",
+          "0",
+          "20",
+          "40",
+          "60",
+          "80",
+          "100",
+          "Task success (%)",
+          "(a) Final mean ± SD (n = 6)",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "Run (seed ID)",
+          "50",
+          "55",
+          "60",
+          "65",
+          "70",
+          "75",
+          "80",
+          "85",
+          "Task success (%)",
+          "(b) Individual runs (expanded scale)",
+          "Baseline",
+          "Context",
+          "Proposed",
+          "Synthetic final results and run variation"
+        ],
+        "expected_labels_checked": 0,
+        "limitations": [
+          "Static checks do not certify journal acceptance, scientific accuracy, or visual quality.",
+          "Font sizes are conservative geometric estimates; installed fonts, glyph coverage, clipping, overlaps, and rendered bounds require visual inspection.",
+          "Paths cannot reliably be distinguished as letters versus scientific geometry; supply every required label through expected_labels to detect missing live text."
+        ],
+        "file_size_bytes": 25242,
+        "viewbox": [
+          0.0,
+          0.0,
+          510.23622,
+          255.11811
+        ]
+      }
+    },
+    "title": "Synthetic final results and run variation",
+    "description": "Synthetic final-results figure with two horizontal panels. Left: zero-baseline bars compare mean task success with sample SD error bars across six runs per method. Baseline is about 57.9 percent, Context 69.5 percent and Proposed 79.0 percent. Right: eighteen unconnected points show all six seed-labeled runs per method on a 50 to 85 percent scale. Baseline gray circles range from 56.337 to 58.904 percent, Context orange triangles from 67.671 to 71.353 percent, and Proposed blue squares from 77.382 to 80.181 percent. A three-marker legend identifies methods. Proposed has the highest mean in these Synthetic data.",
+    "source_sha256": "9500d94a1987c8c68c562f6fbd07d24156f824ca483949d3002cc63ca65e3171",
+    "output_sha256": "696c4450155f2a783af9ef9b9925c6945752141261a9c605ddcc00db73b8794e"
+  }
+}

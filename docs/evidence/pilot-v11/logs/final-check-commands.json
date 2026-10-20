@@ -1,0 +1,27 @@
+[
+  {
+    "name": "project-final",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/source/figurefoundry/scripts/figurefoundry.py",
+      "project",
+      "--spec",
+      "project.json",
+      "--baseline",
+      "reports/project-baseline.json",
+      "--out",
+      "reports/project-index.json",
+      "--notes-dir",
+      "notes"
+    ],
+    "returncode": 0
+  },
+  {
+    "name": "verify-numbers",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "qa/verify_numbers.py"
+    ],
+    "returncode": 0
+  }
+]

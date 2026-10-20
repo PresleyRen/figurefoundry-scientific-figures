@@ -1,0 +1,14 @@
+{
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+    "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/source/figurefoundry/scripts/figurefoundry.py",
+    "project",
+    "--spec",
+    "project-before-polish.json",
+    "--out",
+    "reports/project-baseline.json",
+    "--notes-dir",
+    "notes/baseline"
+  ],
+  "returncode": 0
+}

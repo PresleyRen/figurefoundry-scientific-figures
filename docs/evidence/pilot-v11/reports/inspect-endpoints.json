@@ -1,0 +1,25 @@
+{
+  "source": {
+    "file": "endpoints.csv",
+    "sha256": "a9aa06b7f103e1fb77569d4cc5c0fcec7491552336c3172dec07d8521ce6155b",
+    "rows": 18,
+    "columns": [
+      "method",
+      "seed",
+      "success",
+      "latency"
+    ],
+    "missing_by_column": {
+      "method": 0,
+      "seed": 0,
+      "success": 0,
+      "latency": 0
+    }
+  },
+  "dtypes": {
+    "method": "object",
+    "seed": "int64",
+    "success": "float64",
+    "latency": "float64"
+  }
+}

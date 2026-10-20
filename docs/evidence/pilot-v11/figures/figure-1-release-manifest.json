@@ -1,0 +1,35 @@
+{
+  "data_status": "Synthetic",
+  "active_editable_source": "figure-1.svg",
+  "upstream_spec": "specs/figure-1-learning-v2.json",
+  "shared_defaults": "specs/plot-defaults.json",
+  "width_mm": 180,
+  "height_mm": 85,
+  "refinement": {
+    "text_fill_changes": 24,
+    "non_data_grid_color_changes": 10,
+    "data_colors": "unchanged",
+    "geometry": "unchanged",
+    "text_content": "unchanged"
+  },
+  "caption": "Figure 1. Synthetic learning trajectories for Baseline, Context and Proposed. The supplied demonstration table contains six independent synthetic runs per method, observed at epochs 0, 5, 10, 15, 20, 25 and 30. Points and lines show the arithmetic mean at each observed epoch; vertical error bars and shaded bands show plus or minus one sample standard deviation (n−1 denominator) across the six runs. The same runs are followed over time, so epochs are repeated observations, not additional independent samples. Straight segments join observed mean values; no smoothing, interpolation of missing observations, exclusion, significance test or normalization was performed. Baseline is gray with circles and dashed lines, Context orange with triangles and dotted lines, and Proposed blue with squares and solid lines. The vertical axis is 40–85%; small horizontal padding retains complete endpoint markers. These Synthetic data illustrate figure production and do not establish real experimental superiority.",
+  "alt_text": "Synthetic learning-trajectory plot. The horizontal axis shows training epochs 0 through 30 and the vertical axis task success from 40 to 85 percent. Gray dashed circles identify Baseline, orange dotted triangles Context, and blue solid squares Proposed. All three mean curves increase, with Proposed highest at every observed epoch. From epoch 0 to 30, means change from 43.745 to 57.881 percent, 53.495 to 69.476 percent, and 62.661 to 79.048 percent, respectively. Error bars and translucent bands show sample SD across six runs per method.",
+  "audit_passed": true,
+  "style_revision_passed": true,
+  "files": {
+    "svg": {
+      "path": "figure-1.svg",
+      "sha256": "5a261842a12465fbb01a3923e3922f434e01c30b2b8be3afbb8a02fde94db3ea"
+    },
+    "pdf": {
+      "path": "figure-1.pdf",
+      "sha256": "365a421d7fa38e424cf1c1cdbfb798885f0c610e77ce30f5ebcb7a3858b092b1"
+    },
+    "png": {
+      "path": "figure-1.png",
+      "sha256": "a0ffb5751619296977457f50de7079d0e0b1db97c8c6c17978a672eedc6e66a9"
+    }
+  },
+  "journal_status": "planning profile; no target venue specified",
+  "source_snapshot": "source/figurefoundry; exact copied local runtime, see source/SNAPSHOT.json"
+}

@@ -1,0 +1,12 @@
+{
+  "python": "3.12.14",
+  "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+  "packages": {
+    "matplotlib": "3.10.8",
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "scipy": "1.17.0",
+    "openpyxl": "3.1.5"
+  },
+  "renderer": "Inkscape 1.2.2 (b0a8486541, 2022-12-01)"
+}

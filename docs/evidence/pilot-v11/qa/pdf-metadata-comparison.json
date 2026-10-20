@@ -1,0 +1,36 @@
+{
+  "passed": true,
+  "scope": "Read-only pypdf comparison after stream decompression. Original PDF bytes are retained. CreationDate is excluded explicitly.",
+  "figures": [
+    {
+      "figure": "figure-1",
+      "original_creation_date": "2026-10-20 16:57:48+09:00",
+      "rebuilt_creation_date": "2026-10-20 17:00:32+09:00",
+      "decoded_page_content_resources_and_non_date_metadata_identical": true,
+      "page_counts": [
+        1,
+        1
+      ],
+      "ignored_fields": [
+        "CreationDate",
+        "Parent backlinks",
+        "compression dictionary after successful stream decoding"
+      ]
+    },
+    {
+      "figure": "figure-2",
+      "original_creation_date": "2026-10-20 16:57:53+09:00",
+      "rebuilt_creation_date": "2026-10-20 17:00:37+09:00",
+      "decoded_page_content_resources_and_non_date_metadata_identical": true,
+      "page_counts": [
+        1,
+        1
+      ],
+      "ignored_fields": [
+        "CreationDate",
+        "Parent backlinks",
+        "compression dictionary after successful stream decoding"
+      ]
+    }
+  ]
+}

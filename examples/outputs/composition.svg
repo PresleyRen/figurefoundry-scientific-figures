@@ -117,7 +117,7 @@ Vector index</title>
                 <dc:format class="panel-002-scope">image/svg+xml</dc:format>
                 <dc:creator class="panel-002-scope">
                   <ns2:Agent class="panel-002-scope">
-                    <dc:title class="panel-002-scope">FigureFoundry 1.0.0; Matplotlib 3.10.8</dc:title>
+                    <dc:title class="panel-002-scope">FigureFoundry 1.1.0; Matplotlib 3.10.8</dc:title>
                   </ns2:Agent>
                 </dc:creator>
               </ns2:Work>
@@ -503,7 +503,7 @@ Vector index</title>
                 <dc:format class="panel-003-scope">image/svg+xml</dc:format>
                 <dc:creator class="panel-003-scope">
                   <ns2:Agent class="panel-003-scope">
-                    <dc:title class="panel-003-scope">FigureFoundry 1.0.0; Matplotlib 3.10.8</dc:title>
+                    <dc:title class="panel-003-scope">FigureFoundry 1.1.0; Matplotlib 3.10.8</dc:title>
                   </ns2:Agent>
                 </dc:creator>
               </ns2:Work>

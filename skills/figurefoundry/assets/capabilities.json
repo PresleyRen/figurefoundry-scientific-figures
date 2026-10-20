@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "version": "1.0.0",
+  "version": "1.1.0",
   "path_convention": "module/reference are relative to this skill; tests relative to repository root",
-  "status_note": "native identifies bundled code, not universal scientific or journal certification. Execution evidence is docs/TEST_REPORT.md.",
+  "status_note": "实现方式按内置模块、可运行配方、Agent工作流和既有项目后端标注；执行记录见docs/TEST_REPORT.md。",
   "capabilities": [
     {
       "id": "FF-PLOT-01",
@@ -15,7 +15,10 @@
       "keywords": [
         "line",
         "experimental",
-        "科研绘图"
+        "科研绘图",
+        "宽表",
+        "多曲线",
+        "y_columns"
       ]
     },
     {
@@ -29,7 +32,10 @@
       "keywords": [
         "bar",
         "experimental",
-        "科研绘图"
+        "科研绘图",
+        "raw_points",
+        "独立单位点",
+        "技术重复"
       ]
     },
     {
@@ -43,7 +49,11 @@
       "keywords": [
         "scatter",
         "experimental",
-        "科研绘图"
+        "科研绘图",
+        "OLS",
+        "R²",
+        "方程",
+        "拟合"
       ]
     },
     {
@@ -85,7 +95,12 @@
       "keywords": [
         "hist",
         "experimental",
-        "科研绘图"
+        "科研绘图",
+        "normal",
+        "lognormal",
+        "正态",
+        "对数正态",
+        "密度拟合"
       ]
     },
     {
@@ -413,6 +428,215 @@
         "Plotly",
         "WebGL",
         "interactive"
+      ]
+    },
+    {
+      "id": "FF-LAYOUT-01",
+      "name": "跨行跨列和非对称主面板",
+      "status": "native",
+      "module": "scripts/ff_plots.py",
+      "reference": "references/plot-spec.md",
+      "tests": "tests/test_plot_feature_coverage.py",
+      "keywords": [
+        "GridSpec",
+        "hero",
+        "非对称",
+        "跨行",
+        "跨列",
+        "布局"
+      ]
+    },
+    {
+      "id": "FF-STYLE-02",
+      "name": "五类样式与项目默认值",
+      "status": "native",
+      "module": "scripts/ff_style.py",
+      "reference": "references/project-workflow.md",
+      "tests": "tests/test_style_inventory.py",
+      "keywords": [
+        "theme",
+        "defaults",
+        "palette",
+        "共享样式",
+        "配色",
+        "figure set"
+      ]
+    },
+    {
+      "id": "FF-QUALITY-01",
+      "name": "配色对比度与CIE L*灰度",
+      "status": "native",
+      "module": "scripts/ff_quality.py",
+      "reference": "references/quality-workflow.md",
+      "tests": "tests/test_workflow_features.py",
+      "keywords": [
+        "contrast",
+        "L*",
+        "grayscale",
+        "对比度",
+        "灰度",
+        "配色"
+      ]
+    },
+    {
+      "id": "FF-ACCESS-01",
+      "name": "替代文本与SVG标题长描述",
+      "status": "native",
+      "module": "scripts/ff_quality.py",
+      "reference": "references/quality-workflow.md",
+      "tests": "tests/test_workflow_features.py",
+      "keywords": [
+        "alt text",
+        "title",
+        "description",
+        "图注",
+        "替代文本",
+        "可访问"
+      ]
+    },
+    {
+      "id": "FF-REVISION-01",
+      "name": "SVG样式精修与选定文字比较",
+      "status": "native",
+      "module": "scripts/ff_quality.py",
+      "reference": "references/quality-workflow.md",
+      "tests": "tests/test_workflow_features.py",
+      "keywords": [
+        "revision",
+        "recolor",
+        "edit",
+        "diff",
+        "精修",
+        "修改",
+        "改色"
+      ]
+    },
+    {
+      "id": "FF-PROJECT-01",
+      "name": "论文图集合同、科学量锁定与主源交接",
+      "status": "native",
+      "module": "scripts/ff_project.py",
+      "reference": "references/project-workflow.md",
+      "tests": "tests/test_workflow_features.py",
+      "keywords": [
+        "project",
+        "contract",
+        "variants",
+        "handover",
+        "graphical abstract",
+        "TOC",
+        "图集",
+        "候选",
+        "冻结",
+        "实体",
+        "图形摘要"
+      ]
+    },
+    {
+      "id": "FF-REFERENCE-01",
+      "name": "论文HTML参考图件与证据整理",
+      "status": "native",
+      "module": "scripts/ff_reference.py",
+      "reference": "references/reference-intake.md",
+      "tests": "tests/test_reference_intake.py",
+      "keywords": [
+        "arXiv",
+        "HTML",
+        "reference",
+        "caption",
+        "参考图",
+        "文献",
+        "图注",
+        "来源"
+      ]
+    },
+    {
+      "id": "FF-REFERENCE-02",
+      "name": "文献benchmark与数字化来源记录",
+      "status": "native",
+      "module": "scripts/ff_reference.py",
+      "reference": "references/reference-intake.md",
+      "tests": "tests/test_reference_intake.py",
+      "keywords": [
+        "benchmark",
+        "DOI",
+        "digitization",
+        "文献数字化",
+        "不确定性",
+        "来源"
+      ]
+    },
+    {
+      "id": "FF-INVENTORY-01",
+      "name": "Python和Notebook绘图源码定位",
+      "status": "native",
+      "module": "scripts/ff_inventory.py",
+      "reference": "references/project-workflow.md",
+      "tests": "tests/test_style_inventory.py",
+      "keywords": [
+        "inventory",
+        "notebook",
+        "ipynb",
+        "savefig",
+        "源码",
+        "定位",
+        "美化"
+      ]
+    },
+    {
+      "id": "FF-CUSTOM-02",
+      "name": "Seaborn四类网格与显式权重配方",
+      "status": "executable-recipe",
+      "module": "scripts/ff_seaborn.py",
+      "reference": "references/quality-workflow.md",
+      "tests": "tests/test_seaborn_recipes.py",
+      "keywords": [
+        "FacetGrid",
+        "PairGrid",
+        "JointGrid",
+        "clustermap",
+        "seaborn",
+        "分面",
+        "聚类",
+        "加权"
+      ]
+    },
+    {
+      "id": "FF-ATLAS-01",
+      "name": "中英专业图谱与接入路线",
+      "status": "workflow+catalog",
+      "module": null,
+      "reference": "references/specialty-atlas.md",
+      "tests": "tests/test_coverage_navigation.py",
+      "keywords": [
+        "atlas",
+        "专业",
+        "生存",
+        "富集",
+        "雨云",
+        "相图",
+        "频谱",
+        "基因组关联",
+        "电路",
+        "层叠",
+        "CONSORT",
+        "PRISMA"
+      ]
+    },
+    {
+      "id": "FF-COVERAGE-01",
+      "name": "逐来源特点与互补扩展索引",
+      "status": "native",
+      "module": "scripts/figurefoundry.py",
+      "reference": "references/project-workflow.md",
+      "tests": "tests/test_coverage_navigation.py",
+      "keywords": [
+        "coverage",
+        "覆盖",
+        "来源",
+        "扩展",
+        "不足",
+        "互补"
       ]
     }
   ]

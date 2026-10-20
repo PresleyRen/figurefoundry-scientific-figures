@@ -1,0 +1,124 @@
+{
+  "passed": true,
+  "geometry_and_unselected_text_unchanged": true,
+  "allowed_text_ids": [],
+  "before_sha256": "b2c511ed7f334cde2aa82e448d76b6fabe4d458e29f7048d6485b9be4a5febbf",
+  "after_sha256": "5a261842a12465fbb01a3923e3922f434e01c30b2b8be3afbb8a02fde94db3ea",
+  "before_audit": {
+    "passed": true,
+    "errors": [],
+    "warnings": [
+      "Only the presence of editable text was checked. Supply expected_labels to verify all intended labels and detect partially outlined exports.",
+      "Visual inspection remains required for clipping, overlap, glyph availability, and journal-specific presentation requirements."
+    ],
+    "metrics": {
+      "text_count": 24,
+      "visible_text_count": 24,
+      "path_count": 52,
+      "image_count": 0,
+      "element_count": 316,
+      "width_mm": 179.9999998333333,
+      "height_mm": 85.00000003888889,
+      "min_font_pt": 7.499999999999999,
+      "max_font_pt": 9.499999999999998,
+      "labels": [
+        "0",
+        "5",
+        "10",
+        "15",
+        "20",
+        "25",
+        "30",
+        "Training epoch",
+        "40",
+        "45",
+        "50",
+        "55",
+        "60",
+        "65",
+        "70",
+        "75",
+        "80",
+        "85",
+        "Task success (%)",
+        "Mean ± SD across 6 runs per method",
+        "Baseline",
+        "Context",
+        "Proposed",
+        "Synthetic learning trajectories"
+      ],
+      "expected_labels_checked": 0,
+      "limitations": [
+        "Static checks do not certify journal acceptance, scientific accuracy, or visual quality.",
+        "Font sizes are conservative geometric estimates; installed fonts, glyph coverage, clipping, overlaps, and rendered bounds require visual inspection.",
+        "Paths cannot reliably be distinguished as letters versus scientific geometry; supply every required label through expected_labels to detect missing live text."
+      ],
+      "file_size_bytes": 29035,
+      "viewbox": [
+        0.0,
+        0.0,
+        510.23622,
+        240.944882
+      ]
+    }
+  },
+  "after_audit": {
+    "passed": true,
+    "errors": [],
+    "warnings": [
+      "Only the presence of editable text was checked. Supply expected_labels to verify all intended labels and detect partially outlined exports.",
+      "Visual inspection remains required for clipping, overlap, glyph availability, and journal-specific presentation requirements."
+    ],
+    "metrics": {
+      "text_count": 24,
+      "visible_text_count": 24,
+      "path_count": 52,
+      "image_count": 0,
+      "element_count": 316,
+      "width_mm": 179.9999998333333,
+      "height_mm": 85.00000003888889,
+      "min_font_pt": 7.499999999999999,
+      "max_font_pt": 9.499999999999998,
+      "labels": [
+        "0",
+        "5",
+        "10",
+        "15",
+        "20",
+        "25",
+        "30",
+        "Training epoch",
+        "40",
+        "45",
+        "50",
+        "55",
+        "60",
+        "65",
+        "70",
+        "75",
+        "80",
+        "85",
+        "Task success (%)",
+        "Mean ± SD across 6 runs per method",
+        "Baseline",
+        "Context",
+        "Proposed",
+        "Synthetic learning trajectories"
+      ],
+      "expected_labels_checked": 0,
+      "limitations": [
+        "Static checks do not certify journal acceptance, scientific accuracy, or visual quality.",
+        "Font sizes are conservative geometric estimates; installed fonts, glyph coverage, clipping, overlaps, and rendered bounds require visual inspection.",
+        "Paths cannot reliably be distinguished as letters versus scientific geometry; supply every required label through expected_labels to detect missing live text."
+      ],
+      "file_size_bytes": 29569,
+      "viewbox": [
+        0.0,
+        0.0,
+        510.23622,
+        240.944882
+      ]
+    }
+  },
+  "errors": []
+}

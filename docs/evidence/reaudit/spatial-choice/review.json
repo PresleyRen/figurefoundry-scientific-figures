@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "conflict_id": "CF-06",
+  "comparison": "One quantitative response across three categorical groups",
+  "data_status": "synthetic",
+  "source": "data.csv",
+  "source_sha256": "408eeefbf58fe8827223126d6780d0c133a0b5c30c5b16b1b34406993f23ccdf",
+  "groups": [
+    "Control",
+    "Method A",
+    "Method B"
+  ],
+  "values": [
+    12.0,
+    15.0,
+    14.0
+  ],
+  "canvas_mm": [
+    120,
+    90
+  ],
+  "candidates": {
+    "2d": {
+      "svg": "quantitative-2d.svg",
+      "preview": "quantitative-2d.png",
+      "manifest": "quantitative-2d.manifest.json",
+      "svg_audit_passed": true,
+      "text_count": 13,
+      "image_count": 0,
+      "width_mm": 119.9999998888889,
+      "height_mm": 89.99999991666665,
+      "height_encoding": {
+        "pixels_per_response_unit": [
+          13.385826771653546,
+          13.385826771653546,
+          13.385826771653546
+        ],
+        "relative_span": 0.0,
+        "measurement": "2D centerline or 3D projected front-face centerline, from baseline to bar top"
+      }
+    },
+    "3d": {
+      "svg": "quantitative-3d.svg",
+      "preview": "quantitative-3d.png",
+      "manifest": "quantitative-3d.manifest.json",
+      "svg_audit_passed": true,
+      "text_count": 13,
+      "image_count": 0,
+      "width_mm": 119.9999998888889,
+      "height_mm": 89.99999991666665,
+      "height_encoding": {
+        "pixels_per_response_unit": [
+          8.100314614340354,
+          8.309091774916444,
+          8.445599458099684
+        ],
+        "relative_span": 0.04167589167508331,
+        "measurement": "2D centerline or 3D projected front-face centerline, from baseline to bar top"
+      }
+    }
+  },
+  "visual_review": {
+    "status": "completed",
+    "method": "Direct visual inspection of both exported PNG previews at the same 120 × 90 mm figure size; XML/live-text and projected-polygon checks are recorded separately.",
+    "inspected_assets": {
+      "quantitative-2d.png": "894e136868cff337a15bb1d0e7891e0b6f4dae8bd5ec8c9891c58b593aeccabe",
+      "quantitative-3d.png": "016ed0ddfacec9ae97c2114ac8d1966c2471cad7775f679709bdf6eaf537581c"
+    },
+    "findings": {
+      "2d": [
+        "Control、Method A、Method B 与 12、15、14 全部清楚可见；单位与共同零基线明确。",
+        "三组柱高沿同一二维线性轴比较，15 > 14 > 12 的顺序可直接读取。",
+        "没有标题、数值、组标签或轴标签之间的明显遮挡。"
+      ],
+      "3d": [
+        "同一组三个数值、组标签和单位均保留且可读；3D SVG 同样通过可编辑文字和无嵌入位图审核。",
+        "倾斜基座、顶面与侧面明暗增加了本例没有对应测量量的空间信息。",
+        "比较需要沿透视网格追踪高度或读取数值标注；不同柱的位置和高度带来不同的屏幕高度比例。"
+      ]
+    },
+    "measurement_interpretation": "relative_span 是各柱屏幕高度/真实数值的极差除以均值；它描述本视角的投影几何，不是读者准确率或阅读时间。"
+  },
+  "decision": {
+    "preferred_for_this_quantitative_comparison": "2d",
+    "reason": "本例只有组别与一个响应量。二维保留共同基线和一致的高度比例，直接支持组间差异比较；装饰性深度没有增加科学变量。",
+    "retain_3d_for": [
+      "真实三维坐标或空间轨迹",
+      "曲面、体积、装置空间几何及几何关系",
+      "需要表达第三个科学维度的结构示意"
+    ],
+    "application": "根据数据维度选择二维比较或真实三维表达；两种输出均可通过同一 SVG 可编辑性审核。"
+  },
+  "projection_3d": {
+    "type": "perspective",
+    "elevation_degrees": 24,
+    "azimuth_degrees": -57,
+    "box_aspect": [
+      1.4,
+      0.5,
+      1
+    ],
+    "extrusion_depth": 0.5,
+    "extrusion_represents_data": false
+  },
+  "automated_tests": {
+    "file": "tests/test_spatial_choice.py",
+    "method_count": 2,
+    "result": "passed",
+    "command": "python -m unittest discover -s tests -p test_spatial_choice.py -v",
+    "methods": [
+      "test_matched_2d_and_3d_preserve_values_labels_and_editable_svg",
+      "test_decorative_perspective_varies_height_scale_while_2d_keeps_common_scale"
+    ]
+  },
+  "rebuild_command": "python tests/test_spatial_choice.py --write-evidence docs/evidence/reaudit/spatial-choice"
+}

@@ -1,0 +1,540 @@
+{
+  "schema_version": 1,
+  "generator": "FigureFoundry",
+  "version": "1.1.0",
+  "environment": {
+    "python": "3.12.14",
+    "matplotlib": "3.10.8"
+  },
+  "master": "figure-1-upstream.svg",
+  "width_mm": 180.0,
+  "height_mm": 85.0,
+  "minimum_font_pt": 7.0,
+  "text_mode": "live-svg-text",
+  "raster_preview_dpi": 300,
+  "expected_labels": [
+    "Training epoch",
+    "Task success (%)",
+    "Mean ± SD across 6 runs per method",
+    "Baseline",
+    "Context",
+    "Proposed",
+    "Synthetic learning trajectories",
+    "0",
+    "5",
+    "10",
+    "15",
+    "20",
+    "25",
+    "30",
+    "40",
+    "45",
+    "50",
+    "55",
+    "60",
+    "65",
+    "70",
+    "75",
+    "80",
+    "85"
+  ],
+  "files": {
+    "svg": {
+      "name": "figure-1-upstream.svg",
+      "sha256": "c3e5718209bd93a9da5eee920e3af33194e4acfc3e3c970d68875b97c223772b"
+    },
+    "pdf": {
+      "name": "figure-1-upstream.pdf",
+      "sha256": "7ee0b0de4c20838e874294bed5cb81be2e6c54f6e5b13b3dc90cd7e614effd82"
+    },
+    "png": {
+      "name": "figure-1-upstream.png",
+      "sha256": "ef92ec97c4f8bc56b0d2500cf56d163ed2916433926158d944abfbf5118670c7"
+    }
+  },
+  "svg_audit": {
+    "passed": true,
+    "errors": [],
+    "warnings": [
+      "Visual inspection remains required for clipping, overlap, glyph availability, and journal-specific presentation requirements."
+    ],
+    "metrics": {
+      "text_count": 24,
+      "visible_text_count": 24,
+      "path_count": 52,
+      "image_count": 0,
+      "element_count": 314,
+      "width_mm": 179.9999998333333,
+      "height_mm": 85.00000003888889,
+      "min_font_pt": 7.499999999999999,
+      "max_font_pt": 9.499999999999998,
+      "labels": [
+        "0",
+        "5",
+        "10",
+        "15",
+        "20",
+        "25",
+        "30",
+        "Training epoch",
+        "40",
+        "45",
+        "50",
+        "55",
+        "60",
+        "65",
+        "70",
+        "75",
+        "80",
+        "85",
+        "Task success (%)",
+        "Mean ± SD across 6 runs per method",
+        "Baseline",
+        "Context",
+        "Proposed",
+        "Synthetic learning trajectories"
+      ],
+      "expected_labels_checked": 24,
+      "limitations": [
+        "Static checks do not certify journal acceptance, scientific accuracy, or visual quality.",
+        "Font sizes are conservative geometric estimates; installed fonts, glyph coverage, clipping, overlaps, and rendered bounds require visual inspection.",
+        "Paths cannot reliably be distinguished as letters versus scientific geometry; supply every required label through expected_labels to detect missing live text."
+      ],
+      "file_size_bytes": 28389,
+      "viewbox": [
+        0.0,
+        0.0,
+        510.23622,
+        240.944882
+      ]
+    }
+  },
+  "provenance": {
+    "claim": "Synthetic demonstration: mean task success increases with epoch; Proposed has the highest mean at all seven observed epochs. No experimental superiority claim is made.",
+    "data_status": "synthetic",
+    "journal": {
+      "status": "not specified"
+    },
+    "panels": [
+      {
+        "id": "a",
+        "kind": "line",
+        "source": {
+          "file": "learning.csv",
+          "sha256": "5b1a4624a7c428f8447cf40357609c3df8e80cb343c9246e6da91c9a8453dfcc",
+          "rows": 126,
+          "columns": [
+            "method",
+            "seed",
+            "epoch",
+            "success"
+          ],
+          "missing_by_column": {
+            "method": 0,
+            "seed": 0,
+            "epoch": 0,
+            "success": 0
+          }
+        },
+        "warnings": [
+          "Explicit xlim applied; visually verify excluded observations are disclosed.",
+          "Explicit ylim applied; visually verify excluded observations are disclosed."
+        ],
+        "grid": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "statistics": {
+          "estimator": "mean",
+          "uncertainty": "sd",
+          "independent_unit": "seed",
+          "within_unit": null,
+          "confidence_level": null,
+          "bootstrap_draws": null,
+          "random_seed": null,
+          "warnings": [],
+          "groups": [
+            {
+              "epoch": 0,
+              "method": "Baseline",
+              "estimate": 43.74483333333333,
+              "lower": 42.298294786779294,
+              "upper": 45.19137187988737,
+              "n": 6,
+              "observations": 6,
+              "missing": 0
+            },
+            {
+              "epoch": 5,
+              "method": "Baseline",
+              "estimate": 49.9595,
+              "lower": 48.9217282042761,
+              "upper": 50.9972717957239,
+              "n": 6,
+              "observations": 6,
+              "missing": 0
+            },
+            {
+              "epoch": 10,
+              "method": "Baseline",
+              "estimate": 53.90716666666666,
+              "lower": 52.942651157892094,
+              "upper": 54.87168217544123,
+              "n": 6,
+              "observations": 6,
+              "missing": 0
+            },
+            {
+              "epoch": 15,
+              "method": "Baseline",
+              "estimate": 55.82233333333334,
+              "lower": 54.59467594355936,
+              "upper": 57.04999072310732,
+              "n": 6,
+              "observations": 6,
+              "missing": 0
+            },
+            {
+              "epoch": 20,
+              "method": "Baseline",
+              "estimate": 56.92883333333334,
+              "lower": 55.87057392909132,
+              "upper": 57.98709273757535,
+              "n": 6,
+              "observations": 6,
+              "missing": 0
+            },
+            {
+              "epoch": 25,
+              "method": "Baseline",
+              "estimate": 57.470666666666666,
+              "lower": 56.042673856227246,
+              "upper": 58.89865947710609,
+              "n": 6,
+              "observations": 6,
+              "missing": 0
+            },
+            {
+              "epoch": 30,
+              "method": "Baseline",
+              "estimate": 57.88133333333334,
+              "lower": 57.01532740571698,
+              "upper": 58.747339260949694,
+              "n": 6,
+              "observations": 6,
+              "missing": 0
+            },
+            {
+              "epoch": 0,
+              "method": "Context",
+              "estimate": 53.49450000000001,
+              "lower": 52.76586847446738,
+              "upper": 54.22313152553264,
+              "n": 6,
+              "observations": 6,
+              "missing": 0
+            },
+            {
+              "epoch": 5,
+              "method": "Context",
+              "estimate": 60.63649999999999,
+              "lower": 59.52650923427264,
+              "upper": 61.746490765727344,
+              "n": 6,
+              "observations": 6,
+              "missing": 0
+            },
+            {
+              "epoch": 10,
+              "method": "Context",
+              "estimate": 64.66633333333333,
+              "lower": 63.551790616939435,
+              "upper": 65.78087604972721,
+              "n": 6,
+              "observations": 6,
+              "missing": 0
+            },
+            {
+              "epoch": 15,
+              "method": "Context",
+              "estimate": 66.91883333333334,
+              "lower": 65.98890830051259,
+              "upper": 67.84875836615409,
+              "n": 6,
+              "observations": 6,
+              "missing": 0
+            },
+            {
+              "epoch": 20,
+              "method": "Context",
+              "estimate": 68.12599999999999,
+              "lower": 67.33338861981422,
+              "upper": 68.91861138018577,
+              "n": 6,
+              "observations": 6,
+              "missing": 0
+            },
+            {
+              "epoch": 25,
+              "method": "Context",
+              "estimate": 69.04199999999999,
+              "lower": 68.1293309471665,
+              "upper": 69.95466905283348,
+              "n": 6,
+              "observations": 6,
+              "missing": 0
+            },
+            {
+              "epoch": 30,
+              "method": "Context",
+              "estimate": 69.47616666666666,
+              "lower": 68.2240102201047,
+              "upper": 70.72832311322861,
+              "n": 6,
+              "observations": 6,
+              "missing": 0
+            },
+            {
+              "epoch": 0,
+              "method": "Proposed",
+              "estimate": 62.661,
+              "lower": 61.511758336989125,
+              "upper": 63.81024166301088,
+              "n": 6,
+              "observations": 6,
+              "missing": 0
+            },
+            {
+              "epoch": 5,
+              "method": "Proposed",
+              "estimate": 70.2325,
+              "lower": 69.14581205031067,
+              "upper": 71.31918794968934,
+              "n": 6,
+              "observations": 6,
+              "missing": 0
+            },
+            {
+              "epoch": 10,
+              "method": "Proposed",
+              "estimate": 74.23500000000001,
+              "lower": 72.97755290369734,
+              "upper": 75.49244709630268,
+              "n": 6,
+              "observations": 6,
+              "missing": 0
+            },
+            {
+              "epoch": 15,
+              "method": "Proposed",
+              "estimate": 76.55933333333333,
+              "lower": 75.43956163041051,
+              "upper": 77.67910503625615,
+              "n": 6,
+              "observations": 6,
+              "missing": 0
+            },
+            {
+              "epoch": 20,
+              "method": "Proposed",
+              "estimate": 77.99866666666667,
+              "lower": 76.37672527849425,
+              "upper": 79.62060805483908,
+              "n": 6,
+              "observations": 6,
+              "missing": 0
+            },
+            {
+              "epoch": 25,
+              "method": "Proposed",
+              "estimate": 78.96066666666665,
+              "lower": 77.9209186843812,
+              "upper": 80.0004146489521,
+              "n": 6,
+              "observations": 6,
+              "missing": 0
+            },
+            {
+              "epoch": 30,
+              "method": "Proposed",
+              "estimate": 79.0475,
+              "lower": 77.73962909658484,
+              "upper": 80.35537090341516,
+              "n": 6,
+              "observations": 6,
+              "missing": 0
+            }
+          ]
+        },
+        "xlim": [
+          -0.8,
+          30.8
+        ],
+        "ylim": [
+          40,
+          85
+        ]
+      }
+    ],
+    "spec": {
+      "version": 1,
+      "defaults": "plot-defaults.json",
+      "data_status": "synthetic",
+      "claim": "Synthetic demonstration: mean task success increases with epoch; Proposed has the highest mean at all seven observed epochs. No experimental superiority claim is made.",
+      "title": "Synthetic learning trajectories",
+      "figure": {
+        "font_family": "DejaVu Sans",
+        "font_pt": 8.5,
+        "axis_font_pt": 8.5,
+        "tick_font_pt": 7.5,
+        "legend_font_pt": 8,
+        "panel_font_pt": 8.5,
+        "panel_label_position": "center",
+        "grid": "y",
+        "min_font_pt": 7,
+        "preview_dpi": 300,
+        "panel_label_style": "integrated",
+        "width_mm": 180,
+        "height_mm": 85
+      },
+      "panels": [
+        {
+          "linewidth": 1.35,
+          "markersize": 3.8,
+          "kind": "line",
+          "data": "../data/learning.csv",
+          "x": "epoch",
+          "y": "success",
+          "hue": "method",
+          "hue_order": [
+            "Baseline",
+            "Context",
+            "Proposed"
+          ],
+          "unit": "seed",
+          "estimator": "mean",
+          "error": "sd",
+          "xlabel": "Training epoch",
+          "ylabel": "Task success (%)",
+          "xlim": [
+            -0.8,
+            30.8
+          ],
+          "ylim": [
+            40,
+            85
+          ],
+          "title": "Mean ± SD across 6 runs per method",
+          "legend_loc": "lower right"
+        }
+      ],
+      "palette": {
+        "Baseline": {
+          "color": "#666A73",
+          "marker": "o",
+          "linestyle": "--"
+        },
+        "Context": {
+          "color": "#D55E00",
+          "marker": "^",
+          "linestyle": ":"
+        },
+        "Proposed": {
+          "color": "#0072B2",
+          "marker": "s",
+          "linestyle": "-"
+        }
+      },
+      "style_provenance": {
+        "theme": "compact",
+        "defaults": {
+          "path": "plot-defaults.json",
+          "sha256": "7e1e45bce23e25c74ccf82177acbe75e53bbc3d29a72d8e2976e539fd0815ec0"
+        },
+        "precedence": [
+          "theme",
+          "project defaults",
+          "figure specification"
+        ],
+        "style_sha256": "00243f2ca865b2e387fb9c73c023e8bcacaf6da171012c93259f50e7c617205a",
+        "resolved": {
+          "theme": "compact",
+          "figure": {
+            "font_family": "DejaVu Sans",
+            "font_pt": 8.5,
+            "axis_font_pt": 8.5,
+            "tick_font_pt": 7.5,
+            "legend_font_pt": 8,
+            "panel_font_pt": 8.5,
+            "panel_label_position": "center",
+            "grid": "y",
+            "min_font_pt": 7,
+            "panel_label_style": "integrated"
+          },
+          "panel_defaults": {
+            "linewidth": 1.35,
+            "markersize": 3.8
+          },
+          "palette": [
+            [
+              "Baseline",
+              {
+                "color": "#666A73",
+                "marker": "o",
+                "linestyle": "--"
+              }
+            ],
+            [
+              "Context",
+              {
+                "color": "#D55E00",
+                "marker": "^",
+                "linestyle": ":"
+              }
+            ],
+            [
+              "Proposed",
+              {
+                "color": "#0072B2",
+                "marker": "s",
+                "linestyle": "-"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    "layout": {
+      "rows": 1,
+      "cols": 1,
+      "width_ratios": [
+        1
+      ],
+      "height_ratios": [
+        1
+      ],
+      "panel_grid": [
+        [
+          0,
+          0,
+          1,
+          1
+        ]
+      ]
+    },
+    "transformations": "Only explicit plot aggregations/transforms recorded in this manifest."
+  },
+  "manual_review": {
+    "status": "required",
+    "items": [
+      "scientific meaning",
+      "label collisions",
+      "font availability",
+      "grayscale readability",
+      "current journal and submission stage"
+    ]
+  },
+  "journal_acceptance": "not-certified"
+}

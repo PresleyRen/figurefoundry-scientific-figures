@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "generator": "FigureFoundry",
+  "version": "1.1.0",
+  "environment": {
+    "python": "3.12.14",
+    "matplotlib": "3.10.8"
+  },
+  "master": "joint.svg",
+  "width_mm": 120.0,
+  "height_mm": 120.0,
+  "minimum_font_pt": 6.0,
+  "text_mode": "live-svg-text",
+  "raster_preview_dpi": 300,
+  "expected_labels": [
+    "Dose (a.u.)",
+    "Response (a.u.)",
+    "method",
+    "Baseline",
+    "Proposed",
+    "Synthetic demonstration · joint",
+    "2",
+    "4",
+    "6",
+    "8",
+    "1",
+    "3",
+    "5",
+    "7"
+  ],
+  "files": {
+    "svg": {
+      "name": "joint.svg",
+      "sha256": "d4858683f42e7175d20bab24936039804370f289334b4eb40d5f64eb20d0fff9"
+    },
+    "png": {
+      "name": "joint.png",
+      "sha256": "a2b17e7caa3b04c5ef1d2ca004827d621580696f47ad7864bd10f06e1777dc5d"
+    }
+  },
+  "svg_audit": {
+    "passed": true,
+    "errors": [],
+    "warnings": [
+      "Visual inspection remains required for clipping, overlap, glyph availability, and journal-specific presentation requirements."
+    ],
+    "metrics": {
+      "text_count": 17,
+      "visible_text_count": 17,
+      "path_count": 63,
+      "image_count": 0,
+      "element_count": 242,
+      "width_mm": 119.9999998888889,
+      "height_mm": 119.9999998888889,
+      "min_font_pt": 7.0,
+      "max_font_pt": 9.0,
+      "labels": [
+        "2",
+        "4",
+        "6",
+        "8",
+        "Dose (a.u.)",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "Response (a.u.)",
+        "method",
+        "Baseline",
+        "Proposed",
+        "Synthetic demonstration · joint"
+      ],
+      "expected_labels_checked": 14,
+      "limitations": [
+        "Static checks do not certify journal acceptance, scientific accuracy, or visual quality.",
+        "Font sizes are conservative geometric estimates; installed fonts, glyph coverage, clipping, overlaps, and rendered bounds require visual inspection.",
+        "Paths cannot reliably be distinguished as letters versus scientific geometry; supply every required label through expected_labels to detect missing live text."
+      ],
+      "file_size_bytes": 35012,
+      "viewbox": [
+        0.0,
+        0.0,
+        340.15748,
+        340.15748
+      ]
+    }
+  },
+  "provenance": {
+    "data_status": "synthetic",
+    "source": {
+      "seed": 2718
+    },
+    "analysis": {
+      "recipe": "joint",
+      "rows": 48,
+      "estimator": "none; individual observations",
+      "seaborn": "0.13.2",
+      "method_order": [
+        "Baseline",
+        "Proposed"
+      ]
+    }
+  },
+  "manual_review": {
+    "status": "required",
+    "items": [
+      "scientific meaning",
+      "label collisions",
+      "font availability",
+      "grayscale readability",
+      "current journal and submission stage"
+    ]
+  },
+  "journal_acceptance": "not-certified"
+}

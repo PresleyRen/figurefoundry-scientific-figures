@@ -1,0 +1,3025 @@
+{
+  "data_status": "Synthetic",
+  "passed": true,
+  "check_count": 694,
+  "independent_verification": "Python standard library; no FigureFoundry statistics or renderer imports",
+  "source_sha256": {
+    "learning.csv": "5b1a4624a7c428f8447cf40357609c3df8e80cb343c9246e6da91c9a8453dfcc",
+    "endpoints.csv": "a9aa06b7f103e1fb77569d4cc5c0fcec7491552336c3172dec07d8521ce6155b"
+  },
+  "learning_rows": 126,
+  "endpoint_rows": 18,
+  "missing_rows": 0,
+  "excluded_rows": 0,
+  "final_summary": {
+    "Baseline": {
+      "mean": 57.88133333333333,
+      "sd": 0.8660059276163563,
+      "n": 6,
+      "min": 56.337,
+      "max": 58.904
+    },
+    "Context": {
+      "mean": 69.47616666666667,
+      "sd": 1.2521564465619535,
+      "n": 6,
+      "min": 67.671,
+      "max": 71.353
+    },
+    "Proposed": {
+      "mean": 79.0475,
+      "sd": 1.3078709034151617,
+      "n": 6,
+      "min": 77.382,
+      "max": 80.181
+    }
+  },
+  "learning_summary": [
+    {
+      "method": "Baseline",
+      "epoch": 0.0,
+      "mean": 43.74483333333333,
+      "sd": 1.4465385465540384,
+      "n": 6,
+      "min": 41.961,
+      "max": 45.953
+    },
+    {
+      "method": "Baseline",
+      "epoch": 5.0,
+      "mean": 49.9595,
+      "sd": 1.0377717957238959,
+      "n": 6,
+      "min": 48.454,
+      "max": 51.159
+    },
+    {
+      "method": "Baseline",
+      "epoch": 10.0,
+      "mean": 53.90716666666667,
+      "sd": 0.9645155087745692,
+      "n": 6,
+      "min": 52.405,
+      "max": 55.155
+    },
+    {
+      "method": "Baseline",
+      "epoch": 15.0,
+      "mean": 55.82233333333333,
+      "sd": 1.2276573897739826,
+      "n": 6,
+      "min": 54.653,
+      "max": 57.962
+    },
+    {
+      "method": "Baseline",
+      "epoch": 20.0,
+      "mean": 56.92883333333333,
+      "sd": 1.0582594042420164,
+      "n": 6,
+      "min": 54.906,
+      "max": 57.814
+    },
+    {
+      "method": "Baseline",
+      "epoch": 25.0,
+      "mean": 57.470666666666666,
+      "sd": 1.427992810439417,
+      "n": 6,
+      "min": 55.316,
+      "max": 59.353
+    },
+    {
+      "method": "Baseline",
+      "epoch": 30.0,
+      "mean": 57.88133333333333,
+      "sd": 0.8660059276163563,
+      "n": 6,
+      "min": 56.337,
+      "max": 58.904
+    },
+    {
+      "method": "Context",
+      "epoch": 0.0,
+      "mean": 53.4945,
+      "sd": 0.7286315255326264,
+      "n": 6,
+      "min": 52.739,
+      "max": 54.843
+    },
+    {
+      "method": "Context",
+      "epoch": 5.0,
+      "mean": 60.6365,
+      "sd": 1.1099907657273553,
+      "n": 6,
+      "min": 59.019,
+      "max": 62.375
+    },
+    {
+      "method": "Context",
+      "epoch": 10.0,
+      "mean": 64.66633333333333,
+      "sd": 1.1145427163938895,
+      "n": 6,
+      "min": 63.361,
+      "max": 65.923
+    },
+    {
+      "method": "Context",
+      "epoch": 15.0,
+      "mean": 66.91883333333334,
+      "sd": 0.9299250328207496,
+      "n": 6,
+      "min": 65.764,
+      "max": 68.099
+    },
+    {
+      "method": "Context",
+      "epoch": 20.0,
+      "mean": 68.126,
+      "sd": 0.7926113801857755,
+      "n": 6,
+      "min": 67.126,
+      "max": 69.301
+    },
+    {
+      "method": "Context",
+      "epoch": 25.0,
+      "mean": 69.042,
+      "sd": 0.9126690528334997,
+      "n": 6,
+      "min": 67.709,
+      "max": 70.09
+    },
+    {
+      "method": "Context",
+      "epoch": 30.0,
+      "mean": 69.47616666666667,
+      "sd": 1.2521564465619535,
+      "n": 6,
+      "min": 67.671,
+      "max": 71.353
+    },
+    {
+      "method": "Proposed",
+      "epoch": 0.0,
+      "mean": 62.661,
+      "sd": 1.149241663010873,
+      "n": 6,
+      "min": 61.31,
+      "max": 64.273
+    },
+    {
+      "method": "Proposed",
+      "epoch": 5.0,
+      "mean": 70.2325,
+      "sd": 1.086687949689328,
+      "n": 6,
+      "min": 69.17,
+      "max": 71.895
+    },
+    {
+      "method": "Proposed",
+      "epoch": 10.0,
+      "mean": 74.235,
+      "sd": 1.257447096302667,
+      "n": 6,
+      "min": 72.713,
+      "max": 75.95
+    },
+    {
+      "method": "Proposed",
+      "epoch": 15.0,
+      "mean": 76.55933333333333,
+      "sd": 1.1197717029228167,
+      "n": 6,
+      "min": 75.422,
+      "max": 78.356
+    },
+    {
+      "method": "Proposed",
+      "epoch": 20.0,
+      "mean": 77.99866666666667,
+      "sd": 1.6219413881724165,
+      "n": 6,
+      "min": 75.829,
+      "max": 79.972
+    },
+    {
+      "method": "Proposed",
+      "epoch": 25.0,
+      "mean": 78.96066666666667,
+      "sd": 1.03974798228545,
+      "n": 6,
+      "min": 77.95,
+      "max": 80.684
+    },
+    {
+      "method": "Proposed",
+      "epoch": 30.0,
+      "mean": 79.0475,
+      "sd": 1.3078709034151617,
+      "n": 6,
+      "min": 77.382,
+      "max": 80.181
+    }
+  ],
+  "svg_curve_vertices_checked": 21,
+  "svg_endpoint_checks": [
+    {
+      "figure": "figure-2-horizontal-v2",
+      "endpoint_points_checked": 18,
+      "bar_heights_checked": 3
+    },
+    {
+      "figure": "figure-2-stacked-v2",
+      "endpoint_points_checked": 18,
+      "bar_heights_checked": 3
+    },
+    {
+      "figure": "figure-2",
+      "endpoint_points_checked": 18,
+      "bar_heights_checked": 3
+    }
+  ],
+  "style_sha256": "00243f2ca865b2e387fb9c73c023e8bcacaf6da171012c93259f50e7c617205a",
+  "checks": [
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "learning.csv: finite epoch",
+      "passed": true
+    },
+    {
+      "check": "endpoints.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "endpoints.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "endpoints.csv: finite latency",
+      "passed": true
+    },
+    {
+      "check": "endpoints.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "endpoints.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "endpoints.csv: finite latency",
+      "passed": true
+    },
+    {
+      "check": "endpoints.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "endpoints.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "endpoints.csv: finite latency",
+      "passed": true
+    },
+    {
+      "check": "endpoints.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "endpoints.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "endpoints.csv: finite latency",
+      "passed": true
+    },
+    {
+      "check": "endpoints.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "endpoints.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "endpoints.csv: finite latency",
+      "passed": true
+    },
+    {
+      "check": "endpoints.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "endpoints.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "endpoints.csv: finite latency",
+      "passed": true
+    },
+    {
+      "check": "endpoints.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "endpoints.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "endpoints.csv: finite latency",
+      "passed": true
+    },
+    {
+      "check": "endpoints.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "endpoints.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "endpoints.csv: finite latency",
+      "passed": true
+    },
+    {
+      "check": "endpoints.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "endpoints.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "endpoints.csv: finite latency",
+      "passed": true
+    },
+    {
+      "check": "endpoints.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "endpoints.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "endpoints.csv: finite latency",
+      "passed": true
+    },
+    {
+      "check": "endpoints.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "endpoints.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "endpoints.csv: finite latency",
+      "passed": true
+    },
+    {
+      "check": "endpoints.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "endpoints.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "endpoints.csv: finite latency",
+      "passed": true
+    },
+    {
+      "check": "endpoints.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "endpoints.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "endpoints.csv: finite latency",
+      "passed": true
+    },
+    {
+      "check": "endpoints.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "endpoints.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "endpoints.csv: finite latency",
+      "passed": true
+    },
+    {
+      "check": "endpoints.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "endpoints.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "endpoints.csv: finite latency",
+      "passed": true
+    },
+    {
+      "check": "endpoints.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "endpoints.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "endpoints.csv: finite latency",
+      "passed": true
+    },
+    {
+      "check": "endpoints.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "endpoints.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "endpoints.csv: finite latency",
+      "passed": true
+    },
+    {
+      "check": "endpoints.csv: finite seed",
+      "passed": true
+    },
+    {
+      "check": "endpoints.csv: finite success",
+      "passed": true
+    },
+    {
+      "check": "endpoints.csv: finite latency",
+      "passed": true
+    },
+    {
+      "check": "126 learning rows and 18 endpoint rows",
+      "passed": true
+    },
+    {
+      "check": "Exactly three expected methods",
+      "passed": true
+    },
+    {
+      "check": "No duplicated method/seed/epoch",
+      "passed": true
+    },
+    {
+      "check": "No duplicated endpoint method/seed",
+      "passed": true
+    },
+    {
+      "check": "Complete seven epochs: Baseline seed 1",
+      "passed": true
+    },
+    {
+      "check": "Complete seven epochs: Baseline seed 2",
+      "passed": true
+    },
+    {
+      "check": "Complete seven epochs: Baseline seed 3",
+      "passed": true
+    },
+    {
+      "check": "Complete seven epochs: Baseline seed 4",
+      "passed": true
+    },
+    {
+      "check": "Complete seven epochs: Baseline seed 5",
+      "passed": true
+    },
+    {
+      "check": "Complete seven epochs: Baseline seed 6",
+      "passed": true
+    },
+    {
+      "check": "Complete seven epochs: Context seed 1",
+      "passed": true
+    },
+    {
+      "check": "Complete seven epochs: Context seed 2",
+      "passed": true
+    },
+    {
+      "check": "Complete seven epochs: Context seed 3",
+      "passed": true
+    },
+    {
+      "check": "Complete seven epochs: Context seed 4",
+      "passed": true
+    },
+    {
+      "check": "Complete seven epochs: Context seed 5",
+      "passed": true
+    },
+    {
+      "check": "Complete seven epochs: Context seed 6",
+      "passed": true
+    },
+    {
+      "check": "Complete seven epochs: Proposed seed 1",
+      "passed": true
+    },
+    {
+      "check": "Complete seven epochs: Proposed seed 2",
+      "passed": true
+    },
+    {
+      "check": "Complete seven epochs: Proposed seed 3",
+      "passed": true
+    },
+    {
+      "check": "Complete seven epochs: Proposed seed 4",
+      "passed": true
+    },
+    {
+      "check": "Complete seven epochs: Proposed seed 5",
+      "passed": true
+    },
+    {
+      "check": "Complete seven epochs: Proposed seed 6",
+      "passed": true
+    },
+    {
+      "check": "All 18 endpoints equal epoch-30 observations exactly",
+      "passed": true
+    },
+    {
+      "check": "figure-1-upstream: independent unit and SD explicitly declared",
+      "passed": true
+    },
+    {
+      "check": "figure-1-upstream: six complete runs in ('Baseline', 0)",
+      "passed": true
+    },
+    {
+      "check": "figure-1-upstream: independent mean and n-1 SD agree for ('Baseline', 0)",
+      "passed": true
+    },
+    {
+      "check": "figure-1-upstream: six complete runs in ('Baseline', 5)",
+      "passed": true
+    },
+    {
+      "check": "figure-1-upstream: independent mean and n-1 SD agree for ('Baseline', 5)",
+      "passed": true
+    },
+    {
+      "check": "figure-1-upstream: six complete runs in ('Baseline', 10)",
+      "passed": true
+    },
+    {
+      "check": "figure-1-upstream: independent mean and n-1 SD agree for ('Baseline', 10)",
+      "passed": true
+    },
+    {
+      "check": "figure-1-upstream: six complete runs in ('Baseline', 15)",
+      "passed": true
+    },
+    {
+      "check": "figure-1-upstream: independent mean and n-1 SD agree for ('Baseline', 15)",
+      "passed": true
+    },
+    {
+      "check": "figure-1-upstream: six complete runs in ('Baseline', 20)",
+      "passed": true
+    },
+    {
+      "check": "figure-1-upstream: independent mean and n-1 SD agree for ('Baseline', 20)",
+      "passed": true
+    },
+    {
+      "check": "figure-1-upstream: six complete runs in ('Baseline', 25)",
+      "passed": true
+    },
+    {
+      "check": "figure-1-upstream: independent mean and n-1 SD agree for ('Baseline', 25)",
+      "passed": true
+    },
+    {
+      "check": "figure-1-upstream: six complete runs in ('Baseline', 30)",
+      "passed": true
+    },
+    {
+      "check": "figure-1-upstream: independent mean and n-1 SD agree for ('Baseline', 30)",
+      "passed": true
+    },
+    {
+      "check": "figure-1-upstream: six complete runs in ('Context', 0)",
+      "passed": true
+    },
+    {
+      "check": "figure-1-upstream: independent mean and n-1 SD agree for ('Context', 0)",
+      "passed": true
+    },
+    {
+      "check": "figure-1-upstream: six complete runs in ('Context', 5)",
+      "passed": true
+    },
+    {
+      "check": "figure-1-upstream: independent mean and n-1 SD agree for ('Context', 5)",
+      "passed": true
+    },
+    {
+      "check": "figure-1-upstream: six complete runs in ('Context', 10)",
+      "passed": true
+    },
+    {
+      "check": "figure-1-upstream: independent mean and n-1 SD agree for ('Context', 10)",
+      "passed": true
+    },
+    {
+      "check": "figure-1-upstream: six complete runs in ('Context', 15)",
+      "passed": true
+    },
+    {
+      "check": "figure-1-upstream: independent mean and n-1 SD agree for ('Context', 15)",
+      "passed": true
+    },
+    {
+      "check": "figure-1-upstream: six complete runs in ('Context', 20)",
+      "passed": true
+    },
+    {
+      "check": "figure-1-upstream: independent mean and n-1 SD agree for ('Context', 20)",
+      "passed": true
+    },
+    {
+      "check": "figure-1-upstream: six complete runs in ('Context', 25)",
+      "passed": true
+    },
+    {
+      "check": "figure-1-upstream: independent mean and n-1 SD agree for ('Context', 25)",
+      "passed": true
+    },
+    {
+      "check": "figure-1-upstream: six complete runs in ('Context', 30)",
+      "passed": true
+    },
+    {
+      "check": "figure-1-upstream: independent mean and n-1 SD agree for ('Context', 30)",
+      "passed": true
+    },
+    {
+      "check": "figure-1-upstream: six complete runs in ('Proposed', 0)",
+      "passed": true
+    },
+    {
+      "check": "figure-1-upstream: independent mean and n-1 SD agree for ('Proposed', 0)",
+      "passed": true
+    },
+    {
+      "check": "figure-1-upstream: six complete runs in ('Proposed', 5)",
+      "passed": true
+    },
+    {
+      "check": "figure-1-upstream: independent mean and n-1 SD agree for ('Proposed', 5)",
+      "passed": true
+    },
+    {
+      "check": "figure-1-upstream: six complete runs in ('Proposed', 10)",
+      "passed": true
+    },
+    {
+      "check": "figure-1-upstream: independent mean and n-1 SD agree for ('Proposed', 10)",
+      "passed": true
+    },
+    {
+      "check": "figure-1-upstream: six complete runs in ('Proposed', 15)",
+      "passed": true
+    },
+    {
+      "check": "figure-1-upstream: independent mean and n-1 SD agree for ('Proposed', 15)",
+      "passed": true
+    },
+    {
+      "check": "figure-1-upstream: six complete runs in ('Proposed', 20)",
+      "passed": true
+    },
+    {
+      "check": "figure-1-upstream: independent mean and n-1 SD agree for ('Proposed', 20)",
+      "passed": true
+    },
+    {
+      "check": "figure-1-upstream: six complete runs in ('Proposed', 25)",
+      "passed": true
+    },
+    {
+      "check": "figure-1-upstream: independent mean and n-1 SD agree for ('Proposed', 25)",
+      "passed": true
+    },
+    {
+      "check": "figure-1-upstream: six complete runs in ('Proposed', 30)",
+      "passed": true
+    },
+    {
+      "check": "figure-1-upstream: independent mean and n-1 SD agree for ('Proposed', 30)",
+      "passed": true
+    },
+    {
+      "check": "figure-2-upstream: independent unit and SD explicitly declared",
+      "passed": true
+    },
+    {
+      "check": "figure-2-upstream: six complete runs in ('Baseline',)",
+      "passed": true
+    },
+    {
+      "check": "figure-2-upstream: independent mean and n-1 SD agree for ('Baseline',)",
+      "passed": true
+    },
+    {
+      "check": "figure-2-upstream: six complete runs in ('Context',)",
+      "passed": true
+    },
+    {
+      "check": "figure-2-upstream: independent mean and n-1 SD agree for ('Context',)",
+      "passed": true
+    },
+    {
+      "check": "figure-2-upstream: six complete runs in ('Proposed',)",
+      "passed": true
+    },
+    {
+      "check": "figure-2-upstream: independent mean and n-1 SD agree for ('Proposed',)",
+      "passed": true
+    },
+    {
+      "check": "figure-2-stacked-v2: independent unit and SD explicitly declared",
+      "passed": true
+    },
+    {
+      "check": "figure-2-stacked-v2: six complete runs in ('Baseline',)",
+      "passed": true
+    },
+    {
+      "check": "figure-2-stacked-v2: independent mean and n-1 SD agree for ('Baseline',)",
+      "passed": true
+    },
+    {
+      "check": "figure-2-stacked-v2: six complete runs in ('Context',)",
+      "passed": true
+    },
+    {
+      "check": "figure-2-stacked-v2: independent mean and n-1 SD agree for ('Context',)",
+      "passed": true
+    },
+    {
+      "check": "figure-2-stacked-v2: six complete runs in ('Proposed',)",
+      "passed": true
+    },
+    {
+      "check": "figure-2-stacked-v2: independent mean and n-1 SD agree for ('Proposed',)",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "Data path uses M/L/Z geometry",
+      "passed": true
+    },
+    {
+      "check": "Baseline: seven SVG mean vertices",
+      "passed": true
+    },
+    {
+      "check": "Baseline epoch 0: SVG mean vertex equals source statistic",
+      "passed": true
+    },
+    {
+      "check": "Baseline epoch 5: SVG mean vertex equals source statistic",
+      "passed": true
+    },
+    {
+      "check": "Baseline epoch 10: SVG mean vertex equals source statistic",
+      "passed": true
+    },
+    {
+      "check": "Baseline epoch 15: SVG mean vertex equals source statistic",
+      "passed": true
+    },
+    {
+      "check": "Baseline epoch 20: SVG mean vertex equals source statistic",
+      "passed": true
+    },
+    {
+      "check": "Baseline epoch 25: SVG mean vertex equals source statistic",
+      "passed": true
+    },
+    {
+      "check": "Baseline epoch 30: SVG mean vertex equals source statistic",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "Data path uses M/L/Z geometry",
+      "passed": true
+    },
+    {
+      "check": "Context: seven SVG mean vertices",
+      "passed": true
+    },
+    {
+      "check": "Context epoch 0: SVG mean vertex equals source statistic",
+      "passed": true
+    },
+    {
+      "check": "Context epoch 5: SVG mean vertex equals source statistic",
+      "passed": true
+    },
+    {
+      "check": "Context epoch 10: SVG mean vertex equals source statistic",
+      "passed": true
+    },
+    {
+      "check": "Context epoch 15: SVG mean vertex equals source statistic",
+      "passed": true
+    },
+    {
+      "check": "Context epoch 20: SVG mean vertex equals source statistic",
+      "passed": true
+    },
+    {
+      "check": "Context epoch 25: SVG mean vertex equals source statistic",
+      "passed": true
+    },
+    {
+      "check": "Context epoch 30: SVG mean vertex equals source statistic",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "Data path uses M/L/Z geometry",
+      "passed": true
+    },
+    {
+      "check": "Proposed: seven SVG mean vertices",
+      "passed": true
+    },
+    {
+      "check": "Proposed epoch 0: SVG mean vertex equals source statistic",
+      "passed": true
+    },
+    {
+      "check": "Proposed epoch 5: SVG mean vertex equals source statistic",
+      "passed": true
+    },
+    {
+      "check": "Proposed epoch 10: SVG mean vertex equals source statistic",
+      "passed": true
+    },
+    {
+      "check": "Proposed epoch 15: SVG mean vertex equals source statistic",
+      "passed": true
+    },
+    {
+      "check": "Proposed epoch 20: SVG mean vertex equals source statistic",
+      "passed": true
+    },
+    {
+      "check": "Proposed epoch 25: SVG mean vertex equals source statistic",
+      "passed": true
+    },
+    {
+      "check": "Proposed epoch 30: SVG mean vertex equals source statistic",
+      "passed": true
+    },
+    {
+      "check": "All 21 SVG curve means checked",
+      "passed": true
+    },
+    {
+      "check": "figure-2-horizontal-v2: six points per scatter group",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "figure-2-horizontal-v2: SVG scatter Baseline seed 1 equals original endpoint",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "figure-2-horizontal-v2: SVG scatter Baseline seed 2 equals original endpoint",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "figure-2-horizontal-v2: SVG scatter Baseline seed 3 equals original endpoint",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "figure-2-horizontal-v2: SVG scatter Baseline seed 4 equals original endpoint",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "figure-2-horizontal-v2: SVG scatter Baseline seed 5 equals original endpoint",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "figure-2-horizontal-v2: SVG scatter Baseline seed 6 equals original endpoint",
+      "passed": true
+    },
+    {
+      "check": "figure-2-horizontal-v2: six points per scatter group",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "figure-2-horizontal-v2: SVG scatter Context seed 1 equals original endpoint",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "figure-2-horizontal-v2: SVG scatter Context seed 2 equals original endpoint",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "figure-2-horizontal-v2: SVG scatter Context seed 3 equals original endpoint",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "figure-2-horizontal-v2: SVG scatter Context seed 4 equals original endpoint",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "figure-2-horizontal-v2: SVG scatter Context seed 5 equals original endpoint",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "figure-2-horizontal-v2: SVG scatter Context seed 6 equals original endpoint",
+      "passed": true
+    },
+    {
+      "check": "figure-2-horizontal-v2: six points per scatter group",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "figure-2-horizontal-v2: SVG scatter Proposed seed 1 equals original endpoint",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "figure-2-horizontal-v2: SVG scatter Proposed seed 2 equals original endpoint",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "figure-2-horizontal-v2: SVG scatter Proposed seed 3 equals original endpoint",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "figure-2-horizontal-v2: SVG scatter Proposed seed 4 equals original endpoint",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "figure-2-horizontal-v2: SVG scatter Proposed seed 5 equals original endpoint",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "figure-2-horizontal-v2: SVG scatter Proposed seed 6 equals original endpoint",
+      "passed": true
+    },
+    {
+      "check": "figure-2-horizontal-v2: all 18 endpoints present once",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "Data path uses M/L/Z geometry",
+      "passed": true
+    },
+    {
+      "check": "figure-2-horizontal-v2: Baseline bar height equals mean and starts at zero",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "Data path uses M/L/Z geometry",
+      "passed": true
+    },
+    {
+      "check": "figure-2-horizontal-v2: Context bar height equals mean and starts at zero",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "Data path uses M/L/Z geometry",
+      "passed": true
+    },
+    {
+      "check": "figure-2-horizontal-v2: Proposed bar height equals mean and starts at zero",
+      "passed": true
+    },
+    {
+      "check": "figure-2-horizontal-v2: all three bar heights checked",
+      "passed": true
+    },
+    {
+      "check": "figure-2-stacked-v2: six points per scatter group",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "figure-2-stacked-v2: SVG scatter Baseline seed 1 equals original endpoint",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "figure-2-stacked-v2: SVG scatter Baseline seed 2 equals original endpoint",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "figure-2-stacked-v2: SVG scatter Baseline seed 3 equals original endpoint",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "figure-2-stacked-v2: SVG scatter Baseline seed 4 equals original endpoint",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "figure-2-stacked-v2: SVG scatter Baseline seed 5 equals original endpoint",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "figure-2-stacked-v2: SVG scatter Baseline seed 6 equals original endpoint",
+      "passed": true
+    },
+    {
+      "check": "figure-2-stacked-v2: six points per scatter group",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "figure-2-stacked-v2: SVG scatter Context seed 1 equals original endpoint",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "figure-2-stacked-v2: SVG scatter Context seed 2 equals original endpoint",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "figure-2-stacked-v2: SVG scatter Context seed 3 equals original endpoint",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "figure-2-stacked-v2: SVG scatter Context seed 4 equals original endpoint",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "figure-2-stacked-v2: SVG scatter Context seed 5 equals original endpoint",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "figure-2-stacked-v2: SVG scatter Context seed 6 equals original endpoint",
+      "passed": true
+    },
+    {
+      "check": "figure-2-stacked-v2: six points per scatter group",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "figure-2-stacked-v2: SVG scatter Proposed seed 1 equals original endpoint",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "figure-2-stacked-v2: SVG scatter Proposed seed 2 equals original endpoint",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "figure-2-stacked-v2: SVG scatter Proposed seed 3 equals original endpoint",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "figure-2-stacked-v2: SVG scatter Proposed seed 4 equals original endpoint",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "figure-2-stacked-v2: SVG scatter Proposed seed 5 equals original endpoint",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "figure-2-stacked-v2: SVG scatter Proposed seed 6 equals original endpoint",
+      "passed": true
+    },
+    {
+      "check": "figure-2-stacked-v2: all 18 endpoints present once",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "Data path uses M/L/Z geometry",
+      "passed": true
+    },
+    {
+      "check": "figure-2-stacked-v2: Baseline bar height equals mean and starts at zero",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "Data path uses M/L/Z geometry",
+      "passed": true
+    },
+    {
+      "check": "figure-2-stacked-v2: Context bar height equals mean and starts at zero",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "Data path uses M/L/Z geometry",
+      "passed": true
+    },
+    {
+      "check": "figure-2-stacked-v2: Proposed bar height equals mean and starts at zero",
+      "passed": true
+    },
+    {
+      "check": "figure-2-stacked-v2: all three bar heights checked",
+      "passed": true
+    },
+    {
+      "check": "figure-2: six points per scatter group",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "figure-2: SVG scatter Baseline seed 1 equals original endpoint",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "figure-2: SVG scatter Baseline seed 2 equals original endpoint",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "figure-2: SVG scatter Baseline seed 3 equals original endpoint",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "figure-2: SVG scatter Baseline seed 4 equals original endpoint",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "figure-2: SVG scatter Baseline seed 5 equals original endpoint",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "figure-2: SVG scatter Baseline seed 6 equals original endpoint",
+      "passed": true
+    },
+    {
+      "check": "figure-2: six points per scatter group",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "figure-2: SVG scatter Context seed 1 equals original endpoint",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "figure-2: SVG scatter Context seed 2 equals original endpoint",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "figure-2: SVG scatter Context seed 3 equals original endpoint",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "figure-2: SVG scatter Context seed 4 equals original endpoint",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "figure-2: SVG scatter Context seed 5 equals original endpoint",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "figure-2: SVG scatter Context seed 6 equals original endpoint",
+      "passed": true
+    },
+    {
+      "check": "figure-2: six points per scatter group",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "figure-2: SVG scatter Proposed seed 1 equals original endpoint",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "figure-2: SVG scatter Proposed seed 2 equals original endpoint",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "figure-2: SVG scatter Proposed seed 3 equals original endpoint",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "figure-2: SVG scatter Proposed seed 4 equals original endpoint",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "figure-2: SVG scatter Proposed seed 5 equals original endpoint",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "figure-2: SVG scatter Proposed seed 6 equals original endpoint",
+      "passed": true
+    },
+    {
+      "check": "figure-2: all 18 endpoints present once",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "Data path uses M/L/Z geometry",
+      "passed": true
+    },
+    {
+      "check": "figure-2: Baseline bar height equals mean and starts at zero",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "Data path uses M/L/Z geometry",
+      "passed": true
+    },
+    {
+      "check": "figure-2: Context bar height equals mean and starts at zero",
+      "passed": true
+    },
+    {
+      "check": "Data marks declare a local axes clip",
+      "passed": true
+    },
+    {
+      "check": "Data path uses M/L/Z geometry",
+      "passed": true
+    },
+    {
+      "check": "figure-2: Proposed bar height equals mean and starts at zero",
+      "passed": true
+    },
+    {
+      "check": "figure-2: all three bar heights checked",
+      "passed": true
+    },
+    {
+      "check": "Shared semantic style SHA is identical in all independent plot commands",
+      "passed": true
+    }
+  ]
+}

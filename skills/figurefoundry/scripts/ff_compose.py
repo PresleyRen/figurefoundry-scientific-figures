@@ -7,8 +7,10 @@ static SVG and simple (non-nested) CSS rules produced by common exporters.
 from __future__ import annotations
 
 import copy
+import hashlib
 import math
 import re
+import tempfile
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
@@ -119,7 +121,40 @@ def _scope_stylesheet(css, mapping, panel_id, source_root_id):
     return "\n".join(result)
 
 
-def _prepare_source(path, index):
+def _audit_source(content, root, geometry, expected_labels):
+    """Audit the source's own labels before composition adds any new text.
+
+    A viewBox-only source has no physical font size until it is placed. Supply
+    temporary pixel dimensions for its structural/text audit; the composition
+    performs the authoritative minimum-font check after its uniform scaling.
+    The original source bytes and geometry are never changed.
+    """
+    from ff_svg import audit_svg
+
+    with tempfile.TemporaryDirectory(prefix="ff-compose-source-audit-") as folder:
+        snapshot = Path(folder) / "source.svg"
+        snapshot.write_bytes(content)
+        source_audit = audit_svg(snapshot, min_font_pt=0, require_text=True,
+                                 expected_labels=expected_labels)
+        # Audit the original bytes first. Serializing an unchecked XML tree
+        # could discard a forbidden processing instruction or declaration.
+        missing_dimension_errors = {
+            f"Cannot determine physical SVG geometry: root {dimension} must explicitly specify an absolute physical size"
+            for dimension in ("width", "height")
+        }
+        if ("width" not in root.attrib or "height" not in root.attrib) and source_audit["errors"] and all(
+                error in missing_dimension_errors for error in source_audit["errors"]):
+            audit_root = copy.deepcopy(root)
+            audit_root.set("width", f"{_fmt(geometry[2])}px")
+            audit_root.set("height", f"{_fmt(geometry[3])}px")
+            snapshot.write_bytes(ET.tostring(audit_root, encoding="utf-8"))
+            source_audit = audit_svg(snapshot, min_font_pt=0, require_text=True,
+                                     expected_labels=expected_labels)
+            source_audit["warnings"].append("Source physical dimensions are unspecified; temporary source font metrics do not replace the final composition font audit")
+        return source_audit
+
+
+def _prepare_source(path, index, expected_labels=None):
     path = Path(path)
     try:
         size = path.stat().st_size
@@ -137,6 +172,10 @@ def _prepare_source(path, index):
     if _local(root.tag).lower() != "svg" or not root.tag.startswith("{" + SVG_NS + "}"):
         raise ValueError("Each panel must be an SVG document in the SVG namespace")
     geometry = _source_geometry(root)
+    source_audit = _audit_source(content, root, geometry, expected_labels)
+    if not source_audit["passed"]:
+        raise ValueError(f"Panel {index + 1} source failed SVG/text audit: " + "; ".join(source_audit["errors"]))
+    source_sha256 = hashlib.sha256(content).hexdigest()
     prefix = f"panel-{index + 1:03d}-src-"
     mapping = {}
     for element in root.iter():
@@ -181,13 +220,16 @@ def _prepare_source(path, index):
                 element.set(key, _rewrite_urls(value, mapping))
         if _local(element.tag).lower() == "style":
             element.text = _scope_stylesheet(element.text or "", mapping, panel_id, source_root_id)
-    return root, geometry, mapping, source_root_id, panel_id
+    return root, geometry, mapping, source_root_id, panel_id, source_audit, source_sha256
 
 
 def compose_svgs(panels: list[dict], output, *, width_mm, height_mm, min_font_pt=5.0) -> dict:
     """Place static SVG panels into one editable native vector SVG.
 
     Each panel uses ``path,x_mm,y_mm,width_mm,height_mm`` and optional ``label``.
+    ``expected_labels`` (or its ``labels`` alias) supplies the source's complete
+    editable-label inventory. Each source must contain its own native text;
+    headings and labels in neighboring panels cannot satisfy this requirement.
     A labelled panel reserves a 5 mm heading band. Contents are uniformly scaled
     and centered in the remaining rectangle. Final font failures appear in
     ``audit`` and set ``passed=False``; input errors raise before writing output.
@@ -220,7 +262,18 @@ def compose_svgs(panels: list[dict], output, *, width_mm, height_mm, min_font_pt
             raise ValueError("Panel height must exceed the label heading band")
         if label and len(label) * 9 * PT_MM > placement["width_mm"] - 2:
             raise ValueError("Panel label is too long; use a short letter or identifier")
-        source, viewbox, mapping, source_root_id, panel_id = _prepare_source(panel["path"], index)
+        required_labels = []
+        for field in ("expected_labels", "labels"):
+            if field in panel:
+                values = panel[field]
+                if not isinstance(values, (list, tuple)) or any(not isinstance(value, str) or not value.strip() for value in values):
+                    raise ValueError(f"Panel {index + 1} {field} must be an array of nonempty strings")
+                required_labels.extend(values)
+        required_labels = list(dict.fromkeys(required_labels))
+        source, viewbox, mapping, source_root_id, panel_id, source_audit, source_sha256 = _prepare_source(
+            panel["path"], index, required_labels or None)
+        if not required_labels:
+            warnings.append(f"Panel {index + 1}: no complete expected_labels inventory supplied; source native-text presence is checked, but partially outlined labels need review")
         vx, vy, vw, vh = viewbox
         scale_x = placement["width_mm"] / vw
         scale_y = (placement["height_mm"] - label_band) / vh
@@ -232,7 +285,9 @@ def compose_svgs(panels: list[dict], output, *, width_mm, height_mm, min_font_pt
         prepared.append({"source": source, "viewbox": viewbox, "mapping": mapping,
                          "source_root_id": source_root_id, "panel_id": panel_id,
                          "placement": placement, "label": label, "scale": scale,
-                         "tx": tx, "ty": ty, "source_path": str(Path(panel["path"]))})
+                         "tx": tx, "ty": ty, "source_path": str(Path(panel["path"])),
+                         "source_audit": source_audit, "source_sha256": source_sha256,
+                         "expected_labels": required_labels})
     for index, first in enumerate(prepared):
         a = first["placement"]
         for second_index, second in enumerate(prepared[index + 1:], index + 1):
@@ -274,7 +329,9 @@ def compose_svgs(panels: list[dict], output, *, width_mm, height_mm, min_font_pt
         content = ET.SubElement(viewport, f"{{{SVG_NS}}}g", root_attributes)
         for child in source:
             content.append(copy.deepcopy(child))
-        reports.append({"source": item["source_path"], "id": item["panel_id"],
+        reports.append({"source": item["source_path"], "source_sha256": item["source_sha256"],
+                        "source_audit": item["source_audit"], "expected_labels": item["expected_labels"],
+                        "id": item["panel_id"],
                         "placement": placement, "uniform_scale": item["scale"],
                         "content_bounds_mm": {"x": item["tx"], "y": item["ty"], "width": vw * item["scale"], "height": vh * item["scale"]},
                         "renamed_ids": len(item["mapping"]), "label": item["label"]})
@@ -284,14 +341,19 @@ def compose_svgs(panels: list[dict], output, *, width_mm, height_mm, min_font_pt
     for element, content, tail in preserved:
         element.text, element.tail = content, tail
     ET.ElementTree(root).write(output, encoding="utf-8", xml_declaration=True)
+    final_labels = list(dict.fromkeys(
+        label for item in prepared
+        for label in item["source_audit"]["metrics"]["labels"] + item["expected_labels"] + [item["label"]]
+        if label.strip()))
     try:
         from ff_svg import audit_svg
     except ImportError:
         audit = {"passed": False, "errors": [], "warnings": ["ff_svg is unavailable; final physical font sizes require review"], "metrics": {}}
         warnings.append("Final font audit is unavailable; do not claim submission readiness")
     else:
-        audit = audit_svg(output, min_font_pt=min_font_pt, width_mm=width_mm, height_mm=height_mm)
+        audit = audit_svg(output, min_font_pt=min_font_pt, width_mm=width_mm, height_mm=height_mm,
+                          expected_labels=final_labels)
     return {"output": str(output), "width_mm": width_mm, "height_mm": height_mm,
-            "panels": reports, "warnings": warnings, "audit": audit,
+            "panels": reports, "warnings": warnings, "expected_labels": final_labels, "audit": audit,
             "passed": bool(audit.get("passed", False)),
             "review_notes": ["Inspect the complete composition at its final physical size for collisions, whitespace, clipping, and readable labels."]}

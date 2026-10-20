@@ -1,0 +1,174 @@
+{
+  "schema_version": 1,
+  "reviewed_at_utc": "2026-10-20T08:14:32.502061+00:00",
+  "status": "reviewed after regeneration",
+  "review_method": "Viewed the actual cluster and pair PNGs before changes and all four final exported PNGs after changes; used rendered artist bounds and independent numerical checks in the regression tests.",
+  "data": {
+    "status": "labelled synthetic demonstration",
+    "seed": 2718,
+    "rows": 48,
+    "variables": [
+      "dose",
+      "response",
+      "signal"
+    ],
+    "source_values_changed": false
+  },
+  "cluster": {
+    "before_observation": "The vertical colorbar and its label overlaid the left tree and first heatmap column. The title crossed the top tree line. Initial short-figure layout thinned unit labels to every other row before the figure was resized.",
+    "change": "Create the grid at its final physical dimensions. Reserve a separate upper-left colorbar region and physical header space for the top tree/title. Explicitly display all independent-unit labels.",
+    "after_observation": "Colorbar, ticks and its label are visibly separate from both trees and the heatmap. Title clears the top tree. All 48 unit labels are legible and inside the canvas.",
+    "measured_after": {
+      "data_cells": 144,
+      "visible_unit_labels": 48,
+      "colorbar_overlap": {
+        "heatmap": false,
+        "row-dendrogram": false,
+        "column-dendrogram": false
+      },
+      "title_to_column_tree_gap_mm": 8.638,
+      "normalization": {
+        "transform": "column z-score",
+        "sample_standard_deviation_ddof": 1,
+        "vmin": -2,
+        "vmax": 2,
+        "linkage": "average",
+        "distance": "euclidean"
+      }
+    }
+  },
+  "pair": {
+    "before_observation": "The dose and response diagonal histograms occupied only the bottom of their panels because three variables shared one density y-axis scale; the header gap and low legend amplified the apparent first-row whitespace.",
+    "change": "Autoscale diagonal density displays separately for each variable, retaining a shared scale between methods within that variable. Move the grid top from 0.90 to 0.925 and the legend top from 0.80 to 0.92.",
+    "after_observation": "The first and second diagonal histograms use their available panel height. The legend sits in the intentionally unused upper triangle. The compact header leaves visible title clearance.",
+    "preserved": "The full-data bin edges, density=count/(method n * bin width), all 48 observations in each of three scatter relationships, variable order, and semantic colors/markers are unchanged.",
+    "density_display_metrics": {
+      "dose": {
+        "before_peak_fraction_of_shared_axis": 0.26216,
+        "after_peak_fraction_of_variable_axis": 0.952381,
+        "after_ylim": [
+          0.0,
+          0.16333333333333336
+        ]
+      },
+      "response": {
+        "before_peak_fraction_of_shared_axis": 0.362639,
+        "after_peak_fraction_of_variable_axis": 0.952381,
+        "after_ylim": [
+          0.0,
+          0.22593490195133492
+        ]
+      },
+      "signal": {
+        "before_peak_fraction_of_shared_axis": 0.952381,
+        "after_peak_fraction_of_variable_axis": 0.952381,
+        "after_ylim": [
+          0.0,
+          0.593360974346717
+        ]
+      }
+    }
+  },
+  "other_final_observations": {
+    "facet": "Both conditions, legend, labels and observations are readable without visible overlaps.",
+    "joint": "The scatter and two marginals remain aligned, with clear title, labels and legend."
+  },
+  "validation": {
+    "command": "python -m unittest discover -s tests -p test_seaborn_recipes.py -v",
+    "result": "6 tests passed",
+    "methods_before": 4,
+    "methods_after": 6,
+    "methods_added": 2,
+    "new_methods": [
+      "test_cluster_header_separates_colorbar_and_trees_without_losing_rows",
+      "test_pair_density_uses_panel_height_without_changing_bins_or_observations"
+    ],
+    "regeneration_command": "python examples/custom_seaborn.py --out examples/outputs/seaborn --overwrite"
+  },
+  "artifacts": {
+    "facet": {
+      "width_mm": 180.0,
+      "height_mm": 78.0,
+      "svg_audit_passed": true,
+      "text_count": 20,
+      "path_count": 11,
+      "image_count": 0,
+      "minimum_actual_font_pt": 7.0,
+      "files": {
+        "svg": {
+          "path": "examples/outputs/seaborn/facet.svg",
+          "sha256": "810162c3a85f9573b5bf72e5fc864c08bf0f83edd1dd51ad9c7d9adf38143536",
+          "before_sha256": "810162c3a85f9573b5bf72e5fc864c08bf0f83edd1dd51ad9c7d9adf38143536"
+        },
+        "png": {
+          "path": "examples/outputs/seaborn/facet.png",
+          "sha256": "f42131b96a910cf71349d074f1b9f344c18c0fdc1e085bd6f44d0dae61fb2f23",
+          "before_sha256": "f42131b96a910cf71349d074f1b9f344c18c0fdc1e085bd6f44d0dae61fb2f23"
+        }
+      }
+    },
+    "pair": {
+      "width_mm": 160.0,
+      "height_mm": 150.0,
+      "svg_audit_passed": true,
+      "text_count": 24,
+      "path_count": 26,
+      "image_count": 0,
+      "minimum_actual_font_pt": 7.0,
+      "files": {
+        "svg": {
+          "path": "examples/outputs/seaborn/pair.svg",
+          "sha256": "005e2a3666579d22ea7c4ee3baaad415825975d839430643c1396342ef38a8a1",
+          "before_sha256": "e91ecc70c13d8120536049b9f4335c6b9ca5c5a7e797dcebf379ccd8bdeaa033"
+        },
+        "png": {
+          "path": "examples/outputs/seaborn/pair.png",
+          "sha256": "6b3ebdf5a9286ab0dcbc14ed7f86dfea6750b40462772814100e2bb4cfeb0b27",
+          "before_sha256": "9cf0419ba0eb6290c7349fca8b5353fcbc0694f9a5d7690050788e6773c35639"
+        }
+      }
+    },
+    "joint": {
+      "width_mm": 120.0,
+      "height_mm": 120.0,
+      "svg_audit_passed": true,
+      "text_count": 17,
+      "path_count": 63,
+      "image_count": 0,
+      "minimum_actual_font_pt": 7.0,
+      "files": {
+        "svg": {
+          "path": "examples/outputs/seaborn/joint.svg",
+          "sha256": "d4858683f42e7175d20bab24936039804370f289334b4eb40d5f64eb20d0fff9",
+          "before_sha256": "d4858683f42e7175d20bab24936039804370f289334b4eb40d5f64eb20d0fff9"
+        },
+        "png": {
+          "path": "examples/outputs/seaborn/joint.png",
+          "sha256": "a2b17e7caa3b04c5ef1d2ca004827d621580696f47ad7864bd10f06e1777dc5d",
+          "before_sha256": "a2b17e7caa3b04c5ef1d2ca004827d621580696f47ad7864bd10f06e1777dc5d"
+        }
+      }
+    },
+    "cluster": {
+      "width_mm": 165.0,
+      "height_mm": 203.0,
+      "svg_audit_passed": true,
+      "text_count": 58,
+      "path_count": 455,
+      "image_count": 0,
+      "minimum_actual_font_pt": 7.0,
+      "files": {
+        "svg": {
+          "path": "examples/outputs/seaborn/cluster.svg",
+          "sha256": "2b48a897d30bcf11aa91979f4060d53aa9ee96f02d98e5bd646463236b5a252f",
+          "before_sha256": "6d3f3521b52fd735f3b96609d5c100e0ceb122023f84d2d69c38e8f7f4f67ac9"
+        },
+        "png": {
+          "path": "examples/outputs/seaborn/cluster.png",
+          "sha256": "b49d62822bf0115a44bca9001c4a0228b3b526fce85087876b7a26da92864393",
+          "before_sha256": "8453d5e448a44cfd33373af94bac0cb262f423dd3ace1242a82af7701a7287b3"
+        }
+      }
+    }
+  }
+}

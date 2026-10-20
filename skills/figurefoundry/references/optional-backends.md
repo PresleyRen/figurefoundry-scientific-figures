@@ -10,7 +10,7 @@
 |---|---|---|
 | Matplotlib 主流程 | 16 类内置数据图、可控排版、常规科学图件 | 使用统一导出器和审核；实际测试范围见报告 |
 | 原生 SVG | 流程、机制简图、多面板组合 | 图元/文字存在、对象引用正确、物理尺寸和面板缩放可核对 |
-| Seaborn | 长表统计图、分组/分面、分布原型 | 明确估计与误差；导出后检查无图像节点、可编辑标签和尺寸。未包含任意 Seaborn 图型的自动适配器 |
+| Seaborn | 长表统计图、分组/分面、多变量关系和聚类 | 内置 `ff_seaborn.py` 的 FacetGrid、PairGrid、JointGrid、clustermap 配方已通过真实导出测试；其他配方按同一导出与审核合同接入 |
 | R/ggplot2/svglite | 既有 R 分析、专业组学和统计生态 | 显式选择 SVG 文本设备；关闭 raster 层，色条/复杂热图也检查；保留 .R 和数据 |
 | Plotly/Kaleido | 探索性交互、需要 HTML 的另一路输出 | 静态稿用 SVG 可导出的图层，避免 WebGL 位图；静态标签不能依赖 hover |
 | TikZ/PGFPlots | 数学排版、几何、电路、LaTeX 源码 | .tex 可重建与 SVG 字符可编辑分别检查；默认轮廓导出不满足严格字符编辑 |
@@ -24,6 +24,10 @@ python <skill-dir>/scripts/figurefoundry.py doctor
 ```
 
 doctor 报告它实际检测到的项目，不等于已经对所有可选工具完成端到端测试。
+
+四类 Seaborn 配方的数据字段、权重摘要与调用示例见 [quality-workflow.md](quality-workflow.md)。
+既有 R、TikZ、Draw.io 或 SVG 项目选定主源、保存候选和冻结上游版本的方法见
+[project-workflow.md](project-workflow.md)。
 
 ## 2. R：保留文字的 SVG 路线
 

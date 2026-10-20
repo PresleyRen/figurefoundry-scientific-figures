@@ -11,14 +11,17 @@ os.environ.setdefault("MPLCONFIGDIR", str(Path(tempfile.gettempdir()) / "figuref
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
-from matplotlib.colors import to_rgba
+from matplotlib.colors import BoundaryNorm, LogNorm, Normalize, SymLogNorm, TwoSlopeNorm, to_rgba
+from matplotlib.lines import Line2D
+from matplotlib.markers import MarkerStyle
 from matplotlib.text import Text
 from matplotlib.ticker import FuncFormatter
 import numpy as np
 import pandas as pd
 from scipy import stats
 
-from ff_data import clean_json, complete_cases, numeric, read_table, require_columns, summarize
+from ff_data import (clean_json, complete_cases, independent_unit_values, numeric,
+                     read_table, require_columns, summarize, wide_to_long)
 from ff_export import export_figure
 
 PLOT_KINDS = ("line", "bar", "scatter", "box", "violin", "hist", "ecdf", "heatmap",
@@ -53,18 +56,34 @@ def _groups(df, hue, order=None):
 
 class Palette:
     def __init__(self, mapping=None):
-        self.colors = {str(k): v for k, v in (mapping or {}).items()}
-        for color in self.colors.values():
-            to_rgba(color)  # Fail early on invalid color contracts.
-        self.indices = {}
+        if mapping is not None and not isinstance(mapping, dict):
+            raise ValueError("palette must map series names to colors or {color, marker, linestyle} objects.")
+        self.styles, self.colors = {}, {}
+        # Reserve every declared semantic role before encountering this figure's
+        # data. Subsets and reversed row order then keep their marker/line codes.
+        self.indices = {str(key): index for index, key in enumerate(mapping or {})}
+        for key, value in (mapping or {}).items():
+            key = str(key)
+            style = dict(value) if isinstance(value, dict) else {"color": value}
+            if not style or set(style) - {"color", "marker", "linestyle"}:
+                raise ValueError("Palette style objects accept color, marker, and linestyle fields.")
+            if "color" in style:
+                to_rgba(style["color"])
+                self.colors[key] = style["color"]
+            if "marker" in style:
+                MarkerStyle(style["marker"])
+            if "linestyle" in style:
+                Line2D([], [], linestyle=style["linestyle"])
+            self.styles[key] = style
 
     def style(self, key):
         key = "data" if key is None else str(key)
         if key not in self.indices:
             self.indices[key] = len(self.indices)
         idx = self.indices[key]
-        return dict(color=self.colors.get(key, COLORS[idx % len(COLORS)]),
-                    marker=MARKERS[idx % len(MARKERS)], linestyle=LINESTYLES[idx % len(LINESTYLES)])
+        return {**dict(color=COLORS[idx % len(COLORS)], marker=MARKERS[idx % len(MARKERS)],
+                       linestyle=LINESTYLES[idx % len(LINESTYLES)]),
+                **self.styles.get(key, {})}
 
 
 def _values(df, names):
@@ -72,6 +91,14 @@ def _values(df, names):
     for name in names:
         df[name] = numeric(df, name)
     return df
+
+
+def _style_number(value, name, *, allow_zero=False):
+    if (isinstance(value, bool) or not isinstance(value, (int, float)) or not np.isfinite(value)
+            or value < 0 or (not allow_zero and value == 0)):
+        qualifier = "nonnegative" if allow_zero else "positive"
+        raise ValueError(f"{name} must be a {qualifier} finite number.")
+    return float(value)
 
 
 def _summary(df, panel, group_cols):
@@ -114,6 +141,25 @@ def _line_bar(ax, df, panel, palette, report):
         data = df.rename(columns={y: "estimate"}).copy()
         data["lower"] = data["upper"] = np.nan
         report["warnings"].append(f"Raw line: {int(data['estimate'].isna().sum())} missing y values remain gaps.")
+    point_data = None
+    if kind == "bar" and "raw_points" in panel:
+        if not isinstance(panel["raw_points"], bool):
+            raise ValueError("bar.raw_points must be a boolean.")
+    if kind == "bar" and panel.get("raw_points", False):
+        point_data = independent_unit_values(df, groups, y, unit=panel.get("unit"),
+                                             within_unit=panel.get("within_unit"))
+        jitter_fraction = float(panel.get("raw_point_jitter", 0.15))
+        point_size = float(panel.get("raw_point_size", 12))
+        if not np.isfinite(jitter_fraction) or not 0 <= jitter_fraction <= 0.4:
+            raise ValueError("raw_point_jitter must be between 0 and 0.4 bar widths.")
+        if not np.isfinite(point_size) or point_size <= 0:
+            raise ValueError("raw_point_size must be positive and finite.")
+        rng = np.random.default_rng(int(panel.get("seed", 1729)))
+        report["raw_points"] = {"independent_unit": panel["unit"],
+                                "within_unit": panel.get("within_unit"),
+                                "point_count": len(point_data),
+                                "jitter_seed": int(panel.get("seed", 1729)),
+                                "points": clean_json(point_data.to_dict("records"))}
     categories = ordered(df[x], panel.get("order"))
     categorical = kind == "bar" or panel.get("x_type") == "categorical" or not pd.api.types.is_numeric_dtype(df[x])
     if not categorical:
@@ -130,18 +176,42 @@ def _line_bar(ax, df, panel, palette, report):
         center = np.array([row_map.get(str(c), {}).get("estimate", np.nan) for c in categories], float)
         lower = np.array([row_map.get(str(c), {}).get("lower", np.nan) for c in categories], float)
         upper = np.array([row_map.get(str(c), {}).get("upper", np.nan) for c in categories], float)
-        style = palette.style(name or panel.get("series", "data"))
+        style = palette.style(name if name is not None else panel.get("series", "data"))
         label = str(name) if name is not None else None
         if kind == "bar":
             width = 0.75 / len(hue_groups)
             xpos = positions + (j - (len(hue_groups) - 1) / 2) * width
-            ax.bar(xpos, center, width=width * 0.9, color=style["color"], label=label,
+            semantic_x = not hue and all(str(category) in palette.styles for category in categories)
+            bar_colors = [palette.style(category)["color"] for category in categories] if semantic_x else style["color"]
+            ax.bar(xpos, center, width=width * 0.9, color=bar_colors, label=label,
                    edgecolor="white", linewidth=0.4,
                    hatch=("", "//", "..", "xx")[j % 4] if len(hue_groups) > 1 else None)
             _intervals(ax, xpos, center, lower, upper, color="#333333")
+            if point_data is not None:
+                points = point_data if not hue else point_data.loc[_category_equal(point_data[hue], name)]
+                point_x, point_y = [], []
+                for position, category in zip(xpos, categories):
+                    values = points.loc[_category_equal(points[x], category), y].to_numpy(float)
+                    jittered_x = position + rng.uniform(-width * jitter_fraction, width * jitter_fraction, len(values))
+                    if semantic_x:
+                        ax.scatter(jittered_x, values, s=point_size, color="#222222",
+                                   marker=palette.style(category)["marker"], alpha=0.85,
+                                   edgecolors="white", linewidths=0.35, zorder=3, rasterized=False)
+                    else:
+                        point_x.extend(jittered_x)
+                        point_y.extend(values)
+                if not semantic_x:
+                    ax.scatter(point_x, point_y, s=point_size, color="#222222", marker=style["marker"],
+                               alpha=0.85, edgecolors="white", linewidths=0.35, zorder=3, rasterized=False)
             ax.axhline(0, color="#555555", linewidth=0.6)
         else:
-            ax.plot(positions, center, label=label, markersize=3.8, linewidth=1.3, **style)
+            line_width = _style_number(panel.get("linewidth", 1.3), "linewidth")
+            marker_size = _style_number(panel.get("markersize", 3.8), "markersize", allow_zero=True)
+            mark_every = panel.get("markevery")
+            if mark_every is not None and (isinstance(mark_every, bool) or not isinstance(mark_every, int) or mark_every < 1):
+                raise ValueError("markevery must be a positive integer point interval.")
+            ax.plot(positions, center, label=label, markersize=marker_size, linewidth=line_width,
+                    markevery=mark_every, **style)
             if panel.get("error", "none") != "none":
                 ax.fill_between(positions, lower, upper, color=style["color"], alpha=0.13)
                 _intervals(ax, positions, center, lower, upper, color=style["color"])
@@ -152,8 +222,14 @@ def _line_bar(ax, df, panel, palette, report):
 def _scatter(ax, df, panel, palette, report):
     x, y, hue = panel["x"], panel["y"], panel.get("hue")
     df = complete_cases(_values(df, [x, y]), [x, y, hue], warnings=report["warnings"])
+    annotate = panel.get("fit_annotation", False)
+    if not isinstance(annotate, bool):
+        raise ValueError("fit_annotation must be a boolean.")
+    if annotate and panel.get("fit") != "ols":
+        raise ValueError("fit_annotation requires explicit fit='ols'.")
+    annotations = []
     for name, group in _groups(df, hue, panel.get("hue_order")):
-        style = palette.style(name or panel.get("series", "data"))
+        style = palette.style(name if name is not None else panel.get("series", "data"))
         ax.scatter(group[x], group[y], s=panel.get("point_size", 17), alpha=0.8,
                    color=style["color"], marker=style["marker"],
                    edgecolors="white", linewidths=0.35, label=str(name) if name is not None else None,
@@ -166,9 +242,65 @@ def _scatter(ax, df, panel, palette, report):
             fit = stats.linregress(group[x], group[y])
             xx = np.array([group[x].min(), group[x].max()])
             ax.plot(xx, fit.intercept + fit.slope * xx, color=style["color"], linestyle="--", linewidth=1)
+            actual = group[y].to_numpy(float)
+            residual = actual - (fit.intercept + fit.slope * group[x].to_numpy(float))
+            centered = actual - actual.mean()
+            sse, sst = float(residual @ residual), float(centered @ centered)
+            r_squared = 1 - sse / sst if sst > 0 else None
             report.setdefault("fits", []).append({"group": name, "model": "ordinary least squares",
                                                    "n": len(group), "slope": fit.slope,
-                                                   "intercept": fit.intercept, "r": fit.rvalue})
+                                                   "intercept": fit.intercept, "r": fit.rvalue,
+                                                   "sse": sse, "sst": sst, "r_squared": r_squared,
+                                                   "r_squared_definition": "1 - SSE/SST; undefined for constant response",
+                                                   "fit_space": "original data coordinates"})
+            if annotate:
+                prefix = f"{name}: " if name is not None else ""
+                sign = "+" if fit.intercept >= 0 else "−"
+                r_label = f"{r_squared:.4g}" if r_squared is not None else "undefined"
+                annotations.append(f"{prefix}y = {fit.slope:.4g} x {sign} {abs(fit.intercept):.4g}; R² = {r_label}")
+    if annotations:
+        position = panel.get("fit_annotation_position", [0.04, 0.96])
+        if (not isinstance(position, (list, tuple)) or len(position) != 2
+                or any(isinstance(v, bool) or not isinstance(v, (int, float))
+                       or not np.isfinite(v) or not 0 <= v <= 1 for v in position)):
+            raise ValueError("fit_annotation_position must be two axes fractions between 0 and 1.")
+        ax.text(*position, "\n".join(annotations), transform=ax.transAxes,
+                ha="left" if position[0] <= 0.5 else "right",
+                va="top" if position[1] > 0.5 else "bottom",
+                bbox={"facecolor": "white", "edgecolor": "none", "alpha": 0.85, "pad": 2})
+        report["fit_annotation"] = {"text": annotations, "position": list(position)}
+
+
+def _fit_distribution(values, model):
+    """Fit a named PDF by explicit MLE, without shifting or filtering data."""
+    values = np.asarray(values, dtype=float)
+    if len(values) < 2 or np.ptp(values) == 0:
+        raise ValueError("Distribution fitting needs at least two nonconstant complete observations.")
+    if model == "normal":
+        location, scale = float(values.mean()), float(values.std(ddof=0))
+        if not np.isfinite(scale) or scale <= 0:
+            raise ValueError("Normal-fit scale must be finite and positive in the supplied units.")
+        distribution = stats.norm(loc=location, scale=scale)
+        parameters = {"loc": location, "scale": scale}
+        definition = "exp(-0.5*((x-loc)/scale)^2)/(scale*sqrt(2*pi))"
+        support = "all real x"
+    elif model == "lognormal":
+        if np.any(values <= 0):
+            raise ValueError("Lognormal fitting requires strictly positive observations and fixes loc=0; no data shift is performed.")
+        logs = np.log(values)
+        log_mean, shape = float(logs.mean()), float(logs.std(ddof=0))
+        scale = float(np.exp(log_mean))
+        if not np.isfinite(scale) or scale <= 0 or not np.isfinite(shape) or shape <= 0:
+            raise ValueError("Lognormal-fit parameters must be finite and positive in the supplied units.")
+        distribution = stats.lognorm(s=shape, loc=0, scale=scale)
+        parameters = {"s": shape, "loc": 0.0, "scale": scale, "log_mean": log_mean}
+        definition = "exp(-0.5*((ln(x)-ln(scale))/s)^2)/(x*s*sqrt(2*pi)), x>0"
+        support = "x > 0; loc fixed at zero"
+    else:
+        raise ValueError("hist.fit must be normal or lognormal.")
+    return distribution, {"model": model, "n": len(values), "estimation": "maximum likelihood",
+                          "parameters": parameters, "pdf_definition": definition, "support": support,
+                          "normalization": "probability density; full-support PDF integral equals 1"}
 
 
 def _distribution(ax, df, panel, palette, report):
@@ -176,12 +308,22 @@ def _distribution(ax, df, panel, palette, report):
     value = y if kind in {"box", "violin"} else x
     columns = [value, hue] + ([x] if kind in {"box", "violin"} else [])
     df = complete_cases(_values(df, [value]), columns, warnings=report["warnings"])
+    fit_model = panel.get("fit")
+    if fit_model is not None:
+        if kind != "hist" or not isinstance(fit_model, str) or fit_model not in {"normal", "lognormal"}:
+            raise ValueError("Distribution fits require hist.fit='normal' or 'lognormal'.")
+        if panel.get("density") is not True:
+            raise ValueError("A fitted PDF requires explicit density=true; count histograms and probability density have different units.")
     if kind in {"hist", "ecdf"}:
         bins = np.histogram_bin_edges(df[value], bins=panel.get("bins", "auto")) if kind == "hist" else None
         if bins is not None:
             report["bins"] = bins.tolist()
+            report["histogram_scale"] = "probability density" if panel.get("density", False) else "count"
+            report["density_normalization"] = "each hue group separately" if panel.get("density", False) else None
+            if fit_model and (df[value].min() < bins[0] or df[value].max() > bins[-1]):
+                raise ValueError("Fitted histogram bins must cover all complete observations.")
         for name, group in _groups(df, hue, panel.get("hue_order")):
-            style = palette.style(name or panel.get("series", "data"))
+            style = palette.style(name if name is not None else panel.get("series", "data"))
             vals = np.sort(group[value].to_numpy(float))
             if kind == "ecdf":
                 unique, counts = np.unique(vals, return_counts=True)
@@ -193,6 +335,26 @@ def _distribution(ax, df, panel, palette, report):
                 ax.hist(vals, bins=bins, density=bool(panel.get("density", False)), histtype="step",
                         linewidth=1.4, color=style["color"], linestyle=style["linestyle"],
                         label=str(name) if name is not None else None)
+                if fit_model:
+                    distribution, fit_report = _fit_distribution(vals, fit_model)
+                    low, high = distribution.ppf([0.0001, 0.9999])
+                    if not np.isfinite([low, high]).all() or (fit_model == "lognormal" and low <= 0):
+                        raise ValueError("Fitted distribution exceeds finite plotting coordinates; choose suitable scientific units.")
+                    high = max(float(high), float(bins[-1]))
+                    if fit_model == "normal":
+                        low = min(float(low), float(bins[0]))
+                        xx = np.linspace(low, high, 512)
+                    else:
+                        low = min(float(low), float(vals[0]))
+                        if bins[0] > 0:
+                            low = min(low, float(bins[0]))
+                        xx = np.geomspace(low, high, 512)
+                    label = (f"{name}: " if name is not None else "") + f"{fit_model} fit"
+                    ax.plot(xx, distribution.pdf(xx), color=style["color"], linestyle="--", linewidth=1.1, label=label)
+                    fit_report["group"] = name
+                    report.setdefault("fits", []).append(fit_report)
+                    if not panel.get("ylabel"):
+                        ax.set_ylabel("Probability density")
         return
     if hue:
         raise ValueError("Native box/violin use x groups. For nested groups, use separate panels or a custom script.")
@@ -223,6 +385,61 @@ def _distribution(ax, df, panel, palette, report):
             ax.scatter(pos + jitter, vals, s=9, color=color, alpha=0.65, edgecolors="none", rasterized=False)
         report.setdefault("sample_sizes", {})[str(cat)] = len(vals)
     ax.set_xticks(range(len(cats)), [str(c) for c in cats])
+
+
+def _matrix_normalization(panel, matrix, vmin, vmax, cmap):
+    """Build an explicit color mapping while preserving numerical meaning."""
+    kind = panel.get("norm", "linear")
+    if not isinstance(kind, str) or kind not in {"linear", "log", "two-slope", "symlog", "boundary"}:
+        raise ValueError("norm must be linear, log, two-slope, symlog, or boundary.")
+    finite = np.asarray(matrix)[np.isfinite(matrix)]
+    for name, value in (("vmin", vmin), ("vmax", vmax)):
+        if value is not None and (isinstance(value, bool) or not isinstance(value, (int, float)) or not np.isfinite(value)):
+            raise ValueError(f"{name} must be a finite number.")
+    if vmin is not None and vmax is not None and vmin > vmax:
+        raise ValueError("vmin must not exceed vmax.")
+    low = vmin if vmin is not None else (float(finite.min()) if finite.size else None)
+    high = vmax if vmax is not None else (float(finite.max()) if finite.size else None)
+    details = {"kind": kind}
+    if kind == "linear":
+        norm = Normalize(vmin=low, vmax=high)
+    elif kind == "boundary":
+        boundaries = panel.get("boundaries")
+        if (not isinstance(boundaries, (list, tuple)) or len(boundaries) < 2
+                or any(isinstance(v, bool) or not isinstance(v, (int, float)) or not np.isfinite(v) for v in boundaries)
+                or np.any(np.diff(boundaries) <= 0)):
+            raise ValueError("boundary norm requires at least two strictly increasing finite boundaries.")
+        if panel.get("vmin") is not None or panel.get("vmax") is not None:
+            raise ValueError("boundary norm uses boundaries instead of vmin/vmax.")
+        color_count = plt.get_cmap(cmap).N
+        if len(boundaries) - 1 > color_count:
+            raise ValueError("Boundary intervals exceed the number of colors in the chosen colormap.")
+        norm = BoundaryNorm(boundaries, ncolors=color_count)
+        details["boundaries"] = list(boundaries)
+    else:
+        if low is None or high is None or low >= high:
+            raise ValueError(f"{kind} norm requires two distinct increasing finite limits or observations.")
+        if kind == "log":
+            if low <= 0 or np.any(finite <= 0):
+                raise ValueError("log norm requires strictly positive limits and observations; nonpositive cells cannot disappear.")
+            norm = LogNorm(vmin=low, vmax=high)
+        elif kind == "two-slope":
+            center = panel.get("vcenter")
+            if (isinstance(center, bool) or not isinstance(center, (int, float))
+                    or not np.isfinite(center) or not low < center < high):
+                raise ValueError("two-slope norm requires an explicit vmin < vcenter < vmax.")
+            norm = TwoSlopeNorm(vcenter=center, vmin=low, vmax=high)
+            details["vcenter"] = center
+        else:
+            threshold = _style_number(panel.get("linthresh"), "linthresh")
+            linear_scale = _style_number(panel.get("linscale", 1), "linscale")
+            base = _style_number(panel.get("base", 10), "base")
+            if base <= 1:
+                raise ValueError("symlog norm base must be greater than 1.")
+            norm = SymLogNorm(linthresh=threshold, linscale=linear_scale, base=base, vmin=low, vmax=high)
+            details.update(linthresh=threshold, linscale=linear_scale, base=base)
+    details.update(vmin=norm.vmin, vmax=norm.vmax)
+    return norm, details
 
 
 def _matrix(ax, df, panel, palette, report):
@@ -277,7 +494,8 @@ def _matrix(ax, df, panel, palette, report):
         vmin, vmax, cmap = panel.get("vmin"), panel.get("vmax"), panel.get("cmap", "viridis")
     if matrix.size > 40000:
         raise ValueError("Native editable heatmap exceeds 40,000 cells; choose an explicit aggregation or custom source strategy.")
-    mesh = ax.pcolormesh(np.ma.masked_invalid(matrix), cmap=cmap, vmin=vmin, vmax=vmax,
+    norm, normalization = _matrix_normalization(panel, matrix, vmin, vmax, cmap)
+    mesh = ax.pcolormesh(np.ma.masked_invalid(matrix), cmap=cmap, norm=norm,
                          edgecolors="white" if matrix.size <= 400 else "none",
                          linewidth=0.5, rasterized=False, shading="flat")
     ax.set_xticks(np.arange(len(xlabels)) + 0.5, [str(v) for v in xlabels])
@@ -289,6 +507,9 @@ def _matrix(ax, df, panel, palette, report):
     colorbar = ax.figure.colorbar(mesh, ax=ax, fraction=0.045, pad=0.035)
     colorbar.solids.set_rasterized(False)
     colorbar.solids.set_edgecolor("face")  # Prevent SVG viewer seams between vector colorbar cells.
+    if normalization["kind"] in {"log", "symlog"}:
+        colorbar.formatter = FuncFormatter(lambda value, _: f"{value:g}")
+        colorbar.update_ticks()
     if panel.get("colorbar_label"):
         colorbar.set_label(panel["colorbar_label"])
     annotate = panel.get("annotate", matrix.size <= 64)
@@ -302,6 +523,8 @@ def _matrix(ax, df, panel, palette, report):
             ax.text(j + 0.5, i + 0.5, format(value, fmt), ha="center", va="center",
                     color="white" if luminance < 0.5 else "#222222", fontsize=panel.get("annotation_font_pt", 7))
     report["matrix"] = clean_json(matrix.tolist())
+    normalization.update(vmin=mesh.norm.vmin, vmax=mesh.norm.vmax)
+    report["color_normalization"] = clean_json(normalization)
     missing_cells = int(np.isnan(matrix).sum())
     if missing_cells:
         report["warnings"].append(f"{missing_cells} missing matrix cells are blank; no imputation.")
@@ -458,21 +681,94 @@ HANDLERS = {"line": _line_bar, "bar": _line_bar, "scatter": _scatter,
 
 def visible_text_labels(fig):
     """Inventory displayed labels; locators also create out-of-view tick artists."""
-    tick_ids, tick_labels = set(), []
+    tick_ids, hidden_axis_text_ids, tick_labels = set(), set(), []
     for ax in fig.axes:
         for axis in (ax.xaxis, ax.yaxis):
+            axis_visible = ax.get_visible() and ax.axison and axis.get_visible()
+            if not axis_visible:
+                hidden_axis_text_ids.update((id(axis.label), id(axis.get_offset_text())))
             lo, hi = sorted(axis.get_view_interval())
             eps = max(1, abs(lo), abs(hi)) * 1e-10
             for tick in axis.get_major_ticks() + axis.get_minor_ticks():
                 for label in (tick.label1, tick.label2):
                     tick_ids.add(id(label))
-                    if ax.get_visible() and label.get_visible() and lo - eps <= tick.get_loc() <= hi + eps:
+                    if axis_visible and label.get_visible() and lo - eps <= tick.get_loc() <= hi + eps:
                         tick_labels.extend(label.get_text().splitlines())
     other_labels = [line for artist in fig.findobj(Text)
-                    if id(artist) not in tick_ids and artist.get_visible()
+                    if id(artist) not in tick_ids and id(artist) not in hidden_axis_text_ids and artist.get_visible()
                     and (artist.axes is None or artist.axes.get_visible())
                     for line in artist.get_text().splitlines()]
     return list(dict.fromkeys(line for line in other_labels + tick_labels if line.strip()))
+
+
+def _grid_layout(settings, panels):
+    """Reserve explicit spans, then place remaining panels in unused cells."""
+    rows, cols = settings.get("rows", 1), settings.get("cols", len(panels))
+    for name, value in (("rows", rows), ("cols", cols)):
+        if isinstance(value, bool) or not isinstance(value, int) or value < 1:
+            raise ValueError(f"Figure {name} must be a positive integer.")
+    if rows * cols < len(panels):
+        raise ValueError("Figure rows/cols cannot hold all panels.")
+    ratios = {}
+    for name, count in (("width_ratios", cols), ("height_ratios", rows)):
+        values = settings.get(name)
+        if values is not None:
+            if (not isinstance(values, (list, tuple)) or len(values) != count
+                    or any(isinstance(v, bool) or not isinstance(v, (int, float))
+                           or not np.isfinite(v) or v <= 0 for v in values)):
+                raise ValueError(f"{name} must have {count} positive finite entries.")
+            ratios[name] = list(values)
+        else:
+            ratios[name] = [1] * count
+    occupied, placements = set(), [None] * len(panels)
+    for index, panel in enumerate(panels):
+        if "grid" not in panel:
+            continue
+        place = panel["grid"]
+        if (not isinstance(place, (list, tuple)) or len(place) != 4
+                or any(isinstance(v, bool) or not isinstance(v, int) for v in place)):
+            raise ValueError("panel.grid must be [row, col, rowspan, colspan] with integer entries.")
+        row, col, row_span, col_span = place
+        if min(row, col) < 0 or min(row_span, col_span) < 1 or row + row_span > rows or col + col_span > cols:
+            raise ValueError(f"Panel {index + 1} grid is outside the declared rows/cols.")
+        cells = {(r, c) for r in range(row, row + row_span) for c in range(col, col + col_span)}
+        if occupied & cells:
+            raise ValueError(f"Panel {index + 1} grid overlaps another panel.")
+        occupied.update(cells)
+        placements[index] = list(place)
+    available = [(r, c) for r in range(rows) for c in range(cols) if (r, c) not in occupied]
+    for index, place in enumerate(placements):
+        if place is None:
+            if not available:
+                raise ValueError("Figure rows/cols have no free cell after reserving panel spans.")
+            row, col = available.pop(0)
+            placements[index] = [row, col, 1, 1]
+    return rows, cols, placements, ratios
+
+
+def _panel_label(ax, panel, report, settings, *, show, font, title_font):
+    style = panel.get("panel_label_style", settings.get("panel_label_style", "separate"))
+    position = panel.get("panel_label_position", settings.get("panel_label_position", "left"))
+    if not isinstance(style, str) or style not in {"separate", "integrated"}:
+        raise ValueError("panel_label_style must be separate or integrated.")
+    if not isinstance(position, str) or position not in {"left", "center"}:
+        raise ValueError("panel_label_position must be left or center.")
+    if not show:
+        return
+    if style == "integrated":
+        label = f"({report['id']}) {panel.get('title', '')}".strip()
+        for location in ("left", "center"):
+            ax.set_title("", loc=location)
+        ax.set_title(label, loc=position, fontweight="bold", fontsize=font)
+    elif position == "left":
+        ax.set_title(str(report["id"]), loc="left", fontweight="bold", fontsize=font)
+    else:
+        # Give a centered, separate panel identifier its own line above the
+        # ordinary title. Sharing the center-title slot would erase that title.
+        offset = title_font + 8 if panel.get("title") else 6
+        ax.annotate(str(report["id"]), xy=(0.5, 1), xycoords="axes fraction",
+                    xytext=(0, offset), textcoords="offset points", ha="center", va="bottom",
+                    fontsize=font, fontweight="bold", annotation_clip=False)
 
 
 def render_plots(spec, output, *, base_dir=".", overwrite=False):
@@ -487,37 +783,63 @@ def render_plots(spec, output, *, base_dir=".", overwrite=False):
     if not isinstance(settings, dict):
         raise ValueError("figure settings must be a JSON object.")
     width, height = float(settings.get("width_mm", 180)), float(settings.get("height_mm", 110))
-    rows, cols = int(settings.get("rows", 1)), int(settings.get("cols", len(panels)))
-    if rows < 1 or cols < 1 or rows * cols < len(panels):
-        raise ValueError("Figure rows/cols cannot hold all panels.")
-    font = float(settings.get("font_pt", 8))
-    min_font = float(settings.get("min_font_pt", 6))
+    rows, cols, placements, ratios = _grid_layout(settings, panels)
+    font = _style_number(settings.get("font_pt", 8), "font_pt")
+    min_font = _style_number(settings.get("min_font_pt", 6), "min_font_pt")
     if font < min_font or min_font <= 0:
         raise ValueError("Figure font_pt must be >= positive min_font_pt.")
+    role_fonts = {"axis_font_pt": font, "tick_font_pt": font,
+                  "legend_font_pt": max(min_font, font - 0.5), "panel_font_pt": font}
+    for name, default in role_fonts.items():
+        role_fonts[name] = _style_number(settings.get(name, default), name)
+        if role_fonts[name] < min_font:
+            raise ValueError(f"{name} must be >= min_font_pt.")
+    panel_label_font = role_fonts["panel_font_pt"] if "panel_font_pt" in settings else font + 1
+    grid_setting = settings.get("grid", "y")
+    if not isinstance(grid_setting, (bool, str)) or (isinstance(grid_setting, str) and grid_setting not in {"x", "y", "both"}):
+        raise ValueError("figure.grid must be false, true, x, y, or both.")
+    grid_axis = "both" if grid_setting is True else grid_setting
     palette = Palette(spec.get("palette"))
     rc = {"font.family": settings.get("font_family", "DejaVu Sans"), "font.size": font,
-          "axes.titlesize": font, "axes.labelsize": font, "xtick.labelsize": font,
-          "ytick.labelsize": font, "legend.fontsize": max(min_font, font - 0.5),
+          "axes.titlesize": role_fonts["panel_font_pt"], "axes.labelsize": role_fonts["axis_font_pt"],
+          "xtick.labelsize": role_fonts["tick_font_pt"], "ytick.labelsize": role_fonts["tick_font_pt"],
+          "legend.fontsize": role_fonts["legend_font_pt"],
           "axes.linewidth": 0.65, "xtick.major.width": 0.65, "ytick.major.width": 0.65,
           "text.usetex": False, "text.parse_math": False, "svg.fonttype": "none",
-          "savefig.bbox": None, "axes.spines.top": False, "axes.spines.right": False}
+          "savefig.bbox": None, "axes.spines.top": False, "axes.spines.right": False, "axes.grid": False}
     reports, expected_labels, source_data = [], [], {}
     with plt.rc_context(rc):
-        fig, axes = plt.subplots(rows, cols, figsize=(width / 25.4, height / 25.4),
-                                 layout="constrained", squeeze=False)
+        fig = plt.figure(figsize=(width / 25.4, height / 25.4), layout="constrained")
         try:
-            for idx, panel in enumerate(panels):
+            grid = fig.add_gridspec(rows, cols, **ratios)
+            # Create precisely one Axes per real panel. Empty cells remain empty,
+            # and an automatic placeholder can never cover a spanning hero panel.
+            axes = [fig.add_subplot(grid[row:row + row_span, col:col + col_span])
+                    for row, col, row_span, col_span in placements]
+            for idx, original_panel in enumerate(panels):
+                panel = dict(original_panel)
                 kind = panel.get("kind")
                 if kind not in HANDLERS:
                     raise ValueError(f"Unsupported kind {kind!r}; use capabilities or a custom source script.")
-                ax = axes.flat[idx]
+                ax = axes[idx]
                 source = (Path(base_dir) / panel["data"]).resolve()
                 cache_key = (str(source), str(panel.get("sheet", 0)))
                 if cache_key not in source_data:
                     source_data[cache_key] = read_table(source, sheet=panel.get("sheet", 0))
                 df, provenance = source_data[cache_key]
                 report = {"id": panel.get("id", chr(97 + idx)), "kind": kind,
-                          "source": provenance, "warnings": []}
+                          "source": provenance, "warnings": [], "grid": placements[idx]}
+                if "y_columns" in panel:
+                    if kind != "line":
+                        raise ValueError("Explicit wide-table y_columns are supported for line panels.")
+                    if "y" in panel or "hue" in panel:
+                        raise ValueError("Wide-table lines use y_columns with value_name/series_name; omit y and hue.")
+                    value_name, series_name = panel.get("value_name", "value"), panel.get("series_name", "series")
+                    df, transformation = wide_to_long(df, x=panel.get("x"), y_columns=panel["y_columns"],
+                                                     value_name=value_name, series_name=series_name)
+                    panel.update(y=value_name, hue=series_name)
+                    panel.setdefault("hue_order", panel["y_columns"])
+                    report["transformations"] = [transformation]
                 for axis in ("x", "y"):
                     if panel.get(axis + "scale") == "log":
                         column = panel.get(axis)
@@ -556,17 +878,18 @@ def render_plots(spec, output, *, base_dir=".", overwrite=False):
                         spine.set_visible(True)
                 if kind not in {"heatmap", "confusion", "correlation"}:
                     ax.set_axisbelow(True)
-                    ax.grid(axis="y", color="#DDE2E7", linewidth=0.5, alpha=0.7)
+                    ax.grid(False)
+                    if grid_axis is not False:
+                        ax.grid(axis=grid_axis, color="#DDE2E7", linewidth=0.5, alpha=0.7)
                 handles, labels = ax.get_legend_handles_labels()
                 if handles and panel.get("legend", True):
                     ax.legend(frameon=False, loc=panel.get("legend_loc", "best"),
                               ncol=int(panel.get("legend_cols", 1)), handlelength=2)
                     expected_labels.extend(labels)
-                if len(panels) > 1 or panel.get("show_panel_id", False):
-                    ax.set_title(str(report["id"]), loc="left", fontweight="bold", fontsize=font + 1)
+                _panel_label(ax, panel, report, settings,
+                             show=len(panels) > 1 or panel.get("show_panel_id", False),
+                             font=panel_label_font, title_font=role_fonts["panel_font_pt"])
                 reports.append(report)
-            for ax in list(axes.flat)[len(panels):]:
-                ax.set_visible(False)
             title = spec.get("title")
             if title:
                 fig.suptitle(str(title), fontsize=font + 1, fontweight="bold")
@@ -580,6 +903,7 @@ def render_plots(spec, output, *, base_dir=".", overwrite=False):
             provenance = {"claim": spec.get("claim"), "data_status": spec.get("data_status", "user-supplied"),
                           "journal": spec.get("journal", {"status": "not specified"}),
                           "panels": reports, "spec": spec,
+                          "layout": {"rows": rows, "cols": cols, **ratios, "panel_grid": placements},
                           "transformations": "Only explicit plot aggregations/transforms recorded in this manifest."}
             result = export_figure(fig, output, width_mm=width, height_mm=height,
                                    min_font_pt=min_font, formats=spec.get("formats", ["svg", "pdf", "png"]),

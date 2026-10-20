@@ -1,0 +1,14 @@
+{
+  "learning.csv": {
+    "original": "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/examples/data/learning.csv",
+    "copy": "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/data/learning.csv",
+    "original_sha256": "5b1a4624a7c428f8447cf40357609c3df8e80cb343c9246e6da91c9a8453dfcc",
+    "copy_sha256": "5b1a4624a7c428f8447cf40357609c3df8e80cb343c9246e6da91c9a8453dfcc"
+  },
+  "endpoints.csv": {
+    "original": "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/examples/data/endpoints.csv",
+    "copy": "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/data/endpoints.csv",
+    "original_sha256": "a9aa06b7f103e1fb77569d4cc5c0fcec7491552336c3172dec07d8521ce6155b",
+    "copy_sha256": "a9aa06b7f103e1fb77569d4cc5c0fcec7491552336c3172dec07d8521ce6155b"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "data_status": "Synthetic",
+  "active_editable_source": "figure-2.svg",
+  "upstream_spec": "specs/figure-2-horizontal-v2.json",
+  "shared_defaults": "specs/plot-defaults.json",
+  "width_mm": 180,
+  "height_mm": 90,
+  "refinement": {
+    "text_fill_changes": 33,
+    "non_data_grid_color_changes": 14,
+    "data_colors": "unchanged",
+    "geometry": "unchanged",
+    "text_content": "unchanged"
+  },
+  "caption": "Figure 2. Synthetic final task success and independent run variation at epoch 30. (a) Bars show the arithmetic mean and error bars plus or minus one sample SD (n−1 denominator) across six synthetic runs per method, with a zero-based 0–100% vertical scale. Means ± SD are 57.881 ± 0.866% for Baseline, 69.476 ± 1.252% for Context, and 79.048 ± 1.308% for Proposed. (b) All 18 original endpoint values are shown once against their seed IDs on an explicitly expanded 50–85% vertical scale. Gray circles, orange triangles and blue squares retain the Baseline, Context and Proposed roles used in Figure 1. Seed labels identify runs and do not establish cross-method pairing; no points are connected. These endpoint values exactly match the epoch-30 observations in the learning table. SD describes run-to-run variation, not a confidence interval for generalization. No values were excluded and no significance analysis was added. All results are Synthetic demonstrations.",
+  "alt_text": "Synthetic final-results figure with two horizontal panels. Left: zero-baseline bars compare mean task success with sample SD error bars across six runs per method. Baseline is about 57.9 percent, Context 69.5 percent and Proposed 79.0 percent. Right: eighteen unconnected points show all six seed-labeled runs per method on a 50 to 85 percent scale. Baseline gray circles range from 56.337 to 58.904 percent, Context orange triangles from 67.671 to 71.353 percent, and Proposed blue squares from 77.382 to 80.181 percent. A three-marker legend identifies methods. Proposed has the highest mean in these Synthetic data.",
+  "audit_passed": true,
+  "style_revision_passed": true,
+  "files": {
+    "svg": {
+      "path": "figure-2.svg",
+      "sha256": "e5cc66f9bdd00aa9d5d9fe10bedbb526c802d05fe5129f5a4915d19ab80c1988"
+    },
+    "pdf": {
+      "path": "figure-2.pdf",
+      "sha256": "20e3456bb45375453dec3228d70e755fbd0670bcfeba39d3647950df2eceaf6b"
+    },
+    "png": {
+      "path": "figure-2.png",
+      "sha256": "0428bef4bbf36581a62c8612a6013bb4db76c2852bcfb727f07d91b252593f9f"
+    }
+  },
+  "journal_status": "planning profile; no target venue specified",
+  "source_snapshot": "source/figurefoundry; exact copied local runtime, see source/SNAPSHOT.json"
+}

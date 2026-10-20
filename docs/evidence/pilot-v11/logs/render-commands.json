@@ -1,0 +1,56 @@
+[
+  {
+    "name": "palette",
+    "cwd": "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/skills/figurefoundry/scripts/figurefoundry.py",
+      "palette",
+      "--spec",
+      "specs/palette.json"
+    ],
+    "returncode": 0
+  },
+  {
+    "name": "figure-1-learning",
+    "cwd": "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/skills/figurefoundry/scripts/figurefoundry.py",
+      "plot",
+      "--spec",
+      "specs/figure-1-learning.json",
+      "--out",
+      "figures/figure-1-learning"
+    ],
+    "returncode": 0
+  },
+  {
+    "name": "figure-2-horizontal",
+    "cwd": "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/skills/figurefoundry/scripts/figurefoundry.py",
+      "plot",
+      "--spec",
+      "specs/figure-2-horizontal.json",
+      "--out",
+      "figures/figure-2-horizontal"
+    ],
+    "returncode": 0
+  },
+  {
+    "name": "figure-2-stacked",
+    "cwd": "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/skills/figurefoundry/scripts/figurefoundry.py",
+      "plot",
+      "--spec",
+      "specs/figure-2-stacked.json",
+      "--out",
+      "figures/figure-2-stacked"
+    ],
+    "returncode": 0
+  }
+]

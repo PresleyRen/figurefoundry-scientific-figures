@@ -8,7 +8,13 @@
 
 本项目按以下顺序解决冲突：实验数据与科学含义；用户明确的 SVG/文字编辑约定；当前适用的期刊要求；可重复生成和机械审核；最终尺寸下的可读性；装饰与个人风格。较低层的优化不能破坏较高层的要求。
 
-源码比较已经完成；实际执行结果由发布测试记录填写。下表的“验证标准”描述需要怎样证明规则有效，不宣称尚未运行的用例已通过。
+源码比较与本版行为验证已经完成；下表保留可复用的验证标准，实际执行情况和环境见发布测试报告及下列证据。
+
+v1.1.0 对原 **CF-01–CF-16** 逐项重审，实际证据汇总在
+[conflict-review.json](evidence/reaudit/conflict-review.json) 的 `conflict_coverage`，
+修复前的真实失败与修复后的执行记录同时保留。新增比较见本文第 5 节。
+
+CF-06 另外完成了同数据的真实二维/三维 A/B：[对照记录](evidence/reaudit/spatial-choice/review.json)、[二维 SVG](evidence/reaudit/spatial-choice/quantitative-2d.svg)、[三维 SVG](evidence/reaudit/spatial-choice/quantitative-3d.svg)。两版都保留 12/15/14 三个数值、13 个可编辑文字和 120×90 mm 画布，均无嵌入位图。二维每单位数值对应的屏幕高度一致；本例透视三维的该比例相对极差约 4.17%。结合实际预览，单因素组间比较采用二维；真实空间坐标、曲面和装置几何保留三维路线。这个百分比是投影几何测量，未用于推断读者的错误率。
 
 ## 2. 规则与对照
 
@@ -55,3 +61,22 @@
 新增图型先映射至 chart-selection.md 的科学问题，再给出最小真实/合成输入、无效输入和阴性结果输入。新增后端先通过 CF-01/02/03/11/12/14，再扩展样式。更新期刊预设先核查 CF-04。替换统计或数据处理模块先回归 CF-08/09/10。
 
 功能可以增加；严格 SVG、可追溯数值以及合法阴性结果的可绘制性不能被新模板的默认值取消。
+
+## 5. v1.1.0 新增比较：保留哪种行为，怎样验证
+
+| ID | 实际比较 | 采用的行为与效果 | 可复跑证据 |
+|---|---|---|---|
+| CF-17 | 依数据首次出现分配 marker/line vs 项目固定角色 | 固定声明顺序和完整颜色/点形/线型；同一方法在逆序、缺组及柱/线图间一致 | `test_plot_feature_coverage.py` 的 legacy/structured/category palette 用例；`test_workflow_features.py` 的 shared style |
+| CF-18 | 原始测量行都叠到柱上 vs 与统计相同的独立单位点 | 技术重复先按声明 within_unit 归约；柱高、区间、点数来自同一集合 | `test_bar_overlay_uses_independent_unit_values_and_matching_sem` 与重复主体反例 |
+| CF-19 | 计数直方叠 PDF、自动平移对数正态 vs 明确密度与支持域 | 显式 density=true；固定 loc=0 的对数正态只接受正数，MLE 参数完整记录 | normal/lognormal 的已知答案、count 单位与非正值反例 |
+| CF-20 | 自动选所有数值列 vs 显式宽表测量列 | 仅 y_columns 参与长表转换，保留 ID 和缺失；其他数字列不成为曲线 | `test_explicit_curve_columns_preserve_units_missingness_and_order` 与列名冲突反例 |
+| CF-21 | 等格模板、空占位轴 vs 显式主面板跨行跨列 | 依据数据叙事选择版式；真实 Axes 数量等于面板数，先预留 span 再填空位 | 三面板 hero 几何、重叠/越界/比例反例与 asymmetric 示例 |
+| CF-22 | 以改色名义改变路径、数值单位或全部后代文字 vs 具体编辑范围 | 样式允许；文字修改限定具体 text/tspan，单位尾文和未选空格保持；几何变化交给重新排版流程 | `test_style_and_selected_text_are_allowed_but_geometry_or_other_text_is_not`、tspan tail、ancestor group 及空格反例 |
+| CF-23 | 精修后旧源覆盖、删除冻结声明或路径别名 vs 可追溯主源交接 | 选定实际编辑源；继承基线冻结 SHA；别名、删除声明、提前修改再冻结、跨图激活冲突均可检测 | source switch、removed/aliased freeze、legacy baseline、cross-figure active/frozen 回归 |
+| CF-24 | 把 Seaborn 隐藏 Axis 的刻度也列为必需文字 vs 实际可见标签清单 | 根据父 Axis 和 Axes 可见性收集文字，在最终尺寸下确定刻度；PairGrid/JointGrid 与共同 SVG 审核互通 | `test_hidden_axis_ticks_labels_and_offset_text_do_not_enter_visible_inventory` 与四类 Seaborn 真实导出 |
+| CF-25 | HTML 嵌套子图/脚本/图注混为正文证据 vs 有归属的参考图清单 | 外层图汇总子图、图注、alt 和资产 URL；正文上下文单独保存，脚本和隐藏模板不成为证据 | `test_reference_intake.py` 的嵌套、ar5iv、context、script/hidden 与无网络运行用例 |
+| CF-26 | 将读图值直接当原始实验数据 vs 明确文献数字化来源 | 保存 DOI/URL、图表号、单位、数字化方法、变换和不确定性；未知项按实际状态记录 | benchmark 完整字段、缺来源/方法/变换和 unknown uncertainty 反例 |
+
+原 CF-01/12/14 还得到一次重要修复：**新增面板字母不能弥补源图文字已转曲，另一面板也不能补齐本面板缺失的必需标签**。修复前的真实拼版只剩一个 `a` 文字仍返回通过；修复后先审核每个原始源，再合并其标签清单并检查最终图。[最小复现与记录](evidence/reaudit/conflict-review.json) 保留了两种缺陷及修复前后的结果。
+
+工作流模块在加入前后对照中还修复了快照共享可变对象、元数据引用丢失和未知父节点异常等问题。它们在 `workflow_pre_fix` 与 `workflow_fixes` 中单独记录，没有将本轮新增能力包装成原有版本缺陷。

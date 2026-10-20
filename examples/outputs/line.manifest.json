@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "generator": "FigureFoundry",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "environment": {
     "python": "3.12.14",
     "matplotlib": "3.10.8"
@@ -34,15 +34,15 @@
   "files": {
     "svg": {
       "name": "line.svg",
-      "sha256": "fbf82863f1ad00f696b3bbd27bf72e9dcaa3a2910c22d209b33893a99b880004"
+      "sha256": "96b1b60071e48e2647515849c5306167aadbe7012a74509ab53674ec39f084bb"
     },
     "pdf": {
       "name": "line.pdf",
-      "sha256": "310fbe1bfd89d4b96766486f7fc34127af1b25ff1f74a5db5daee82696f0dd8b"
+      "sha256": "f873eb417d4dfea54be65cc2d3443efa214a0de1dc169d0acd1d864f9d6ad87c"
     },
     "png": {
       "name": "line.png",
-      "sha256": "8f44a3c78276c3219b0d9ba6d96441dc8afc66f586a57c30d5f7659d03dd5b9b"
+      "sha256": "dc0d249a004e347b6016e03a8f1f268cd21cc5248529c5cd8619d6c37c245d56"
     }
   },
   "svg_audit": {
@@ -123,6 +123,12 @@
           }
         },
         "warnings": [],
+        "grid": [
+          0,
+          0,
+          1,
+          1
+        ],
         "statistics": {
           "estimator": "mean",
           "uncertainty": "ci95",
@@ -383,6 +389,24 @@
           "title": "",
           "legend_loc": "lower right"
         }
+      ]
+    },
+    "layout": {
+      "rows": 1,
+      "cols": 1,
+      "width_ratios": [
+        1
+      ],
+      "height_ratios": [
+        1
+      ],
+      "panel_grid": [
+        [
+          0,
+          0,
+          1,
+          1
+        ]
       ]
     },
     "transformations": "Only explicit plot aggregations/transforms recorded in this manifest."

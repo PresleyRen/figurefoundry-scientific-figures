@@ -1,0 +1,87 @@
+{
+  "passed": true,
+  "text": {
+    "color": "#222222",
+    "background": "#FFFFFF",
+    "contrast": 15.909984431773273,
+    "minimum": 4.5,
+    "passed": true
+  },
+  "roles": [
+    {
+      "role": "Baseline",
+      "color": "#666A73",
+      "luminance": 0.1437065349929344,
+      "L_star": 44.759868957906285,
+      "background_contrast": 5.420570865295276,
+      "marker": "o",
+      "linestyle": "--",
+      "hatch": null
+    },
+    {
+      "role": "Context",
+      "color": "#D55E00",
+      "luminance": 0.22151541200376595,
+      "L_star": 54.18742429248152,
+      "background_contrast": 3.8671837898669135,
+      "marker": "^",
+      "linestyle": ":",
+      "hatch": null
+    },
+    {
+      "role": "Proposed",
+      "color": "#0072B2",
+      "luminance": 0.15248980125973846,
+      "L_star": 45.9733427569253,
+      "background_contrast": 5.185446345779855,
+      "marker": "s",
+      "linestyle": "-",
+      "hatch": null
+    }
+  ],
+  "pairs": [
+    {
+      "roles": [
+        "Baseline",
+        "Context"
+      ],
+      "grayscale_contrast": 1.4016843159869115,
+      "delta_L": 9.427555334575239,
+      "redundant_channels": [
+        "marker",
+        "linestyle"
+      ],
+      "review_recommended": false
+    },
+    {
+      "roles": [
+        "Baseline",
+        "Proposed"
+      ],
+      "grayscale_contrast": 1.0453431592647324,
+      "delta_L": 1.2134737990190132,
+      "redundant_channels": [
+        "marker",
+        "linestyle"
+      ],
+      "review_recommended": false
+    },
+    {
+      "roles": [
+        "Context",
+        "Proposed"
+      ],
+      "grayscale_contrast": 1.3408843819027048,
+      "delta_L": 8.214081535556225,
+      "redundant_channels": [
+        "marker",
+        "linestyle"
+      ],
+      "review_recommended": false
+    }
+  ],
+  "pair_review_ratio": 1.5,
+  "method": "linear sRGB luminance; pair_review_ratio is a user-adjustable design heuristic",
+  "lightness_method": "CIE L* from relative Y, reference white Y=1; delta_L is descriptive, not a journal rule or color-vision simulation",
+  "formula_source": "https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html"
+}

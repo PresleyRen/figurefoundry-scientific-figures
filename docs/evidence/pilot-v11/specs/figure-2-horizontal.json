@@ -1,0 +1,69 @@
+{
+  "version": 1,
+  "defaults": "plot-defaults.json",
+  "data_status": "synthetic",
+  "claim": "Synthetic endpoints retain all six independent runs per method; Proposed has the highest final mean. Run identifiers are labels, not a continuous process or evidence of cross-method pairing.",
+  "title": "Synthetic final results and run variation",
+  "figure": {
+    "width_mm": 180,
+    "height_mm": 90,
+    "rows": 1,
+    "cols": 2,
+    "width_ratios": [
+      1,
+      1.15
+    ]
+  },
+  "panels": [
+    {
+      "id": "a",
+      "kind": "bar",
+      "data": "../data/endpoints.csv",
+      "x": "method",
+      "y": "success",
+      "order": [
+        "Baseline",
+        "Context",
+        "Proposed"
+      ],
+      "unit": "seed",
+      "estimator": "mean",
+      "error": "sd",
+      "raw_points": false,
+      "xlabel": "Method",
+      "ylabel": "Task success (%)",
+      "ylim": [
+        0,
+        100
+      ],
+      "title": "Final mean ± SD (n = 6)",
+      "legend": false
+    },
+    {
+      "id": "b",
+      "kind": "scatter",
+      "data": "../data/endpoints.csv",
+      "x": "seed",
+      "y": "success",
+      "hue": "method",
+      "hue_order": [
+        "Baseline",
+        "Context",
+        "Proposed"
+      ],
+      "point_size": 23,
+      "xlabel": "Run (seed ID)",
+      "ylabel": "Task success (%)",
+      "xlim": [
+        0.5,
+        6.5
+      ],
+      "ylim": [
+        50,
+        85
+      ],
+      "title": "Individual runs (expanded scale)",
+      "legend": false
+    }
+  ]
+}

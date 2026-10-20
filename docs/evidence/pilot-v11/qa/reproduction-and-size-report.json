@@ -1,0 +1,108 @@
+{
+  "passed": true,
+  "figures": [
+    {
+      "figure": "figure-1",
+      "size_mm": [
+        179.9999998333333,
+        85.00000003888889
+      ],
+      "min_font_pt": 7.499999999999999,
+      "live_text_count": 24,
+      "path_count": 52,
+      "image_count": 0,
+      "rebuild": {
+        "svg": {
+          "same_bytes": true,
+          "master_sha256": "5a261842a12465fbb01a3923e3922f434e01c30b2b8be3afbb8a02fde94db3ea",
+          "rebuild_sha256": "5a261842a12465fbb01a3923e3922f434e01c30b2b8be3afbb8a02fde94db3ea"
+        },
+        "png": {
+          "same_bytes": true,
+          "master_sha256": "a0ffb5751619296977457f50de7079d0e0b1db97c8c6c17978a672eedc6e66a9",
+          "rebuild_sha256": "a0ffb5751619296977457f50de7079d0e0b1db97c8c6c17978a672eedc6e66a9"
+        },
+        "pdf": {
+          "same_bytes": false,
+          "master_sha256": "365a421d7fa38e424cf1c1cdbfb798885f0c610e77ce30f5ebcb7a3858b092b1",
+          "rebuild_sha256": "f99622f9e5b97155d5469283463a2f18e0d7bb8cb2b6ced03dcd4a31eb74ab99"
+        }
+      },
+      "png": {
+        "pixels": [
+          2126,
+          1004
+        ],
+        "dpi": [
+          299.9994,
+          299.9994
+        ]
+      },
+      "screen_preview": {
+        "pixels": [
+          680,
+          321
+        ],
+        "dpi": [
+          95.9866,
+          95.9866
+        ]
+      },
+      "pdf_page_size": [
+        "Page size:       510.236 x 240.945 pts"
+      ]
+    },
+    {
+      "figure": "figure-2",
+      "size_mm": [
+        179.9999998333333,
+        89.99999991666665
+      ],
+      "min_font_pt": 7.499999999999999,
+      "live_text_count": 33,
+      "path_count": 34,
+      "image_count": 0,
+      "rebuild": {
+        "svg": {
+          "same_bytes": true,
+          "master_sha256": "e5cc66f9bdd00aa9d5d9fe10bedbb526c802d05fe5129f5a4915d19ab80c1988",
+          "rebuild_sha256": "e5cc66f9bdd00aa9d5d9fe10bedbb526c802d05fe5129f5a4915d19ab80c1988"
+        },
+        "png": {
+          "same_bytes": true,
+          "master_sha256": "0428bef4bbf36581a62c8612a6013bb4db76c2852bcfb727f07d91b252593f9f",
+          "rebuild_sha256": "0428bef4bbf36581a62c8612a6013bb4db76c2852bcfb727f07d91b252593f9f"
+        },
+        "pdf": {
+          "same_bytes": false,
+          "master_sha256": "20e3456bb45375453dec3228d70e755fbd0670bcfeba39d3647950df2eceaf6b",
+          "rebuild_sha256": "af277755ab2fe2f62ee865b3f3b81e5f6cbb718210c77a231663917a908d89e6"
+        }
+      },
+      "png": {
+        "pixels": [
+          2126,
+          1063
+        ],
+        "dpi": [
+          299.9994,
+          299.9994
+        ]
+      },
+      "screen_preview": {
+        "pixels": [
+          680,
+          340
+        ],
+        "dpi": [
+          95.9866,
+          95.9866
+        ]
+      },
+      "pdf_page_size": [
+        "Page size:       510.236 x 255.118 pts"
+      ]
+    }
+  ],
+  "scope": "Rebuild used the exact copied FigureFoundry runtime, original copied data/specs, the supplied reproduction script and Inkscape. SVG and rendered PNG equality are required; PDF bytes may differ through renderer metadata."
+}

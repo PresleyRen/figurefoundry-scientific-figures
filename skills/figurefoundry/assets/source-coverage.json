@@ -1,0 +1,3476 @@
+{
+  "schema_version": 1,
+  "version": "1.1.0",
+  "checked_at": "2026-10-20",
+  "path_convention": "implementation/references/extension.target relative to skill directory; tests relative to repository root",
+  "mode_definitions": {
+    "native": "内置可执行模块",
+    "recipe": "随技能提供的可执行配方",
+    "workflow": "Agent按参考说明与实际输入完成",
+    "external-adapter": "既有项目后端接入说明"
+  },
+  "sources": [
+    {
+      "id": "S01",
+      "name": "K-Dense scientific-visualization",
+      "url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/593377bb048752abb0152deab9fbb1083a6087df/skills/scientific-visualization/SKILL.md",
+      "features": [
+        {
+          "id": "S01-F01",
+          "name": "独立实验单位、SD/SEM/t区间/Bootstrap与缺失记录",
+          "mode": "native",
+          "capabilities": [
+            "FF-DATA-01",
+            "FF-STATS-01"
+          ],
+          "implementation": [
+            "scripts/ff_data.py"
+          ],
+          "references": [
+            "references/scientific-integrity.md",
+            "references/plot-spec.md"
+          ],
+          "tests": [
+            "tests/test_plot_engine.py",
+            "tests/test_cli_and_data.py"
+          ],
+          "complements": [
+            "S03",
+            "S08",
+            "S11",
+            "S14"
+          ],
+          "extension": {
+            "target": "scripts/ff_data.py",
+            "how": "增加新的估计方法时先定义独立单位和可手算答案，再扩展summarize。"
+          }
+        },
+        {
+          "id": "S01-F02",
+          "name": "固定物理大小、可编辑文字与可重建导出",
+          "mode": "native",
+          "capabilities": [
+            "FF-EXPORT-01",
+            "FF-SVG-01"
+          ],
+          "implementation": [
+            "scripts/ff_export.py",
+            "scripts/ff_svg.py"
+          ],
+          "references": [
+            "references/svg-contract.md"
+          ],
+          "tests": [
+            "tests/test_conflicts.py"
+          ],
+          "complements": [
+            "S02",
+            "S07",
+            "S12",
+            "S15"
+          ],
+          "extension": {
+            "target": "scripts/ff_export.py",
+            "how": "新导出格式接共享SVG主稿和标签清单，补实际mm及字体行为测试。"
+          }
+        },
+        {
+          "id": "S01-F03",
+          "name": "文件保护、来源哈希与每次输出记录",
+          "mode": "native",
+          "capabilities": [
+            "FF-DATA-01",
+            "FF-EXPORT-01"
+          ],
+          "implementation": [
+            "scripts/ff_data.py",
+            "scripts/ff_export.py"
+          ],
+          "references": [
+            "references/scientific-integrity.md",
+            "references/svg-contract.md"
+          ],
+          "tests": [
+            "tests/test_cli_and_data.py"
+          ],
+          "complements": [
+            "S14",
+            "S16"
+          ],
+          "extension": {
+            "target": "scripts/ff_data.py",
+            "how": "增加输入格式时保留原文件SHA与缺失表；新输出保持显式覆盖控制。"
+          }
+        },
+        {
+          "id": "S01-F04",
+          "name": "颜色、点形、线型及跨图语义一致",
+          "mode": "native",
+          "capabilities": [
+            "FF-STYLE-01",
+            "FF-STYLE-02"
+          ],
+          "implementation": [
+            "scripts/ff_plots.py",
+            "scripts/ff_style.py"
+          ],
+          "references": [
+            "references/project-workflow.md",
+            "references/plot-spec.md"
+          ],
+          "tests": [
+            "tests/test_plot_feature_coverage.py",
+            "tests/test_style_inventory.py"
+          ],
+          "complements": [
+            "S06",
+            "S10",
+            "S13",
+            "S15",
+            "S16"
+          ],
+          "extension": {
+            "target": "scripts/ff_plots.py",
+            "how": "在共享palette扩充角色和非颜色通道；逆序及缺少类别仍应一致。"
+          }
+        },
+        {
+          "id": "S01-F05",
+          "name": "sRGB对比度、CIE L*灰度与配色审阅",
+          "mode": "native",
+          "capabilities": [
+            "FF-QUALITY-01"
+          ],
+          "implementation": [
+            "scripts/ff_quality.py"
+          ],
+          "references": [
+            "references/quality-workflow.md"
+          ],
+          "tests": [
+            "tests/test_workflow_features.py"
+          ],
+          "complements": [
+            "S07",
+            "S13",
+            "S16"
+          ],
+          "extension": {
+            "target": "scripts/ff_quality.py",
+            "how": "在palette_report扩充经验证的颜色模型或预览，保留黑白解析基准。"
+          }
+        },
+        {
+          "id": "S01-F06",
+          "name": "替代文本、长描述与数据说明",
+          "mode": "native",
+          "capabilities": [
+            "FF-ACCESS-01",
+            "FF-PROJECT-01"
+          ],
+          "implementation": [
+            "scripts/ff_quality.py",
+            "scripts/ff_project.py"
+          ],
+          "references": [
+            "references/quality-workflow.md",
+            "references/project-workflow.md"
+          ],
+          "tests": [
+            "tests/test_workflow_features.py"
+          ],
+          "complements": [
+            "S05",
+            "S09",
+            "S16"
+          ],
+          "extension": {
+            "target": "scripts/ff_quality.py",
+            "how": "增加描述字段后验证科学图元未改变，并对齐图注与版本。"
+          }
+        },
+        {
+          "id": "S01-F07",
+          "name": "顺序/发散色图和显式数值归一化",
+          "mode": "native",
+          "capabilities": [
+            "FF-PLOT-08",
+            "FF-PLOT-09",
+            "FF-PLOT-16"
+          ],
+          "implementation": [
+            "scripts/ff_plots.py"
+          ],
+          "references": [
+            "references/plot-spec.md"
+          ],
+          "tests": [
+            "tests/test_plot_feature_coverage.py"
+          ],
+          "complements": [
+            "S02",
+            "S03",
+            "S14"
+          ],
+          "extension": {
+            "target": "scripts/ff_plots.py",
+            "how": "在_matrix的norm分支添加新规范，测试已知值到颜色映射与共享尺度。"
+          }
+        },
+        {
+          "id": "S01-F08",
+          "name": "多绘图后端选择与自定义科学图出口",
+          "mode": "recipe",
+          "capabilities": [
+            "FF-CUSTOM-01",
+            "FF-CUSTOM-02",
+            "FF-OPTION-PLOTLY"
+          ],
+          "implementation": [
+            "scripts/ff_seaborn.py",
+            "scripts/ff_export.py"
+          ],
+          "references": [
+            "references/quality-workflow.md",
+            "references/optional-backends.md"
+          ],
+          "tests": [
+            "tests/test_seaborn_recipes.py",
+            "tests/test_conflicts.py"
+          ],
+          "complements": [
+            "S02",
+            "S03",
+            "S13"
+          ],
+          "extension": {
+            "target": "scripts/ff_seaborn.py",
+            "how": "新后端先输出代表性SVG，经同一审核器验文字/色条/尺寸。"
+          }
+        },
+        {
+          "id": "S01-F09",
+          "name": "投稿衍生格式、字体与图像元数据检查",
+          "mode": "workflow",
+          "capabilities": [
+            "FF-JOURNAL-01",
+            "FF-EXPORT-01"
+          ],
+          "implementation": [
+            "scripts/ff_journal.py",
+            "scripts/ff_export.py"
+          ],
+          "references": [
+            "references/journal-workflow.md",
+            "references/optional-backends.md"
+          ],
+          "tests": [
+            "tests/test_cli_and_data.py",
+            "tests/test_conflicts.py"
+          ],
+          "complements": [
+            "S04",
+            "S14"
+          ],
+          "extension": {
+            "target": "scripts/ff_journal.py",
+            "how": "按实际期刊添加衍生格式检查，记录渲染器、字体报告和源SVG哈希。"
+          }
+        }
+      ],
+      "excluded_methods": [],
+      "commit": "593377bb048752abb0152deab9fbb1083a6087df"
+    },
+    {
+      "id": "S02",
+      "name": "K-Dense matplotlib",
+      "url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/593377bb048752abb0152deab9fbb1083a6087df/skills/matplotlib/SKILL.md",
+      "features": [
+        {
+          "id": "S02-F01",
+          "name": "Figure/Axes/Artist对象化绘图和局部样式",
+          "mode": "native",
+          "capabilities": [
+            "FF-CUSTOM-01",
+            "FF-STYLE-01"
+          ],
+          "implementation": [
+            "scripts/ff_plots.py",
+            "scripts/ff_export.py"
+          ],
+          "references": [
+            "references/plot-spec.md",
+            "references/optional-backends.md"
+          ],
+          "tests": [
+            "tests/test_plot_engine.py",
+            "tests/test_conflicts.py"
+          ],
+          "complements": [
+            "S01",
+            "S13"
+          ],
+          "extension": {
+            "target": "scripts/ff_plots.py",
+            "how": "自定义图使用明确Axes和共享导出器，测试全局rc污染的隔离。"
+          }
+        },
+        {
+          "id": "S02-F02",
+          "name": "GridSpec跨行跨列与非对称面板布局",
+          "mode": "native",
+          "capabilities": [
+            "FF-LAYOUT-01",
+            "FF-COMPOSE-01"
+          ],
+          "implementation": [
+            "scripts/ff_plots.py",
+            "scripts/ff_compose.py"
+          ],
+          "references": [
+            "references/plot-spec.md",
+            "references/svg-contract.md"
+          ],
+          "tests": [
+            "tests/test_plot_feature_coverage.py",
+            "tests/test_diagrams.py"
+          ],
+          "complements": [
+            "S06",
+            "S09",
+            "S11"
+          ],
+          "extension": {
+            "target": "scripts/ff_plots.py",
+            "how": "增加嵌套版式时验证占位不重叠、每面板真实Axes和最终尺寸。"
+          }
+        },
+        {
+          "id": "S02-F03",
+          "name": "等高线、向量场、3D、连续大小等专业图拓展",
+          "mode": "workflow",
+          "capabilities": [
+            "FF-ATLAS-01",
+            "FF-CUSTOM-01"
+          ],
+          "implementation": [
+            "scripts/ff_export.py"
+          ],
+          "references": [
+            "references/specialty-atlas.md",
+            "references/optional-backends.md"
+          ],
+          "tests": [
+            "tests/test_conflicts.py"
+          ],
+          "complements": [
+            "S11",
+            "S12",
+            "S15"
+          ],
+          "extension": {
+            "target": "scripts/ff_export.py",
+            "how": "按atlas准备已有数据/模型结果，新增专用绘制函数及数值映射测试。"
+          }
+        },
+        {
+          "id": "S02-F04",
+          "name": "注释、箭头、直接标签和拟合标注",
+          "mode": "native",
+          "capabilities": [
+            "FF-PLOT-03",
+            "FF-PLOT-13",
+            "FF-DIAGRAM-01"
+          ],
+          "implementation": [
+            "scripts/ff_plots.py",
+            "scripts/ff_diagram.py"
+          ],
+          "references": [
+            "references/plot-spec.md",
+            "references/diagram-design.md"
+          ],
+          "tests": [
+            "tests/test_plot_feature_coverage.py",
+            "tests/test_diagrams.py"
+          ],
+          "complements": [
+            "S05",
+            "S06",
+            "S08"
+          ],
+          "extension": {
+            "target": "scripts/ff_plots.py",
+            "how": "为更多图型加入可定位文本ID或图例入口，标签必须进入SVG审核清单。"
+          }
+        },
+        {
+          "id": "S02-F05",
+          "name": "坐标、色图、字体与展示参数定制",
+          "mode": "native",
+          "capabilities": [
+            "FF-STYLE-01",
+            "FF-STYLE-02",
+            "FF-PLOT-08"
+          ],
+          "implementation": [
+            "scripts/ff_plots.py",
+            "scripts/ff_style.py"
+          ],
+          "references": [
+            "references/plot-spec.md",
+            "references/project-workflow.md"
+          ],
+          "tests": [
+            "tests/test_plot_feature_coverage.py",
+            "tests/test_style_inventory.py"
+          ],
+          "complements": [
+            "S07",
+            "S13",
+            "S15"
+          ],
+          "extension": {
+            "target": "scripts/ff_plots.py",
+            "how": "新增真实生效的样式字段后同时测试artist属性和SVG成稿。"
+          }
+        }
+      ],
+      "excluded_methods": [
+        "桌面GUI、动画播放属于静态投稿SVG主任务之外的交互功能；保留源绘图生态入口。",
+        "高密度图层栅格化与逐对象可编辑SVG目标冲突，改用原生几何或按任务分面。"
+      ],
+      "commit": "593377bb048752abb0152deab9fbb1083a6087df"
+    },
+    {
+      "id": "S03",
+      "name": "K-Dense seaborn",
+      "url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/593377bb048752abb0152deab9fbb1083a6087df/skills/seaborn/SKILL.md",
+      "features": [
+        {
+          "id": "S03-F01",
+          "name": "命名长表/宽表重塑并保留单位与缺失",
+          "mode": "native",
+          "capabilities": [
+            "FF-DATA-01",
+            "FF-PLOT-01"
+          ],
+          "implementation": [
+            "scripts/ff_data.py",
+            "scripts/ff_plots.py"
+          ],
+          "references": [
+            "references/plot-spec.md"
+          ],
+          "tests": [
+            "tests/test_plot_feature_coverage.py",
+            "tests/test_cli_and_data.py"
+          ],
+          "complements": [
+            "S01",
+            "S08"
+          ],
+          "extension": {
+            "target": "scripts/ff_data.py",
+            "how": "扩充reshape时显式指定测量列、ID列和输出字段，测试非测量数值列不参与。"
+          }
+        },
+        {
+          "id": "S03-F02",
+          "name": "显式估计、单位和可复现误差计算",
+          "mode": "native",
+          "capabilities": [
+            "FF-STATS-01"
+          ],
+          "implementation": [
+            "scripts/ff_data.py"
+          ],
+          "references": [
+            "references/scientific-integrity.md",
+            "references/plot-spec.md"
+          ],
+          "tests": [
+            "tests/test_plot_engine.py"
+          ],
+          "complements": [
+            "S01",
+            "S08",
+            "S11"
+          ],
+          "extension": {
+            "target": "scripts/ff_data.py",
+            "how": "新增加权/分层模型时由分析脚本提供定义与独立单位，不复用不适用的默认区间。"
+          }
+        },
+        {
+          "id": "S03-F03",
+          "name": "hue/style语义及条件分面一致",
+          "mode": "recipe",
+          "capabilities": [
+            "FF-CUSTOM-02",
+            "FF-STYLE-01"
+          ],
+          "implementation": [
+            "scripts/ff_seaborn.py",
+            "scripts/ff_plots.py"
+          ],
+          "references": [
+            "references/quality-workflow.md",
+            "references/project-workflow.md"
+          ],
+          "tests": [
+            "tests/test_seaborn_recipes.py",
+            "tests/test_plot_feature_coverage.py"
+          ],
+          "complements": [
+            "S06",
+            "S10",
+            "S13"
+          ],
+          "extension": {
+            "target": "scripts/ff_seaborn.py",
+            "how": "扩大分面变量时固定全局角色编码及每变量尺度，再检验缺组分面。"
+          }
+        },
+        {
+          "id": "S03-F04",
+          "name": "FacetGrid/PairGrid/JointGrid/clustermap真实配方",
+          "mode": "recipe",
+          "capabilities": [
+            "FF-CUSTOM-02"
+          ],
+          "implementation": [
+            "scripts/ff_seaborn.py"
+          ],
+          "references": [
+            "references/quality-workflow.md",
+            "references/specialty-atlas.md"
+          ],
+          "tests": [
+            "tests/test_seaborn_recipes.py"
+          ],
+          "complements": [
+            "S02",
+            "S13"
+          ],
+          "extension": {
+            "target": "scripts/ff_seaborn.py",
+            "how": "增加Seaborn对象/图种配方时识别真正可见Axis，保留所有源行和聚类变换。"
+          }
+        },
+        {
+          "id": "S03-F05",
+          "name": "声明权重语义的加权均值",
+          "mode": "recipe",
+          "capabilities": [
+            "FF-CUSTOM-02"
+          ],
+          "implementation": [
+            "scripts/ff_seaborn.py"
+          ],
+          "references": [
+            "references/quality-workflow.md"
+          ],
+          "tests": [
+            "tests/test_seaborn_recipes.py"
+          ],
+          "complements": [
+            "S01",
+            "S14"
+          ],
+          "extension": {
+            "target": "scripts/ff_seaborn.py",
+            "how": "weighted_summary处理有限非负权重，新增不确定性需单独声明分析模型并测试解析结果。"
+          }
+        },
+        {
+          "id": "S03-F06",
+          "name": "重复主体轨迹、分布带宽、共同分箱和ECDF备选",
+          "mode": "native",
+          "capabilities": [
+            "FF-PLOT-01",
+            "FF-PLOT-05",
+            "FF-PLOT-06",
+            "FF-PLOT-07"
+          ],
+          "implementation": [
+            "scripts/ff_plots.py"
+          ],
+          "references": [
+            "references/plot-spec.md",
+            "references/specialty-atlas.md"
+          ],
+          "tests": [
+            "tests/test_plot_engine.py",
+            "tests/test_plot_feature_coverage.py"
+          ],
+          "complements": [
+            "S08",
+            "S11",
+            "S15"
+          ],
+          "extension": {
+            "target": "scripts/ff_plots.py",
+            "how": "主体轨迹用明确ID；新的KDE边界/带宽方案按专业配方记录并对照ECDF。"
+          }
+        }
+      ],
+      "excluded_methods": [],
+      "commit": "593377bb048752abb0152deab9fbb1083a6087df"
+    },
+    {
+      "id": "S04",
+      "name": "K-Dense venue-templates",
+      "url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/593377bb048752abb0152deab9fbb1083a6087df/skills/venue-templates/SKILL.md",
+      "features": [
+        {
+          "id": "S04-F01",
+          "name": "按期刊、文章类型、年份/track及阶段选图件规则",
+          "mode": "workflow",
+          "capabilities": [
+            "FF-JOURNAL-01"
+          ],
+          "implementation": [
+            "scripts/ff_journal.py"
+          ],
+          "references": [
+            "references/journal-workflow.md"
+          ],
+          "tests": [
+            "tests/test_cli_and_data.py"
+          ],
+          "complements": [
+            "S01",
+            "S06",
+            "S07"
+          ],
+          "extension": {
+            "target": "scripts/ff_journal.py",
+            "how": "为新期刊添加官方URL、核验日期与适用情景，用当前稿件阶段选择规则。"
+          }
+        },
+        {
+          "id": "S04-F02",
+          "name": "官方来源、冲突消解与有日期的尺寸/格式记录",
+          "mode": "native",
+          "capabilities": [
+            "FF-JOURNAL-01"
+          ],
+          "implementation": [
+            "scripts/ff_journal.py"
+          ],
+          "references": [
+            "references/journal-workflow.md"
+          ],
+          "tests": [
+            "tests/test_cli_and_data.py",
+            "tests/test_reaudit_conflicts.py"
+          ],
+          "complements": [
+            "S01",
+            "S13",
+            "S14"
+          ],
+          "extension": {
+            "target": "scripts/ff_journal.py",
+            "how": "冲突记录需说明采用哪项和原因；增加字段时补类型/日期/冲突反例。"
+          }
+        },
+        {
+          "id": "S04-F03",
+          "name": "投稿图件包、SVG源与指定衍生文件",
+          "mode": "workflow",
+          "capabilities": [
+            "FF-JOURNAL-01",
+            "FF-EXPORT-01",
+            "FF-PROJECT-01"
+          ],
+          "implementation": [
+            "scripts/ff_journal.py",
+            "scripts/ff_export.py",
+            "scripts/ff_project.py"
+          ],
+          "references": [
+            "references/journal-workflow.md",
+            "references/project-workflow.md"
+          ],
+          "tests": [
+            "tests/test_conflicts.py",
+            "tests/test_workflow_features.py"
+          ],
+          "complements": [
+            "S12",
+            "S14",
+            "S16"
+          ],
+          "extension": {
+            "target": "scripts/ff_journal.py",
+            "how": "投稿格式设备接统一主SVG，按期刊要求记录PDF字体或TIFF像素元数据。"
+          }
+        },
+        {
+          "id": "S04-F04",
+          "name": "初稿与正式提交、匿名元数据和辅助源安排",
+          "mode": "workflow",
+          "capabilities": [
+            "FF-JOURNAL-01",
+            "FF-PROJECT-01"
+          ],
+          "implementation": [
+            "scripts/ff_journal.py",
+            "scripts/ff_project.py"
+          ],
+          "references": [
+            "references/journal-workflow.md",
+            "references/project-workflow.md"
+          ],
+          "tests": [
+            "tests/test_cli_and_data.py",
+            "tests/test_workflow_features.py"
+          ],
+          "complements": [
+            "S10",
+            "S14",
+            "S16"
+          ],
+          "extension": {
+            "target": "scripts/ff_journal.py",
+            "how": "交接时核对正文图号、阶段、元数据和源清单；针对新会议加入具体检查表。"
+          }
+        }
+      ],
+      "excluded_methods": [
+        "论文/基金/海报全文模板不属于实验绘图的技能合并范围；保留其图件规范查询和提交方法。"
+      ],
+      "commit": "593377bb048752abb0152deab9fbb1083a6087df"
+    },
+    {
+      "id": "S05",
+      "name": "K-Dense scientific-schematics",
+      "url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/593377bb048752abb0152deab9fbb1083a6087df/skills/scientific-schematics/SKILL.md",
+      "features": [
+        {
+          "id": "S05-F01",
+          "name": "自然语言结构转节点、关系、层次和科学图",
+          "mode": "native",
+          "capabilities": [
+            "FF-DIAGRAM-01"
+          ],
+          "implementation": [
+            "scripts/ff_diagram.py"
+          ],
+          "references": [
+            "references/diagram-design.md",
+            "references/diagram-spec.md"
+          ],
+          "tests": [
+            "tests/test_diagrams.py",
+            "tests/test_diagram_cli_contract.py"
+          ],
+          "complements": [
+            "S09",
+            "S10",
+            "S11",
+            "S16"
+          ],
+          "extension": {
+            "target": "scripts/ff_diagram.py",
+            "how": "新增科学组件先定义节点/关系合同，再加入可编辑原生图元。"
+          }
+        },
+        {
+          "id": "S05-F02",
+          "name": "标签、端点、方向、数量及整体局部一致",
+          "mode": "native",
+          "capabilities": [
+            "FF-DIAGRAM-01",
+            "FF-PROJECT-01"
+          ],
+          "implementation": [
+            "scripts/ff_diagram.py",
+            "scripts/ff_project.py"
+          ],
+          "references": [
+            "references/diagram-design.md",
+            "references/project-workflow.md"
+          ],
+          "tests": [
+            "tests/test_diagrams.py",
+            "tests/test_workflow_features.py"
+          ],
+          "complements": [
+            "S10",
+            "S12",
+            "S16"
+          ],
+          "extension": {
+            "target": "scripts/ff_diagram.py",
+            "how": "扩展实体quantity/parent/relations，测试未知端点、计数改变及层次关系。"
+          }
+        },
+        {
+          "id": "S05-F03",
+          "name": "草稿、审阅、迭代、具名候选与选定版本",
+          "mode": "native",
+          "capabilities": [
+            "FF-PROJECT-01",
+            "FF-REVISION-01"
+          ],
+          "implementation": [
+            "scripts/ff_project.py",
+            "scripts/ff_quality.py"
+          ],
+          "references": [
+            "references/project-workflow.md",
+            "references/quality-workflow.md"
+          ],
+          "tests": [
+            "tests/test_workflow_features.py"
+          ],
+          "complements": [
+            "S09",
+            "S12",
+            "S16"
+          ],
+          "extension": {
+            "target": "scripts/ff_project.py",
+            "how": "新增审阅记录与选定版本，固定科学字段后比较几何/内容变化。"
+          }
+        },
+        {
+          "id": "S05-F04",
+          "name": "CONSORT/PRISMA计数和专业机制语义",
+          "mode": "workflow",
+          "capabilities": [
+            "FF-ATLAS-01",
+            "FF-DIAGRAM-01",
+            "FF-PROJECT-01"
+          ],
+          "implementation": [
+            "scripts/ff_project.py",
+            "scripts/ff_diagram.py"
+          ],
+          "references": [
+            "references/specialty-atlas.md",
+            "references/project-workflow.md"
+          ],
+          "tests": [
+            "tests/test_workflow_features.py",
+            "tests/test_diagrams.py"
+          ],
+          "complements": [
+            "S11",
+            "S12",
+            "S16"
+          ],
+          "extension": {
+            "target": "scripts/ff_project.py",
+            "how": "增加领域模板时先定义分支守恒和records/reports/studies单位，再生成节点标签。"
+          }
+        },
+        {
+          "id": "S05-F05",
+          "name": "图注、缩写、替代文本及手稿放图记录",
+          "mode": "native",
+          "capabilities": [
+            "FF-PROJECT-01",
+            "FF-ACCESS-01"
+          ],
+          "implementation": [
+            "scripts/ff_project.py",
+            "scripts/ff_quality.py"
+          ],
+          "references": [
+            "references/project-workflow.md",
+            "references/quality-workflow.md"
+          ],
+          "tests": [
+            "tests/test_workflow_features.py"
+          ],
+          "complements": [
+            "S04",
+            "S09",
+            "S16"
+          ],
+          "extension": {
+            "target": "scripts/ff_project.py",
+            "how": "图注和alt与选定文件对应，扩展正文回填时用稳定图号和文件哈希。"
+          }
+        }
+      ],
+      "excluded_methods": [
+        "付费生成PNG及模型审美分数阈值被原生SVG绘制、数值审核和实际预览替换。"
+      ],
+      "commit": "593377bb048752abb0152deab9fbb1083a6087df"
+    },
+    {
+      "id": "S06",
+      "name": "nature-figure",
+      "url": "https://github.com/jing1312/nature-figure-skill/blob/af778027c866e2e6b3432b946e44a4a2b4434d82/skills/nature-figure/SKILL.md",
+      "features": [
+        {
+          "id": "S06-F01",
+          "name": "Figure Contract和面板证据角色",
+          "mode": "native",
+          "capabilities": [
+            "FF-PROJECT-01"
+          ],
+          "implementation": [
+            "scripts/ff_project.py"
+          ],
+          "references": [
+            "references/project-workflow.md"
+          ],
+          "tests": [
+            "tests/test_workflow_features.py"
+          ],
+          "complements": [
+            "S09",
+            "S10",
+            "S11",
+            "S16"
+          ],
+          "extension": {
+            "target": "scripts/ff_project.py",
+            "how": "图件合同新增字段时同时进入科学快照和变更测试。"
+          }
+        },
+        {
+          "id": "S06-F02",
+          "name": "主面板主导的非对称证据层级",
+          "mode": "native",
+          "capabilities": [
+            "FF-LAYOUT-01",
+            "FF-COMPOSE-01"
+          ],
+          "implementation": [
+            "scripts/ff_plots.py",
+            "scripts/ff_compose.py"
+          ],
+          "references": [
+            "references/plot-spec.md",
+            "references/project-workflow.md"
+          ],
+          "tests": [
+            "tests/test_plot_feature_coverage.py",
+            "tests/test_reaudit_conflicts.py"
+          ],
+          "complements": [
+            "S02",
+            "S09",
+            "S11"
+          ],
+          "extension": {
+            "target": "scripts/ff_plots.py",
+            "how": "扩展版式时按科学角色分配面积，测试三面板只有三个真实Axes。"
+          }
+        },
+        {
+          "id": "S06-F03",
+          "name": "method-family共享颜色与点线语义",
+          "mode": "native",
+          "capabilities": [
+            "FF-STYLE-01",
+            "FF-STYLE-02"
+          ],
+          "implementation": [
+            "scripts/ff_plots.py",
+            "scripts/ff_style.py"
+          ],
+          "references": [
+            "references/project-workflow.md"
+          ],
+          "tests": [
+            "tests/test_plot_feature_coverage.py",
+            "tests/test_style_inventory.py"
+          ],
+          "complements": [
+            "S01",
+            "S10",
+            "S13",
+            "S16"
+          ],
+          "extension": {
+            "target": "scripts/ff_plots.py",
+            "how": "新增方法族更新项目palette及独立图逆序测试。"
+          }
+        },
+        {
+          "id": "S06-F04",
+          "name": "每图独立源与全图集统一记录",
+          "mode": "native",
+          "capabilities": [
+            "FF-PROJECT-01",
+            "FF-STYLE-02"
+          ],
+          "implementation": [
+            "scripts/ff_project.py",
+            "scripts/ff_style.py"
+          ],
+          "references": [
+            "references/project-workflow.md"
+          ],
+          "tests": [
+            "tests/test_workflow_features.py",
+            "tests/test_style_inventory.py"
+          ],
+          "complements": [
+            "S04",
+            "S12",
+            "S14",
+            "S15"
+          ],
+          "extension": {
+            "target": "scripts/ff_project.py",
+            "how": "图集新图追加合同和独立源，不在一个巨型脚本里隐藏来源。"
+          }
+        },
+        {
+          "id": "S06-F05",
+          "name": "直接标签、图例位置和统计文字",
+          "mode": "native",
+          "capabilities": [
+            "FF-PLOT-03",
+            "FF-PLOT-13",
+            "FF-CUSTOM-02"
+          ],
+          "implementation": [
+            "scripts/ff_plots.py",
+            "scripts/ff_seaborn.py"
+          ],
+          "references": [
+            "references/plot-spec.md",
+            "references/quality-workflow.md"
+          ],
+          "tests": [
+            "tests/test_plot_feature_coverage.py",
+            "tests/test_seaborn_recipes.py"
+          ],
+          "complements": [
+            "S02",
+            "S08",
+            "S13"
+          ],
+          "extension": {
+            "target": "scripts/ff_plots.py",
+            "how": "复杂外置图例/统计条采用Axes自定义配方，预留实际布局空间。"
+          }
+        },
+        {
+          "id": "S06-F06",
+          "name": "实验图/机制图/专业后端的图谱路由",
+          "mode": "workflow",
+          "capabilities": [
+            "FF-ATLAS-01",
+            "FF-CUSTOM-01",
+            "FF-OPTION-R"
+          ],
+          "implementation": [
+            "scripts/ff_export.py"
+          ],
+          "references": [
+            "references/specialty-atlas.md",
+            "references/optional-backends.md"
+          ],
+          "tests": [
+            "tests/test_plot_engine.py",
+            "tests/test_diagrams.py"
+          ],
+          "complements": [
+            "S03",
+            "S11",
+            "S12"
+          ],
+          "extension": {
+            "target": "scripts/ff_export.py",
+            "how": "按实验问题增加专业关键词、数据约定和出口验证。"
+          }
+        }
+      ],
+      "excluded_methods": [
+        "已知工具栈时不强制重复询问Python还是R；按现有项目选择后端。"
+      ],
+      "commit": "af778027c866e2e6b3432b946e44a4a2b4434d82"
+    },
+    {
+      "id": "S07",
+      "name": "sci-figure",
+      "url": "https://github.com/xiao-yuling/sci-figure/blob/a44fbcae2de59cfdefb016a0eab86e66e0ba8555/skill.md",
+      "features": [
+        {
+          "id": "S07-F01",
+          "name": "全框坐标、向外刻度及文字风格",
+          "mode": "native",
+          "capabilities": [
+            "FF-STYLE-01",
+            "FF-STYLE-02"
+          ],
+          "implementation": [
+            "scripts/ff_plots.py",
+            "scripts/ff_style.py"
+          ],
+          "references": [
+            "references/plot-spec.md",
+            "references/project-workflow.md"
+          ],
+          "tests": [
+            "tests/test_plot_feature_coverage.py"
+          ],
+          "complements": [
+            "S02",
+            "S13",
+            "S15"
+          ],
+          "extension": {
+            "target": "scripts/ff_plots.py",
+            "how": "新增边框/刻度风格需真实artist比较且保留live text。"
+          }
+        },
+        {
+          "id": "S07-F02",
+          "name": "整合式(a)标题和可选单图编号",
+          "mode": "native",
+          "capabilities": [
+            "FF-LAYOUT-01",
+            "FF-STYLE-01"
+          ],
+          "implementation": [
+            "scripts/ff_plots.py"
+          ],
+          "references": [
+            "references/plot-spec.md"
+          ],
+          "tests": [
+            "tests/test_plot_feature_coverage.py"
+          ],
+          "complements": [
+            "S06",
+            "S09",
+            "S15"
+          ],
+          "extension": {
+            "target": "scripts/ff_plots.py",
+            "how": "面板标题入口统一到panel_label_style/position，测试标题互不覆盖。"
+          }
+        },
+        {
+          "id": "S07-F03",
+          "name": "列宽下的轴/刻度/图例/面板字号层级",
+          "mode": "native",
+          "capabilities": [
+            "FF-STYLE-01",
+            "FF-SVG-01"
+          ],
+          "implementation": [
+            "scripts/ff_plots.py",
+            "scripts/ff_svg.py"
+          ],
+          "references": [
+            "references/plot-spec.md",
+            "references/svg-contract.md"
+          ],
+          "tests": [
+            "tests/test_plot_feature_coverage.py",
+            "tests/test_conflicts.py"
+          ],
+          "complements": [
+            "S01",
+            "S04",
+            "S15"
+          ],
+          "extension": {
+            "target": "scripts/ff_plots.py",
+            "how": "按目标列宽设置各role字号，最终合成后再审核缩放字号。"
+          }
+        },
+        {
+          "id": "S07-F04",
+          "name": "克制配色、方向性角色与灰度冗余",
+          "mode": "native",
+          "capabilities": [
+            "FF-QUALITY-01",
+            "FF-STYLE-02"
+          ],
+          "implementation": [
+            "scripts/ff_quality.py",
+            "scripts/ff_style.py"
+          ],
+          "references": [
+            "references/quality-workflow.md",
+            "references/project-workflow.md"
+          ],
+          "tests": [
+            "tests/test_workflow_features.py",
+            "tests/test_style_inventory.py"
+          ],
+          "complements": [
+            "S01",
+            "S08",
+            "S13"
+          ],
+          "extension": {
+            "target": "scripts/ff_quality.py",
+            "how": "按方向或角色冻结配色与符号，量化灰度区别并查看实际预览。"
+          }
+        },
+        {
+          "id": "S07-F05",
+          "name": "单张图合同与多图一致的后端规划",
+          "mode": "native",
+          "capabilities": [
+            "FF-PROJECT-01"
+          ],
+          "implementation": [
+            "scripts/ff_project.py"
+          ],
+          "references": [
+            "references/project-workflow.md"
+          ],
+          "tests": [
+            "tests/test_workflow_features.py"
+          ],
+          "complements": [
+            "S06",
+            "S09",
+            "S12",
+            "S16"
+          ],
+          "extension": {
+            "target": "scripts/ff_project.py",
+            "how": "增加目标稿件或图件角色时用同一合同格式维护。"
+          }
+        }
+      ],
+      "excluded_methods": [],
+      "commit": "a44fbcae2de59cfdefb016a0eab86e66e0ba8555"
+    },
+    {
+      "id": "S08",
+      "name": "science-plotting",
+      "url": "https://github.com/Yilin399/science-plotting-skill/blob/9f9234aef7c117e0d079a1b07f84b29cf086e4ba/skills/science-plotting/SKILL.md",
+      "features": [
+        {
+          "id": "S08-F01",
+          "name": "明确选择y_columns的宽表多曲线",
+          "mode": "native",
+          "capabilities": [
+            "FF-DATA-01",
+            "FF-PLOT-01"
+          ],
+          "implementation": [
+            "scripts/ff_data.py",
+            "scripts/ff_plots.py"
+          ],
+          "references": [
+            "references/plot-spec.md"
+          ],
+          "tests": [
+            "tests/test_plot_feature_coverage.py"
+          ],
+          "complements": [
+            "S01",
+            "S03"
+          ],
+          "extension": {
+            "target": "scripts/ff_data.py",
+            "how": "新表形先声明x、测量列和unit，验证其他数值字段不会被自动当曲线。"
+          }
+        },
+        {
+          "id": "S08-F02",
+          "name": "均值柱与SD/SEM叠加独立单位点",
+          "mode": "native",
+          "capabilities": [
+            "FF-PLOT-02",
+            "FF-STATS-01"
+          ],
+          "implementation": [
+            "scripts/ff_data.py",
+            "scripts/ff_plots.py"
+          ],
+          "references": [
+            "references/plot-spec.md"
+          ],
+          "tests": [
+            "tests/test_plot_feature_coverage.py"
+          ],
+          "complements": [
+            "S01",
+            "S03",
+            "S11"
+          ],
+          "extension": {
+            "target": "scripts/ff_data.py",
+            "how": "原始点必须与柱高采用同一within_unit约定，测试技术重复点数。"
+          }
+        },
+        {
+          "id": "S08-F03",
+          "name": "散点OLS、方程与R²可选标注",
+          "mode": "native",
+          "capabilities": [
+            "FF-PLOT-03"
+          ],
+          "implementation": [
+            "scripts/ff_plots.py"
+          ],
+          "references": [
+            "references/plot-spec.md"
+          ],
+          "tests": [
+            "tests/test_plot_feature_coverage.py"
+          ],
+          "complements": [
+            "S02",
+            "S06",
+            "S13"
+          ],
+          "extension": {
+            "target": "scripts/ff_plots.py",
+            "how": "新增模型先明确拟合空间、解析参数和未定义R²情况。"
+          }
+        },
+        {
+          "id": "S08-F04",
+          "name": "共同分箱直方与正态/对数正态PDF拟合",
+          "mode": "native",
+          "capabilities": [
+            "FF-PLOT-06"
+          ],
+          "implementation": [
+            "scripts/ff_plots.py"
+          ],
+          "references": [
+            "references/plot-spec.md"
+          ],
+          "tests": [
+            "tests/test_plot_feature_coverage.py"
+          ],
+          "complements": [
+            "S01",
+            "S03"
+          ],
+          "extension": {
+            "target": "scripts/ff_plots.py",
+            "how": "新增分布时明确MLE、支持域、density单位和截断，禁止自动平移数据。"
+          }
+        },
+        {
+          "id": "S08-F05",
+          "name": "线宽、点大小、抽样显示点形和线型",
+          "mode": "native",
+          "capabilities": [
+            "FF-PLOT-01",
+            "FF-STYLE-01"
+          ],
+          "implementation": [
+            "scripts/ff_plots.py"
+          ],
+          "references": [
+            "references/plot-spec.md"
+          ],
+          "tests": [
+            "tests/test_plot_feature_coverage.py"
+          ],
+          "complements": [
+            "S02",
+            "S07",
+            "S15"
+          ],
+          "extension": {
+            "target": "scripts/ff_plots.py",
+            "how": "新增标记控制仅改变展示，验证点值与曲线数据不变。"
+          }
+        },
+        {
+          "id": "S08-F06",
+          "name": "衬线/无衬线、图例与网格风格选择",
+          "mode": "native",
+          "capabilities": [
+            "FF-STYLE-02",
+            "FF-STYLE-01"
+          ],
+          "implementation": [
+            "scripts/ff_style.py",
+            "scripts/ff_plots.py"
+          ],
+          "references": [
+            "references/project-workflow.md",
+            "references/plot-spec.md"
+          ],
+          "tests": [
+            "tests/test_style_inventory.py",
+            "tests/test_plot_feature_coverage.py"
+          ],
+          "complements": [
+            "S06",
+            "S07",
+            "S13"
+          ],
+          "extension": {
+            "target": "scripts/ff_style.py",
+            "how": "按图件目标选主题并显式覆写；主题不得改变统计或物理尺寸。"
+          }
+        },
+        {
+          "id": "S08-F07",
+          "name": "参考视觉风格与全图集语义配色",
+          "mode": "native",
+          "capabilities": [
+            "FF-REFERENCE-01",
+            "FF-QUALITY-01",
+            "FF-STYLE-02"
+          ],
+          "implementation": [
+            "scripts/ff_reference.py",
+            "scripts/ff_quality.py",
+            "scripts/ff_style.py"
+          ],
+          "references": [
+            "references/reference-intake.md",
+            "references/quality-workflow.md"
+          ],
+          "tests": [
+            "tests/test_reference_intake.py",
+            "tests/test_workflow_features.py",
+            "tests/test_style_inventory.py"
+          ],
+          "complements": [
+            "S09",
+            "S10",
+            "S16"
+          ],
+          "extension": {
+            "target": "scripts/ff_reference.py",
+            "how": "参考图件保留来源与观察，再将可迁移的风格转为项目语义令牌。"
+          }
+        }
+      ],
+      "excluded_methods": [],
+      "commit": "9f9234aef7c117e0d079a1b07f84b29cf086e4ba"
+    },
+    {
+      "id": "S09",
+      "name": "academic-figures",
+      "url": "https://github.com/sai-tv/academic-figures/blob/2a2159053f48156c3ad521d8dfcc7e4c22b33e43/SKILL.md",
+      "commit": "2a2159053f48156c3ad521d8dfcc7e4c22b33e43",
+      "features": [
+        {
+          "id": "S09-F01",
+          "name": "从叙事目标到面板清单、科学角色和阅读顺序",
+          "mode": "workflow",
+          "capabilities": [
+            "FF-PROJECT-01",
+            "FF-ATLAS-01"
+          ],
+          "implementation": [
+            "scripts/ff_project.py"
+          ],
+          "references": [
+            "references/project-workflow.md",
+            "references/diagram-design.md",
+            "references/scientific-integrity.md",
+            "references/specialty-atlas.md"
+          ],
+          "tests": [
+            "tests/test_workflow_features.py"
+          ],
+          "complements": [
+            "S10",
+            "S11"
+          ],
+          "extension": {
+            "target": "references/project-workflow.md",
+            "how": "为新领域增加每面板问题、数据基础、主视觉锚点和阅读顺序示例；需要自动校验时增加结构化 panel contract。"
+          },
+          "coverage_note": "图级 question/claim/role 原生保存；逐面板科学角色和叙事判断为 Agent 工作流。"
+        },
+        {
+          "id": "S09-F02",
+          "name": "同科学内容的两三套布局与样式候选、选定版本",
+          "mode": "native",
+          "capabilities": [
+            "FF-PROJECT-01",
+            "FF-REVISION-01"
+          ],
+          "implementation": [
+            "scripts/ff_project.py",
+            "scripts/ff_quality.py"
+          ],
+          "references": [
+            "references/project-workflow.md",
+            "references/quality-workflow.md"
+          ],
+          "tests": [
+            "tests/test_workflow_features.py"
+          ],
+          "complements": [
+            "S11",
+            "S12",
+            "S16"
+          ],
+          "extension": {
+            "target": "scripts/ff_project.py",
+            "how": "扩展候选的布局/样式描述和预览索引；为新科学字段加入基线比较。"
+          },
+          "coverage_note": "project 原生登记/选择与科学字段基线比较；候选设计和同尺寸视觉判断由工作流完成，不自动生成最佳布局。"
+        },
+        {
+          "id": "S09-F03",
+          "name": "网格、横排、主图与辅助面板的非对称布局",
+          "mode": "native",
+          "capabilities": [
+            "FF-COMPOSE-01",
+            "FF-PLOT-01"
+          ],
+          "implementation": [
+            "scripts/ff_compose.py",
+            "scripts/ff_plots.py"
+          ],
+          "references": [
+            "references/diagram-design.md",
+            "references/plot-spec.md",
+            "references/specialty-atlas.md"
+          ],
+          "tests": [
+            "tests/test_diagrams.py",
+            "tests/test_plot_feature_coverage.py"
+          ],
+          "complements": [
+            "S11",
+            "S15"
+          ],
+          "extension": {
+            "target": "scripts/ff_plots.py",
+            "how": "新增真实 grid span 或比例参数时验证几何层次、占位不重叠与最终物理字号。"
+          }
+        },
+        {
+          "id": "S09-F04",
+          "name": "图形摘要与 TOC 的短标签、输入方法输出和缩略图阅读",
+          "mode": "workflow",
+          "capabilities": [
+            "FF-PROJECT-01",
+            "FF-DIAGRAM-01",
+            "FF-JOURNAL-01"
+          ],
+          "implementation": [
+            "scripts/ff_project.py",
+            "scripts/ff_diagram.py"
+          ],
+          "references": [
+            "references/project-workflow.md",
+            "references/journal-workflow.md",
+            "references/specialty-atlas.md"
+          ],
+          "tests": [
+            "tests/test_workflow_features.py"
+          ],
+          "complements": [
+            "S10",
+            "S16"
+          ],
+          "extension": {
+            "target": "references/project-workflow.md",
+            "how": "增加具体期刊/稿件阶段的摘要合同及缩略预览案例；由当前官方说明填写尺寸。"
+          },
+          "coverage_note": "graphical-abstract/toc 角色可执行登记；缩略阅读和文字取舍是 Agent 审阅，未声称自动 thumbnail 合规判断。"
+        },
+        {
+          "id": "S09-F05",
+          "name": "语义配色与多图/候选的颜色、点形、线型一致",
+          "mode": "native",
+          "capabilities": [
+            "FF-STYLE-02",
+            "FF-QUALITY-01",
+            "FF-PROJECT-01"
+          ],
+          "implementation": [
+            "scripts/ff_style.py",
+            "scripts/ff_plots.py",
+            "scripts/ff_quality.py",
+            "scripts/ff_project.py"
+          ],
+          "references": [
+            "references/project-workflow.md",
+            "references/quality-workflow.md"
+          ],
+          "tests": [
+            "tests/test_style_inventory.py",
+            "tests/test_plot_feature_coverage.py",
+            "tests/test_workflow_features.py"
+          ],
+          "complements": [
+            "S10",
+            "S13",
+            "S15",
+            "S16"
+          ],
+          "extension": {
+            "target": "scripts/ff_style.py",
+            "how": "增加完整 role token；所有后端消费同一角色表并测试乱序输入、不同版式和同色异形。"
+          },
+          "coverage_note": "原生 plot 的完整样式与项目引用已有实现；自定义几何/外部编辑器需显式消费该角色表。"
+        },
+        {
+          "id": "S09-F06",
+          "name": "原生 SVG 图元、描述性分组、live text 与引用稳定",
+          "mode": "native",
+          "capabilities": [
+            "FF-DIAGRAM-01",
+            "FF-SVG-01",
+            "FF-COMPOSE-01"
+          ],
+          "implementation": [
+            "scripts/ff_diagram.py",
+            "scripts/ff_svg.py",
+            "scripts/ff_compose.py"
+          ],
+          "references": [
+            "references/diagram-spec.md",
+            "references/svg-contract.md"
+          ],
+          "tests": [
+            "tests/test_diagrams.py",
+            "tests/test_diagram_cli_contract.py",
+            "tests/test_svg_audit.py",
+            "tests/test_conflicts.py"
+          ],
+          "complements": [
+            "S11",
+            "S12",
+            "S16"
+          ],
+          "extension": {
+            "target": "scripts/ff_svg.py",
+            "how": "新增 SVG 图元或编辑器输出格式时补字体、标签、引用和实际尺寸审核 fixture。"
+          }
+        },
+        {
+          "id": "S09-F07",
+          "name": "几何包含、标签换行、连线路由与局部精修",
+          "mode": "native",
+          "capabilities": [
+            "FF-DIAGRAM-01",
+            "FF-REVISION-01"
+          ],
+          "implementation": [
+            "scripts/ff_diagram.py",
+            "scripts/ff_quality.py"
+          ],
+          "references": [
+            "references/diagram-design.md",
+            "references/diagram-spec.md",
+            "references/quality-workflow.md"
+          ],
+          "tests": [
+            "tests/test_diagrams.py",
+            "tests/test_diagram_cli_contract.py",
+            "tests/test_workflow_features.py"
+          ],
+          "complements": [
+            "S12",
+            "S16"
+          ],
+          "extension": {
+            "target": "scripts/ff_diagram.py",
+            "how": "扩展领域几何/路由算法，加入短边、长标签、整体局部对应和显式 waypoints 测试。"
+          }
+        }
+      ],
+      "excluded_methods": [
+        {
+          "name": "占位数据面板替换说明中的 PNG 分支",
+          "reason": "S09 原文同时要求纯矢量，又在占位替换说明允许 PNG or vector；严格 SVG 交付保留 vector 路线并填入真实数据图。",
+          "retained": [
+            "FF-COMPOSE-01"
+          ],
+          "tests": [
+            "tests/test_diagrams.py",
+            "tests/test_reaudit_conflicts.py"
+          ]
+        },
+        {
+          "name": "固定最小间距和预设期刊尺寸作为所有任务的硬标准",
+          "reason": "几何间距按最终图尺寸和内容调整，期刊参数使用当前具体稿件阶段要求。",
+          "retained": [
+            "FF-JOURNAL-01",
+            "FF-DIAGRAM-01"
+          ],
+          "tests": [
+            "tests/test_cli_and_data.py",
+            "tests/test_diagrams.py"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S10",
+      "name": "Scientific-Figure-Design",
+      "url": "https://github.com/qhy991/Scientific-Figure-Design/blob/d88f87dad2952af3ee450873c67e95be5ae44e71/SKILL.md",
+      "commit": "d88f87dad2952af3ee450873c67e95be5ae44e71",
+      "features": [
+        {
+          "id": "S10-F01",
+          "name": "论文 HTML 中的图件、子图、图注、alt、资产 URL 和邻近证据采集",
+          "mode": "native",
+          "capabilities": [
+            "FF-REFERENCE-01"
+          ],
+          "implementation": [
+            "scripts/ff_reference.py"
+          ],
+          "references": [
+            "references/reference-intake.md"
+          ],
+          "tests": [
+            "tests/test_reference_intake.py"
+          ],
+          "complements": [
+            "S14",
+            "S16"
+          ],
+          "extension": {
+            "target": "scripts/ff_reference.py",
+            "how": "增加新 HTML 容器/元数据/资产规则时保留原路径与来源 SHA，配真实形态 fixture 和文本归属测试。"
+          },
+          "coverage_note": "已实现用户保存 HTML 的本地提取；不将上游联网 arXiv 采集器、下载器或 contact sheet 渲染器算作现成命令。"
+        },
+        {
+          "id": "S10-F02",
+          "name": "相关工作图件语料、contact sheet 和视觉语言提取",
+          "mode": "workflow",
+          "capabilities": [
+            "FF-REFERENCE-01",
+            "FF-ATLAS-01"
+          ],
+          "implementation": [
+            "scripts/ff_reference.py"
+          ],
+          "references": [
+            "references/reference-intake.md",
+            "references/specialty-atlas.md"
+          ],
+          "tests": [
+            "tests/test_reference_intake.py"
+          ],
+          "complements": [
+            "S09",
+            "S11"
+          ],
+          "extension": {
+            "target": "references/reference-intake.md",
+            "how": "扩展多论文 corpus 索引和联系表时复用逐图/逐图片 ID；保留观察、推断、采用理由三类记录。"
+          },
+          "coverage_note": "提取器测试验证证据字段；检索、取得图像和联系表制作使用 Agent/已有工具工作流，未原生提供自动采集全流水线。"
+        },
+        {
+          "id": "S10-F03",
+          "name": "Figure Contract 的问题、主张、证据、比较角色和视觉锚点",
+          "mode": "native",
+          "capabilities": [
+            "FF-PROJECT-01",
+            "FF-REFERENCE-01"
+          ],
+          "implementation": [
+            "scripts/ff_project.py",
+            "scripts/ff_reference.py"
+          ],
+          "references": [
+            "references/scientific-integrity.md",
+            "references/project-workflow.md",
+            "references/reference-intake.md"
+          ],
+          "tests": [
+            "tests/test_workflow_features.py",
+            "tests/test_reference_intake.py"
+          ],
+          "complements": [
+            "S09",
+            "S11",
+            "S16"
+          ],
+          "extension": {
+            "target": "scripts/ff_project.py",
+            "how": "按领域补 audience、theory-bound 和逐面板 role 的字段校验，新增基线比较测试。"
+          },
+          "coverage_note": "图级合同可执行；视觉锚点、五秒阅读和 theory-bound 解释由审查项与设计记录承载。"
+        },
+        {
+          "id": "S10-F04",
+          "name": "Agent 更新的可变对象、冻结内容、信号/算子/周期与接受拒绝机制",
+          "mode": "workflow",
+          "capabilities": [
+            "FF-REFERENCE-01",
+            "FF-PROJECT-01",
+            "FF-DIAGRAM-01"
+          ],
+          "implementation": [
+            "scripts/ff_reference.py",
+            "scripts/ff_project.py",
+            "scripts/ff_diagram.py"
+          ],
+          "references": [
+            "references/reference-intake.md",
+            "references/project-workflow.md",
+            "references/diagram-design.md"
+          ],
+          "tests": [
+            "tests/test_reference_intake.py",
+            "tests/test_workflow_features.py"
+          ],
+          "complements": [
+            "S12",
+            "S16"
+          ],
+          "extension": {
+            "target": "scripts/ff_reference.py",
+            "how": "扩展 agent-update 稳定审查 ID；若自动校验更新机制，将字段纳入 project 科学合同并测试缺失、错误端点和版本变化。"
+          },
+          "coverage_note": "逐项审查模板已落地；科学机制由证据填写，不从图形自动推断。"
+        },
+        {
+          "id": "S10-F05",
+          "name": "论文级 paper palette、样式身份和跨图零漂移",
+          "mode": "native",
+          "capabilities": [
+            "FF-STYLE-02",
+            "FF-PROJECT-01",
+            "FF-QUALITY-01"
+          ],
+          "implementation": [
+            "scripts/ff_style.py",
+            "scripts/ff_plots.py",
+            "scripts/ff_project.py",
+            "scripts/ff_quality.py"
+          ],
+          "references": [
+            "references/project-workflow.md",
+            "references/quality-workflow.md"
+          ],
+          "tests": [
+            "tests/test_style_inventory.py",
+            "tests/test_plot_feature_coverage.py",
+            "tests/test_workflow_features.py"
+          ],
+          "complements": [
+            "S09",
+            "S13",
+            "S15",
+            "S16"
+          ],
+          "extension": {
+            "target": "scripts/ff_style.py",
+            "how": "将新后端的颜色/marker/linestyle 绑定同一冻结角色表；以实际所选 plot spec 和输入顺序变化验证。"
+          }
+        },
+        {
+          "id": "S10-F06",
+          "name": "灰度骨架、锚点、直接标签与五秒/图注测试",
+          "mode": "workflow",
+          "capabilities": [
+            "FF-QUALITY-01",
+            "FF-REFERENCE-01"
+          ],
+          "implementation": [
+            "scripts/ff_quality.py",
+            "scripts/ff_reference.py"
+          ],
+          "references": [
+            "references/diagram-design.md",
+            "references/quality-workflow.md",
+            "references/reference-intake.md"
+          ],
+          "tests": [
+            "tests/test_workflow_features.py",
+            "tests/test_reference_intake.py"
+          ],
+          "complements": [
+            "S09",
+            "S11",
+            "S13"
+          ],
+          "extension": {
+            "target": "references/quality-workflow.md",
+            "how": "增加实际尺寸/灰度/色觉预览的证据记录与具体修改示例；测量阈值和人类视觉判断分开记录。"
+          }
+        },
+        {
+          "id": "S10-F07",
+          "name": "Draw.io 原生源、分组端口、编辑器导出与 SVG 交接",
+          "mode": "external-adapter",
+          "capabilities": [
+            "FF-OPTION-DRAWIO",
+            "FF-SVG-01",
+            "FF-REVISION-01"
+          ],
+          "implementation": [
+            "scripts/ff_svg.py",
+            "scripts/ff_quality.py",
+            "scripts/ff_project.py"
+          ],
+          "references": [
+            "references/optional-backends.md",
+            "references/project-workflow.md",
+            "references/svg-contract.md"
+          ],
+          "tests": [
+            "tests/test_svg_audit.py",
+            "tests/test_conflicts.py",
+            "tests/test_workflow_features.py"
+          ],
+          "complements": [
+            "S12",
+            "S16"
+          ],
+          "extension": {
+            "target": "references/optional-backends.md",
+            "how": "增加 Draw.io 适配时记录真实 source/export 关系并验证 ports/groups、文字和 CSS/ID 引用。"
+          },
+          "coverage_note": "当前为外部源路由和通用 SVG/修订接入，不宣称已内置运行上游 Draw.io bridge。"
+        },
+        {
+          "id": "S10-F08",
+          "name": "语义图标/张量块/代码块等专业图形元素选择",
+          "mode": "workflow",
+          "capabilities": [
+            "FF-ATLAS-01",
+            "FF-DIAGRAM-01"
+          ],
+          "implementation": [
+            "scripts/ff_diagram.py"
+          ],
+          "references": [
+            "references/specialty-atlas.md",
+            "references/diagram-design.md",
+            "references/optional-backends.md"
+          ],
+          "tests": [
+            "tests/test_diagrams.py",
+            "tests/test_diagram_cli_contract.py"
+          ],
+          "complements": [
+            "S11",
+            "S12",
+            "S16"
+          ],
+          "extension": {
+            "target": "references/specialty-atlas.md",
+            "how": "按实体身份、符号约定和许可证引入新的组件目录；增加 exact-count、group ownership 与标签验证。"
+          },
+          "coverage_note": "保留图形选择与语义设计方法；没有复制上游 581 项图标目录，也没有将目录数量算作本项目能力。"
+        }
+      ],
+      "excluded_methods": [
+        {
+          "name": "默认后台联网下载整套参考图",
+          "reason": "本模块将浏览检索获得的 HTML 作为显式输入，采集和绘图分别可追溯；批量联网采集需具体任务入口。",
+          "retained": [
+            "FF-REFERENCE-01"
+          ],
+          "tests": [
+            "tests/test_reference_intake.py"
+          ]
+        },
+        {
+          "name": "仅固定色值就认为全论文语义编码一致",
+          "reason": "实测发现旧实现 marker/linestyle 随首次出现顺序漂移；改为完整角色样式并测试乱序输入。",
+          "retained": [
+            "FF-STYLE-02",
+            "FF-PROJECT-01"
+          ],
+          "tests": [
+            "tests/test_style_inventory.py",
+            "tests/test_plot_feature_coverage.py"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S11",
+      "name": "academic-figure-skill",
+      "url": "https://github.com/TingxiYu/academic-figure-skill/blob/1df9940dd01ac939f072b12fe28d6353b79b90f9/SKILL.md",
+      "commit": "1df9940dd01ac939f072b12fe28d6353b79b90f9",
+      "features": [
+        {
+          "id": "S11-F01",
+          "name": "科学问题决定图种和每面板角色/数据基础",
+          "mode": "workflow",
+          "capabilities": [
+            "FF-PROJECT-01",
+            "FF-ATLAS-01"
+          ],
+          "implementation": [
+            "scripts/ff_project.py"
+          ],
+          "references": [
+            "references/scientific-integrity.md",
+            "references/chart-selection.md",
+            "references/project-workflow.md",
+            "references/specialty-atlas.md"
+          ],
+          "tests": [
+            "tests/test_workflow_features.py"
+          ],
+          "complements": [
+            "S09",
+            "S10"
+          ],
+          "extension": {
+            "target": "references/specialty-atlas.md",
+            "how": "新领域条目必须同时给实验问题、所需数据、可执行/自定义/外部入口与核对方式。"
+          }
+        },
+        {
+          "id": "S11-F02",
+          "name": "四类多面板构图与主结果/辅助证据面积分配",
+          "mode": "native",
+          "capabilities": [
+            "FF-COMPOSE-01",
+            "FF-DIAGRAM-01"
+          ],
+          "implementation": [
+            "scripts/ff_compose.py",
+            "scripts/ff_plots.py",
+            "scripts/ff_diagram.py"
+          ],
+          "references": [
+            "references/project-workflow.md",
+            "references/diagram-design.md",
+            "references/specialty-atlas.md"
+          ],
+          "tests": [
+            "tests/test_plot_feature_coverage.py",
+            "tests/test_diagrams.py"
+          ],
+          "complements": [
+            "S09",
+            "S15"
+          ],
+          "extension": {
+            "target": "scripts/ff_compose.py",
+            "how": "新增面板结构需保持真正 SVG 子树，验证 span/比例/缩放后字号和标签归属。"
+          },
+          "coverage_note": "quantitative/schematic-led/asymmetric 的矢量结构可原生表达；真实 image plate 保留独立原图与图像路线。"
+        },
+        {
+          "id": "S11-F03",
+          "name": "中英专业图型目录、语义匹配和输入形状适配",
+          "mode": "workflow",
+          "capabilities": [
+            "FF-ATLAS-01",
+            "FF-CUSTOM-01",
+            "FF-OPTION-R"
+          ],
+          "implementation": [
+            "scripts/figurefoundry.py"
+          ],
+          "references": [
+            "references/specialty-atlas.md",
+            "references/chart-selection.md",
+            "references/optional-backends.md"
+          ],
+          "tests": [
+            "tests/test_coverage_navigation.py"
+          ],
+          "complements": [
+            "S12",
+            "S13",
+            "S15"
+          ],
+          "extension": {
+            "target": "references/specialty-atlas.md",
+            "how": "为新中英关键词增加稳定 SP ID；以真实术语查询验证可定位到字段契约和接入方法。"
+          },
+          "coverage_note": "专业目录为路由与接入知识，不等同已移植上游全部 R/Python 模板。"
+        },
+        {
+          "id": "S11-F04",
+          "name": "独立样本量、中心/区间定义、检验来源与 ML 评估口径",
+          "mode": "native",
+          "capabilities": [
+            "FF-DATA-01",
+            "FF-STATS-01",
+            "FF-PROJECT-01"
+          ],
+          "implementation": [
+            "scripts/ff_data.py",
+            "scripts/ff_plots.py",
+            "scripts/ff_project.py"
+          ],
+          "references": [
+            "references/scientific-integrity.md",
+            "references/plot-spec.md",
+            "references/project-workflow.md"
+          ],
+          "tests": [
+            "tests/test_plot_engine.py",
+            "tests/test_plot_feature_coverage.py",
+            "tests/test_workflow_features.py"
+          ],
+          "complements": [
+            "S13",
+            "S14",
+            "S15"
+          ],
+          "extension": {
+            "target": "scripts/ff_data.py",
+            "how": "增加新估计器时给独立单位和确定数值样例；将提供的模型/检验结果与绘图值绑定。"
+          }
+        },
+        {
+          "id": "S11-F05",
+          "name": "代码、数据、图面与五种视觉视角的多轮 QA",
+          "mode": "workflow",
+          "capabilities": [
+            "FF-QUALITY-01",
+            "FF-SVG-01",
+            "FF-REVISION-01"
+          ],
+          "implementation": [
+            "scripts/ff_quality.py",
+            "scripts/ff_svg.py"
+          ],
+          "references": [
+            "references/quality-workflow.md",
+            "references/diagram-design.md",
+            "references/scientific-integrity.md"
+          ],
+          "tests": [
+            "tests/test_svg_audit.py",
+            "tests/test_conflicts.py",
+            "tests/test_workflow_features.py"
+          ],
+          "complements": [
+            "S09",
+            "S10",
+            "S16"
+          ],
+          "extension": {
+            "target": "references/quality-workflow.md",
+            "how": "新增布局/清晰度/字体问题时保存实际预览和定位清楚的修改项；把可判定问题转成回归 fixture。"
+          }
+        },
+        {
+          "id": "S11-F06",
+          "name": "复杂矩阵、分面、边际与多变量图的领域图层",
+          "mode": "recipe",
+          "capabilities": [
+            "FF-CUSTOM-02",
+            "FF-ATLAS-01",
+            "FF-OPTION-R"
+          ],
+          "implementation": [
+            "scripts/ff_seaborn.py",
+            "scripts/ff_export.py"
+          ],
+          "references": [
+            "references/quality-workflow.md",
+            "references/specialty-atlas.md"
+          ],
+          "tests": [
+            "tests/test_seaborn_recipes.py"
+          ],
+          "complements": [
+            "S13",
+            "S15"
+          ],
+          "extension": {
+            "target": "scripts/ff_seaborn.py",
+            "how": "以现有 FacetGrid/PairGrid/JointGrid/clustermap 四配方为基础增加领域输入列配置，验证分析元数据和 live SVG。"
+          },
+          "coverage_note": "四配方已实现；S11 的其他专业模板通过 atlas 路由，不能将其等同完整模板迁移。"
+        },
+        {
+          "id": "S11-F07",
+          "name": "可发现的 Skill 入口、参考完整性与任务评估方法",
+          "mode": "workflow",
+          "capabilities": [
+            "FF-ATLAS-01"
+          ],
+          "implementation": [
+            "agents/openai.yaml"
+          ],
+          "references": [
+            "SKILL.md",
+            "references/specialty-atlas.md"
+          ],
+          "tests": [
+            "tests/test_cli_and_data.py"
+          ],
+          "complements": [
+            "S12",
+            "S15"
+          ],
+          "extension": {
+            "target": "agents/openai.yaml",
+            "how": "增加实际用户措辞和专业路由用例；对所支持平台入口做单独发现测试。"
+          },
+          "coverage_note": "继承可发现性和任务评估思路；未复制上游 40 条触发基准、所有 adapters 或整套评测运行器。"
+        }
+      ],
+      "excluded_methods": [
+        {
+          "name": "显著性、效应量、相关系数、AUC 的最低性能门槛",
+          "reason": "绘图必须接受合法阴性、零效应和反向结果；只检查输入数值和分析语义。",
+          "retained": [
+            "FF-DATA-01",
+            "FF-STATS-01"
+          ],
+          "tests": [
+            "tests/test_plot_engine.py",
+            "tests/test_reaudit_conflicts.py"
+          ]
+        },
+        {
+          "name": "为了适配图形而改 log 变换、加未说明 epsilon 或挑数据列",
+          "reason": "保留原数值、单位和变换来源；不适用的数值变换显式报错。",
+          "retained": [
+            "FF-DATA-01",
+            "FF-PLOT-01"
+          ],
+          "tests": [
+            "tests/test_cli_and_data.py",
+            "tests/test_plot_engine.py",
+            "tests/test_plot_feature_coverage.py"
+          ]
+        },
+        {
+          "name": "默认 PNG 拼版或 rasterized=True 解决密集图",
+          "reason": "严格可编辑 SVG 使用真实矢量网格/点/路径和原生拼版。",
+          "retained": [
+            "FF-COMPOSE-01",
+            "FF-SVG-01"
+          ],
+          "tests": [
+            "tests/test_conflicts.py",
+            "tests/test_reaudit_conflicts.py"
+          ]
+        },
+        {
+          "name": "每一步强制重新确认计划/后端以及无条件偏好不对称布局",
+          "reason": "持续执行已授权任务；布局由本图的科学角色和比较需求决定。",
+          "retained": [
+            "FF-PROJECT-01"
+          ],
+          "tests": [
+            "tests/test_workflow_features.py"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S12",
+      "name": "tikz-scientific-figures",
+      "url": "https://github.com/PM-Shawn/tikz-scientific-figures/blob/0f0918c84db0b715bed476b1f607cd6e72cd35d4/SKILL.md",
+      "commit": "0f0918c84db0b715bed476b1f607cd6e72cd35d4",
+      "features": [
+        {
+          "id": "S12-F01",
+          "name": "standalone TikZ/PGFPlots 图源、外部 CSV 与集中 TUNABLES",
+          "mode": "external-adapter",
+          "capabilities": [
+            "FF-OPTION-TIKZ",
+            "FF-EXPORT-01",
+            "FF-PROJECT-01"
+          ],
+          "implementation": [
+            "scripts/ff_project.py",
+            "scripts/ff_svg.py"
+          ],
+          "references": [
+            "references/optional-backends.md",
+            "references/specialty-atlas.md",
+            "references/project-workflow.md"
+          ],
+          "tests": [
+            "tests/test_workflow_features.py",
+            "tests/test_svg_audit.py",
+            "tests/test_conflicts.py"
+          ],
+          "complements": [
+            "S14",
+            "S15"
+          ],
+          "extension": {
+            "target": "references/optional-backends.md",
+            "how": "增加实际 TikZ 编译 adapter 时保留参数块、CSV、引擎/导出命令和结果哈希。"
+          },
+          "coverage_note": "来源组织和交接路线已整合；未内置上游 .tex 模板/编译器或声称本环境已编译测试。"
+        },
+        {
+          "id": "S12-F02",
+          "name": "电路、力学几何、生物、CS、化学、物理、数学领域路由",
+          "mode": "workflow",
+          "capabilities": [
+            "FF-ATLAS-01",
+            "FF-DIAGRAM-01",
+            "FF-OPTION-TIKZ"
+          ],
+          "implementation": [
+            "scripts/ff_diagram.py"
+          ],
+          "references": [
+            "references/specialty-atlas.md",
+            "references/diagram-design.md",
+            "references/optional-backends.md"
+          ],
+          "tests": [
+            "tests/test_diagrams.py",
+            "tests/test_diagram_cli_contract.py"
+          ],
+          "complements": [
+            "S11",
+            "S15",
+            "S16"
+          ],
+          "extension": {
+            "target": "references/specialty-atlas.md",
+            "how": "新增领域条目明确实体/数据、符号约定、所用几何源与测试；成熟组件可升级为独立原生模块。"
+          },
+          "coverage_note": "八类原始领域均有定位入口；专业 TikZ 配方未逐个移植为本项目内置实现。"
+        },
+        {
+          "id": "S12-F03",
+          "name": "工具链检测、编译错误定位和真实产物预览",
+          "mode": "workflow",
+          "capabilities": [
+            "FF-OPTION-TIKZ",
+            "FF-SVG-01"
+          ],
+          "implementation": [
+            "scripts/figurefoundry.py",
+            "scripts/ff_svg.py"
+          ],
+          "references": [
+            "references/optional-backends.md",
+            "references/specialty-atlas.md"
+          ],
+          "tests": [
+            "tests/test_cli_and_data.py",
+            "tests/test_svg_audit.py"
+          ],
+          "complements": [
+            "S13",
+            "S15"
+          ],
+          "extension": {
+            "target": "references/optional-backends.md",
+            "how": "按平台补可重复编译 fixture 和常见错误，再记录 compiled/exported/audited 各阶段真实结果。"
+          },
+          "coverage_note": "doctor 检测与 SVG 审核已有；当前不将 executable detection 当作 TikZ 成功运行测试。"
+        },
+        {
+          "id": "S12-F04",
+          "name": "手工 SVG 精修后切换主源并冻结旧 .tex",
+          "mode": "native",
+          "capabilities": [
+            "FF-PROJECT-01",
+            "FF-REVISION-01"
+          ],
+          "implementation": [
+            "scripts/ff_project.py",
+            "scripts/ff_quality.py"
+          ],
+          "references": [
+            "references/project-workflow.md",
+            "references/quality-workflow.md"
+          ],
+          "tests": [
+            "tests/test_workflow_features.py"
+          ],
+          "complements": [
+            "S09",
+            "S15",
+            "S16"
+          ],
+          "extension": {
+            "target": "scripts/ff_project.py",
+            "how": "为新编辑器/源类型扩展 active source/frozen upstream 规则；验证路径别名、移除冻结声明和真实字节变化。"
+          }
+        },
+        {
+          "id": "S12-F05",
+          "name": "图源、数据、PDF/SVG 和选定编辑状态一起交接",
+          "mode": "native",
+          "capabilities": [
+            "FF-PROJECT-01",
+            "FF-EXPORT-01",
+            "FF-ACCESS-01"
+          ],
+          "implementation": [
+            "scripts/ff_project.py",
+            "scripts/ff_export.py",
+            "scripts/ff_quality.py"
+          ],
+          "references": [
+            "references/project-workflow.md",
+            "references/quality-workflow.md",
+            "references/svg-contract.md"
+          ],
+          "tests": [
+            "tests/test_workflow_features.py",
+            "tests/test_svg_audit.py",
+            "tests/test_conflicts.py"
+          ],
+          "complements": [
+            "S14",
+            "S16"
+          ],
+          "extension": {
+            "target": "scripts/ff_project.py",
+            "how": "扩展 companion 格式与正文定位字段时，将同一 selected variant 的文件哈希、caption、alt_text 同步交付。"
+          },
+          "coverage_note": "原生项目索引/源身份/图注与 alt 已实现；外部编辑器打开与手稿回填仍按工作流操作。"
+        },
+        {
+          "id": "S12-F06",
+          "name": "GUI 矢量编辑与可继续修改的原始几何源",
+          "mode": "external-adapter",
+          "capabilities": [
+            "FF-OPTION-DRAWIO",
+            "FF-OPTION-TIKZ",
+            "FF-REVISION-01"
+          ],
+          "implementation": [
+            "scripts/ff_quality.py",
+            "scripts/ff_project.py"
+          ],
+          "references": [
+            "references/optional-backends.md",
+            "references/project-workflow.md",
+            "references/quality-workflow.md"
+          ],
+          "tests": [
+            "tests/test_workflow_features.py"
+          ],
+          "complements": [
+            "S09",
+            "S16"
+          ],
+          "extension": {
+            "target": "references/optional-backends.md",
+            "how": "按可用编辑器补启动/导出说明和版本交接；实际编辑后使用 geometry/text 差异检查。"
+          },
+          "coverage_note": "可复用 MethodDraw/Inkscape 等视觉编辑方法；没有附带上游本地 MethodDraw 服务。"
+        }
+      ],
+      "excluded_methods": [
+        {
+          "name": "仅凭 TikZ 导出的 .svg 后缀就认定文字可编辑",
+          "reason": "部分 PDF/SVG 转换会输出 glyph 路径；最终 SVG 需通过实际文字/字体/图元审核。",
+          "retained": [
+            "FF-SVG-01",
+            "FF-EXPORT-01"
+          ],
+          "tests": [
+            "tests/test_svg_audit.py",
+            "tests/test_conflicts.py"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S13",
+      "name": "scientific-visualization",
+      "url": "https://github.com/jasonwujch/scientific-visualization/blob/1470ec5f77198e59d3d22d026ff2ff33275aabc2/SKILL.md",
+      "commit": "1470ec5f77198e59d3d22d026ff2ff33275aabc2",
+      "features": [
+        {
+          "id": "S13-F01",
+          "name": "科学数据图、原始点、区间、面板和统一输出",
+          "mode": "native",
+          "capabilities": [
+            "FF-PLOT-01",
+            "FF-PLOT-02",
+            "FF-PLOT-03",
+            "FF-PLOT-04",
+            "FF-PLOT-05",
+            "FF-PLOT-08",
+            "FF-STATS-01"
+          ],
+          "implementation": [
+            "scripts/ff_plots.py",
+            "scripts/ff_data.py",
+            "scripts/ff_export.py"
+          ],
+          "references": [
+            "references/plot-spec.md",
+            "references/chart-selection.md",
+            "references/scientific-integrity.md"
+          ],
+          "tests": [
+            "tests/test_plot_engine.py",
+            "tests/test_plot_feature_coverage.py",
+            "tests/test_final_contracts.py"
+          ],
+          "complements": [
+            "S11",
+            "S14",
+            "S15"
+          ],
+          "extension": {
+            "target": "scripts/ff_plots.py",
+            "how": "新增图层时保留输入统计含义，给确定数值答案、源哈希和真 SVG 导出测试。"
+          }
+        },
+        {
+          "id": "S13-F02",
+          "name": "多个科学美学主题与可调字体层级、网格和边框",
+          "mode": "native",
+          "capabilities": [
+            "FF-STYLE-02"
+          ],
+          "implementation": [
+            "scripts/ff_style.py",
+            "scripts/ff_plots.py"
+          ],
+          "references": [
+            "references/project-workflow.md",
+            "references/plot-spec.md"
+          ],
+          "tests": [
+            "tests/test_style_inventory.py",
+            "tests/test_plot_feature_coverage.py"
+          ],
+          "complements": [
+            "S09",
+            "S10",
+            "S15"
+          ],
+          "extension": {
+            "target": "scripts/ff_style.py",
+            "how": "增加原创命名主题或字段时测试实际 artist 属性、统计结果不变和最终 SVG 契约。"
+          },
+          "coverage_note": "以本项目 minimal/engineering/classic/warm/compact 实现主题能力，未逐个复制上游主题配置；期刊尺寸仍由实际 profile 确定。"
+        },
+        {
+          "id": "S13-F03",
+          "name": "样式叠加顺序、LaTeX/字体重置与最终导出冲突处理",
+          "mode": "native",
+          "capabilities": [
+            "FF-STYLE-02",
+            "FF-EXPORT-01",
+            "FF-SVG-01"
+          ],
+          "implementation": [
+            "scripts/ff_style.py",
+            "scripts/ff_plots.py",
+            "scripts/ff_export.py",
+            "scripts/ff_svg.py"
+          ],
+          "references": [
+            "references/project-workflow.md",
+            "references/svg-contract.md"
+          ],
+          "tests": [
+            "tests/test_style_inventory.py",
+            "tests/test_plot_feature_coverage.py",
+            "tests/test_svg_audit.py",
+            "tests/test_conflicts.py"
+          ],
+          "complements": [
+            "S12",
+            "S15"
+          ],
+          "extension": {
+            "target": "scripts/ff_export.py",
+            "how": "新样式或后端接入时测试脏全局 rcParams、字体转曲、usetex、tight bbox 和色条栅格化。"
+          }
+        },
+        {
+          "id": "S13-F04",
+          "name": "Seaborn axes/figure-level 的分面、两两、边际、聚类图",
+          "mode": "recipe",
+          "capabilities": [
+            "FF-CUSTOM-02"
+          ],
+          "implementation": [
+            "scripts/ff_seaborn.py",
+            "scripts/ff_export.py"
+          ],
+          "references": [
+            "references/quality-workflow.md",
+            "references/specialty-atlas.md"
+          ],
+          "tests": [
+            "tests/test_seaborn_recipes.py"
+          ],
+          "complements": [
+            "S11",
+            "S15"
+          ],
+          "extension": {
+            "target": "scripts/ff_seaborn.py",
+            "how": "扩展真实输入列配置、轴/图例语义与统计变换记录；测试新 grid 类得到 Figure 后能完整导出。"
+          }
+        },
+        {
+          "id": "S13-F05",
+          "name": "语义色、灰度、色觉可读性与最终打印尺寸",
+          "mode": "native",
+          "capabilities": [
+            "FF-QUALITY-01",
+            "FF-STYLE-02",
+            "FF-SVG-01"
+          ],
+          "implementation": [
+            "scripts/ff_quality.py",
+            "scripts/ff_style.py",
+            "scripts/ff_svg.py"
+          ],
+          "references": [
+            "references/quality-workflow.md",
+            "references/scientific-integrity.md"
+          ],
+          "tests": [
+            "tests/test_workflow_features.py",
+            "tests/test_style_inventory.py",
+            "tests/test_plot_feature_coverage.py",
+            "tests/test_svg_audit.py",
+            "tests/test_conflicts.py"
+          ],
+          "complements": [
+            "S09",
+            "S10",
+            "S16"
+          ],
+          "extension": {
+            "target": "scripts/ff_quality.py",
+            "how": "如添加完整 CVD 模型，分别记录模型/参数/预览；继续把对比度和灰度数值与视觉证据对应。"
+          },
+          "coverage_note": "原生亮度、对比度、冗余角色编码和物理字号检查；完整色觉模拟当前为工作流步骤。"
+        },
+        {
+          "id": "S13-F06",
+          "name": "Plotly 静态 SVG 与多格式图件接入",
+          "mode": "external-adapter",
+          "capabilities": [
+            "FF-OPTION-PLOTLY",
+            "FF-SVG-01",
+            "FF-PROJECT-01"
+          ],
+          "implementation": [
+            "scripts/ff_svg.py",
+            "scripts/ff_project.py"
+          ],
+          "references": [
+            "references/optional-backends.md",
+            "references/project-workflow.md"
+          ],
+          "tests": [
+            "tests/test_svg_audit.py",
+            "tests/test_conflicts.py",
+            "tests/test_workflow_features.py"
+          ],
+          "complements": [
+            "S11",
+            "S14"
+          ],
+          "extension": {
+            "target": "references/optional-backends.md",
+            "how": "在具体项目加入真实 Plotly/Kaleido 导出 fixture，验证静态 SVG 文本、密集层和版式。"
+          },
+          "coverage_note": "外部后端指引和 SVG/project 接口已整合，未声明当前发布运行了 Plotly 工具链。"
+        }
+      ],
+      "excluded_methods": [
+        {
+          "name": "样式包/期刊名称等同已验证投稿规范",
+          "reason": "主题仅控制外观；具体尺寸和格式由当前期刊/稿件阶段来源决定。",
+          "retained": [
+            "FF-JOURNAL-01",
+            "FF-STYLE-02"
+          ],
+          "tests": [
+            "tests/test_cli_and_data.py",
+            "tests/test_style_inventory.py"
+          ]
+        },
+        {
+          "name": "默认添加显著性星号作为出版美化",
+          "reason": "显著性只能来自明确的检验、比较与校正，实际结果不由装饰产生。",
+          "retained": [
+            "FF-STATS-01"
+          ],
+          "tests": [
+            "tests/test_plot_engine.py"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S14",
+      "name": "scientific-plotting",
+      "url": "https://github.com/1111asas/scientific-plotting/blob/d5dbf14c488f080c27e63c6ed4dce24cd9614442/scientific-plotting/SKILL.md",
+      "commit": "d5dbf14c488f080c27e63c6ed4dce24cd9614442",
+      "features": [
+        {
+          "id": "S14-F01",
+          "name": "数据、脚本、图像、参数和说明组成可重建交付",
+          "mode": "native",
+          "capabilities": [
+            "FF-DATA-01",
+            "FF-EXPORT-01",
+            "FF-PROJECT-01"
+          ],
+          "implementation": [
+            "scripts/ff_data.py",
+            "scripts/ff_export.py",
+            "scripts/ff_project.py"
+          ],
+          "references": [
+            "references/scientific-integrity.md",
+            "references/plot-spec.md",
+            "references/project-workflow.md"
+          ],
+          "tests": [
+            "tests/test_cli_and_data.py",
+            "tests/test_workflow_features.py"
+          ],
+          "complements": [
+            "S12",
+            "S15",
+            "S16"
+          ],
+          "extension": {
+            "target": "scripts/ff_project.py",
+            "how": "为新输入/分析格式补真实文件哈希和选中图源关系；保留当前工作栈。"
+          }
+        },
+        {
+          "id": "S14-F02",
+          "name": "数字化文献 benchmark 的 DOI/URL、图表号、方法、单位、变换与不确定性",
+          "mode": "native",
+          "capabilities": [
+            "FF-REFERENCE-02"
+          ],
+          "implementation": [
+            "scripts/ff_reference.py"
+          ],
+          "references": [
+            "references/reference-intake.md",
+            "references/scientific-integrity.md"
+          ],
+          "tests": [
+            "tests/test_reference_intake.py"
+          ],
+          "complements": [
+            "S10",
+            "S11"
+          ],
+          "extension": {
+            "target": "scripts/ff_reference.py",
+            "how": "新增数据来源类别或变换字段时，给完整/缺失/矛盾记录测试；未知误差保持未知。"
+          }
+        },
+        {
+          "id": "S14-F03",
+          "name": "全套 CSV 批量绘图的样式一致和生成清单",
+          "mode": "workflow",
+          "capabilities": [
+            "FF-STYLE-02",
+            "FF-PROJECT-01",
+            "FF-EXPORT-01"
+          ],
+          "implementation": [
+            "scripts/ff_style.py",
+            "scripts/ff_project.py",
+            "scripts/ff_export.py"
+          ],
+          "references": [
+            "references/project-workflow.md",
+            "references/plot-spec.md"
+          ],
+          "tests": [
+            "tests/test_style_inventory.py",
+            "tests/test_plot_feature_coverage.py",
+            "tests/test_workflow_features.py"
+          ],
+          "complements": [
+            "S10",
+            "S15"
+          ],
+          "extension": {
+            "target": "references/project-workflow.md",
+            "how": "新增 batch job 入口时逐任务记录数据/样式/图件的来源哈希和失败状态，避免依赖工作目录隐式配置。"
+          },
+          "coverage_note": "可由 Agent/项目脚本按显式图表列表编排；现成 CLI 没有独立 batch 命令。"
+        },
+        {
+          "id": "S14-F04",
+          "name": "共享轴多面板、矩阵方向和横向组成等高级配方",
+          "mode": "recipe",
+          "capabilities": [
+            "FF-CUSTOM-01",
+            "FF-PLOT-08",
+            "FF-PLOT-14",
+            "FF-ATLAS-01"
+          ],
+          "implementation": [
+            "scripts/ff_plots.py",
+            "scripts/ff_export.py"
+          ],
+          "references": [
+            "references/specialty-atlas.md",
+            "references/chart-selection.md",
+            "references/plot-spec.md"
+          ],
+          "tests": [
+            "tests/test_plot_engine.py",
+            "tests/test_plot_feature_coverage.py"
+          ],
+          "complements": [
+            "S11",
+            "S13",
+            "S15"
+          ],
+          "extension": {
+            "target": "references/specialty-atlas.md",
+            "how": "将共享轴/横向组成升级原生时增加显式 orientation/shared-axis 参数及总量/颜色/方向验证。"
+          },
+          "coverage_note": "原生矩阵和组成图可复用；共享轴及横向组成走 custom Matplotlib，未冒称现有原生参数。"
+        },
+        {
+          "id": "S14-F05",
+          "name": "图件文件、格式、尺寸与图源 inventory",
+          "mode": "native",
+          "capabilities": [
+            "FF-INVENTORY-01",
+            "FF-EXPORT-01",
+            "FF-SVG-01"
+          ],
+          "implementation": [
+            "scripts/ff_inventory.py",
+            "scripts/ff_export.py",
+            "scripts/ff_svg.py"
+          ],
+          "references": [
+            "references/project-workflow.md",
+            "references/svg-contract.md"
+          ],
+          "tests": [
+            "tests/test_style_inventory.py",
+            "tests/test_svg_audit.py",
+            "tests/test_cli_and_data.py"
+          ],
+          "complements": [
+            "S15",
+            "S16"
+          ],
+          "extension": {
+            "target": "scripts/ff_inventory.py",
+            "how": "增加项目源格式时输出明确文件/行/单元位置；对新导出格式建立实际产物审查入口。"
+          }
+        }
+      ],
+      "excluded_methods": [
+        {
+          "name": "把读图近似值写成用户实验原始数据",
+          "reason": "origin 明确区分 digitized-literature、reported-literature；保留读图方法和不确定性。",
+          "retained": [
+            "FF-REFERENCE-02"
+          ],
+          "tests": [
+            "tests/test_reference_intake.py"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S15",
+      "name": "sci-paper-plot-skill",
+      "url": "https://github.com/FFFxueGawaine/sci-paper-plot-skill/blob/3404a006ed79695a20f6b31656b209b99a161f32/SKILL.md",
+      "commit": "3404a006ed79695a20f6b31656b209b99a161f32",
+      "features": [
+        {
+          "id": "S15-F01",
+          "name": "plot-defaults 项目偏好持久化及明确覆盖顺序",
+          "mode": "native",
+          "capabilities": [
+            "FF-STYLE-02"
+          ],
+          "implementation": [
+            "scripts/ff_style.py",
+            "scripts/ff_plots.py"
+          ],
+          "references": [
+            "references/project-workflow.md",
+            "references/plot-spec.md"
+          ],
+          "tests": [
+            "tests/test_style_inventory.py",
+            "tests/test_plot_feature_coverage.py"
+          ],
+          "complements": [
+            "S10",
+            "S13"
+          ],
+          "extension": {
+            "target": "scripts/ff_style.py",
+            "how": "扩展视觉默认字段时不允许覆写数据/统计；保留默认文件哈希与实际合并结果。"
+          }
+        },
+        {
+          "id": "S15-F02",
+          "name": "common/innovative 候选与按科学目的选择",
+          "mode": "workflow",
+          "capabilities": [
+            "FF-PROJECT-01",
+            "FF-ATLAS-01"
+          ],
+          "implementation": [
+            "scripts/ff_project.py"
+          ],
+          "references": [
+            "references/project-workflow.md",
+            "references/specialty-atlas.md"
+          ],
+          "tests": [
+            "tests/test_workflow_features.py"
+          ],
+          "complements": [
+            "S09",
+            "S11"
+          ],
+          "extension": {
+            "target": "references/project-workflow.md",
+            "how": "增加领域候选示例时比较信息收益与同内容实际尺寸预览，将选中理由保存。"
+          }
+        },
+        {
+          "id": "S15-F03",
+          "name": "已有 Python/Notebook 的绘图、样式、导出位置清点与精准修改",
+          "mode": "native",
+          "capabilities": [
+            "FF-INVENTORY-01",
+            "FF-REVISION-01"
+          ],
+          "implementation": [
+            "scripts/ff_inventory.py",
+            "scripts/ff_quality.py"
+          ],
+          "references": [
+            "references/project-workflow.md",
+            "references/quality-workflow.md"
+          ],
+          "tests": [
+            "tests/test_style_inventory.py",
+            "tests/test_workflow_features.py"
+          ],
+          "complements": [
+            "S12",
+            "S14",
+            "S16"
+          ],
+          "extension": {
+            "target": "scripts/ff_inventory.py",
+            "how": "增加新的调用别名或 Notebook 元数据时定位到行/代码单元；只解析源，不执行用户 Notebook。"
+          }
+        },
+        {
+          "id": "S15-F04",
+          "name": "集中暴露字号层级、线宽、点形、图例、网格与布局参数",
+          "mode": "native",
+          "capabilities": [
+            "FF-STYLE-02"
+          ],
+          "implementation": [
+            "scripts/ff_style.py",
+            "scripts/ff_plots.py"
+          ],
+          "references": [
+            "references/plot-spec.md",
+            "references/project-workflow.md"
+          ],
+          "tests": [
+            "tests/test_style_inventory.py",
+            "tests/test_plot_feature_coverage.py"
+          ],
+          "complements": [
+            "S09",
+            "S13"
+          ],
+          "extension": {
+            "target": "scripts/ff_plots.py",
+            "how": "每新增一个样式字段都验证其实际改变的 artist，避免只接受参数却不生效；inset 等专业版式保留 custom 路由。"
+          }
+        },
+        {
+          "id": "S15-F05",
+          "name": "紧凑工程风格、居中面板编号、CJK/英文字体与可编辑数学文字",
+          "mode": "native",
+          "capabilities": [
+            "FF-STYLE-02",
+            "FF-SVG-01"
+          ],
+          "implementation": [
+            "scripts/ff_style.py",
+            "scripts/ff_plots.py",
+            "scripts/ff_svg.py",
+            "scripts/ff_diagram.py"
+          ],
+          "references": [
+            "references/project-workflow.md",
+            "references/plot-spec.md",
+            "references/svg-contract.md"
+          ],
+          "tests": [
+            "tests/test_style_inventory.py",
+            "tests/test_plot_feature_coverage.py",
+            "tests/test_diagrams.py",
+            "tests/test_diagram_cli_contract.py"
+          ],
+          "complements": [
+            "S12",
+            "S13"
+          ],
+          "extension": {
+            "target": "scripts/ff_style.py",
+            "how": "扩展字体族/编号位置时在实际物理尺寸下测试字号和标签；数学/CJK 内容检查字体可用与 live text。"
+          },
+          "coverage_note": "compact 风格支持层级字号与居中编号；字体按实际环境配置，不将固定 Times/STIX 视为所有期刊要求。"
+        },
+        {
+          "id": "S15-F06",
+          "name": "时域、FRF、时频、相图、Poincaré、分岔、吸引域与向量场图谱",
+          "mode": "workflow",
+          "capabilities": [
+            "FF-ATLAS-01",
+            "FF-CUSTOM-01"
+          ],
+          "implementation": [
+            "scripts/figurefoundry.py"
+          ],
+          "references": [
+            "references/specialty-atlas.md"
+          ],
+          "tests": [
+            "tests/test_coverage_navigation.py"
+          ],
+          "complements": [
+            "S11",
+            "S12",
+            "S13"
+          ],
+          "extension": {
+            "target": "references/specialty-atlas.md",
+            "how": "为具体领域加入可运行 source recipe 前先定义采样/分析参数与单位；加入已知轨迹/频率答案测试。"
+          },
+          "coverage_note": "中英图型与数据/方法路由完整列出；未复制上游全部动力学 demos 或内置动力学求解器。"
+        },
+        {
+          "id": "S15-F07",
+          "name": "Matplotlib/Seaborn 多变量图型和演示配方的共同出口",
+          "mode": "recipe",
+          "capabilities": [
+            "FF-CUSTOM-02",
+            "FF-EXPORT-01"
+          ],
+          "implementation": [
+            "scripts/ff_seaborn.py",
+            "scripts/ff_export.py"
+          ],
+          "references": [
+            "references/quality-workflow.md",
+            "references/specialty-atlas.md"
+          ],
+          "tests": [
+            "tests/test_seaborn_recipes.py"
+          ],
+          "complements": [
+            "S11",
+            "S13"
+          ],
+          "extension": {
+            "target": "scripts/ff_seaborn.py",
+            "how": "基于已有四类配方扩展已说明的真实表格字段，保持共同分箱、统计来源和原生 SVG。"
+          }
+        },
+        {
+          "id": "S15-F08",
+          "name": "数据处理/绘图/保存分段、快速预览、版本命名与项目输出",
+          "mode": "workflow",
+          "capabilities": [
+            "FF-PROJECT-01",
+            "FF-EXPORT-01",
+            "FF-REVISION-01"
+          ],
+          "implementation": [
+            "scripts/ff_project.py",
+            "scripts/ff_export.py",
+            "scripts/ff_quality.py"
+          ],
+          "references": [
+            "references/project-workflow.md",
+            "references/plot-spec.md"
+          ],
+          "tests": [
+            "tests/test_workflow_features.py",
+            "tests/test_conflicts.py"
+          ],
+          "complements": [
+            "S12",
+            "S14",
+            "S16"
+          ],
+          "extension": {
+            "target": "references/project-workflow.md",
+            "how": "增加版本或计算层级时保持数据处理参数和外观参数分别记录；用选定版本交接。"
+          }
+        }
+      ],
+      "excluded_methods": [
+        {
+          "name": "固定字体、取消全部子图标题、居中编号作为每张图的唯一格式",
+          "reason": "保留为可选 compact/engineering 风格，实际图件按科研问题和期刊版式选择。",
+          "retained": [
+            "FF-STYLE-02"
+          ],
+          "tests": [
+            "tests/test_style_inventory.py",
+            "tests/test_plot_feature_coverage.py"
+          ]
+        },
+        {
+          "name": "仅采用示例保存命名中的 PNG 作为最终可编辑源",
+          "reason": "SVG 为可编辑主图；PNG/PDF 按用途作为同一版本的伴随文件。",
+          "retained": [
+            "FF-EXPORT-01",
+            "FF-PROJECT-01"
+          ],
+          "tests": [
+            "tests/test_conflicts.py",
+            "tests/test_workflow_features.py"
+          ]
+        },
+        {
+          "name": "反复询问已保存偏好或对每次常规运行强制重新许可",
+          "reason": "已知项目配置和用户授权持续有效；按默认优先级直接执行可逆制作任务。",
+          "retained": [
+            "FF-STYLE-02"
+          ],
+          "tests": [
+            "tests/test_style_inventory.py",
+            "tests/test_plot_feature_coverage.py"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S16",
+      "name": "FigureCraft / scientific-figure-studio",
+      "url": "https://github.com/zlsjtj/FigureCraft/blob/2c360b012bd5d12e8ba7933153ab804ccec1c183/SKILL.md",
+      "commit": "2c360b012bd5d12e8ba7933153ab804ccec1c183",
+      "features": [
+        {
+          "id": "S16-F01",
+          "name": "输入图源质量、证据文件哈希、实体/关系与锁定数值合同",
+          "mode": "native",
+          "capabilities": [
+            "FF-PROJECT-01",
+            "FF-REFERENCE-01",
+            "FF-REVISION-01"
+          ],
+          "implementation": [
+            "scripts/ff_project.py",
+            "scripts/ff_reference.py",
+            "scripts/ff_quality.py"
+          ],
+          "references": [
+            "references/project-workflow.md",
+            "references/reference-intake.md",
+            "references/scientific-integrity.md"
+          ],
+          "tests": [
+            "tests/test_workflow_features.py",
+            "tests/test_reference_intake.py"
+          ],
+          "complements": [
+            "S10",
+            "S11",
+            "S14"
+          ],
+          "extension": {
+            "target": "scripts/ff_project.py",
+            "how": "增加领域 scientific fields 与 evidence status 时纳入基线快照；测试真实字节变更、字段变化与输入不被别名修改。"
+          }
+        },
+        {
+          "id": "S16-F02",
+          "name": "整体、组成、局部细节的身份、归属与数量关联",
+          "mode": "native",
+          "capabilities": [
+            "FF-PROJECT-01",
+            "FF-DIAGRAM-01"
+          ],
+          "implementation": [
+            "scripts/ff_project.py",
+            "scripts/ff_diagram.py"
+          ],
+          "references": [
+            "references/project-workflow.md",
+            "references/diagram-design.md",
+            "references/specialty-atlas.md"
+          ],
+          "tests": [
+            "tests/test_workflow_features.py",
+            "tests/test_diagrams.py",
+            "tests/test_diagram_cli_contract.py"
+          ],
+          "complements": [
+            "S09",
+            "S12"
+          ],
+          "extension": {
+            "target": "scripts/ff_project.py",
+            "how": "扩展 representation/parent/quantity_ref 时验证未知父对象、循环和数量冲突；领域几何另接对应组件。"
+          },
+          "coverage_note": "合同可检查声明的身份和计数；未宣称从任意 SVG 视觉形状自动推断真实器件数量。"
+        },
+        {
+          "id": "S16-F03",
+          "name": "完整枚举、代表性显示加汇总、单位/分母与源行追溯",
+          "mode": "workflow",
+          "capabilities": [
+            "FF-PROJECT-01",
+            "FF-DATA-01",
+            "FF-ATLAS-01"
+          ],
+          "implementation": [
+            "scripts/ff_project.py",
+            "scripts/ff_data.py"
+          ],
+          "references": [
+            "references/project-workflow.md",
+            "references/scientific-integrity.md",
+            "references/specialty-atlas.md"
+          ],
+          "tests": [
+            "tests/test_workflow_features.py",
+            "tests/test_cli_and_data.py"
+          ],
+          "complements": [
+            "S11",
+            "S14"
+          ],
+          "extension": {
+            "target": "references/project-workflow.md",
+            "how": "为代表性几何增加 representation_mode/total/visible count 的显式字段和数值验算；从数据表追溯分母。"
+          },
+          "coverage_note": "quantities 与 source rows 有原生记录；枚举/代表性含义由图件合同和图注工作流说明。"
+        },
+        {
+          "id": "S16-F04",
+          "name": "语义角色重着色、纯样式修订和未授权文字/几何保持",
+          "mode": "native",
+          "capabilities": [
+            "FF-STYLE-02",
+            "FF-QUALITY-01",
+            "FF-REVISION-01"
+          ],
+          "implementation": [
+            "scripts/ff_style.py",
+            "scripts/ff_quality.py",
+            "scripts/ff_plots.py"
+          ],
+          "references": [
+            "references/project-workflow.md",
+            "references/quality-workflow.md"
+          ],
+          "tests": [
+            "tests/test_style_inventory.py",
+            "tests/test_plot_feature_coverage.py",
+            "tests/test_workflow_features.py"
+          ],
+          "complements": [
+            "S09",
+            "S10",
+            "S13",
+            "S15"
+          ],
+          "extension": {
+            "target": "scripts/ff_quality.py",
+            "how": "增加可修改样式属性时逐项测试内容指纹；文字豁免限定实际 text/tspan ID，防止扩大到父分组。"
+          }
+        },
+        {
+          "id": "S16-F05",
+          "name": "局部 polish 与整体 recompose 的分工及 A/B 选择",
+          "mode": "native",
+          "capabilities": [
+            "FF-PROJECT-01",
+            "FF-REVISION-01",
+            "FF-COMPOSE-01"
+          ],
+          "implementation": [
+            "scripts/ff_project.py",
+            "scripts/ff_quality.py",
+            "scripts/ff_compose.py"
+          ],
+          "references": [
+            "references/project-workflow.md",
+            "references/quality-workflow.md",
+            "references/diagram-design.md"
+          ],
+          "tests": [
+            "tests/test_workflow_features.py",
+            "tests/test_diagrams.py",
+            "tests/test_diagram_cli_contract.py"
+          ],
+          "complements": [
+            "S09",
+            "S11",
+            "S12"
+          ],
+          "extension": {
+            "target": "scripts/ff_project.py",
+            "how": "扩展布局候选/局部编辑记录时分别使用 science baseline 与 geometry/text comparison，并绑定所选预览版本。"
+          }
+        },
+        {
+          "id": "S16-F06",
+          "name": "二维定量、2.5D 定性、器件层叠/阵列/总线等专业几何路由",
+          "mode": "workflow",
+          "capabilities": [
+            "FF-ATLAS-01",
+            "FF-DIAGRAM-01",
+            "FF-OPTION-TIKZ"
+          ],
+          "implementation": [
+            "scripts/ff_diagram.py"
+          ],
+          "references": [
+            "references/specialty-atlas.md",
+            "references/diagram-design.md",
+            "references/optional-backends.md"
+          ],
+          "tests": [
+            "tests/test_diagrams.py",
+            "tests/test_diagram_cli_contract.py"
+          ],
+          "complements": [
+            "S11",
+            "S12",
+            "S15"
+          ],
+          "extension": {
+            "target": "references/specialty-atlas.md",
+            "how": "为具体微几何增加组件脚本与 count/ownership/层序测试；定量数据保持独立数值面板。"
+          },
+          "coverage_note": "图源/领域方法已整合；未内置上游全套 3D scene renderer、surface library 或 hardware primitives。"
+        },
+        {
+          "id": "S16-F07",
+          "name": "灰度、色觉、字体和最终尺寸的多视角审查",
+          "mode": "native",
+          "capabilities": [
+            "FF-QUALITY-01",
+            "FF-STYLE-02",
+            "FF-SVG-01"
+          ],
+          "implementation": [
+            "scripts/ff_quality.py",
+            "scripts/ff_style.py",
+            "scripts/ff_svg.py"
+          ],
+          "references": [
+            "references/quality-workflow.md",
+            "references/scientific-integrity.md"
+          ],
+          "tests": [
+            "tests/test_workflow_features.py",
+            "tests/test_style_inventory.py",
+            "tests/test_plot_feature_coverage.py",
+            "tests/test_svg_audit.py",
+            "tests/test_conflicts.py"
+          ],
+          "complements": [
+            "S09",
+            "S10",
+            "S13"
+          ],
+          "extension": {
+            "target": "scripts/ff_quality.py",
+            "how": "新增字体/色觉模型时保留真实测量与预览记录；每次审查绑定文件与版本。"
+          },
+          "coverage_note": "原生亮度/对比度/实际字号检查，色觉完整模拟仍是工作流。"
+        },
+        {
+          "id": "S16-F08",
+          "name": "选中图件版本、图注、替代文本与正文/版面交接",
+          "mode": "native",
+          "capabilities": [
+            "FF-PROJECT-01",
+            "FF-ACCESS-01",
+            "FF-REVISION-01"
+          ],
+          "implementation": [
+            "scripts/ff_project.py",
+            "scripts/ff_quality.py",
+            "scripts/ff_export.py"
+          ],
+          "references": [
+            "references/project-workflow.md",
+            "references/quality-workflow.md"
+          ],
+          "tests": [
+            "tests/test_workflow_features.py"
+          ],
+          "complements": [
+            "S09",
+            "S12",
+            "S14"
+          ],
+          "extension": {
+            "target": "scripts/ff_project.py",
+            "how": "将正文引用/放置位置和各 companion 格式纳入显式版本映射；手稿适配器实际回填后再验证最终页面。"
+          },
+          "coverage_note": "图集索引、caption、alt、source hashes 和 SVG title/desc 已原生实现；PaperCraft/Word/PDF 自动回填与页面匹配属于外部手稿工作流。"
+        },
+        {
+          "id": "S16-F09",
+          "name": "保留原始文件、手工 SVG 权威源与源版本冻结",
+          "mode": "native",
+          "capabilities": [
+            "FF-PROJECT-01",
+            "FF-REVISION-01"
+          ],
+          "implementation": [
+            "scripts/ff_project.py",
+            "scripts/ff_quality.py"
+          ],
+          "references": [
+            "references/project-workflow.md",
+            "references/quality-workflow.md"
+          ],
+          "tests": [
+            "tests/test_workflow_features.py"
+          ],
+          "complements": [
+            "S12",
+            "S15"
+          ],
+          "extension": {
+            "target": "scripts/ff_project.py",
+            "how": "扩展编辑器源类型时覆盖路径别名、冻结声明移除、选中版本切换和原始文件保持。"
+          }
+        }
+      ],
+      "excluded_methods": [
+        {
+          "name": "将可选混合表面/栅格场景当作全矢量主图",
+          "reason": "S16 允许明确标记的混合表面表示；本任务的严格 SVG 主交付保留原生二维/几何路线，外部混合场景单独按具体任务接入。",
+          "retained": [
+            "FF-ATLAS-01",
+            "FF-SVG-01"
+          ],
+          "tests": [
+            "tests/test_plot_engine.py",
+            "tests/test_svg_audit.py"
+          ]
+        }
+      ]
+    }
+  ]
+}

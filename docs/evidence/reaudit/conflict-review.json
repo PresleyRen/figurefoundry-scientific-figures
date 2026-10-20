@@ -1,0 +1,1016 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-10-20T07:11:25.484275+00:00",
+  "environment": {
+    "python": "3.12.14",
+    "packages": {
+      "matplotlib": "3.10.8",
+      "numpy": "2.3.5",
+      "pandas": "2.2.3",
+      "scipy": "1.17.0",
+      "openpyxl": "3.1.5"
+    }
+  },
+  "pre_fix_findings": [
+    {
+      "id": "RC-01",
+      "conflicts": [
+        "CF-01",
+        "CF-11",
+        "CF-12",
+        "CF-14"
+      ],
+      "fixture": "Synthetic Matplotlib line with points (0,0),(1,1),(2,0), Dose (mg), Response (mV), svg.fonttype=path; source DOCTYPE normalized as generated content. Compose into 90 x 65 mm with label=a and explicit expected_labels.",
+      "actual": {
+        "compose_passed": true,
+        "compose_labels": [
+          "a"
+        ],
+        "compose_text_count": 1,
+        "independent_audit_passed": false,
+        "independent_errors": [
+          "Required editable label is missing: 'Dose (mg)'",
+          "Required editable label is missing: 'Response (mV)'"
+        ]
+      },
+      "expected": "The source must be rejected before writing; a new composition letter cannot replace source scientific text. Explicit source expected_labels must be checked in source context.",
+      "recommendation": "Audit each source independently with require_text=True and any panel expected_labels/labels; then audit final composition with combined source label inventories and headings. Use minimum 0 for source physical font sizes so intentional enlargement is allowed; check final min_font_pt after scaling.",
+      "severity": "high"
+    }
+  ],
+  "pre_fix_test_run": {
+    "command": "python -m unittest discover -s tests -p test_reaudit_conflicts.py -v",
+    "methods_run": 8,
+    "methods_passed": 6,
+    "failed_methods": [
+      "test_outlined_chart_cannot_gain_editability_from_new_panel_letter",
+      "test_required_source_labels_cannot_be_supplied_by_another_panel"
+    ],
+    "failure_events": 3,
+    "actual": "ValueError not raised for all-outline source, expected_labels inventory, or labels alias."
+  },
+  "observations": {
+    "test_missing_timepoint_gap_and_every_observed_mark_survive_composition": {
+      "conflicts": [
+        "CF-10",
+        "CF-12"
+      ],
+      "input_rows": 5,
+      "observed_values": 4,
+      "missing_values": 1,
+      "svg_moveto_segments": 2,
+      "final_curve_identical": true,
+      "warnings": [
+        "Raw line: 1 missing y values remain gaps."
+      ]
+    },
+    "test_null_and_negative_results_cross_chart_types_keep_known_answers": {
+      "conflicts": [
+        "CF-06",
+        "CF-08",
+        "CF-09",
+        "CF-11"
+      ],
+      "linear_slope": 0,
+      "correlation": 0,
+      "auc": 0.5,
+      "average_precision": 0.5,
+      "volcano_significant": 0,
+      "volcano_total": 3,
+      "forest_effects": [
+        -2,
+        -1
+      ],
+      "final_metrics": {
+        "text_count": 78,
+        "visible_text_count": 78,
+        "path_count": 327,
+        "image_count": 0,
+        "element_count": 854,
+        "width_mm": 182.99999983055554,
+        "height_mm": 149.9999998611111,
+        "min_font_pt": 7.0,
+        "max_font_pt": 9.0,
+        "labels": [
+          "2",
+          "4",
+          "−2.0",
+          "−1.5",
+          "−1.0",
+          "−0.5",
+          "0.0",
+          "0.5",
+          "1.0",
+          "1.5",
+          "2.0",
+          "No linear relation",
+          "a",
+          "x",
+          "y",
+          "x",
+          "y",
+          "1.00",
+          "0.00",
+          "0.00",
+          "1.00",
+          "Zero correlation",
+          "b",
+          "0.00",
+          "0.25",
+          "0.50",
+          "0.75",
+          "1.00",
+          "0.0",
+          "0.2",
+          "0.4",
+          "0.6",
+          "0.8",
+          "1.0",
+          "Tied classifier",
+          "c",
+          "ROC (AUC=0.500)",
+          "0.00",
+          "0.25",
+          "0.50",
+          "0.75",
+          "1.00",
+          "0.0",
+          "0.2",
+          "0.4",
+          "0.6",
+          "0.8",
+          "1.0",
+          "Chance precision",
+          "d",
+          "Precision–recall (AP=0.500)",
+          "−2",
+          "0",
+          "2",
+          "0.0",
+          "0.2",
+          "0.4",
+          "0.6",
+          "0.8",
+          "1.0",
+          "1.2",
+          "All nonsignificant",
+          "e",
+          "Below thresholds",
+          "−4",
+          "−2",
+          "0",
+          "2",
+          "Negative",
+          "Crosses zero",
+          "Negative effects",
+          "f",
+          "−1.0",
+          "−0.5",
+          "0.0",
+          "0.5",
+          "1.0",
+          "Synthetic conflict re-audit"
+        ],
+        "expected_labels_checked": 44,
+        "limitations": [
+          "Static checks do not certify journal acceptance, scientific accuracy, or visual quality.",
+          "Font sizes are conservative geometric estimates; installed fonts, glyph coverage, clipping, overlaps, and rendered bounds require visual inspection.",
+          "Paths cannot reliably be distinguished as letters versus scientific geometry; supply every required label through expected_labels to detect missing live text."
+        ],
+        "file_size_bytes": 100606,
+        "viewbox": [
+          0.0,
+          0.0,
+          518.740157,
+          425.19685
+        ]
+      }
+    },
+    "test_outlined_chart_cannot_gain_editability_from_new_panel_letter": {
+      "conflicts": [
+        "CF-01",
+        "CF-11",
+        "CF-12",
+        "CF-14"
+      ],
+      "source_visible_text": 0,
+      "rejected": "Panel 1 source failed SVG/text audit: No visible native SVG text was found; labels may be outlined paths or rasterized",
+      "output_written": false
+    },
+    "test_required_source_labels_cannot_be_supplied_by_another_panel": {
+      "conflicts": [
+        "CF-01",
+        "CF-07",
+        "CF-12",
+        "CF-14"
+      ],
+      "note": "Dose is live in panel a, absent from panel b despite another live label.",
+      "cases": [
+        {
+          "field": "expected_labels",
+          "error": "Panel 2 source failed SVG/text audit: Required editable label is missing: 'Dose (mg)'"
+        },
+        {
+          "field": "labels",
+          "error": "Panel 2 source failed SVG/text audit: Required editable label is missing: 'Dose (mg)'"
+        }
+      ]
+    },
+    "test_source_font_is_checked_after_placement_and_viewbox_only_still_works": {
+      "conflicts": [
+        "CF-03",
+        "CF-12",
+        "CF-14"
+      ],
+      "viewbox_only_source_accepted": true,
+      "enlargement_font_pt": 11.338582677165356,
+      "reduction_font_pt": 2.834645669291339,
+      "reduction_rejected": [
+        "Smallest effective font is 2.835 pt; minimum is 6 pt"
+      ]
+    },
+    "test_technical_replicates_spines_and_two_real_panels_keep_known_values": {
+      "conflicts": [
+        "CF-03",
+        "CF-05",
+        "CF-07",
+        "CF-08",
+        "CF-09",
+        "CF-10",
+        "CF-12",
+        "CF-15"
+      ],
+      "independent_means": [
+        4,
+        3
+      ],
+      "naive_row_means": [
+        3.2,
+        2.2
+      ],
+      "sem": 1.1547005383792517,
+      "endpoint_means": [
+        3,
+        3
+      ],
+      "endpoint_sd": 2,
+      "n": 3,
+      "source_sha256": "b5429350864f7a00aee6aa9edf756704208744ee92c15e8f09677581047f0fb9",
+      "source_unchanged": true,
+      "spines_data_and_axis_invariant": true,
+      "composed_metrics": {
+        "text_count": 34,
+        "visible_text_count": 34,
+        "path_count": 48,
+        "image_count": 0,
+        "element_count": 345,
+        "width_mm": 183.0,
+        "height_mm": 75.0,
+        "min_font_pt": 7.500000047244095,
+        "max_font_pt": 9.000000056692915,
+        "labels": [
+          "a",
+          "0.0",
+          "0.2",
+          "0.4",
+          "0.6",
+          "0.8",
+          "1.0",
+          "Time (h)",
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "Signal (mV)",
+          "AI/ML",
+          "Control",
+          "Synthetic conflict re-audit",
+          "b",
+          "AI/ML",
+          "Control",
+          "Method",
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "Endpoint signal (mV)",
+          "Synthetic endpoint comparison"
+        ],
+        "expected_labels_checked": 34,
+        "limitations": [
+          "Static checks do not certify journal acceptance, scientific accuracy, or visual quality.",
+          "Font sizes are conservative geometric estimates; installed fonts, glyph coverage, clipping, overlaps, and rendered bounds require visual inspection.",
+          "Paths cannot reliably be distinguished as letters versus scientific geometry; supply every required label through expected_labels to detect missing live text."
+        ],
+        "file_size_bytes": 43893,
+        "viewbox": [
+          0.0,
+          0.0,
+          183.0,
+          75.0
+        ]
+      },
+      "source_path_geometry_preserved": true,
+      "limitation": "183 mm is an exact test target, not a verified journal instruction."
+    },
+    "test_vector_heatmap_and_native_workflow_compose_with_all_labels": {
+      "conflicts": [
+        "CF-02",
+        "CF-06",
+        "CF-07",
+        "CF-10",
+        "CF-12",
+        "CF-14",
+        "CF-15"
+      ],
+      "data_matrix": [
+        [
+          0,
+          -2
+        ],
+        [
+          3,
+          null
+        ]
+      ],
+      "missing_cells_not_zero": true,
+      "final_metrics": {
+        "text_count": 23,
+        "visible_text_count": 23,
+        "path_count": 270,
+        "image_count": 0,
+        "element_count": 425,
+        "width_mm": 183.0,
+        "height_mm": 75.0,
+        "min_font_pt": 6.999998740157482,
+        "max_font_pt": 9.000000056692915,
+        "labels": [
+          "a",
+          "measure",
+          "3 runs",
+          "Assays A/B",
+          "Synthetic workflow schematic",
+          "b",
+          "A",
+          "B",
+          "AI/ML",
+          "Control",
+          "0.00",
+          "-2.00",
+          "3.00",
+          "Measured changes",
+          "−3",
+          "−2",
+          "−1",
+          "0",
+          "1",
+          "2",
+          "3",
+          "Change (mV)",
+          "Synthetic conflict re-audit"
+        ],
+        "expected_labels_checked": 21,
+        "limitations": [
+          "Static checks do not certify journal acceptance, scientific accuracy, or visual quality.",
+          "Font sizes are conservative geometric estimates; installed fonts, glyph coverage, clipping, overlaps, and rendered bounds require visual inspection.",
+          "Paths cannot reliably be distinguished as letters versus scientific geometry; supply every required label through expected_labels to detect missing live text."
+        ],
+        "file_size_bytes": 86644,
+        "viewbox": [
+          0.0,
+          0.0,
+          183.0,
+          75.0
+        ]
+      },
+      "schematic_distinguished_from_quantitative_data": true
+    },
+    "test_width_conflict_needs_resolution_and_never_becomes_certification": {
+      "conflicts": [
+        "CF-04"
+      ],
+      "unresolved_errors": [
+        "Conflicting official requirements need a recorded stage-specific resolution."
+      ],
+      "resolved_warnings": [
+        "No official source URLs recorded; treat this as a planning profile.",
+        "Official requirements have no verification date.",
+        "Submission formats are unspecified. SVG remains the editable master.",
+        "Profile is a planning aid, not a source-checked production instruction."
+      ],
+      "source_candidates_preserved": true,
+      "journal_acceptance": "not-certified",
+      "limitation": "This deliberately performs no external journal lookup or factual venue compliance claim."
+    }
+  },
+  "fix": {
+    "module": "skills/figurefoundry/scripts/ff_compose.py",
+    "description": "Each source is independently audited before headings or neighboring panels exist. Complete per-panel expected_labels and labels aliases are checked and merged. Final audit receives the source label inventories and new headings. Per-source SHA256 and source_audit are returned. Sources without dimensions retain viewBox-only composition support, with original bytes checked before temporary geometry normalization; minimum font enforcement occurs on the final placed SVG.",
+    "scope_limits": [
+      "A partially outlined source without a complete expected-label inventory cannot be automatically proved fully editable; a warning now states that limit.",
+      "Source hashes establish reproducibility links, not whether the source measurements are real.",
+      "Visual overlap, glyph availability, and venue compliance require separate reviews."
+    ]
+  },
+  "integration_run_before_fixture_update": {
+    "checked_at": "2026-10-20T07:21:05.876372+00:00",
+    "runner": "unittest.TextTestRunner.loadTestsFromNames",
+    "modules": [
+      "test_conflicts",
+      "test_diagrams",
+      "test_diagram_cli_contract",
+      "test_plot_engine",
+      "test_svg_audit",
+      "test_cli_and_data",
+      "test_final_contracts",
+      "test_reaudit_conflicts"
+    ],
+    "reproduce_command": "PYTHONPATH=tests python -m unittest test_conflicts test_diagrams test_diagram_cli_contract test_plot_engine test_svg_audit test_cli_and_data test_final_contracts test_reaudit_conflicts -v",
+    "passed": false,
+    "methods_run": 104,
+    "elapsed_seconds": 38.459,
+    "successes": [
+      "test_conflicts.ExportConflictTests.test_colorbar_must_be_vectorized_independently",
+      "test_conflicts.ExportConflictTests.test_exact_size_wins_over_global_tight_bounding_box",
+      "test_conflicts.ExportConflictTests.test_existing_usetex_artists_fail_before_export",
+      "test_conflicts.ExportConflictTests.test_live_text_export_overrides_path_font_defaults",
+      "test_conflicts.ExportConflictTests.test_preview_dpi_does_not_change_native_svg_geometry",
+      "test_conflicts.ExportConflictTests.test_raster_heatmap_is_rejected_and_native_cells_are_accepted",
+      "test_conflicts.ExportConflictTests.test_raster_preview_is_additional_to_a_required_svg_master",
+      "test_conflicts.ExportConflictTests.test_some_live_text_does_not_substitute_for_missing_required_labels",
+      "test_diagrams.CompositionTests.test_final_physical_font_size_is_audited_when_available",
+      "test_diagrams.CompositionTests.test_nonuniform_requested_box_uses_uniform_scale_and_whitespace",
+      "test_diagrams.CompositionTests.test_rejects_invalid_placement_and_source_overwrite",
+      "test_diagrams.CompositionTests.test_rejects_raster_foreignobject_external_urls_and_dtd",
+      "test_diagrams.CompositionTests.test_two_panels_preserve_text_paths_refs_and_unique_ids",
+      "test_diagrams.DiagramTests.test_all_supported_shapes_and_explicit_waypoints",
+      "test_diagrams.DiagramTests.test_chinese_and_xml_sensitive_labels_round_trip",
+      "test_diagrams.DiagramTests.test_explicit_nodes_and_feedback_remain_native_editable",
+      "test_diagrams.DiagramTests.test_invalid_requests_do_not_write_a_partial_svg",
+      "test_diagrams.DiagramTests.test_label_wraps_without_path_outlining_or_truncation",
+      "test_diagrams.DiagramTests.test_shipped_agent_example_renders_with_requested_font_size",
+      "test_diagrams.DiagramTests.test_wrapping_preserves_logical_chinese_and_long_token_text",
+      "test_diagram_cli_contract.DiagramCLIContractTests.test_default_cli_honors_spec_minimum_for_diagram_and_composition",
+      "test_diagram_cli_contract.DiagramCLIContractTests.test_explicit_flag_overrides_spec_and_rejects_nonpositive_nonfinite_values",
+      "test_diagram_cli_contract.DiagramCLIContractTests.test_omitted_node_label_uses_id_and_returns_success",
+      "test_plot_engine.IndependentUnitStatisticsTests.test_duplicate_subject_requires_explicit_within_subject_reduction",
+      "test_plot_engine.IndependentUnitStatisticsTests.test_missing_values_remain_missing_and_do_not_increase_n",
+      "test_plot_engine.IndependentUnitStatisticsTests.test_repeated_subject_across_conditions_is_allowed",
+      "test_plot_engine.IndependentUnitStatisticsTests.test_sd_sem_and_confidence_interval_have_distinct_meanings",
+      "test_plot_engine.IndependentUnitStatisticsTests.test_seeded_median_bootstrap_is_reproducible_and_uses_unit_estimates",
+      "test_plot_engine.IndependentUnitStatisticsTests.test_student_t_ci_uses_three_independent_units_and_df_two",
+      "test_plot_engine.IndependentUnitStatisticsTests.test_uncertainty_requires_declared_independence_and_no_singleton_zero_ci",
+      "test_plot_engine.IndependentUnitStatisticsTests.test_unequal_technical_replication_does_not_reweight_subjects",
+      "test_plot_engine.IndependentUnitStatisticsTests.test_zero_effect_and_zero_sd_are_valid_results_when_n_exceeds_one",
+      "test_plot_engine.NativePlotExportTests.test_all_sixteen_chart_kinds_export_live_text_native_svg",
+      "test_plot_engine.NativePlotExportTests.test_heatmap_colorbar_is_vector_and_label_is_preserved",
+      "test_plot_engine.NativePlotExportTests.test_null_and_inverted_experiments_still_produce_reviewable_figures",
+      "test_plot_engine.PlotSemanticsTests.test_aggregated_numeric_x_values_are_not_lost_to_row_type_coercion",
+      "test_plot_engine.PlotSemanticsTests.test_all_tied_scores_yield_auc_and_ap_equal_to_chance_prevalence",
+      "test_plot_engine.PlotSemanticsTests.test_explicit_zero_effect_numeric_bar_keeps_zero_height",
+      "test_plot_engine.PlotSemanticsTests.test_integer_line_coordinates_preserve_values_and_missing_breaks",
+      "test_plot_engine.PlotSemanticsTests.test_inverted_classifier_has_zero_auc_without_a_performance_gate",
+      "test_plot_engine.PlotSemanticsTests.test_pareto_direction_and_strict_tie_dominance",
+      "test_plot_engine.PlotSemanticsTests.test_pareto_dominance_preserves_duplicate_frontier_points",
+      "test_plot_engine.PlotSemanticsTests.test_precision_recall_average_precision_has_known_ranked_answer",
+      "test_plot_engine.PlotSemanticsTests.test_tie_permutation_does_not_change_the_curve",
+      "test_plot_engine.PlotSemanticsTests.test_undefined_binary_curves_are_rejected_explicitly",
+      "test_svg_audit.MatplotlibIntegrationTests.test_actual_matplotlib_live_text_and_markers_pass",
+      "test_svg_audit.MatplotlibIntegrationTests.test_actual_matplotlib_outlines_and_raster_fail",
+      "test_svg_audit.MatplotlibIntegrationTests.test_raw_matplotlib_doctype_is_explicitly_rejected",
+      "test_svg_audit.SVGAuditTests.test_active_content_external_resources_and_entities_fail",
+      "test_svg_audit.SVGAuditTests.test_bad_input_returns_structured_failure",
+      "test_svg_audit.SVGAuditTests.test_duplicate_missing_and_cyclic_references_fail",
+      "test_svg_audit.SVGAuditTests.test_font_shorthand_css_cascade_and_tspan_inheritance",
+      "test_svg_audit.SVGAuditTests.test_hidden_or_definition_only_text_does_not_satisfy_labels",
+      "test_svg_audit.SVGAuditTests.test_important_stylesheet_overrides_inline",
+      "test_svg_audit.SVGAuditTests.test_inherited_transforms_expose_shrunken_font",
+      "test_svg_audit.SVGAuditTests.test_invalid_geometry_is_rejected",
+      "test_svg_audit.SVGAuditTests.test_label_match_is_exact_not_substring",
+      "test_svg_audit.SVGAuditTests.test_labels_normalize_unicode_and_whitespace",
+      "test_svg_audit.SVGAuditTests.test_local_markers_and_clip_references_are_supported",
+      "test_svg_audit.SVGAuditTests.test_native_shapes_and_editable_label",
+      "test_svg_audit.SVGAuditTests.test_nonuniform_scale_uses_conservative_smallest_axis",
+      "test_svg_audit.SVGAuditTests.test_outlined_text_cannot_pass_live_text_requirement",
+      "test_svg_audit.SVGAuditTests.test_partial_outlining_is_caught_by_label_manifest",
+      "test_svg_audit.SVGAuditTests.test_raster_and_embedded_svg_images_are_forbidden",
+      "test_svg_audit.SVGAuditTests.test_safe_metadata_and_literal_ai_research_labels_are_not_removed",
+      "test_svg_audit.SVGAuditTests.test_svg_without_viewbox_uses_96dpi_css_pixels",
+      "test_svg_audit.SVGAuditTests.test_unsupported_font_mechanisms_fail_honestly",
+      "test_svg_audit.SVGAuditTests.test_viewbox_and_root_units_give_actual_points",
+      "test_svg_audit.SVGAuditTests.test_whitespace_between_tspans_is_preserved",
+      "test_svg_audit.SVGAuditTests.test_wrong_or_unresolvable_physical_size_fails",
+      "test_cli_and_data.CLIContractTests.test_audit_labels_file_must_be_an_array_of_strings",
+      "test_cli_and_data.CLIContractTests.test_capabilities_queries_are_case_insensitive_and_specific",
+      "test_cli_and_data.CLIContractTests.test_capability_registry_pointers_resolve_before_packaging",
+      "test_cli_and_data.CLIContractTests.test_doctor_has_machine_readable_availability_without_certification",
+      "test_cli_and_data.CLIContractTests.test_existing_output_is_protected_with_exit_two_and_unchanged_bytes",
+      "test_cli_and_data.CLIContractTests.test_inspect_reports_real_shape_missingness_and_hash",
+      "test_cli_and_data.CLIContractTests.test_invalid_json_and_schema_shapes_return_structured_exit_two",
+      "test_cli_and_data.DataInputContractTests.test_csv_roundtrip_records_exact_source_hash",
+      "test_cli_and_data.DataInputContractTests.test_duplicate_source_headers_are_rejected_before_pandas_mangling",
+      "test_cli_and_data.DataInputContractTests.test_empty_and_malformed_table_contracts_fail_explicitly",
+      "test_cli_and_data.DataInputContractTests.test_json_row_array_roundtrip_records_exact_source_hash",
+      "test_cli_and_data.DataInputContractTests.test_jsonl_roundtrip_records_exact_source_hash",
+      "test_cli_and_data.DataInputContractTests.test_missing_numeric_values_are_explicitly_allowed_or_rejected",
+      "test_cli_and_data.DataInputContractTests.test_numeric_conversion_rejects_nonnumeric_and_infinite_observations",
+      "test_cli_and_data.DataInputContractTests.test_tsv_roundtrip_records_exact_source_hash",
+      "test_cli_and_data.DataInputContractTests.test_xlsx_roundtrip_respects_sheet_name_and_index",
+      "test_cli_and_data.JournalProfileContractTests.test_conflicting_sources_require_a_recorded_stage_specific_resolution",
+      "test_cli_and_data.JournalProfileContractTests.test_current_dated_complete_profile_passes_only_field_validation",
+      "test_cli_and_data.JournalProfileContractTests.test_future_verification_date_fails_and_stale_record_warns",
+      "test_cli_and_data.JournalProfileContractTests.test_invalid_source_and_numeric_types_have_controlled_validation_errors",
+      "test_cli_and_data.JournalProfileContractTests.test_journal_cli_exits_two_for_future_date_and_zero_for_current_profile",
+      "test_cli_and_data.JournalProfileContractTests.test_planning_profile_warns_without_claiming_or_blocking_certification",
+      "test_cli_and_data.LogAxisInputContractTests.test_nonpositive_raw_observations_are_rejected_on_each_log_axis",
+      "test_cli_and_data.LogAxisInputContractTests.test_positive_log_data_exports_literal_editable_ticks",
+      "test_final_contracts.FinalIntegrationContracts.test_multiline_and_in_cell_labels_are_in_final_inventory",
+      "test_final_contracts.FinalIntegrationContracts.test_nonpositive_log_limits_cannot_be_silently_clamped",
+      "test_reaudit_conflicts.ReauditConflictTests.test_null_and_negative_results_cross_chart_types_keep_known_answers",
+      "test_reaudit_conflicts.ReauditConflictTests.test_outlined_chart_cannot_gain_editability_from_new_panel_letter",
+      "test_reaudit_conflicts.ReauditConflictTests.test_required_source_labels_cannot_be_supplied_by_another_panel",
+      "test_reaudit_conflicts.ReauditConflictTests.test_source_font_is_checked_after_placement_and_viewbox_only_still_works",
+      "test_reaudit_conflicts.ReauditConflictTests.test_technical_replicates_spines_and_two_real_panels_keep_known_values",
+      "test_reaudit_conflicts.ReauditConflictTests.test_vector_heatmap_and_native_workflow_compose_with_all_labels",
+      "test_reaudit_conflicts.ReauditConflictTests.test_width_conflict_needs_resolution_and_never_becomes_certification"
+    ],
+    "failures": [],
+    "errors": [
+      {
+        "test": "test_reaudit_conflicts.ReauditConflictTests.test_missing_timepoint_gap_and_every_observed_mark_survive_composition",
+        "traceback": "Traceback (most recent call last):\n  File \"/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/tests/test_reaudit_conflicts.py\", line 294, in test_missing_timepoint_gap_and_every_observed_mark_survive_composition\n    curve = next(element for element in source_root.iter(SVG + \"path\")\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nStopIteration\n"
+      }
+    ],
+    "skipped": [],
+    "log": "test_colorbar_must_be_vectorized_independently (test_conflicts.ExportConflictTests.test_colorbar_must_be_vectorized_independently) ... ok\ntest_exact_size_wins_over_global_tight_bounding_box (test_conflicts.ExportConflictTests.test_exact_size_wins_over_global_tight_bounding_box) ... ok\ntest_existing_usetex_artists_fail_before_export (test_conflicts.ExportConflictTests.test_existing_usetex_artists_fail_before_export) ... ok\ntest_live_text_export_overrides_path_font_defaults (test_conflicts.ExportConflictTests.test_live_text_export_overrides_path_font_defaults) ... ok\ntest_preview_dpi_does_not_change_native_svg_geometry (test_conflicts.ExportConflictTests.test_preview_dpi_does_not_change_native_svg_geometry) ... ok\ntest_raster_heatmap_is_rejected_and_native_cells_are_accepted (test_conflicts.ExportConflictTests.test_raster_heatmap_is_rejected_and_native_cells_are_accepted) ... ok\ntest_raster_preview_is_additional_to_a_required_svg_master (test_conflicts.ExportConflictTests.test_raster_preview_is_additional_to_a_required_svg_master) ... ok\ntest_some_live_text_does_not_substitute_for_missing_required_labels (test_conflicts.ExportConflictTests.test_some_live_text_does_not_substitute_for_missing_required_labels) ... ok\ntest_final_physical_font_size_is_audited_when_available (test_diagrams.CompositionTests.test_final_physical_font_size_is_audited_when_available) ... ok\ntest_nonuniform_requested_box_uses_uniform_scale_and_whitespace (test_diagrams.CompositionTests.test_nonuniform_requested_box_uses_uniform_scale_and_whitespace) ... ok\ntest_rejects_invalid_placement_and_source_overwrite (test_diagrams.CompositionTests.test_rejects_invalid_placement_and_source_overwrite) ... ok\ntest_rejects_raster_foreignobject_external_urls_and_dtd (test_diagrams.CompositionTests.test_rejects_raster_foreignobject_external_urls_and_dtd) ... ok\ntest_two_panels_preserve_text_paths_refs_and_unique_ids (test_diagrams.CompositionTests.test_two_panels_preserve_text_paths_refs_and_unique_ids) ... ok\ntest_all_supported_shapes_and_explicit_waypoints (test_diagrams.DiagramTests.test_all_supported_shapes_and_explicit_waypoints) ... ok\ntest_chinese_and_xml_sensitive_labels_round_trip (test_diagrams.DiagramTests.test_chinese_and_xml_sensitive_labels_round_trip) ... ok\ntest_explicit_nodes_and_feedback_remain_native_editable (test_diagrams.DiagramTests.test_explicit_nodes_and_feedback_remain_native_editable) ... ok\ntest_invalid_requests_do_not_write_a_partial_svg (test_diagrams.DiagramTests.test_invalid_requests_do_not_write_a_partial_svg) ... ok\ntest_label_wraps_without_path_outlining_or_truncation (test_diagrams.DiagramTests.test_label_wraps_without_path_outlining_or_truncation) ... ok\ntest_shipped_agent_example_renders_with_requested_font_size (test_diagrams.DiagramTests.test_shipped_agent_example_renders_with_requested_font_size) ... ok\ntest_wrapping_preserves_logical_chinese_and_long_token_text (test_diagrams.DiagramTests.test_wrapping_preserves_logical_chinese_and_long_token_text) ... ok\ntest_default_cli_honors_spec_minimum_for_diagram_and_composition (test_diagram_cli_contract.DiagramCLIContractTests.test_default_cli_honors_spec_minimum_for_diagram_and_composition) ... ok\ntest_explicit_flag_overrides_spec_and_rejects_nonpositive_nonfinite_values (test_diagram_cli_contract.DiagramCLIContractTests.test_explicit_flag_overrides_spec_and_rejects_nonpositive_nonfinite_values) ... ok\ntest_omitted_node_label_uses_id_and_returns_success (test_diagram_cli_contract.DiagramCLIContractTests.test_omitted_node_label_uses_id_and_returns_success) ... ok\ntest_duplicate_subject_requires_explicit_within_subject_reduction (test_plot_engine.IndependentUnitStatisticsTests.test_duplicate_subject_requires_explicit_within_subject_reduction) ... ok\ntest_missing_values_remain_missing_and_do_not_increase_n (test_plot_engine.IndependentUnitStatisticsTests.test_missing_values_remain_missing_and_do_not_increase_n) ... ok\ntest_repeated_subject_across_conditions_is_allowed (test_plot_engine.IndependentUnitStatisticsTests.test_repeated_subject_across_conditions_is_allowed) ... ok\ntest_sd_sem_and_confidence_interval_have_distinct_meanings (test_plot_engine.IndependentUnitStatisticsTests.test_sd_sem_and_confidence_interval_have_distinct_meanings) ... ok\ntest_seeded_median_bootstrap_is_reproducible_and_uses_unit_estimates (test_plot_engine.IndependentUnitStatisticsTests.test_seeded_median_bootstrap_is_reproducible_and_uses_unit_estimates) ... ok\ntest_student_t_ci_uses_three_independent_units_and_df_two (test_plot_engine.IndependentUnitStatisticsTests.test_student_t_ci_uses_three_independent_units_and_df_two) ... ok\ntest_uncertainty_requires_declared_independence_and_no_singleton_zero_ci (test_plot_engine.IndependentUnitStatisticsTests.test_uncertainty_requires_declared_independence_and_no_singleton_zero_ci) ... ok\ntest_unequal_technical_replication_does_not_reweight_subjects (test_plot_engine.IndependentUnitStatisticsTests.test_unequal_technical_replication_does_not_reweight_subjects) ... ok\ntest_zero_effect_and_zero_sd_are_valid_results_when_n_exceeds_one (test_plot_engine.IndependentUnitStatisticsTests.test_zero_effect_and_zero_sd_are_valid_results_when_n_exceeds_one) ... ok\ntest_all_sixteen_chart_kinds_export_live_text_native_svg (test_plot_engine.NativePlotExportTests.test_all_sixteen_chart_kinds_export_live_text_native_svg) ... ok\ntest_heatmap_colorbar_is_vector_and_label_is_preserved (test_plot_engine.NativePlotExportTests.test_heatmap_colorbar_is_vector_and_label_is_preserved) ... ok\ntest_null_and_inverted_experiments_still_produce_reviewable_figures (test_plot_engine.NativePlotExportTests.test_null_and_inverted_experiments_still_produce_reviewable_figures) ... ok\ntest_aggregated_numeric_x_values_are_not_lost_to_row_type_coercion (test_plot_engine.PlotSemanticsTests.test_aggregated_numeric_x_values_are_not_lost_to_row_type_coercion) ... ok\ntest_all_tied_scores_yield_auc_and_ap_equal_to_chance_prevalence (test_plot_engine.PlotSemanticsTests.test_all_tied_scores_yield_auc_and_ap_equal_to_chance_prevalence) ... ok\ntest_explicit_zero_effect_numeric_bar_keeps_zero_height (test_plot_engine.PlotSemanticsTests.test_explicit_zero_effect_numeric_bar_keeps_zero_height) ... ok\ntest_integer_line_coordinates_preserve_values_and_missing_breaks (test_plot_engine.PlotSemanticsTests.test_integer_line_coordinates_preserve_values_and_missing_breaks) ... ok\ntest_inverted_classifier_has_zero_auc_without_a_performance_gate (test_plot_engine.PlotSemanticsTests.test_inverted_classifier_has_zero_auc_without_a_performance_gate) ... ok\ntest_pareto_direction_and_strict_tie_dominance (test_plot_engine.PlotSemanticsTests.test_pareto_direction_and_strict_tie_dominance) ... ok\ntest_pareto_dominance_preserves_duplicate_frontier_points (test_plot_engine.PlotSemanticsTests.test_pareto_dominance_preserves_duplicate_frontier_points) ... ok\ntest_precision_recall_average_precision_has_known_ranked_answer (test_plot_engine.PlotSemanticsTests.test_precision_recall_average_precision_has_known_ranked_answer) ... ok\ntest_tie_permutation_does_not_change_the_curve (test_plot_engine.PlotSemanticsTests.test_tie_permutation_does_not_change_the_curve) ... ok\ntest_undefined_binary_curves_are_rejected_explicitly (test_plot_engine.PlotSemanticsTests.test_undefined_binary_curves_are_rejected_explicitly) ... ok\ntest_actual_matplotlib_live_text_and_markers_pass (test_svg_audit.MatplotlibIntegrationTests.test_actual_matplotlib_live_text_and_markers_pass) ... ok\ntest_actual_matplotlib_outlines_and_raster_fail (test_svg_audit.MatplotlibIntegrationTests.test_actual_matplotlib_outlines_and_raster_fail) ... ok\ntest_raw_matplotlib_doctype_is_explicitly_rejected (test_svg_audit.MatplotlibIntegrationTests.test_raw_matplotlib_doctype_is_explicitly_rejected) ... ok\ntest_active_content_external_resources_and_entities_fail (test_svg_audit.SVGAuditTests.test_active_content_external_resources_and_entities_fail) ... ok\ntest_bad_input_returns_structured_failure (test_svg_audit.SVGAuditTests.test_bad_input_returns_structured_failure) ... ok\ntest_duplicate_missing_and_cyclic_references_fail (test_svg_audit.SVGAuditTests.test_duplicate_missing_and_cyclic_references_fail) ... ok\ntest_font_shorthand_css_cascade_and_tspan_inheritance (test_svg_audit.SVGAuditTests.test_font_shorthand_css_cascade_and_tspan_inheritance) ... ok\ntest_hidden_or_definition_only_text_does_not_satisfy_labels (test_svg_audit.SVGAuditTests.test_hidden_or_definition_only_text_does_not_satisfy_labels) ... ok\ntest_important_stylesheet_overrides_inline (test_svg_audit.SVGAuditTests.test_important_stylesheet_overrides_inline) ... ok\ntest_inherited_transforms_expose_shrunken_font (test_svg_audit.SVGAuditTests.test_inherited_transforms_expose_shrunken_font) ... ok\ntest_invalid_geometry_is_rejected (test_svg_audit.SVGAuditTests.test_invalid_geometry_is_rejected) ... ok\ntest_label_match_is_exact_not_substring (test_svg_audit.SVGAuditTests.test_label_match_is_exact_not_substring) ... ok\ntest_labels_normalize_unicode_and_whitespace (test_svg_audit.SVGAuditTests.test_labels_normalize_unicode_and_whitespace) ... ok\ntest_local_markers_and_clip_references_are_supported (test_svg_audit.SVGAuditTests.test_local_markers_and_clip_references_are_supported) ... ok\ntest_native_shapes_and_editable_label (test_svg_audit.SVGAuditTests.test_native_shapes_and_editable_label) ... ok\ntest_nonuniform_scale_uses_conservative_smallest_axis (test_svg_audit.SVGAuditTests.test_nonuniform_scale_uses_conservative_smallest_axis) ... ok\ntest_outlined_text_cannot_pass_live_text_requirement (test_svg_audit.SVGAuditTests.test_outlined_text_cannot_pass_live_text_requirement) ... ok\ntest_partial_outlining_is_caught_by_label_manifest (test_svg_audit.SVGAuditTests.test_partial_outlining_is_caught_by_label_manifest) ... ok\ntest_raster_and_embedded_svg_images_are_forbidden (test_svg_audit.SVGAuditTests.test_raster_and_embedded_svg_images_are_forbidden) ... ok\ntest_safe_metadata_and_literal_ai_research_labels_are_not_removed (test_svg_audit.SVGAuditTests.test_safe_metadata_and_literal_ai_research_labels_are_not_removed) ... ok\ntest_svg_without_viewbox_uses_96dpi_css_pixels (test_svg_audit.SVGAuditTests.test_svg_without_viewbox_uses_96dpi_css_pixels) ... ok\ntest_unsupported_font_mechanisms_fail_honestly (test_svg_audit.SVGAuditTests.test_unsupported_font_mechanisms_fail_honestly) ... ok\ntest_viewbox_and_root_units_give_actual_points (test_svg_audit.SVGAuditTests.test_viewbox_and_root_units_give_actual_points) ... ok\ntest_whitespace_between_tspans_is_preserved (test_svg_audit.SVGAuditTests.test_whitespace_between_tspans_is_preserved) ... ok\ntest_wrong_or_unresolvable_physical_size_fails (test_svg_audit.SVGAuditTests.test_wrong_or_unresolvable_physical_size_fails) ... ok\ntest_audit_labels_file_must_be_an_array_of_strings (test_cli_and_data.CLIContractTests.test_audit_labels_file_must_be_an_array_of_strings) ... ok\ntest_capabilities_queries_are_case_insensitive_and_specific (test_cli_and_data.CLIContractTests.test_capabilities_queries_are_case_insensitive_and_specific) ... ok\ntest_capability_registry_pointers_resolve_before_packaging (test_cli_and_data.CLIContractTests.test_capability_registry_pointers_resolve_before_packaging) ... ok\ntest_doctor_has_machine_readable_availability_without_certification (test_cli_and_data.CLIContractTests.test_doctor_has_machine_readable_availability_without_certification) ... ok\ntest_existing_output_is_protected_with_exit_two_and_unchanged_bytes (test_cli_and_data.CLIContractTests.test_existing_output_is_protected_with_exit_two_and_unchanged_bytes) ... ok\ntest_inspect_reports_real_shape_missingness_and_hash (test_cli_and_data.CLIContractTests.test_inspect_reports_real_shape_missingness_and_hash) ... ok\ntest_invalid_json_and_schema_shapes_return_structured_exit_two (test_cli_and_data.CLIContractTests.test_invalid_json_and_schema_shapes_return_structured_exit_two) ... ok\ntest_csv_roundtrip_records_exact_source_hash (test_cli_and_data.DataInputContractTests.test_csv_roundtrip_records_exact_source_hash) ... ok\ntest_duplicate_source_headers_are_rejected_before_pandas_mangling (test_cli_and_data.DataInputContractTests.test_duplicate_source_headers_are_rejected_before_pandas_mangling) ... ok\ntest_empty_and_malformed_table_contracts_fail_explicitly (test_cli_and_data.DataInputContractTests.test_empty_and_malformed_table_contracts_fail_explicitly) ... ok\ntest_json_row_array_roundtrip_records_exact_source_hash (test_cli_and_data.DataInputContractTests.test_json_row_array_roundtrip_records_exact_source_hash) ... ok\ntest_jsonl_roundtrip_records_exact_source_hash (test_cli_and_data.DataInputContractTests.test_jsonl_roundtrip_records_exact_source_hash) ... ok\ntest_missing_numeric_values_are_explicitly_allowed_or_rejected (test_cli_and_data.DataInputContractTests.test_missing_numeric_values_are_explicitly_allowed_or_rejected) ... ok\ntest_numeric_conversion_rejects_nonnumeric_and_infinite_observations (test_cli_and_data.DataInputContractTests.test_numeric_conversion_rejects_nonnumeric_and_infinite_observations) ... ok\ntest_tsv_roundtrip_records_exact_source_hash (test_cli_and_data.DataInputContractTests.test_tsv_roundtrip_records_exact_source_hash) ... ok\ntest_xlsx_roundtrip_respects_sheet_name_and_index (test_cli_and_data.DataInputContractTests.test_xlsx_roundtrip_respects_sheet_name_and_index) ... ok\ntest_conflicting_sources_require_a_recorded_stage_specific_resolution (test_cli_and_data.JournalProfileContractTests.test_conflicting_sources_require_a_recorded_stage_specific_resolution) ... ok\ntest_current_dated_complete_profile_passes_only_field_validation (test_cli_and_data.JournalProfileContractTests.test_current_dated_complete_profile_passes_only_field_validation) ... ok\ntest_future_verification_date_fails_and_stale_record_warns (test_cli_and_data.JournalProfileContractTests.test_future_verification_date_fails_and_stale_record_warns) ... ok\ntest_invalid_source_and_numeric_types_have_controlled_validation_errors (test_cli_and_data.JournalProfileContractTests.test_invalid_source_and_numeric_types_have_controlled_validation_errors) ... ok\ntest_journal_cli_exits_two_for_future_date_and_zero_for_current_profile (test_cli_and_data.JournalProfileContractTests.test_journal_cli_exits_two_for_future_date_and_zero_for_current_profile) ... ok\ntest_planning_profile_warns_without_claiming_or_blocking_certification (test_cli_and_data.JournalProfileContractTests.test_planning_profile_warns_without_claiming_or_blocking_certification) ... ok\ntest_nonpositive_raw_observations_are_rejected_on_each_log_axis (test_cli_and_data.LogAxisInputContractTests.test_nonpositive_raw_observations_are_rejected_on_each_log_axis) ... ok\ntest_positive_log_data_exports_literal_editable_ticks (test_cli_and_data.LogAxisInputContractTests.test_positive_log_data_exports_literal_editable_ticks) ... ok\ntest_multiline_and_in_cell_labels_are_in_final_inventory (test_final_contracts.FinalIntegrationContracts.test_multiline_and_in_cell_labels_are_in_final_inventory) ... ok\ntest_nonpositive_log_limits_cannot_be_silently_clamped (test_final_contracts.FinalIntegrationContracts.test_nonpositive_log_limits_cannot_be_silently_clamped) ... ok\ntest_missing_timepoint_gap_and_every_observed_mark_survive_composition (test_reaudit_conflicts.ReauditConflictTests.test_missing_timepoint_gap_and_every_observed_mark_survive_composition) ... ERROR\ntest_null_and_negative_results_cross_chart_types_keep_known_answers (test_reaudit_conflicts.ReauditConflictTests.test_null_and_negative_results_cross_chart_types_keep_known_answers) ... ok\ntest_outlined_chart_cannot_gain_editability_from_new_panel_letter (test_reaudit_conflicts.ReauditConflictTests.test_outlined_chart_cannot_gain_editability_from_new_panel_letter) ... ok\ntest_required_source_labels_cannot_be_supplied_by_another_panel (test_reaudit_conflicts.ReauditConflictTests.test_required_source_labels_cannot_be_supplied_by_another_panel) ... ok\ntest_source_font_is_checked_after_placement_and_viewbox_only_still_works (test_reaudit_conflicts.ReauditConflictTests.test_source_font_is_checked_after_placement_and_viewbox_only_still_works) ... ok\ntest_technical_replicates_spines_and_two_real_panels_keep_known_values (test_reaudit_conflicts.ReauditConflictTests.test_technical_replicates_spines_and_two_real_panels_keep_known_values) ... ok\ntest_vector_heatmap_and_native_workflow_compose_with_all_labels (test_reaudit_conflicts.ReauditConflictTests.test_vector_heatmap_and_native_workflow_compose_with_all_labels) ... ok\ntest_width_conflict_needs_resolution_and_never_becomes_certification (test_reaudit_conflicts.ReauditConflictTests.test_width_conflict_needs_resolution_and_never_becomes_certification) ... ok\n\n======================================================================\nERROR: test_missing_timepoint_gap_and_every_observed_mark_survive_composition (test_reaudit_conflicts.ReauditConflictTests.test_missing_timepoint_gap_and_every_observed_mark_survive_composition)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/tests/test_reaudit_conflicts.py\", line 294, in test_missing_timepoint_gap_and_every_observed_mark_survive_composition\n    curve = next(element for element in source_root.iter(SVG + \"path\")\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nStopIteration\n\n----------------------------------------------------------------------\nRan 104 tests in 36.270s\n\nFAILED (errors=1)\n"
+  },
+  "existing_contracts_executed": {
+    "passed": true,
+    "methods_run": 96,
+    "methods_passed": 96,
+    "successes": [
+      "test_conflicts.ExportConflictTests.test_colorbar_must_be_vectorized_independently",
+      "test_conflicts.ExportConflictTests.test_exact_size_wins_over_global_tight_bounding_box",
+      "test_conflicts.ExportConflictTests.test_existing_usetex_artists_fail_before_export",
+      "test_conflicts.ExportConflictTests.test_live_text_export_overrides_path_font_defaults",
+      "test_conflicts.ExportConflictTests.test_preview_dpi_does_not_change_native_svg_geometry",
+      "test_conflicts.ExportConflictTests.test_raster_heatmap_is_rejected_and_native_cells_are_accepted",
+      "test_conflicts.ExportConflictTests.test_raster_preview_is_additional_to_a_required_svg_master",
+      "test_conflicts.ExportConflictTests.test_some_live_text_does_not_substitute_for_missing_required_labels",
+      "test_diagrams.CompositionTests.test_final_physical_font_size_is_audited_when_available",
+      "test_diagrams.CompositionTests.test_nonuniform_requested_box_uses_uniform_scale_and_whitespace",
+      "test_diagrams.CompositionTests.test_rejects_invalid_placement_and_source_overwrite",
+      "test_diagrams.CompositionTests.test_rejects_raster_foreignobject_external_urls_and_dtd",
+      "test_diagrams.CompositionTests.test_two_panels_preserve_text_paths_refs_and_unique_ids",
+      "test_diagrams.DiagramTests.test_all_supported_shapes_and_explicit_waypoints",
+      "test_diagrams.DiagramTests.test_chinese_and_xml_sensitive_labels_round_trip",
+      "test_diagrams.DiagramTests.test_explicit_nodes_and_feedback_remain_native_editable",
+      "test_diagrams.DiagramTests.test_invalid_requests_do_not_write_a_partial_svg",
+      "test_diagrams.DiagramTests.test_label_wraps_without_path_outlining_or_truncation",
+      "test_diagrams.DiagramTests.test_shipped_agent_example_renders_with_requested_font_size",
+      "test_diagrams.DiagramTests.test_wrapping_preserves_logical_chinese_and_long_token_text",
+      "test_diagram_cli_contract.DiagramCLIContractTests.test_default_cli_honors_spec_minimum_for_diagram_and_composition",
+      "test_diagram_cli_contract.DiagramCLIContractTests.test_explicit_flag_overrides_spec_and_rejects_nonpositive_nonfinite_values",
+      "test_diagram_cli_contract.DiagramCLIContractTests.test_omitted_node_label_uses_id_and_returns_success",
+      "test_plot_engine.IndependentUnitStatisticsTests.test_duplicate_subject_requires_explicit_within_subject_reduction",
+      "test_plot_engine.IndependentUnitStatisticsTests.test_missing_values_remain_missing_and_do_not_increase_n",
+      "test_plot_engine.IndependentUnitStatisticsTests.test_repeated_subject_across_conditions_is_allowed",
+      "test_plot_engine.IndependentUnitStatisticsTests.test_sd_sem_and_confidence_interval_have_distinct_meanings",
+      "test_plot_engine.IndependentUnitStatisticsTests.test_seeded_median_bootstrap_is_reproducible_and_uses_unit_estimates",
+      "test_plot_engine.IndependentUnitStatisticsTests.test_student_t_ci_uses_three_independent_units_and_df_two",
+      "test_plot_engine.IndependentUnitStatisticsTests.test_uncertainty_requires_declared_independence_and_no_singleton_zero_ci",
+      "test_plot_engine.IndependentUnitStatisticsTests.test_unequal_technical_replication_does_not_reweight_subjects",
+      "test_plot_engine.IndependentUnitStatisticsTests.test_zero_effect_and_zero_sd_are_valid_results_when_n_exceeds_one",
+      "test_plot_engine.NativePlotExportTests.test_all_sixteen_chart_kinds_export_live_text_native_svg",
+      "test_plot_engine.NativePlotExportTests.test_heatmap_colorbar_is_vector_and_label_is_preserved",
+      "test_plot_engine.NativePlotExportTests.test_null_and_inverted_experiments_still_produce_reviewable_figures",
+      "test_plot_engine.PlotSemanticsTests.test_aggregated_numeric_x_values_are_not_lost_to_row_type_coercion",
+      "test_plot_engine.PlotSemanticsTests.test_all_tied_scores_yield_auc_and_ap_equal_to_chance_prevalence",
+      "test_plot_engine.PlotSemanticsTests.test_explicit_zero_effect_numeric_bar_keeps_zero_height",
+      "test_plot_engine.PlotSemanticsTests.test_integer_line_coordinates_preserve_values_and_missing_breaks",
+      "test_plot_engine.PlotSemanticsTests.test_inverted_classifier_has_zero_auc_without_a_performance_gate",
+      "test_plot_engine.PlotSemanticsTests.test_pareto_direction_and_strict_tie_dominance",
+      "test_plot_engine.PlotSemanticsTests.test_pareto_dominance_preserves_duplicate_frontier_points",
+      "test_plot_engine.PlotSemanticsTests.test_precision_recall_average_precision_has_known_ranked_answer",
+      "test_plot_engine.PlotSemanticsTests.test_tie_permutation_does_not_change_the_curve",
+      "test_plot_engine.PlotSemanticsTests.test_undefined_binary_curves_are_rejected_explicitly",
+      "test_svg_audit.MatplotlibIntegrationTests.test_actual_matplotlib_live_text_and_markers_pass",
+      "test_svg_audit.MatplotlibIntegrationTests.test_actual_matplotlib_outlines_and_raster_fail",
+      "test_svg_audit.MatplotlibIntegrationTests.test_raw_matplotlib_doctype_is_explicitly_rejected",
+      "test_svg_audit.SVGAuditTests.test_active_content_external_resources_and_entities_fail",
+      "test_svg_audit.SVGAuditTests.test_bad_input_returns_structured_failure",
+      "test_svg_audit.SVGAuditTests.test_duplicate_missing_and_cyclic_references_fail",
+      "test_svg_audit.SVGAuditTests.test_font_shorthand_css_cascade_and_tspan_inheritance",
+      "test_svg_audit.SVGAuditTests.test_hidden_or_definition_only_text_does_not_satisfy_labels",
+      "test_svg_audit.SVGAuditTests.test_important_stylesheet_overrides_inline",
+      "test_svg_audit.SVGAuditTests.test_inherited_transforms_expose_shrunken_font",
+      "test_svg_audit.SVGAuditTests.test_invalid_geometry_is_rejected",
+      "test_svg_audit.SVGAuditTests.test_label_match_is_exact_not_substring",
+      "test_svg_audit.SVGAuditTests.test_labels_normalize_unicode_and_whitespace",
+      "test_svg_audit.SVGAuditTests.test_local_markers_and_clip_references_are_supported",
+      "test_svg_audit.SVGAuditTests.test_native_shapes_and_editable_label",
+      "test_svg_audit.SVGAuditTests.test_nonuniform_scale_uses_conservative_smallest_axis",
+      "test_svg_audit.SVGAuditTests.test_outlined_text_cannot_pass_live_text_requirement",
+      "test_svg_audit.SVGAuditTests.test_partial_outlining_is_caught_by_label_manifest",
+      "test_svg_audit.SVGAuditTests.test_raster_and_embedded_svg_images_are_forbidden",
+      "test_svg_audit.SVGAuditTests.test_safe_metadata_and_literal_ai_research_labels_are_not_removed",
+      "test_svg_audit.SVGAuditTests.test_svg_without_viewbox_uses_96dpi_css_pixels",
+      "test_svg_audit.SVGAuditTests.test_unsupported_font_mechanisms_fail_honestly",
+      "test_svg_audit.SVGAuditTests.test_viewbox_and_root_units_give_actual_points",
+      "test_svg_audit.SVGAuditTests.test_whitespace_between_tspans_is_preserved",
+      "test_svg_audit.SVGAuditTests.test_wrong_or_unresolvable_physical_size_fails",
+      "test_cli_and_data.CLIContractTests.test_audit_labels_file_must_be_an_array_of_strings",
+      "test_cli_and_data.CLIContractTests.test_capabilities_queries_are_case_insensitive_and_specific",
+      "test_cli_and_data.CLIContractTests.test_capability_registry_pointers_resolve_before_packaging",
+      "test_cli_and_data.CLIContractTests.test_doctor_has_machine_readable_availability_without_certification",
+      "test_cli_and_data.CLIContractTests.test_existing_output_is_protected_with_exit_two_and_unchanged_bytes",
+      "test_cli_and_data.CLIContractTests.test_inspect_reports_real_shape_missingness_and_hash",
+      "test_cli_and_data.CLIContractTests.test_invalid_json_and_schema_shapes_return_structured_exit_two",
+      "test_cli_and_data.DataInputContractTests.test_csv_roundtrip_records_exact_source_hash",
+      "test_cli_and_data.DataInputContractTests.test_duplicate_source_headers_are_rejected_before_pandas_mangling",
+      "test_cli_and_data.DataInputContractTests.test_empty_and_malformed_table_contracts_fail_explicitly",
+      "test_cli_and_data.DataInputContractTests.test_json_row_array_roundtrip_records_exact_source_hash",
+      "test_cli_and_data.DataInputContractTests.test_jsonl_roundtrip_records_exact_source_hash",
+      "test_cli_and_data.DataInputContractTests.test_missing_numeric_values_are_explicitly_allowed_or_rejected",
+      "test_cli_and_data.DataInputContractTests.test_numeric_conversion_rejects_nonnumeric_and_infinite_observations",
+      "test_cli_and_data.DataInputContractTests.test_tsv_roundtrip_records_exact_source_hash",
+      "test_cli_and_data.DataInputContractTests.test_xlsx_roundtrip_respects_sheet_name_and_index",
+      "test_cli_and_data.JournalProfileContractTests.test_conflicting_sources_require_a_recorded_stage_specific_resolution",
+      "test_cli_and_data.JournalProfileContractTests.test_current_dated_complete_profile_passes_only_field_validation",
+      "test_cli_and_data.JournalProfileContractTests.test_future_verification_date_fails_and_stale_record_warns",
+      "test_cli_and_data.JournalProfileContractTests.test_invalid_source_and_numeric_types_have_controlled_validation_errors",
+      "test_cli_and_data.JournalProfileContractTests.test_journal_cli_exits_two_for_future_date_and_zero_for_current_profile",
+      "test_cli_and_data.JournalProfileContractTests.test_planning_profile_warns_without_claiming_or_blocking_certification",
+      "test_cli_and_data.LogAxisInputContractTests.test_nonpositive_raw_observations_are_rejected_on_each_log_axis",
+      "test_cli_and_data.LogAxisInputContractTests.test_positive_log_data_exports_literal_editable_ticks",
+      "test_final_contracts.FinalIntegrationContracts.test_multiline_and_in_cell_labels_are_in_final_inventory",
+      "test_final_contracts.FinalIntegrationContracts.test_nonpositive_log_limits_cannot_be_silently_clamped"
+    ],
+    "source_run": "integration_run_before_fixture_update",
+    "note": "All 96 existing tests passed. The one re-audit harness error assumed the old implicit data-series color; source palette reservations changed concurrently and the check was corrected to locate the observed artist color without weakening its two-gap-segment assertion."
+  },
+  "post_fix_test_run": {
+    "checked_at": "2026-10-20T07:29:51.358724+00:00",
+    "command": "python -m unittest discover -s tests -p test_reaudit_conflicts.py -v",
+    "passed": true,
+    "methods_run": 8,
+    "failures": [],
+    "errors": [],
+    "elapsed_seconds": 1.349,
+    "log": "test_missing_timepoint_gap_and_every_observed_mark_survive_composition (test_reaudit_conflicts.ReauditConflictTests.test_missing_timepoint_gap_and_every_observed_mark_survive_composition) ... ok\ntest_null_and_negative_results_cross_chart_types_keep_known_answers (test_reaudit_conflicts.ReauditConflictTests.test_null_and_negative_results_cross_chart_types_keep_known_answers) ... ok\ntest_outlined_chart_cannot_gain_editability_from_new_panel_letter (test_reaudit_conflicts.ReauditConflictTests.test_outlined_chart_cannot_gain_editability_from_new_panel_letter) ... ok\ntest_required_source_labels_cannot_be_supplied_by_another_panel (test_reaudit_conflicts.ReauditConflictTests.test_required_source_labels_cannot_be_supplied_by_another_panel) ... ok\ntest_source_font_is_checked_after_placement_and_viewbox_only_still_works (test_reaudit_conflicts.ReauditConflictTests.test_source_font_is_checked_after_placement_and_viewbox_only_still_works) ... ok\ntest_technical_replicates_spines_and_two_real_panels_keep_known_values (test_reaudit_conflicts.ReauditConflictTests.test_technical_replicates_spines_and_two_real_panels_keep_known_values) ... ok\ntest_vector_heatmap_and_native_workflow_compose_with_all_labels (test_reaudit_conflicts.ReauditConflictTests.test_vector_heatmap_and_native_workflow_compose_with_all_labels) ... ok\ntest_width_conflict_needs_resolution_and_never_becomes_certification (test_reaudit_conflicts.ReauditConflictTests.test_width_conflict_needs_resolution_and_never_becomes_certification) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 1.349s\n\nOK\n"
+  },
+  "conflict_coverage": [
+    {
+      "id": "CF-01",
+      "status": "pass; composition defect fixed",
+      "executed_evidence": "Live-text/outline A/B exporters and native source preflight; complete per-source inventories",
+      "limitation": "Partial outlining without a complete expected-label list still needs review."
+    },
+    {
+      "id": "CF-02",
+      "status": "pass",
+      "executed_evidence": "Native mesh versus imshow; raster colorbar counterexample; mixed zero/negative/missing heatmap + schematic composition",
+      "limitation": "No test of every external heatmap backend."
+    },
+    {
+      "id": "CF-03",
+      "status": "pass for exact test dimensions",
+      "executed_evidence": "Tight-bbox counterexample; 183 x 75 mm final root; 89 mm source slots; physical-font scaling",
+      "limitation": "183 mm is a synthetic target, not a currently verified journal requirement."
+    },
+    {
+      "id": "CF-04",
+      "status": "pass for profile fields",
+      "executed_evidence": "Conflicting 89/183 and 90/180 candidates preserved; absent resolution fails; planning/non-certification warnings retained",
+      "limitation": "No current official journal lookup was performed in this local re-audit."
+    },
+    {
+      "id": "CF-05",
+      "status": "pass numeric invariance; visually reviewed A/B",
+      "executed_evidence": "Same line data/limits/labels/SEM with top/right spines off versus all; Inkscape preview compared",
+      "limitation": "No universal aesthetic winner; minimal axes selected for these simple continuous comparisons."
+    },
+    {
+      "id": "CF-06",
+      "status": "partial; 2-D examples visually reviewed",
+      "executed_evidence": "Six native 2-D null/negative-result panels preserve supplied data; no image/filter elements",
+      "limitation": "No independent decorative-3-D versus 2-D mechanism A/B, true spatial geometry, or universal visual-scoring test."
+    },
+    {
+      "id": "CF-07",
+      "status": "pass for data-backed integration",
+      "executed_evidence": "Raw CSV SHA -> plot statistics -> SVG SHA -> source composition SHA; native plot+diagram matrix distinguish quantitative and schematic purposes",
+      "limitation": "Composition cannot decide whether unlabelled or placeholder quantitative content represents real experiments; author/source confirmation remains necessary."
+    },
+    {
+      "id": "CF-08",
+      "status": "pass",
+      "executed_evidence": "Zero between-group difference, negative longitudinal change, slope/r=0, AUC=AP=0.5, 0/3 significant volcano points, negative forest effects; existing inverted-classifier AUC=0 test",
+      "limitation": "Checks input/output numerical correspondence, not validity of a study or supplied upstream inference."
+    },
+    {
+      "id": "CF-09",
+      "status": "pass for native estimators",
+      "executed_evidence": "Unequal technical replication: run means [2,4,6] and [1,3,5], n=3, SD=2, SEM=2/sqrt(3); old Student-t/singleton/bootstrap tests",
+      "limitation": "Paired/hierarchical inference remains a custom-analysis workflow, not a native tested model."
+    },
+    {
+      "id": "CF-10",
+      "status": "pass native retention; partial broader transform contract",
+      "executed_evidence": "Five ordered rows retain NaN at time 2 and two SVG path segments; all four observed values retained; source hash unchanged; missing matrix cell stays null",
+      "limitation": "No generic smoothing/downsampling pipeline was executed. Native manifests retain source hash, transformation definitions, counts and numeric groups; they do not emit a separately hashed transformed data table."
+    },
+    {
+      "id": "CF-11",
+      "status": "pass",
+      "executed_evidence": "Existing XML/raster/IDs/references/fonts tests plus real composed native content",
+      "limitation": "Static audit does not prove scientific correctness or absence of clipping."
+    },
+    {
+      "id": "CF-12",
+      "status": "pass; source-context fix added",
+      "executed_evidence": "Same-ID panels namespace correctly; paths d preserved; expected source labels checked per panel; final font shrinking fails; standard plot and diagram composition passes",
+      "limitation": "Clipping/overlap still require actual rendering; label inventory must be complete to detect partial outlines."
+    },
+    {
+      "id": "CF-13",
+      "status": "instruction-reviewed",
+      "executed_evidence": "Read main SKILL and chart-selection route: new CSV work defaults Python, preserve existing working stack, only scientific ambiguities block",
+      "limitation": "No simulated conversational benchmark or execution of an existing R stack."
+    },
+    {
+      "id": "CF-14",
+      "status": "pass structural, actual scoped SVG edit and Inkscape rendering; GUI editor scope limited",
+      "executed_evidence": "Final text/tspan labels, vector paths, source-local inventory, final scaled font metrics; edited a selected native label and stroke while keeping d/other text unchanged, compared the files, recomposed them and inspected the actual Inkscape preview.",
+      "limitation": "The actual edit was made through XML and rendered by Inkscape, without a GUI vector-editor interaction. This does not establish universal editor or font portability."
+    },
+    {
+      "id": "CF-15",
+      "status": "pass for generated fixtures",
+      "executed_evidence": "AI/ML remains visible in SVG and rendered previews; final visible strings are only source strings plus requested panel letters; generator metadata separate",
+      "limitation": "No third-party attribution-removal case was executed; no claim that lack of watermark means no AI use."
+    },
+    {
+      "id": "CF-16",
+      "status": "pass honest registry/doctor scope; optional paths not run",
+      "executed_evidence": "Existing capability-pointer/doctor tests pass; optional R/TikZ/Draw.io/Plotly statuses remain untested recipes",
+      "limitation": "No optional external backend integration or remote service was invoked."
+    }
+  ],
+  "manual_visual_review": {
+    "renderer": "Inkscape 1.2.2 (b0a8486541, 2022-12-01)",
+    "render_dpi": 180,
+    "reviewed": [
+      "spines-comparison.png",
+      "data-composition.png",
+      "negative-results.png",
+      "heatmap-source.png",
+      "workflow-matrix-current.png"
+    ],
+    "temporary_preview_directory": "/tmp/ff-reaudit-conflict-visual",
+    "observations": [
+      "Minimal-spine and full-frame A/B have identical quantitative curves and uncertainty; both readable, minimal frame chosen for these continuous axes.",
+      "The paired composed line and endpoint-bar figures show identical groups, negative change from 4 to 3, and expected SEM/SD magnitudes without visible tool branding.",
+      "All six negative/null-result panels render without requiring significance or positive effects.",
+      "The measured matrix retains 0, -2, 3 and an empty missing cell; source and current composed supertitles, colorbar, labels and workflow arrows render visibly."
+    ],
+    "limits": [
+      "Viewed rendered PNGs, not a physical print proof.",
+      "Temporary PNGs were used for inspection; reproducible fixture code and measured observations are retained in this report.",
+      "No GUI editor manipulation or current venue-compliance claim."
+    ]
+  },
+  "workflow_pre_fix": {
+    "command": "python -m unittest discover -s tests -p test_workflow_features.py -v",
+    "methods_run": 17,
+    "passed_methods": 6,
+    "failing_methods": 8,
+    "error_methods": 3,
+    "failure_events_including_subtests": 14,
+    "errors": 3,
+    "actual_findings": [
+      {
+        "id": "WF-01",
+        "fixture": "test_selected_tspan_does_not_allow_changes_to_its_unselected_tail",
+        "actual": "Selecting only dose tspan incorrectly allowed its unselected sibling text tail to change from mg to g; passed=True.",
+        "expected": "The tail belongs to the parent text node; allow the selected tspan contents only."
+      },
+      {
+        "id": "WF-02",
+        "fixture": "test_unselected_inter_tspan_space_is_scientific_text",
+        "actual": "Removing the space in 5 mg was accepted because the tail was stripped before comparison.",
+        "expected": "Unselected SVG text-node whitespace must remain unchanged."
+      },
+      {
+        "id": "WF-03",
+        "fixture": "test_permitted_text_id_must_not_be_an_ancestor_group",
+        "actual": "A permitted group ID granted permission to change all descendant scientific labels; ValueError not raised.",
+        "expected": "Explicitly allowed IDs must reference native text/tspan elements."
+      },
+      {
+        "id": "WF-04",
+        "fixture": "test_alt_text_preserves_scientific_nodes_and_existing_accessibility_references",
+        "actual": "annotate_svg removed a second root title still referenced elsewhere; final audit failed with Unresolved local reference #shared-title in aria-labelledby.",
+        "expected": "Adding root accessible title/description must preserve scientific children and existing referenced metadata."
+      },
+      {
+        "id": "WF-05",
+        "fixture": "test_snapshot_does_not_alias_mutable_quantities_or_entities",
+        "actual": "Changing the caller spec quantity from 3 to 4 mutated baseline.snapshot.science.F1.quantities.runs to 4.",
+        "expected": "A returned baseline is a detached immutable-value snapshot."
+      },
+      {
+        "id": "WF-06",
+        "fixture": "test_removed_or_aliased_freeze_declaration_cannot_release_a_frozen_file",
+        "actual": "After a valid TeX-to-SVG handover, changing the frozen TeX bytes and deleting frozen_upstream or replacing its path with ./upstream.tex returned passed=True, revision.changes=[].",
+        "expected": "Previously frozen files remain protected across declaration edits and aliases."
+      },
+      {
+        "id": "WF-07",
+        "fixture": "test_active_source_cannot_equal_frozen_source_through_a_path_alias",
+        "actual": "Active ./upstream.tex and frozen upstream.tex referred to one file but were accepted.",
+        "expected": "Active/frozen identity must compare resolved paths."
+      },
+      {
+        "id": "WF-08",
+        "fixture": "test_parent_chain_validation_reports_unknown_later_nodes_without_stopiteration",
+        "actual": "A parent chain through a later entity with unknown parent raised unhandled StopIteration.",
+        "expected": "All references are validated before traversal, with a controlled ValueError for unknown parents."
+      }
+    ],
+    "requested_additions_not_preexisting_bug_claims": [
+      "CIE L_star and pair delta_L endpoints",
+      "entity quantity/quantity_ref and whole/part/detail representation contracts",
+      "actual selected JSON source style_identity comparison through resolve_plot_style"
+    ]
+  },
+  "final_owned_module_regression": {
+    "checked_at": "2026-10-20T07:47:14.947186+00:00",
+    "modules": [
+      "test_conflicts",
+      "test_diagrams",
+      "test_diagram_cli_contract",
+      "test_reaudit_conflicts",
+      "test_workflow_features"
+    ],
+    "command": "PYTHONPATH=tests python -m unittest test_conflicts test_diagrams test_diagram_cli_contract test_reaudit_conflicts test_workflow_features -v",
+    "passed": true,
+    "methods_run": 50,
+    "successes": [
+      "test_conflicts.ExportConflictTests.test_colorbar_must_be_vectorized_independently",
+      "test_conflicts.ExportConflictTests.test_exact_size_wins_over_global_tight_bounding_box",
+      "test_conflicts.ExportConflictTests.test_existing_usetex_artists_fail_before_export",
+      "test_conflicts.ExportConflictTests.test_live_text_export_overrides_path_font_defaults",
+      "test_conflicts.ExportConflictTests.test_preview_dpi_does_not_change_native_svg_geometry",
+      "test_conflicts.ExportConflictTests.test_raster_heatmap_is_rejected_and_native_cells_are_accepted",
+      "test_conflicts.ExportConflictTests.test_raster_preview_is_additional_to_a_required_svg_master",
+      "test_conflicts.ExportConflictTests.test_some_live_text_does_not_substitute_for_missing_required_labels",
+      "test_diagrams.CompositionTests.test_final_physical_font_size_is_audited_when_available",
+      "test_diagrams.CompositionTests.test_nonuniform_requested_box_uses_uniform_scale_and_whitespace",
+      "test_diagrams.CompositionTests.test_rejects_invalid_placement_and_source_overwrite",
+      "test_diagrams.CompositionTests.test_rejects_raster_foreignobject_external_urls_and_dtd",
+      "test_diagrams.CompositionTests.test_two_panels_preserve_text_paths_refs_and_unique_ids",
+      "test_diagrams.DiagramTests.test_all_supported_shapes_and_explicit_waypoints",
+      "test_diagrams.DiagramTests.test_chinese_and_xml_sensitive_labels_round_trip",
+      "test_diagrams.DiagramTests.test_explicit_nodes_and_feedback_remain_native_editable",
+      "test_diagrams.DiagramTests.test_invalid_requests_do_not_write_a_partial_svg",
+      "test_diagrams.DiagramTests.test_label_wraps_without_path_outlining_or_truncation",
+      "test_diagrams.DiagramTests.test_shipped_agent_example_renders_with_requested_font_size",
+      "test_diagrams.DiagramTests.test_wrapping_preserves_logical_chinese_and_long_token_text",
+      "test_diagram_cli_contract.DiagramCLIContractTests.test_default_cli_honors_spec_minimum_for_diagram_and_composition",
+      "test_diagram_cli_contract.DiagramCLIContractTests.test_explicit_flag_overrides_spec_and_rejects_nonpositive_nonfinite_values",
+      "test_diagram_cli_contract.DiagramCLIContractTests.test_omitted_node_label_uses_id_and_returns_success",
+      "test_reaudit_conflicts.ReauditConflictTests.test_missing_timepoint_gap_and_every_observed_mark_survive_composition",
+      "test_reaudit_conflicts.ReauditConflictTests.test_null_and_negative_results_cross_chart_types_keep_known_answers",
+      "test_reaudit_conflicts.ReauditConflictTests.test_outlined_chart_cannot_gain_editability_from_new_panel_letter",
+      "test_reaudit_conflicts.ReauditConflictTests.test_required_source_labels_cannot_be_supplied_by_another_panel",
+      "test_reaudit_conflicts.ReauditConflictTests.test_source_font_is_checked_after_placement_and_viewbox_only_still_works",
+      "test_reaudit_conflicts.ReauditConflictTests.test_technical_replicates_spines_and_two_real_panels_keep_known_values",
+      "test_reaudit_conflicts.ReauditConflictTests.test_vector_heatmap_and_native_workflow_compose_with_all_labels",
+      "test_reaudit_conflicts.ReauditConflictTests.test_width_conflict_needs_resolution_and_never_becomes_certification",
+      "test_workflow_features.WorkflowFeatureTests.test_a_handover_rejects_changes_made_before_the_freeze_and_keeps_legacy_locks",
+      "test_workflow_features.WorkflowFeatureTests.test_active_source_cannot_equal_frozen_source_through_a_path_alias",
+      "test_workflow_features.WorkflowFeatureTests.test_alt_text_preserves_scientific_nodes_and_existing_accessibility_references",
+      "test_workflow_features.WorkflowFeatureTests.test_contrast_and_lightness_have_independent_black_white_endpoints",
+      "test_workflow_features.WorkflowFeatureTests.test_entity_quantity_and_whole_part_declarations_have_consistent_meanings",
+      "test_workflow_features.WorkflowFeatureTests.test_evidence_file_edit_is_detected_from_actual_bytes",
+      "test_workflow_features.WorkflowFeatureTests.test_parent_chain_validation_reports_unknown_later_nodes_without_stopiteration",
+      "test_workflow_features.WorkflowFeatureTests.test_permitted_text_id_must_not_be_an_ancestor_group",
+      "test_workflow_features.WorkflowFeatureTests.test_project_cli_protects_inputs_and_writes_notes_only_for_valid_revision",
+      "test_workflow_features.WorkflowFeatureTests.test_quality_cli_returns_numeric_results_and_respects_edit_scope",
+      "test_workflow_features.WorkflowFeatureTests.test_removed_or_aliased_freeze_declaration_cannot_release_a_frozen_file",
+      "test_workflow_features.WorkflowFeatureTests.test_selected_tspan_does_not_allow_changes_to_its_unselected_tail",
+      "test_workflow_features.WorkflowFeatureTests.test_shared_style_is_resolved_from_actual_selected_plot_specs",
+      "test_workflow_features.WorkflowFeatureTests.test_snapshot_does_not_alias_mutable_quantities_or_entities",
+      "test_workflow_features.WorkflowFeatureTests.test_source_switch_freezes_the_previous_tex_bytes",
+      "test_workflow_features.WorkflowFeatureTests.test_style_and_selected_text_are_allowed_but_geometry_or_other_text_is_not",
+      "test_workflow_features.WorkflowFeatureTests.test_two_figures_cannot_select_and_freeze_the_same_active_source",
+      "test_workflow_features.WorkflowFeatureTests.test_unselected_inter_tspan_space_is_scientific_text",
+      "test_workflow_features.WorkflowFeatureTests.test_variant_selection_changes_the_documented_active_source"
+    ],
+    "failures": [],
+    "errors": [],
+    "elapsed_seconds": 5.807,
+    "log": "test_colorbar_must_be_vectorized_independently (test_conflicts.ExportConflictTests.test_colorbar_must_be_vectorized_independently) ... ok\ntest_exact_size_wins_over_global_tight_bounding_box (test_conflicts.ExportConflictTests.test_exact_size_wins_over_global_tight_bounding_box) ... ok\ntest_existing_usetex_artists_fail_before_export (test_conflicts.ExportConflictTests.test_existing_usetex_artists_fail_before_export) ... ok\ntest_live_text_export_overrides_path_font_defaults (test_conflicts.ExportConflictTests.test_live_text_export_overrides_path_font_defaults) ... ok\ntest_preview_dpi_does_not_change_native_svg_geometry (test_conflicts.ExportConflictTests.test_preview_dpi_does_not_change_native_svg_geometry) ... ok\ntest_raster_heatmap_is_rejected_and_native_cells_are_accepted (test_conflicts.ExportConflictTests.test_raster_heatmap_is_rejected_and_native_cells_are_accepted) ... ok\ntest_raster_preview_is_additional_to_a_required_svg_master (test_conflicts.ExportConflictTests.test_raster_preview_is_additional_to_a_required_svg_master) ... ok\ntest_some_live_text_does_not_substitute_for_missing_required_labels (test_conflicts.ExportConflictTests.test_some_live_text_does_not_substitute_for_missing_required_labels) ... ok\ntest_final_physical_font_size_is_audited_when_available (test_diagrams.CompositionTests.test_final_physical_font_size_is_audited_when_available) ... ok\ntest_nonuniform_requested_box_uses_uniform_scale_and_whitespace (test_diagrams.CompositionTests.test_nonuniform_requested_box_uses_uniform_scale_and_whitespace) ... ok\ntest_rejects_invalid_placement_and_source_overwrite (test_diagrams.CompositionTests.test_rejects_invalid_placement_and_source_overwrite) ... ok\ntest_rejects_raster_foreignobject_external_urls_and_dtd (test_diagrams.CompositionTests.test_rejects_raster_foreignobject_external_urls_and_dtd) ... ok\ntest_two_panels_preserve_text_paths_refs_and_unique_ids (test_diagrams.CompositionTests.test_two_panels_preserve_text_paths_refs_and_unique_ids) ... ok\ntest_all_supported_shapes_and_explicit_waypoints (test_diagrams.DiagramTests.test_all_supported_shapes_and_explicit_waypoints) ... ok\ntest_chinese_and_xml_sensitive_labels_round_trip (test_diagrams.DiagramTests.test_chinese_and_xml_sensitive_labels_round_trip) ... ok\ntest_explicit_nodes_and_feedback_remain_native_editable (test_diagrams.DiagramTests.test_explicit_nodes_and_feedback_remain_native_editable) ... ok\ntest_invalid_requests_do_not_write_a_partial_svg (test_diagrams.DiagramTests.test_invalid_requests_do_not_write_a_partial_svg) ... ok\ntest_label_wraps_without_path_outlining_or_truncation (test_diagrams.DiagramTests.test_label_wraps_without_path_outlining_or_truncation) ... ok\ntest_shipped_agent_example_renders_with_requested_font_size (test_diagrams.DiagramTests.test_shipped_agent_example_renders_with_requested_font_size) ... ok\ntest_wrapping_preserves_logical_chinese_and_long_token_text (test_diagrams.DiagramTests.test_wrapping_preserves_logical_chinese_and_long_token_text) ... ok\ntest_default_cli_honors_spec_minimum_for_diagram_and_composition (test_diagram_cli_contract.DiagramCLIContractTests.test_default_cli_honors_spec_minimum_for_diagram_and_composition) ... ok\ntest_explicit_flag_overrides_spec_and_rejects_nonpositive_nonfinite_values (test_diagram_cli_contract.DiagramCLIContractTests.test_explicit_flag_overrides_spec_and_rejects_nonpositive_nonfinite_values) ... ok\ntest_omitted_node_label_uses_id_and_returns_success (test_diagram_cli_contract.DiagramCLIContractTests.test_omitted_node_label_uses_id_and_returns_success) ... ok\ntest_missing_timepoint_gap_and_every_observed_mark_survive_composition (test_reaudit_conflicts.ReauditConflictTests.test_missing_timepoint_gap_and_every_observed_mark_survive_composition) ... ok\ntest_null_and_negative_results_cross_chart_types_keep_known_answers (test_reaudit_conflicts.ReauditConflictTests.test_null_and_negative_results_cross_chart_types_keep_known_answers) ... ok\ntest_outlined_chart_cannot_gain_editability_from_new_panel_letter (test_reaudit_conflicts.ReauditConflictTests.test_outlined_chart_cannot_gain_editability_from_new_panel_letter) ... ok\ntest_required_source_labels_cannot_be_supplied_by_another_panel (test_reaudit_conflicts.ReauditConflictTests.test_required_source_labels_cannot_be_supplied_by_another_panel) ... ok\ntest_source_font_is_checked_after_placement_and_viewbox_only_still_works (test_reaudit_conflicts.ReauditConflictTests.test_source_font_is_checked_after_placement_and_viewbox_only_still_works) ... ok\ntest_technical_replicates_spines_and_two_real_panels_keep_known_values (test_reaudit_conflicts.ReauditConflictTests.test_technical_replicates_spines_and_two_real_panels_keep_known_values) ... ok\ntest_vector_heatmap_and_native_workflow_compose_with_all_labels (test_reaudit_conflicts.ReauditConflictTests.test_vector_heatmap_and_native_workflow_compose_with_all_labels) ... ok\ntest_width_conflict_needs_resolution_and_never_becomes_certification (test_reaudit_conflicts.ReauditConflictTests.test_width_conflict_needs_resolution_and_never_becomes_certification) ... ok\ntest_a_handover_rejects_changes_made_before_the_freeze_and_keeps_legacy_locks (test_workflow_features.WorkflowFeatureTests.test_a_handover_rejects_changes_made_before_the_freeze_and_keeps_legacy_locks) ... ok\ntest_active_source_cannot_equal_frozen_source_through_a_path_alias (test_workflow_features.WorkflowFeatureTests.test_active_source_cannot_equal_frozen_source_through_a_path_alias) ... ok\ntest_alt_text_preserves_scientific_nodes_and_existing_accessibility_references (test_workflow_features.WorkflowFeatureTests.test_alt_text_preserves_scientific_nodes_and_existing_accessibility_references) ... ok\ntest_contrast_and_lightness_have_independent_black_white_endpoints (test_workflow_features.WorkflowFeatureTests.test_contrast_and_lightness_have_independent_black_white_endpoints) ... ok\ntest_entity_quantity_and_whole_part_declarations_have_consistent_meanings (test_workflow_features.WorkflowFeatureTests.test_entity_quantity_and_whole_part_declarations_have_consistent_meanings) ... ok\ntest_evidence_file_edit_is_detected_from_actual_bytes (test_workflow_features.WorkflowFeatureTests.test_evidence_file_edit_is_detected_from_actual_bytes) ... ok\ntest_parent_chain_validation_reports_unknown_later_nodes_without_stopiteration (test_workflow_features.WorkflowFeatureTests.test_parent_chain_validation_reports_unknown_later_nodes_without_stopiteration) ... ok\ntest_permitted_text_id_must_not_be_an_ancestor_group (test_workflow_features.WorkflowFeatureTests.test_permitted_text_id_must_not_be_an_ancestor_group) ... ok\ntest_project_cli_protects_inputs_and_writes_notes_only_for_valid_revision (test_workflow_features.WorkflowFeatureTests.test_project_cli_protects_inputs_and_writes_notes_only_for_valid_revision) ... ok\ntest_quality_cli_returns_numeric_results_and_respects_edit_scope (test_workflow_features.WorkflowFeatureTests.test_quality_cli_returns_numeric_results_and_respects_edit_scope) ... ok\ntest_removed_or_aliased_freeze_declaration_cannot_release_a_frozen_file (test_workflow_features.WorkflowFeatureTests.test_removed_or_aliased_freeze_declaration_cannot_release_a_frozen_file) ... ok\ntest_selected_tspan_does_not_allow_changes_to_its_unselected_tail (test_workflow_features.WorkflowFeatureTests.test_selected_tspan_does_not_allow_changes_to_its_unselected_tail) ... ok\ntest_shared_style_is_resolved_from_actual_selected_plot_specs (test_workflow_features.WorkflowFeatureTests.test_shared_style_is_resolved_from_actual_selected_plot_specs) ... ok\ntest_snapshot_does_not_alias_mutable_quantities_or_entities (test_workflow_features.WorkflowFeatureTests.test_snapshot_does_not_alias_mutable_quantities_or_entities) ... ok\ntest_source_switch_freezes_the_previous_tex_bytes (test_workflow_features.WorkflowFeatureTests.test_source_switch_freezes_the_previous_tex_bytes) ... ok\ntest_style_and_selected_text_are_allowed_but_geometry_or_other_text_is_not (test_workflow_features.WorkflowFeatureTests.test_style_and_selected_text_are_allowed_but_geometry_or_other_text_is_not) ... ok\ntest_two_figures_cannot_select_and_freeze_the_same_active_source (test_workflow_features.WorkflowFeatureTests.test_two_figures_cannot_select_and_freeze_the_same_active_source) ... ok\ntest_unselected_inter_tspan_space_is_scientific_text (test_workflow_features.WorkflowFeatureTests.test_unselected_inter_tspan_space_is_scientific_text) ... ok\ntest_variant_selection_changes_the_documented_active_source (test_workflow_features.WorkflowFeatureTests.test_variant_selection_changes_the_documented_active_source) ... ok\n\n----------------------------------------------------------------------\nRan 50 tests in 3.433s\n\nOK\n"
+  },
+  "public_example_regeneration": {
+    "passed": true,
+    "execution": "Loaded unmodified examples/generate_examples.py and set EXAMPLES to a temporary directory containing the shipped diagram/composition specifications; called main().",
+    "source_panels": 3,
+    "source_audit_passes": [
+      true,
+      true,
+      true
+    ],
+    "source_hashes": [
+      "cef038017f399927854a365ab6980b129dac7906252651b2d748147fa2279cb6",
+      "96b1b60071e48e2647515849c5306167aadbe7012a74509ab53674ec39f084bb",
+      "e7bc8f630fa64c80a081a2a6c96a0c993d9cd77bd12e6ca5f66d9d8b4b8572d8"
+    ],
+    "source_warning_types": [
+      "list",
+      "list",
+      "list"
+    ],
+    "json_serialization_passed": true,
+    "log": "benchmark: passed=True text=84 images=0\nline: passed=True text=17 images=0\ndistribution: passed=True text=11 images=0\ndiagram/composition: passed=True\n",
+    "tracked_example_files_modified": false
+  },
+  "workflow_numerical_and_edit_evidence": {
+    "palette_extrema": {
+      "passed": true,
+      "text": {
+        "color": "#000000",
+        "background": "#FFFFFF",
+        "contrast": 21.0,
+        "minimum": 4.5,
+        "passed": true
+      },
+      "roles": [
+        {
+          "role": "Black",
+          "color": "#000000",
+          "luminance": 0.0,
+          "L_star": 0.0,
+          "background_contrast": 21.0,
+          "marker": null,
+          "linestyle": null,
+          "hatch": null
+        },
+        {
+          "role": "White",
+          "color": "#FFFFFF",
+          "luminance": 1.0,
+          "L_star": 100.0,
+          "background_contrast": 1.0,
+          "marker": null,
+          "linestyle": null,
+          "hatch": null
+        }
+      ],
+      "pairs": [
+        {
+          "roles": [
+            "Black",
+            "White"
+          ],
+          "grayscale_contrast": 21.0,
+          "delta_L": 100.0,
+          "redundant_channels": [],
+          "review_recommended": false
+        }
+      ],
+      "pair_review_ratio": 1.5,
+      "method": "linear sRGB luminance; pair_review_ratio is a user-adjustable design heuristic",
+      "lightness_method": "CIE L* from relative Y, reference white Y=1; delta_L is descriptive, not a journal rule or color-vision simulation",
+      "formula_source": "https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html"
+    },
+    "selected_text_and_stroke_edit_passed": true,
+    "geometry_and_unselected_text_unchanged": true,
+    "original_sha256": "be8052c391d9f3b05cfd7c42bcc5533befd5fdb9462f23d2c581f6eab7a24b8a",
+    "original_unchanged": true,
+    "renderer_exit_code": 0,
+    "edit_preview": "/tmp/ff-reaudit-conflict-visual/editability-proof.png",
+    "edit_preview_visual_review": "Inspected rendered side-by-side native SVG composition: original blue AI/ML response and revised orange Control response; line geometry, Dose (mg) label, panel size and layout remain the same. Both labels are readable and no added tool branding is visible.",
+    "scope": "Disposable synthetic vector edit via XML, comparison and Inkscape rendering; no GUI editor manipulation or experimental data changes."
+  },
+  "workflow_fixes": [
+    "Text edit IDs are restricted to text/tspan; selected tspan permissions exclude its parent-owned tail.",
+    "Unselected inter-tspan whitespace remains part of the protected text.",
+    "Accessible root title/description changes preserve other referenced root metadata.",
+    "Project snapshots detach scientific values, sources and report entities from caller mutations.",
+    "File identity uses canonical resolved paths; frozen hashes persist across handovers, aliases and removed declarations.",
+    "A newly frozen previous source is checked against its earlier observed bytes, and legacy reports retain their recorded locks.",
+    "A selected active source cannot also be frozen by another figure; failed reports cannot be used as frozen baselines.",
+    "All entity parent references are validated before traversal; quantity and representation declarations are checked without inferring child counts.",
+    "Selected JSON plot source style is resolved from the actual file/defaults, recorded by SHA, and compared only on declared role properties."
+  ]
+}

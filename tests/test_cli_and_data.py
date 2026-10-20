@@ -158,7 +158,7 @@ class CLIContractTests(_TemporaryCase):
 
     def test_doctor_has_machine_readable_availability_without_certification(self):
         result = self.cli("doctor")
-        self.assertEqual(result["version"], "1.0.0")
+        self.assertEqual(result["version"], json.loads((SKILL / "assets" / "capabilities.json").read_text())["version"])
         self.assertTrue(result["native_data_plotting_available"])
         self.assertTrue(result["native_svg_diagrams_and_audit"])
         self.assertEqual(set(result["python_packages"]), {"matplotlib", "numpy", "pandas", "scipy", "openpyxl"})

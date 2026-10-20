@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "generator": "FigureFoundry",
+  "version": "1.1.0",
+  "environment": {
+    "python": "3.12.14",
+    "matplotlib": "3.10.8"
+  },
+  "master": "quantitative-3d.svg",
+  "width_mm": 120.0,
+  "height_mm": 90.0,
+  "minimum_font_pt": 6.0,
+  "text_mode": "live-svg-text",
+  "raster_preview_dpi": 240,
+  "expected_labels": [
+    "Control",
+    "Method A",
+    "Method B",
+    "Group",
+    "Response (a.u.)",
+    "12",
+    "15",
+    "14",
+    "Synthetic quantitative comparison"
+  ],
+  "files": {
+    "svg": {
+      "name": "quantitative-3d.svg",
+      "sha256": "707d060d3e232698aaeb3a931135a15ea44a0fed5d2dabe9880f1c72afbd0241"
+    },
+    "png": {
+      "name": "quantitative-3d.png",
+      "sha256": "016ed0ddfacec9ae97c2114ac8d1966c2471cad7775f679709bdf6eaf537581c"
+    }
+  },
+  "svg_audit": {
+    "passed": true,
+    "errors": [],
+    "warnings": [
+      "Visual inspection remains required for clipping, overlap, glyph availability, and journal-specific presentation requirements."
+    ],
+    "metrics": {
+      "text_count": 13,
+      "visible_text_count": 13,
+      "path_count": 40,
+      "image_count": 0,
+      "element_count": 118,
+      "width_mm": 119.9999998888889,
+      "height_mm": 89.99999991666665,
+      "min_font_pt": 6.999999999999999,
+      "max_font_pt": 8.999999999999998,
+      "labels": [
+        "Control",
+        "Method A",
+        "Method B",
+        "Group",
+        "0",
+        "5",
+        "10",
+        "15",
+        "Response (a.u.)",
+        "12",
+        "15",
+        "14",
+        "Synthetic quantitative comparison"
+      ],
+      "expected_labels_checked": 9,
+      "limitations": [
+        "Static checks do not certify journal acceptance, scientific accuracy, or visual quality.",
+        "Font sizes are conservative geometric estimates; installed fonts, glyph coverage, clipping, overlaps, and rendered bounds require visual inspection.",
+        "Paths cannot reliably be distinguished as letters versus scientific geometry; supply every required label through expected_labels to detect missing live text."
+      ],
+      "file_size_bytes": 11681,
+      "viewbox": [
+        0.0,
+        0.0,
+        340.15748,
+        255.11811
+      ]
+    }
+  },
+  "provenance": {
+    "conflict_id": "CF-06",
+    "data_status": "synthetic",
+    "source": "data.csv",
+    "source_sha256": "408eeefbf58fe8827223126d6780d0c133a0b5c30c5b16b1b34406993f23ccdf",
+    "groups": [
+      "Control",
+      "Method A",
+      "Method B"
+    ],
+    "values": [
+      12.0,
+      15.0,
+      14.0
+    ],
+    "view": "3d",
+    "quantity_axes": 1,
+    "extrusion_depth": 0.5,
+    "extrusion_meaning": "layout only; no second quantitative variable"
+  },
+  "manual_review": {
+    "status": "required",
+    "items": [
+      "scientific meaning",
+      "label collisions",
+      "font availability",
+      "grayscale readability",
+      "current journal and submission stage"
+    ]
+  },
+  "journal_acceptance": "not-certified"
+}

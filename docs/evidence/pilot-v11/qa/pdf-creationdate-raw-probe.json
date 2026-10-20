@@ -1,0 +1,22 @@
+{
+  "passed": false,
+  "scope": "Read-only comparison. Original PDFs were not modified. Only the CreationDate field is ignored in this comparison.",
+  "figures": [
+    {
+      "figure": "figure-1",
+      "original_creation_dates": [],
+      "rebuilt_creation_dates": [],
+      "identical_after_ignoring_creation_date": false,
+      "original_bytes": 40868,
+      "rebuilt_bytes": 40867
+    },
+    {
+      "figure": "figure-2",
+      "original_creation_dates": [],
+      "rebuilt_creation_dates": [],
+      "identical_after_ignoring_creation_date": false,
+      "original_bytes": 36627,
+      "rebuilt_bytes": 36627
+    }
+  ]
+}

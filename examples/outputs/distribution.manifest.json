@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "generator": "FigureFoundry",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "environment": {
     "python": "3.12.14",
     "matplotlib": "3.10.8"
@@ -28,15 +28,15 @@
   "files": {
     "svg": {
       "name": "distribution.svg",
-      "sha256": "b3110f801813a69af7ccb043485f11750db22a06bf65252926fcaba5f83d3810"
+      "sha256": "e7bc8f630fa64c80a081a2a6c96a0c993d9cd77bd12e6ca5f66d9d8b4b8572d8"
     },
     "pdf": {
       "name": "distribution.pdf",
-      "sha256": "4de83f257e8eeff1dddd0f9239e9d656631067784b477dd7f39bb29eea1ad763"
+      "sha256": "f0528982082637ca8a75e77ac6c6e458a3ac865091c572253fb2f665ef90505f"
     },
     "png": {
       "name": "distribution.png",
-      "sha256": "e7999f35444660712ffdfd5bb7355138613050d1cc6ade9782be0a7981633276"
+      "sha256": "eb9a669cea06a8a16a908c46631c73e03dba900d83c74fa73251cd7503dc1de5"
     }
   },
   "svg_audit": {
@@ -111,6 +111,12 @@
           }
         },
         "warnings": [],
+        "grid": [
+          0,
+          0,
+          1,
+          1
+        ],
         "sample_sizes": {
           "Baseline": 6,
           "Context": 6,
@@ -149,6 +155,24 @@
           "ylabel": "Task success (%)",
           "title": ""
         }
+      ]
+    },
+    "layout": {
+      "rows": 1,
+      "cols": 1,
+      "width_ratios": [
+        1
+      ],
+      "height_ratios": [
+        1
+      ],
+      "panel_grid": [
+        [
+          0,
+          0,
+          1,
+          1
+        ]
       ]
     },
     "transformations": "Only explicit plot aggregations/transforms recorded in this manifest."

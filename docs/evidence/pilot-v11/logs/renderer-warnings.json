@@ -1,0 +1,131 @@
+{
+  "nonempty_messages": [
+    {
+      "original_log": "figures/figure-1-pdf.stderr.txt",
+      "message": "\n(inkscape:33): Gtk-CRITICAL **: 16:57:48.671: Unable to create user data directory '/root/.local/share' for storing the recently used files list: Read-only file system\n\n** (inkscape:33): WARNING **: 16:57:48.671: Failed to wrap object of type 'GtkRecentManager'. Hint: this error is commonly caused by failing to call a library init() function.\n"
+    },
+    {
+      "original_log": "figures/figure-2-pdf.stderr.txt",
+      "message": "\n(inkscape:85): Gtk-CRITICAL **: 16:57:53.371: Unable to create user data directory '/root/.local/share' for storing the recently used files list: Read-only file system\n\n** (inkscape:85): WARNING **: 16:57:53.371: Failed to wrap object of type 'GtkRecentManager'. Hint: this error is commonly caused by failing to call a library init() function.\n"
+    },
+    {
+      "original_log": "figures/figure-1-96dpi.stderr.txt",
+      "message": "\n(inkscape:41): Gtk-CRITICAL **: 16:57:48.869: Unable to create user data directory '/root/.local/share' for storing the recently used files list: Read-only file system\n\n** (inkscape:41): WARNING **: 16:57:48.869: Failed to wrap object of type 'GtkRecentManager'. Hint: this error is commonly caused by failing to call a library init() function.\n"
+    },
+    {
+      "original_log": "figures/figure-1-png.stderr.txt",
+      "message": "\n(inkscape:25): Gtk-CRITICAL **: 16:57:48.340: Unable to create user data directory '/root/.local/share' for storing the recently used files list: Read-only file system\n\n** (inkscape:25): WARNING **: 16:57:48.340: Failed to wrap object of type 'GtkRecentManager'. Hint: this error is commonly caused by failing to call a library init() function.\n"
+    },
+    {
+      "original_log": "figures/figure-2-96dpi.stderr.txt",
+      "message": "\n(inkscape:93): Gtk-CRITICAL **: 16:57:53.587: Unable to create user data directory '/root/.local/share' for storing the recently used files list: Read-only file system\n\n** (inkscape:93): WARNING **: 16:57:53.587: Failed to wrap object of type 'GtkRecentManager'. Hint: this error is commonly caused by failing to call a library init() function.\n"
+    },
+    {
+      "original_log": "figures/figure-2-png.stderr.txt",
+      "message": "\n(inkscape:77): Gtk-CRITICAL **: 16:57:53.054: Unable to create user data directory '/root/.local/share' for storing the recently used files list: Read-only file system\n\n** (inkscape:77): WARNING **: 16:57:53.054: Failed to wrap object of type 'GtkRecentManager'. Hint: this error is commonly caused by failing to call a library init() function.\n"
+    },
+    {
+      "original_log": "figures/figure-2-grayscale-96dpi.stderr.txt",
+      "message": "\n(inkscape:101): Gtk-CRITICAL **: 16:57:53.801: Unable to create user data directory '/root/.local/share' for storing the recently used files list: Read-only file system\n\n** (inkscape:101): WARNING **: 16:57:53.801: Failed to wrap object of type 'GtkRecentManager'. Hint: this error is commonly caused by failing to call a library init() function.\n"
+    },
+    {
+      "original_log": "figures/figure-1-grayscale-96dpi.stderr.txt",
+      "message": "\n(inkscape:49): Gtk-CRITICAL **: 16:57:49.089: Unable to create user data directory '/root/.local/share' for storing the recently used files list: Read-only file system\n\n** (inkscape:49): WARNING **: 16:57:49.089: Failed to wrap object of type 'GtkRecentManager'. Hint: this error is commonly caused by failing to call a library init() function.\n"
+    },
+    {
+      "original_log": "logs/figure-2-stacked-gray-96dpi.stderr.txt",
+      "message": "\n(inkscape:70): Gtk-CRITICAL **: 16:49:09.350: Unable to create user data directory '/root/.local/share' for storing the recently used files list: Read-only file system\n\n** (inkscape:70): WARNING **: 16:49:09.350: Failed to wrap object of type 'GtkRecentManager'. Hint: this error is commonly caused by failing to call a library init() function.\n"
+    },
+    {
+      "original_log": "logs/figure-1-learning-96dpi.stderr.txt",
+      "message": "\n(inkscape:6): Gtk-CRITICAL **: 16:49:07.154: Unable to create user data directory '/root/.local/share' for storing the recently used files list: Read-only file system\n\n** (inkscape:6): WARNING **: 16:49:07.154: Failed to wrap object of type 'GtkRecentManager'. Hint: this error is commonly caused by failing to call a library init() function.\n"
+    },
+    {
+      "original_log": "logs/figure-2-stacked-96dpi.stderr.txt",
+      "message": "\n(inkscape:54): Gtk-CRITICAL **: 16:49:08.740: Unable to create user data directory '/root/.local/share' for storing the recently used files list: Read-only file system\n\n** (inkscape:54): WARNING **: 16:49:08.740: Failed to wrap object of type 'GtkRecentManager'. Hint: this error is commonly caused by failing to call a library init() function.\n"
+    },
+    {
+      "original_log": "logs/figure-2-horizontal-300dpi.stderr.txt",
+      "message": "\n(inkscape:38): Gtk-CRITICAL **: 16:49:08.199: Unable to create user data directory '/root/.local/share' for storing the recently used files list: Read-only file system\n\n** (inkscape:38): WARNING **: 16:49:08.199: Failed to wrap object of type 'GtkRecentManager'. Hint: this error is commonly caused by failing to call a library init() function.\n"
+    },
+    {
+      "original_log": "logs/figure-1-learning-v2-preview.stderr.txt",
+      "message": "\n(inkscape:23): Gtk-CRITICAL **: 16:52:23.567: Unable to create user data directory '/root/.local/share' for storing the recently used files list: Read-only file system\n\n** (inkscape:23): WARNING **: 16:52:23.568: Failed to wrap object of type 'GtkRecentManager'. Hint: this error is commonly caused by failing to call a library init() function.\n"
+    },
+    {
+      "original_log": "logs/figure-2-horizontal-96dpi.stderr.txt",
+      "message": "\n(inkscape:30): Gtk-CRITICAL **: 16:49:08.006: Unable to create user data directory '/root/.local/share' for storing the recently used files list: Read-only file system\n\n** (inkscape:30): WARNING **: 16:49:08.006: Failed to wrap object of type 'GtkRecentManager'. Hint: this error is commonly caused by failing to call a library init() function.\n"
+    },
+    {
+      "original_log": "logs/figure-2-horizontal-gray-96dpi.stderr.txt",
+      "message": "\n(inkscape:46): Gtk-CRITICAL **: 16:49:08.531: Unable to create user data directory '/root/.local/share' for storing the recently used files list: Read-only file system\n\n** (inkscape:46): WARNING **: 16:49:08.531: Failed to wrap object of type 'GtkRecentManager'. Hint: this error is commonly caused by failing to call a library init() function.\n"
+    },
+    {
+      "original_log": "logs/figure-2-stacked-v2-grayscale-96dpi.stderr.txt",
+      "message": "\n(inkscape:6): Gtk-CRITICAL **: 17:06:21.882: Unable to create user data directory '/root/.local/share' for storing the recently used files list: Read-only file system\n\n** (inkscape:6): WARNING **: 17:06:21.882: Failed to wrap object of type 'GtkRecentManager'. Hint: this error is commonly caused by failing to call a library init() function.\n"
+    },
+    {
+      "original_log": "logs/figure-2-stacked-v2-preview.stderr.txt",
+      "message": "\n(inkscape:73): Gtk-CRITICAL **: 16:52:30.892: Unable to create user data directory '/root/.local/share' for storing the recently used files list: Read-only file system\n\n** (inkscape:73): WARNING **: 16:52:30.892: Failed to wrap object of type 'GtkRecentManager'. Hint: this error is commonly caused by failing to call a library init() function.\n"
+    },
+    {
+      "original_log": "logs/figure-2-stacked-300dpi.stderr.txt",
+      "message": "\n(inkscape:62): Gtk-CRITICAL **: 16:49:08.964: Unable to create user data directory '/root/.local/share' for storing the recently used files list: Read-only file system\n\n** (inkscape:62): WARNING **: 16:49:08.964: Failed to wrap object of type 'GtkRecentManager'. Hint: this error is commonly caused by failing to call a library init() function.\n"
+    },
+    {
+      "original_log": "logs/figure-2-horizontal-v2-preview.stderr.txt",
+      "message": "\n(inkscape:48): Gtk-CRITICAL **: 16:52:27.365: Unable to create user data directory '/root/.local/share' for storing the recently used files list: Read-only file system\n\n** (inkscape:48): WARNING **: 16:52:27.366: Failed to wrap object of type 'GtkRecentManager'. Hint: this error is commonly caused by failing to call a library init() function.\n"
+    },
+    {
+      "original_log": "logs/figure-1-learning-gray-96dpi.stderr.txt",
+      "message": "\n(inkscape:22): Gtk-CRITICAL **: 16:49:07.793: Unable to create user data directory '/root/.local/share' for storing the recently used files list: Read-only file system\n\n** (inkscape:22): WARNING **: 16:49:07.793: Failed to wrap object of type 'GtkRecentManager'. Hint: this error is commonly caused by failing to call a library init() function.\n"
+    },
+    {
+      "original_log": "logs/figure-2-stacked-v2-300dpi.stderr.txt",
+      "message": "\n(inkscape:14): Gtk-CRITICAL **: 17:06:22.121: Unable to create user data directory '/root/.local/share' for storing the recently used files list: Read-only file system\n\n** (inkscape:14): WARNING **: 17:06:22.121: Failed to wrap object of type 'GtkRecentManager'. Hint: this error is commonly caused by failing to call a library init() function.\n"
+    },
+    {
+      "original_log": "logs/figure-1-learning-300dpi.stderr.txt",
+      "message": "\n(inkscape:14): Gtk-CRITICAL **: 16:49:07.398: Unable to create user data directory '/root/.local/share' for storing the recently used files list: Read-only file system\n\n** (inkscape:14): WARNING **: 16:49:07.398: Failed to wrap object of type 'GtkRecentManager'. Hint: this error is commonly caused by failing to call a library init() function.\n"
+    },
+    {
+      "original_log": "qa/editability-render.stderr.txt",
+      "message": "\n(inkscape:8): Gtk-CRITICAL **: 17:00:22.402: Unable to create user data directory '/root/.local/share' for storing the recently used files list: Read-only file system\n\n** (inkscape:8): WARNING **: 17:00:22.403: Failed to wrap object of type 'GtkRecentManager'. Hint: this error is commonly caused by failing to call a library init() function.\n"
+    },
+    {
+      "original_log": "qa/rebuild/figure-1-pdf.stderr.txt",
+      "message": "\n(inkscape:33): Gtk-CRITICAL **: 17:00:32.518: Unable to create user data directory '/root/.local/share' for storing the recently used files list: Read-only file system\n\n** (inkscape:33): WARNING **: 17:00:32.518: Failed to wrap object of type 'GtkRecentManager'. Hint: this error is commonly caused by failing to call a library init() function.\n"
+    },
+    {
+      "original_log": "qa/rebuild/figure-2-pdf.stderr.txt",
+      "message": "\n(inkscape:85): Gtk-CRITICAL **: 17:00:37.701: Unable to create user data directory '/root/.local/share' for storing the recently used files list: Read-only file system\n\n** (inkscape:85): WARNING **: 17:00:37.701: Failed to wrap object of type 'GtkRecentManager'. Hint: this error is commonly caused by failing to call a library init() function.\n"
+    },
+    {
+      "original_log": "qa/rebuild/figure-1-96dpi.stderr.txt",
+      "message": "\n(inkscape:41): Gtk-CRITICAL **: 17:00:32.764: Unable to create user data directory '/root/.local/share' for storing the recently used files list: Read-only file system\n\n** (inkscape:41): WARNING **: 17:00:32.764: Failed to wrap object of type 'GtkRecentManager'. Hint: this error is commonly caused by failing to call a library init() function.\n"
+    },
+    {
+      "original_log": "qa/rebuild/figure-1-png.stderr.txt",
+      "message": "\n(inkscape:25): Gtk-CRITICAL **: 17:00:32.051: Unable to create user data directory '/root/.local/share' for storing the recently used files list: Read-only file system\n\n** (inkscape:25): WARNING **: 17:00:32.051: Failed to wrap object of type 'GtkRecentManager'. Hint: this error is commonly caused by failing to call a library init() function.\n"
+    },
+    {
+      "original_log": "qa/rebuild/figure-2-96dpi.stderr.txt",
+      "message": "\n(inkscape:93): Gtk-CRITICAL **: 17:00:37.936: Unable to create user data directory '/root/.local/share' for storing the recently used files list: Read-only file system\n\n** (inkscape:93): WARNING **: 17:00:37.936: Failed to wrap object of type 'GtkRecentManager'. Hint: this error is commonly caused by failing to call a library init() function.\n"
+    },
+    {
+      "original_log": "qa/rebuild/figure-2-png.stderr.txt",
+      "message": "\n(inkscape:77): Gtk-CRITICAL **: 17:00:37.352: Unable to create user data directory '/root/.local/share' for storing the recently used files list: Read-only file system\n\n** (inkscape:77): WARNING **: 17:00:37.352: Failed to wrap object of type 'GtkRecentManager'. Hint: this error is commonly caused by failing to call a library init() function.\n"
+    },
+    {
+      "original_log": "qa/rebuild/figure-2-grayscale-96dpi.stderr.txt",
+      "message": "\n(inkscape:101): Gtk-CRITICAL **: 17:00:38.195: Unable to create user data directory '/root/.local/share' for storing the recently used files list: Read-only file system\n\n** (inkscape:101): WARNING **: 17:00:38.195: Failed to wrap object of type 'GtkRecentManager'. Hint: this error is commonly caused by failing to call a library init() function.\n"
+    },
+    {
+      "original_log": "qa/rebuild/figure-1-grayscale-96dpi.stderr.txt",
+      "message": "\n(inkscape:49): Gtk-CRITICAL **: 17:00:33.019: Unable to create user data directory '/root/.local/share' for storing the recently used files list: Read-only file system\n\n** (inkscape:49): WARNING **: 17:00:33.019: Failed to wrap object of type 'GtkRecentManager'. Hint: this error is commonly caused by failing to call a library init() function.\n"
+    }
+  ],
+  "empty_stderr_files": 30,
+  "render_commands_exit_zero": true,
+  "note": "Inkscape recent-file-list GTK warnings did not prevent file export; original messages retained here after individual log cleanup."
+}

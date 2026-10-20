@@ -1,0 +1,144 @@
+{
+  "passed": true,
+  "geometry_and_unselected_text_unchanged": true,
+  "allowed_text_ids": [
+    "pilot-edit-title"
+  ],
+  "before_sha256": "b7e4044dcba9dbc53f07a877a4f93cd1f00198e7d09a1a2ac9b5b4615b63ab81",
+  "after_sha256": "3a8129b949654a23ef8978e3c34e05fb81f31e670eb67e299fde591f436aab01",
+  "before_audit": {
+    "passed": true,
+    "errors": [],
+    "warnings": [
+      "Only the presence of editable text was checked. Supply expected_labels to verify all intended labels and detect partially outlined exports.",
+      "Visual inspection remains required for clipping, overlap, glyph availability, and journal-specific presentation requirements."
+    ],
+    "metrics": {
+      "text_count": 33,
+      "visible_text_count": 33,
+      "path_count": 34,
+      "image_count": 0,
+      "element_count": 293,
+      "width_mm": 179.9999998333333,
+      "height_mm": 89.99999991666665,
+      "min_font_pt": 7.499999999999999,
+      "max_font_pt": 9.499999999999998,
+      "labels": [
+        "Baseline",
+        "Context",
+        "Proposed",
+        "Method",
+        "0",
+        "20",
+        "40",
+        "60",
+        "80",
+        "100",
+        "Task success (%)",
+        "(a) Final mean ± SD (n = 6)",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "Run (seed ID)",
+        "50",
+        "55",
+        "60",
+        "65",
+        "70",
+        "75",
+        "80",
+        "85",
+        "Task success (%)",
+        "(b) Individual runs (expanded scale)",
+        "Baseline",
+        "Context",
+        "Proposed",
+        "Synthetic final results and run variation"
+      ],
+      "expected_labels_checked": 0,
+      "limitations": [
+        "Static checks do not certify journal acceptance, scientific accuracy, or visual quality.",
+        "Font sizes are conservative geometric estimates; installed fonts, glyph coverage, clipping, overlaps, and rendered bounds require visual inspection.",
+        "Paths cannot reliably be distinguished as letters versus scientific geometry; supply every required label through expected_labels to detect missing live text."
+      ],
+      "file_size_bytes": 25861,
+      "viewbox": [
+        0.0,
+        0.0,
+        510.23622,
+        255.11811
+      ]
+    }
+  },
+  "after_audit": {
+    "passed": true,
+    "errors": [],
+    "warnings": [
+      "Only the presence of editable text was checked. Supply expected_labels to verify all intended labels and detect partially outlined exports.",
+      "Visual inspection remains required for clipping, overlap, glyph availability, and journal-specific presentation requirements."
+    ],
+    "metrics": {
+      "text_count": 33,
+      "visible_text_count": 33,
+      "path_count": 34,
+      "image_count": 0,
+      "element_count": 293,
+      "width_mm": 179.9999998333333,
+      "height_mm": 89.99999991666665,
+      "min_font_pt": 7.499999999999999,
+      "max_font_pt": 9.499999999999998,
+      "labels": [
+        "Baseline",
+        "Context",
+        "Proposed",
+        "Method",
+        "0",
+        "20",
+        "40",
+        "60",
+        "80",
+        "100",
+        "Task success (%)",
+        "(a) Final mean ± SD (n = 6)",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "Run (seed ID)",
+        "50",
+        "55",
+        "60",
+        "65",
+        "70",
+        "75",
+        "80",
+        "85",
+        "Task success (%)",
+        "(b) Individual runs (expanded scale)",
+        "Baseline",
+        "Context",
+        "Proposed",
+        "Synthetic editable text test"
+      ],
+      "expected_labels_checked": 0,
+      "limitations": [
+        "Static checks do not certify journal acceptance, scientific accuracy, or visual quality.",
+        "Font sizes are conservative geometric estimates; installed fonts, glyph coverage, clipping, overlaps, and rendered bounds require visual inspection.",
+        "Paths cannot reliably be distinguished as letters versus scientific geometry; supply every required label through expected_labels to detect missing live text."
+      ],
+      "file_size_bytes": 25848,
+      "viewbox": [
+        0.0,
+        0.0,
+        510.23622,
+        255.11811
+      ]
+    }
+  },
+  "errors": []
+}

@@ -4,6 +4,15 @@ Run `python <skill-dir>/scripts/figurefoundry.py plot --spec figure.json --out f
 The output argument is a basename; `.svg/.pdf/.png` is also accepted and normalized.
 Existing outputs are protected unless `--overwrite` is explicitly selected.
 
+## Navigation
+
+- [Figure and panel fields](#figure-wide-fields) · [Native kinds](#native-graph-kinds) · [Statistics](#statistics-fields)
+- [Wide-table lines](#wide-table-lines) · [Independent-unit points](#bars-with-independent-unit-points)
+- [Regression annotations](#regression-annotations) · [Distribution fits](#histograms-with-fitted-distributions)
+- [Asymmetric layouts](#asymmetric-layouts-and-evidence-hierarchy) · [Shared semantic styles](#semantic-styles-shared-across-independent-figures)
+- [Typography and panel labels](#typography-panel-labels-grid-and-curve-styling) · [Matrix normalization](#explicit-matrix-color-normalization)
+- [Custom Python/Seaborn](#custom-pythonseaborn-figures)
+
 ## Minimal reproducible example
 
 `observations.csv`:
@@ -53,7 +62,7 @@ study design, metrics and statistical analysis outside this generic renderer.
 | `figure.font_pt`, `min_font_pt` | Base text and actual SVG audit threshold; defaults 8 and 6 |
 | `figure.font_family` | Installed family; default DejaVu Sans; configure an available CJK font for Chinese |
 | `figure.preview_dpi` | PNG preview only; default 300; SVG geometry has no fixed DPI |
-| `palette` | Semantic label→color mapping, reused for all panels |
+| `palette` | Semantic label→color or `{color, marker, linestyle}` mapping, reused for all panels |
 | `formats` | Always include `svg`; default `["svg","pdf","png"]` |
 | `journal` | User-verified journal profile attached to provenance; not automatic certification |
 | `panels` | One or more panel objects; maximum 26 |
@@ -79,14 +88,14 @@ text annotation/source and audit it rather than silently converting glyphs to pa
 
 | `kind` | Required fields | Options and limitations |
 |---|---|---|
-| `line` | `x`, `y` | `hue`, `order`, `hue_order`, `x_type="categorical"`; raw single values or explicit aggregate; missing y produces gaps |
-| `bar` | `x`, `y`, `estimator` | `hue`, ordering; uncertainty needs `unit`; numeric axis includes zero |
-| `scatter` | `x`, `y` | `hue`, `point_size`; `fit="ols"` explicitly adds an OLS fit and manifest coefficients |
+| `line` | `x`, `y` or explicit `y_columns` | `hue`, `order`, `hue_order`, `x_type="categorical"`; raw single values or explicit aggregate; missing y produces gaps; `linewidth`, `markersize`, `markevery` |
+| `bar` | `x`, `y`, `estimator` | `hue`, ordering; uncertainty and `raw_points=true` need `unit`; numeric axis includes zero |
+| `scatter` | `x`, `y` | `hue`, `point_size`; `fit="ols"` records coefficients/SSE/SST/R²; `fit_annotation=true` adds an editable equation |
 | `box` | `x`, `y` | `order`, `raw_points=true`; 1.5-IQR whiskers, all observations retained in raw overlay |
 | `violin` | `x`, `y` | `order`, `raw_points=true`, `bandwidth="scott"`; singleton/constant density replaced by a disclosed value line |
-| `hist` | `x` | `hue`, `bins` (auto/int/edges), `density`; all groups share the same bin edges |
+| `hist` | `x` | `hue`, `bins` (auto/int/edges), `density`; shared bin edges; explicit `fit="normal"/"lognormal"` with `density=true` |
 | `ecdf` | `x` | `hue`; all complete observations, tied values counted, no smoothing |
-| `heatmap` | `x`, `y`, `value` | Long-form rows; `x_order`, `y_order`, `cmap`, `vmin`, `vmax`, `annotate`, `number_format`, `annotation_font_pt`; duplicates need `aggregate="mean"/"median"` |
+| `heatmap` | `x`, `y`, `value` | Long-form rows; `x_order`, `y_order`, `cmap`, `vmin`, `vmax`, `norm`, `annotate`, `number_format`, `annotation_font_pt`; duplicates need `aggregate="mean"/"median"` |
 | `confusion` | `truth`, `prediction` | Raw labels; `labels` order; `normalize="none"/"row"`; manifest includes original counts |
 | `correlation` | `columns` | Explicit numeric column list; `method="pearson"/"spearman"`; listwise complete-case policy recorded |
 | `roc` | `truth`, `score` | Binary labels; `positive_label=1`, `hue`, `show_metric`; threshold ties handled exactly; AUC recorded |
@@ -139,3 +148,207 @@ editable labels are required. No artist or colorbar may be rasterized. For dense
 heatmaps use vector cells, and explicitly disable colorbar rasterization. The
 exporter refuses a failed master. Keep a complete required-label inventory and
 visually inspect the result, especially for specialty artists and CJK fonts.
+
+## Wide-table lines
+
+Choose curve columns explicitly with `y_columns`. All other columns, including
+subject/seed identifiers and non-curve numeric metadata, remain available after
+conversion. Each curve retains source row order and missing values.
+
+`curves.csv`:
+
+```csv
+time,subject,Control,Treated
+0,s1,1.0,1.2
+1,s1,1.5,1.9
+2,s1,,2.3
+```
+
+```json
+{
+  "kind": "line", "data": "curves.csv",
+  "x": "time", "y_columns": ["Control", "Treated"],
+  "xlabel": "Time (s)", "ylabel": "Response (mV)"
+}
+```
+
+The renderer creates long-form `value` and `series` fields. Set `value_name` and
+`series_name` to different unused field names when those names already occur in
+the source. Omit `y` and `hue` for this route. The selected column list becomes
+the default series order; `hue_order` can declare another complete order.
+Repeated measurements use the existing `unit`, `estimator`, `within_unit`, and
+`error` fields. The manifest records selected columns, retained identifiers,
+input/output row counts, and retained missing values.
+
+## Bars with independent-unit points
+
+Enable `raw_points: true` and name `unit` to place one observed point per
+independent unit over each bar. If a unit has technical repeats inside the same
+group, the points and bar statistics both use the declared `within_unit`
+mean/median. Units with only missing values contribute no point and no sample
+count. A unit observed in two conditions appears once in each condition.
+
+```json
+{
+  "kind": "bar", "data": "measurements.csv",
+  "x": "condition", "y": "response", "unit": "subject",
+  "within_unit": "mean", "estimator": "mean", "error": "sem",
+  "raw_points": true, "raw_point_jitter": 0.15, "raw_point_size": 12,
+  "seed": 1729
+}
+```
+
+`raw_point_jitter` is a horizontal fraction of the group bar width, from 0 to
+0.4; zero puts points exactly at the bar center. `raw_point_size` is marker
+area in pt². Jitter changes horizontal placement only. The manifest records each
+independent-unit value, the point count, reduction method, and jitter seed.
+
+## Regression annotations
+
+`fit: "ols"` fits a straight line with intercept in the original x/y data
+coordinates. `fit_annotation: true` adds an editable equation and R²; the
+default leaves the annotation off. Axis log/symlog display settings do not change
+the fitted statistical model.
+
+```json
+{
+  "kind": "scatter", "data": "calibration.csv", "x": "dose", "y": "response",
+  "fit": "ols", "fit_annotation": true,
+  "fit_annotation_position": [0.04, 0.96]
+}
+```
+
+Annotation position uses axes fractions in [0,1]. Grouped fits include the group
+name. The manifest stores slope, intercept, n, correlation, SSE, SST, and
+`r_squared = 1 - SSE/SST`. A constant response has SST=0, so R² is recorded as
+`null` and shown as `undefined`. All annotation characters, including R², remain
+ordinary editable SVG text.
+
+## Histograms with fitted distributions
+
+Use `fit: "normal"` or `fit: "lognormal"` together with explicit
+`density: true`. Histogram height then has units of probability density, matching
+the fitted PDF. Each hue group is normalized and fitted separately using the same
+bin edges. Bins used with a fit cover every complete observation.
+
+```json
+{
+  "kind": "hist", "data": "positive-measurements.csv", "x": "response",
+  "bins": 12, "density": true, "fit": "lognormal",
+  "xlabel": "Response (mV)", "ylabel": "Probability density (1/mV)"
+}
+```
+
+| Model | Estimated parameters and meaning |
+|---|---|
+| `normal` | Maximum-likelihood `loc = mean(x)`, `scale = sqrt(mean((x-loc)²))`; scale uses denominator n |
+| `lognormal` | Fix `loc=0`; `log_mean = mean(ln(x))`, `s = sqrt(mean((ln(x)-log_mean)²))`, `scale = exp(log_mean)` |
+
+Both fits require at least two nonconstant observations. Lognormal input values
+are strictly positive. The manifest records model, sample count, estimation
+method, parameters, PDF equation, support, and normalization. Missing values are
+counted in the existing complete-case report. Choose the distribution from the
+experimental quantity and inspect the observed histogram with its fitted curve.
+
+## Asymmetric layouts and evidence hierarchy
+
+Set `figure.rows`/`cols` as the layout grid. `figure.width_ratios` and
+`height_ratios` give positive relative column/row sizes; omitted ratios are equal.
+For an evidence panel that spans cells, use a zero-based
+`panel.grid = [row, col, rowspan, colspan]`.
+
+```json
+{
+  "figure": {
+    "width_mm": 183, "height_mm": 125, "rows": 2, "cols": 2,
+    "width_ratios": [1.8, 1], "height_ratios": [1, 1]
+  },
+  "panels": [
+    {"id": "a", "grid": [0, 0, 2, 1], "kind": "line", "data": "curves.csv", "x": "time", "y": "value"},
+    {"id": "b", "grid": [0, 1, 1, 1], "kind": "scatter", "data": "calibration.csv", "x": "dose", "y": "response"},
+    {"id": "c", "grid": [1, 1, 1, 1], "kind": "ecdf", "data": "measurements.csv", "x": "response"}
+  ]
+}
+```
+
+The large left panel carries the main evidence; the right column holds two
+supporting views. Explicit spans are reserved first. Panels without `grid`
+fill remaining cells in row-major order. Every panel owns one real Axes;
+unused cells create no covering placeholder axes. Overlap, out-of-range spans,
+fractional indices, and invalid ratios produce clear errors.
+
+Run the complete example using existing demonstration data:
+
+```bash
+python skills/figurefoundry/scripts/figurefoundry.py plot \
+  --spec examples/asymmetric.json --out examples/outputs/asymmetric
+```
+
+The manifest records the resolved panel grid and relative row/column sizes.
+
+## Semantic styles shared across independent figures
+
+A palette accepts legacy color strings and explicit style objects:
+
+```json
+{
+  "palette": {
+    "Control": "#555555",
+    "Method": {"color": "#0072B2", "marker": "^", "linestyle": "--"},
+    "Validation": {"color": "#D55E00", "marker": "s", "linestyle": ":"}
+  }
+}
+```
+
+Declared palette keys reserve stable style slots before any data is encountered.
+Reversing dataset row order or plotting only a subset therefore preserves color,
+marker, and line semantics for declared groups. Supply the same complete palette
+to every figure in a study. Explicit `marker`/`linestyle` values also preserve
+styles if a separate tool reorders JSON keys. Set `marker: "none"` for a
+deliberately line-only series. Undeclared series use the standard discovery-order
+fallback.
+
+Bars without `hue` also use declared x-category colors and marker shapes when
+every x category has a palette entry. The same method then retains its appearance
+in a curve panel, a category bar panel, and a distribution panel.
+
+## Typography, panel labels, grid, and curve styling
+
+| Field | Effect |
+|---|---|
+| `figure.axis_font_pt` | Axis-label size; defaults to `font_pt` |
+| `figure.tick_font_pt` | Major tick-label size; defaults to `font_pt` |
+| `figure.legend_font_pt` | Legend size; defaults to max(`min_font_pt`, `font_pt - 0.5`) |
+| `figure.panel_font_pt` | Panel title/identifier size; default title uses `font_pt`, default separate identifier uses `font_pt + 1` |
+| `figure.grid` | `false` disables grid; `true`/`"both"` enables both axes; `"x"`/`"y"` selects an axis; default `"y"` |
+| `figure.panel_label_style` | `"separate"` gives a separate identifier and title; `"integrated"` gives `(a) Panel title` |
+| `figure.panel_label_position` | `"left"` or `"center"`; default left; panel-local overrides use the same field names |
+| line `linewidth` | Stroke width in points, default 1.3 |
+| line `markersize` | Marker diameter in points, default 3.8; zero hides markers |
+| line `markevery` | Place a marker every N plotted x positions; positive integer; does not remove line vertices |
+
+Role font sizes must reach `min_font_pt`. Matrix panels use their cells/colorbar
+without a background axes grid. `figure.grid` controls background guide lines;
+`panel.grid` controls layout placement. Centered separate identifiers occupy
+their own row above the title. A single panel gets a letter only when
+`show_panel_id: true` is supplied.
+
+## Explicit matrix color normalization
+
+`heatmap`, `confusion`, and `correlation` use native vector cells with the
+selected normalization. Heatmap bounds are `vmin`/`vmax`, or the finite data
+range when omitted. Correlation keeps its [-1,1] metric range; confusion starts
+at zero and uses its count/fraction scale.
+
+| `norm` | Parameters | Known mapping |
+|---|---|---|
+| `"linear"` | Optional `vmin`, `vmax` | [0,5,10] → [0,0.5,1] for limits 0…10 |
+| `"log"` | Positive bounds and positive finite observations | [1,10,100] → [0,0.5,1] for limits 1…100 |
+| `"two-slope"` | Explicit `vcenter`, with `vmin < vcenter < vmax` | [-1,0,3] → [0,0.5,1] with center 0 |
+| `"symlog"` | Positive `linthresh`; optional positive `linscale=1`, `base=10>1` | Symmetric negative/positive mapping with a linear interval around zero |
+| `"boundary"` | Strictly increasing `boundaries`; omit `vmin`/`vmax` | Each interval selects a discrete color band |
+
+For comparison panels, reuse the same norm and parameters so the same number
+receives the same color. The manifest records `color_normalization` including
+the resolved limits and model-specific fields. Logarithmic and symlog colorbars
+use literal editable tick text, and their color cells remain native SVG paths.

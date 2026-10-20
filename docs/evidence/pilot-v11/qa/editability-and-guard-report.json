@@ -1,0 +1,78 @@
+{
+  "passed": true,
+  "master_sha256_before": "e5cc66f9bdd00aa9d5d9fe10bedbb526c802d05fe5129f5a4915d19ab80c1988",
+  "master_sha256_after": "e5cc66f9bdd00aa9d5d9fe10bedbb526c802d05fe5129f5a4915d19ab80c1988",
+  "master_unchanged": true,
+  "text_node_id": "pilot-edit-title",
+  "shape_edit": "Native page path fill changed from white to pale yellow in a disposable copy",
+  "negative_data_edit": {
+    "element": "first Baseline scatter use in axes_2",
+    "property": "y",
+    "before": 179.297281,
+    "after": 189.297281
+  },
+  "commands": [
+    {
+      "name": "guard-unapproved-text",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/source/figurefoundry/scripts/figurefoundry.py",
+        "revision",
+        "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/qa/editability-reference.svg",
+        "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/qa/editability-text-and-shape.svg",
+        "--min-font-pt",
+        "7"
+      ],
+      "returncode": 2,
+      "expected_returncode": 2,
+      "expected_result_observed": true,
+      "report": "qa/guard-unapproved-text.json"
+    },
+    {
+      "name": "guard-permitted-text",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/source/figurefoundry/scripts/figurefoundry.py",
+        "revision",
+        "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/qa/editability-reference.svg",
+        "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/qa/editability-text-and-shape.svg",
+        "--allow-text-id",
+        "pilot-edit-title",
+        "--min-font-pt",
+        "7"
+      ],
+      "returncode": 0,
+      "expected_returncode": 0,
+      "expected_result_observed": true,
+      "report": "qa/guard-permitted-text.json"
+    },
+    {
+      "name": "guard-data-point",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/source/figurefoundry/scripts/figurefoundry.py",
+        "revision",
+        "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/figures/figure-2.svg",
+        "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/qa/negative-data-point-move.svg",
+        "--min-font-pt",
+        "7"
+      ],
+      "returncode": 2,
+      "expected_returncode": 2,
+      "expected_result_observed": true,
+      "report": "qa/guard-data-point.json"
+    },
+    {
+      "name": "render-editability-copy",
+      "command": [
+        "inkscape",
+        "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/qa/editability-text-and-shape.svg",
+        "--export-type=png",
+        "--export-filename=/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/qa/editability-text-and-shape-96dpi.png",
+        "--export-dpi=96"
+      ],
+      "returncode": 0
+    }
+  ],
+  "scope": "QA copies only. Negative fixtures are not scientific outputs and are not selected project variants."
+}

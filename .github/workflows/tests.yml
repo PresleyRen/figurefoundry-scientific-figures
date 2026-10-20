@@ -25,3 +25,5 @@ jobs:
         run: python -m unittest discover -s tests -v
       - name: Rebuild synthetic examples
         run: python examples/generate_examples.py
+      - name: Exercise four Seaborn grid recipes through the SVG exporter
+        run: python examples/custom_seaborn.py --out /tmp/figurefoundry-seaborn

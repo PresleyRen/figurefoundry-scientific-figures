@@ -1,0 +1,23 @@
+{
+  "palette": {
+    "Baseline": {
+      "color": "#666A73",
+      "marker": "o",
+      "linestyle": "--"
+    },
+    "Context": {
+      "color": "#D55E00",
+      "marker": "^",
+      "linestyle": ":"
+    },
+    "Proposed": {
+      "color": "#0072B2",
+      "marker": "s",
+      "linestyle": "-"
+    }
+  },
+  "background": "#FFFFFF",
+  "text_color": "#222222",
+  "minimum_text_contrast": 4.5,
+  "pair_review_ratio": 1.5
+}

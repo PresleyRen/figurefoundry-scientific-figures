@@ -1,0 +1,69 @@
+{
+  "version": 1,
+  "data_status": "synthetic",
+  "title": "Synthetic evidence hierarchy",
+  "claim": "Demonstrate a spanning learning-curve panel with two independent supporting views.",
+  "palette": {
+    "Baseline": {"color": "#666A73", "marker": "o", "linestyle": "-"},
+    "Context": {"color": "#D55E00", "marker": "s", "linestyle": "--"},
+    "Proposed": {"color": "#0072B2", "marker": "^", "linestyle": "-."}
+  },
+  "figure": {
+    "width_mm": 183,
+    "height_mm": 125,
+    "rows": 2,
+    "cols": 2,
+    "width_ratios": [1.8, 1],
+    "height_ratios": [1, 1],
+    "font_pt": 8,
+    "min_font_pt": 6
+  },
+  "panels": [
+    {
+      "id": "a",
+      "grid": [0, 0, 2, 1],
+      "kind": "line",
+      "data": "data/learning.csv",
+      "x": "epoch",
+      "y": "success",
+      "hue": "method",
+      "unit": "seed",
+      "estimator": "mean",
+      "error": "ci95",
+      "hue_order": ["Baseline", "Context", "Proposed"],
+      "xlabel": "Training epoch",
+      "ylabel": "Task success (%)",
+      "title": "Learning dynamics",
+      "legend_loc": "lower right"
+    },
+    {
+      "id": "b",
+      "grid": [0, 1, 1, 1],
+      "kind": "bar",
+      "data": "data/endpoints.csv",
+      "x": "method",
+      "y": "success",
+      "unit": "seed",
+      "estimator": "mean",
+      "error": "sem",
+      "raw_points": true,
+      "order": ["Baseline", "Context", "Proposed"],
+      "ylabel": "Success (%)",
+      "title": "Independent runs",
+      "x_tick_rotation": 15
+    },
+    {
+      "id": "c",
+      "grid": [1, 1, 1, 1],
+      "kind": "ecdf",
+      "data": "data/endpoints.csv",
+      "x": "success",
+      "hue": "method",
+      "hue_order": ["Baseline", "Context", "Proposed"],
+      "xlabel": "Task success (%)",
+      "ylabel": "Fraction of runs",
+      "title": "Run distributions",
+      "legend": false
+    }
+  ]
+}

@@ -12,7 +12,7 @@ import matplotlib as mpl
 from ff_data import clean_json
 from ff_svg import audit_svg
 
-VERSION = "1.0.0"
+VERSION = "1.1.0"
 MPL_SVG_DTD = ('<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"\n'
                '  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">')
 

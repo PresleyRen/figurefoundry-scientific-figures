@@ -1,0 +1,926 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "errors": [],
+  "warnings": [
+    "figure-1 style identity not checked: Selected source is not a JSON plot specification",
+    "figure-2 style identity not checked: Selected source is not a JSON plot specification"
+  ],
+  "project_id": "synthetic-methods-figure-set",
+  "question": "How do Baseline, Context and Proposed differ in synthetic learning trajectories and independent final runs?",
+  "style_review": {
+    "passed": true,
+    "text": {
+      "color": "#222222",
+      "background": "#FFFFFF",
+      "contrast": 15.909984431773273,
+      "minimum": 4.5,
+      "passed": true
+    },
+    "roles": [
+      {
+        "role": "Baseline",
+        "color": "#666A73",
+        "luminance": 0.1437065349929344,
+        "L_star": 44.759868957906285,
+        "background_contrast": 5.420570865295276,
+        "marker": "o",
+        "linestyle": "--",
+        "hatch": null
+      },
+      {
+        "role": "Context",
+        "color": "#D55E00",
+        "luminance": 0.22151541200376595,
+        "L_star": 54.18742429248152,
+        "background_contrast": 3.8671837898669135,
+        "marker": "^",
+        "linestyle": ":",
+        "hatch": null
+      },
+      {
+        "role": "Proposed",
+        "color": "#0072B2",
+        "luminance": 0.15248980125973846,
+        "L_star": 45.9733427569253,
+        "background_contrast": 5.185446345779855,
+        "marker": "s",
+        "linestyle": "-",
+        "hatch": null
+      }
+    ],
+    "pairs": [
+      {
+        "roles": [
+          "Baseline",
+          "Context"
+        ],
+        "grayscale_contrast": 1.4016843159869115,
+        "delta_L": 9.427555334575239,
+        "redundant_channels": [
+          "marker",
+          "linestyle"
+        ],
+        "review_recommended": false
+      },
+      {
+        "roles": [
+          "Baseline",
+          "Proposed"
+        ],
+        "grayscale_contrast": 1.0453431592647324,
+        "delta_L": 1.2134737990190132,
+        "redundant_channels": [
+          "marker",
+          "linestyle"
+        ],
+        "review_recommended": false
+      },
+      {
+        "roles": [
+          "Context",
+          "Proposed"
+        ],
+        "grayscale_contrast": 1.3408843819027048,
+        "delta_L": 8.214081535556225,
+        "redundant_channels": [
+          "marker",
+          "linestyle"
+        ],
+        "review_recommended": false
+      }
+    ],
+    "pair_review_ratio": 1.5,
+    "method": "linear sRGB luminance; pair_review_ratio is a user-adjustable design heuristic",
+    "lightness_method": "CIE L* from relative Y, reference white Y=1; delta_L is descriptive, not a journal rule or color-vision simulation",
+    "formula_source": "https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html"
+  },
+  "figures": [
+    {
+      "id": "figure-1",
+      "role": "main-result",
+      "question": "How do the three synthetic methods change over observed training epochs?",
+      "claim": "Synthetic mean success increases over the seven observed epochs, with Proposed highest at every observed epoch.",
+      "caption": "Figure 1. Synthetic learning trajectories for Baseline, Context and Proposed. The supplied demonstration table contains six independent synthetic runs per method, observed at epochs 0, 5, 10, 15, 20, 25 and 30. Points and lines show the arithmetic mean at each observed epoch; vertical error bars and shaded bands show plus or minus one sample standard deviation (n−1 denominator) across the six runs. The same runs are followed over time, so epochs are repeated observations, not additional independent samples. Straight segments join observed mean values; no smoothing, interpolation of missing observations, exclusion, significance test or normalization was performed. Baseline is gray with circles and dashed lines, Context orange with triangles and dotted lines, and Proposed blue with squares and solid lines. The vertical axis is 40–85%; small horizontal padding retains complete endpoint markers. These Synthetic data illustrate figure production and do not establish real experimental superiority.",
+      "alt_text": "Synthetic learning-trajectory plot. The horizontal axis shows training epochs 0 through 30 and the vertical axis task success from 40 to 85 percent. Gray dashed circles identify Baseline, orange dotted triangles Context, and blue solid squares Proposed. All three mean curves increase, with Proposed highest at every observed epoch. From epoch 0 to 30, means change from 43.745 to 57.881 percent, 53.495 to 69.476 percent, and 62.661 to 79.048 percent, respectively. Error bars and translucent bands show sample SD across six runs per method.",
+      "selected_variant": "polished",
+      "variants": [
+        {
+          "id": "padded",
+          "source": {
+            "type": "json",
+            "path": "specs/figure-1-learning-v2.json"
+          },
+          "selected": false,
+          "rationale": "A small x-range margin preserves complete endpoint symbols at the fixed 180 × 85 mm size.",
+          "state": "rendered",
+          "svg": {
+            "path": "figures/figure-1-learning-v2.svg",
+            "canonical_path": "figures/figure-1-learning-v2.svg",
+            "sha256": "c3e5718209bd93a9da5eee920e3af33194e4acfc3e3c970d68875b97c223772b",
+            "bytes": 28389
+          },
+          "audit": {
+            "passed": true,
+            "errors": [],
+            "warnings": [
+              "Visual inspection remains required for clipping, overlap, glyph availability, and journal-specific presentation requirements."
+            ],
+            "metrics": {
+              "text_count": 24,
+              "visible_text_count": 24,
+              "path_count": 52,
+              "image_count": 0,
+              "element_count": 314,
+              "width_mm": 179.9999998333333,
+              "height_mm": 85.00000003888889,
+              "min_font_pt": 7.499999999999999,
+              "max_font_pt": 9.499999999999998,
+              "labels": [
+                "0",
+                "5",
+                "10",
+                "15",
+                "20",
+                "25",
+                "30",
+                "Training epoch",
+                "40",
+                "45",
+                "50",
+                "55",
+                "60",
+                "65",
+                "70",
+                "75",
+                "80",
+                "85",
+                "Task success (%)",
+                "Mean ± SD across 6 runs per method",
+                "Baseline",
+                "Context",
+                "Proposed",
+                "Synthetic learning trajectories"
+              ],
+              "expected_labels_checked": 24,
+              "limitations": [
+                "Static checks do not certify journal acceptance, scientific accuracy, or visual quality.",
+                "Font sizes are conservative geometric estimates; installed fonts, glyph coverage, clipping, overlaps, and rendered bounds require visual inspection.",
+                "Paths cannot reliably be distinguished as letters versus scientific geometry; supply every required label through expected_labels to detect missing live text."
+              ],
+              "file_size_bytes": 28389,
+              "viewbox": [
+                0.0,
+                0.0,
+                510.23622,
+                240.944882
+              ]
+            }
+          }
+        },
+        {
+          "id": "polished",
+          "source": {
+            "type": "svg",
+            "path": "figures/figure-1.svg",
+            "frozen_upstream": [
+              "specs/figure-1-learning-v2.json",
+              "specs/plot-defaults.json",
+              "specs/release-content.json",
+              "reproduce.py",
+              "figures/figure-1-upstream.svg",
+              "figures/figure-1-before-polish.svg",
+              "source/figurefoundry/scripts/ff_compose.py",
+              "source/figurefoundry/scripts/ff_data.py",
+              "source/figurefoundry/scripts/ff_diagram.py",
+              "source/figurefoundry/scripts/ff_export.py",
+              "source/figurefoundry/scripts/ff_inventory.py",
+              "source/figurefoundry/scripts/ff_journal.py",
+              "source/figurefoundry/scripts/ff_plots.py",
+              "source/figurefoundry/scripts/ff_project.py",
+              "source/figurefoundry/scripts/ff_quality.py",
+              "source/figurefoundry/scripts/ff_reference.py",
+              "source/figurefoundry/scripts/ff_seaborn.py",
+              "source/figurefoundry/scripts/ff_style.py",
+              "source/figurefoundry/scripts/ff_svg.py",
+              "source/figurefoundry/scripts/figurefoundry.py"
+            ]
+          },
+          "selected": true,
+          "rationale": "Selected after final-size, enlarged and grayscale review. This SVG is the active editable source; only text fill and auxiliary grid color were refined. Geometry and content are unchanged under revision comparison.",
+          "state": "rendered",
+          "svg": {
+            "path": "figures/figure-1.svg",
+            "canonical_path": "figures/figure-1.svg",
+            "sha256": "5a261842a12465fbb01a3923e3922f434e01c30b2b8be3afbb8a02fde94db3ea",
+            "bytes": 29569
+          },
+          "audit": {
+            "passed": true,
+            "errors": [],
+            "warnings": [
+              "Visual inspection remains required for clipping, overlap, glyph availability, and journal-specific presentation requirements."
+            ],
+            "metrics": {
+              "text_count": 24,
+              "visible_text_count": 24,
+              "path_count": 52,
+              "image_count": 0,
+              "element_count": 316,
+              "width_mm": 179.9999998333333,
+              "height_mm": 85.00000003888889,
+              "min_font_pt": 7.499999999999999,
+              "max_font_pt": 9.499999999999998,
+              "labels": [
+                "0",
+                "5",
+                "10",
+                "15",
+                "20",
+                "25",
+                "30",
+                "Training epoch",
+                "40",
+                "45",
+                "50",
+                "55",
+                "60",
+                "65",
+                "70",
+                "75",
+                "80",
+                "85",
+                "Task success (%)",
+                "Mean ± SD across 6 runs per method",
+                "Baseline",
+                "Context",
+                "Proposed",
+                "Synthetic learning trajectories"
+              ],
+              "expected_labels_checked": 24,
+              "limitations": [
+                "Static checks do not certify journal acceptance, scientific accuracy, or visual quality.",
+                "Font sizes are conservative geometric estimates; installed fonts, glyph coverage, clipping, overlaps, and rendered bounds require visual inspection.",
+                "Paths cannot reliably be distinguished as letters versus scientific geometry; supply every required label through expected_labels to detect missing live text."
+              ],
+              "file_size_bytes": 29569,
+              "viewbox": [
+                0.0,
+                0.0,
+                510.23622,
+                240.944882
+              ]
+            }
+          }
+        }
+      ],
+      "entities": [],
+      "relations": [],
+      "quantities": {
+        "methods": 3,
+        "independent_runs_per_method": 6,
+        "total_runs": 18,
+        "observed_epochs_per_run": 7,
+        "plotted_observations": 126,
+        "baseline_final_mean": 57.88133333333333,
+        "context_final_mean": 69.47616666666667,
+        "proposed_final_mean": 79.0475
+      },
+      "style_identity": {
+        "checked": false,
+        "source": "figures/figure-1.svg",
+        "mismatches": [],
+        "scope": "Declared color/marker/linestyle in the selected JSON plot source; SVG paint is not reverse-engineered",
+        "reason": "Selected source is not a JSON plot specification"
+      }
+    },
+    {
+      "id": "figure-2",
+      "role": "robustness",
+      "question": "How do final means compare and how much do the six independent synthetic runs vary?",
+      "claim": "Synthetic final means are 57.881%, 69.476% and 79.048% for Baseline, Context and Proposed; all six runs per method are retained.",
+      "caption": "Figure 2. Synthetic final task success and independent run variation at epoch 30. (a) Bars show the arithmetic mean and error bars plus or minus one sample SD (n−1 denominator) across six synthetic runs per method, with a zero-based 0–100% vertical scale. Means ± SD are 57.881 ± 0.866% for Baseline, 69.476 ± 1.252% for Context, and 79.048 ± 1.308% for Proposed. (b) All 18 original endpoint values are shown once against their seed IDs on an explicitly expanded 50–85% vertical scale. Gray circles, orange triangles and blue squares retain the Baseline, Context and Proposed roles used in Figure 1. Seed labels identify runs and do not establish cross-method pairing; no points are connected. These endpoint values exactly match the epoch-30 observations in the learning table. SD describes run-to-run variation, not a confidence interval for generalization. No values were excluded and no significance analysis was added. All results are Synthetic demonstrations.",
+      "alt_text": "Synthetic final-results figure with two horizontal panels. Left: zero-baseline bars compare mean task success with sample SD error bars across six runs per method. Baseline is about 57.9 percent, Context 69.5 percent and Proposed 79.0 percent. Right: eighteen unconnected points show all six seed-labeled runs per method on a 50 to 85 percent scale. Baseline gray circles range from 56.337 to 58.904 percent, Context orange triangles from 67.671 to 71.353 percent, and Proposed blue squares from 77.382 to 80.181 percent. A three-marker legend identifies methods. Proposed has the highest mean in these Synthetic data.",
+      "selected_variant": "polished",
+      "variants": [
+        {
+          "id": "horizontal",
+          "source": {
+            "type": "json",
+            "path": "specs/figure-2-horizontal-v2.json"
+          },
+          "selected": false,
+          "rationale": "Side-by-side means and run observations; direct comparison at 180 × 90 mm with a marker legend.",
+          "state": "rendered",
+          "svg": {
+            "path": "figures/figure-2-horizontal-v2.svg",
+            "canonical_path": "figures/figure-2-horizontal-v2.svg",
+            "sha256": "9500d94a1987c8c68c562f6fbd07d24156f824ca483949d3002cc63ca65e3171",
+            "bytes": 24491
+          },
+          "audit": {
+            "passed": true,
+            "errors": [],
+            "warnings": [
+              "Visual inspection remains required for clipping, overlap, glyph availability, and journal-specific presentation requirements."
+            ],
+            "metrics": {
+              "text_count": 33,
+              "visible_text_count": 33,
+              "path_count": 34,
+              "image_count": 0,
+              "element_count": 291,
+              "width_mm": 179.9999998333333,
+              "height_mm": 89.99999991666665,
+              "min_font_pt": 7.499999999999999,
+              "max_font_pt": 9.499999999999998,
+              "labels": [
+                "Baseline",
+                "Context",
+                "Proposed",
+                "Method",
+                "0",
+                "20",
+                "40",
+                "60",
+                "80",
+                "100",
+                "Task success (%)",
+                "(a) Final mean ± SD (n = 6)",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "Run (seed ID)",
+                "50",
+                "55",
+                "60",
+                "65",
+                "70",
+                "75",
+                "80",
+                "85",
+                "Task success (%)",
+                "(b) Individual runs (expanded scale)",
+                "Baseline",
+                "Context",
+                "Proposed",
+                "Synthetic final results and run variation"
+              ],
+              "expected_labels_checked": 27,
+              "limitations": [
+                "Static checks do not certify journal acceptance, scientific accuracy, or visual quality.",
+                "Font sizes are conservative geometric estimates; installed fonts, glyph coverage, clipping, overlaps, and rendered bounds require visual inspection.",
+                "Paths cannot reliably be distinguished as letters versus scientific geometry; supply every required label through expected_labels to detect missing live text."
+              ],
+              "file_size_bytes": 24491,
+              "viewbox": [
+                0.0,
+                0.0,
+                510.23622,
+                255.11811
+              ]
+            }
+          }
+        },
+        {
+          "id": "stacked",
+          "source": {
+            "type": "json",
+            "path": "specs/figure-2-stacked-v2.json"
+          },
+          "selected": false,
+          "rationale": "Same panels and scientific fields in a 180 × 130 mm vertical sequence; roomier panels but more page area and empty space.",
+          "state": "rendered",
+          "svg": {
+            "path": "figures/figure-2-stacked-v2.svg",
+            "canonical_path": "figures/figure-2-stacked-v2.svg",
+            "sha256": "40ec99a2bc8906791a63c97b4a048c7e98f1369d807b4fafbd4c84782d5b6af9",
+            "bytes": 24467
+          },
+          "audit": {
+            "passed": true,
+            "errors": [],
+            "warnings": [
+              "Visual inspection remains required for clipping, overlap, glyph availability, and journal-specific presentation requirements."
+            ],
+            "metrics": {
+              "text_count": 33,
+              "visible_text_count": 33,
+              "path_count": 34,
+              "image_count": 0,
+              "element_count": 291,
+              "width_mm": 179.9999998333333,
+              "height_mm": 129.9999999972222,
+              "min_font_pt": 7.499999999999999,
+              "max_font_pt": 9.499999999999998,
+              "labels": [
+                "Baseline",
+                "Context",
+                "Proposed",
+                "Method",
+                "0",
+                "20",
+                "40",
+                "60",
+                "80",
+                "100",
+                "Task success (%)",
+                "(a) Final mean ± SD (n = 6)",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "Run (seed ID)",
+                "50",
+                "55",
+                "60",
+                "65",
+                "70",
+                "75",
+                "80",
+                "85",
+                "Task success (%)",
+                "(b) Individual runs (expanded scale)",
+                "Baseline",
+                "Context",
+                "Proposed",
+                "Synthetic final results and run variation"
+              ],
+              "expected_labels_checked": 27,
+              "limitations": [
+                "Static checks do not certify journal acceptance, scientific accuracy, or visual quality.",
+                "Font sizes are conservative geometric estimates; installed fonts, glyph coverage, clipping, overlaps, and rendered bounds require visual inspection.",
+                "Paths cannot reliably be distinguished as letters versus scientific geometry; supply every required label through expected_labels to detect missing live text."
+              ],
+              "file_size_bytes": 24467,
+              "viewbox": [
+                0.0,
+                0.0,
+                510.23622,
+                368.503937
+              ]
+            }
+          }
+        },
+        {
+          "id": "polished",
+          "source": {
+            "type": "svg",
+            "path": "figures/figure-2.svg",
+            "frozen_upstream": [
+              "specs/figure-2-horizontal-v2.json",
+              "specs/plot-defaults.json",
+              "specs/release-content.json",
+              "reproduce.py",
+              "figures/figure-2-upstream.svg",
+              "figures/figure-2-before-polish.svg",
+              "source/figurefoundry/scripts/ff_compose.py",
+              "source/figurefoundry/scripts/ff_data.py",
+              "source/figurefoundry/scripts/ff_diagram.py",
+              "source/figurefoundry/scripts/ff_export.py",
+              "source/figurefoundry/scripts/ff_inventory.py",
+              "source/figurefoundry/scripts/ff_journal.py",
+              "source/figurefoundry/scripts/ff_plots.py",
+              "source/figurefoundry/scripts/ff_project.py",
+              "source/figurefoundry/scripts/ff_quality.py",
+              "source/figurefoundry/scripts/ff_reference.py",
+              "source/figurefoundry/scripts/ff_seaborn.py",
+              "source/figurefoundry/scripts/ff_style.py",
+              "source/figurefoundry/scripts/ff_svg.py",
+              "source/figurefoundry/scripts/figurefoundry.py"
+            ]
+          },
+          "selected": true,
+          "rationale": "Selected after final-size, enlarged and grayscale review. This SVG is the active editable source; only text fill and auxiliary grid color were refined. Geometry and content are unchanged under revision comparison.",
+          "state": "rendered",
+          "svg": {
+            "path": "figures/figure-2.svg",
+            "canonical_path": "figures/figure-2.svg",
+            "sha256": "e5cc66f9bdd00aa9d5d9fe10bedbb526c802d05fe5129f5a4915d19ab80c1988",
+            "bytes": 25839
+          },
+          "audit": {
+            "passed": true,
+            "errors": [],
+            "warnings": [
+              "Visual inspection remains required for clipping, overlap, glyph availability, and journal-specific presentation requirements."
+            ],
+            "metrics": {
+              "text_count": 33,
+              "visible_text_count": 33,
+              "path_count": 34,
+              "image_count": 0,
+              "element_count": 293,
+              "width_mm": 179.9999998333333,
+              "height_mm": 89.99999991666665,
+              "min_font_pt": 7.499999999999999,
+              "max_font_pt": 9.499999999999998,
+              "labels": [
+                "Baseline",
+                "Context",
+                "Proposed",
+                "Method",
+                "0",
+                "20",
+                "40",
+                "60",
+                "80",
+                "100",
+                "Task success (%)",
+                "(a) Final mean ± SD (n = 6)",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "Run (seed ID)",
+                "50",
+                "55",
+                "60",
+                "65",
+                "70",
+                "75",
+                "80",
+                "85",
+                "Task success (%)",
+                "(b) Individual runs (expanded scale)",
+                "Baseline",
+                "Context",
+                "Proposed",
+                "Synthetic final results and run variation"
+              ],
+              "expected_labels_checked": 27,
+              "limitations": [
+                "Static checks do not certify journal acceptance, scientific accuracy, or visual quality.",
+                "Font sizes are conservative geometric estimates; installed fonts, glyph coverage, clipping, overlaps, and rendered bounds require visual inspection.",
+                "Paths cannot reliably be distinguished as letters versus scientific geometry; supply every required label through expected_labels to detect missing live text."
+              ],
+              "file_size_bytes": 25839,
+              "viewbox": [
+                0.0,
+                0.0,
+                510.23622,
+                255.11811
+              ]
+            }
+          }
+        }
+      ],
+      "entities": [],
+      "relations": [],
+      "quantities": {
+        "methods": 3,
+        "independent_runs_per_method": 6,
+        "total_runs": 18,
+        "observed_epochs_per_run": 1,
+        "plotted_observations": 18,
+        "baseline_final_mean": 57.88133333333333,
+        "context_final_mean": 69.47616666666667,
+        "proposed_final_mean": 79.0475
+      },
+      "style_identity": {
+        "checked": false,
+        "source": "figures/figure-2.svg",
+        "mismatches": [],
+        "scope": "Declared color/marker/linestyle in the selected JSON plot source; SVG paint is not reverse-engineered",
+        "reason": "Selected source is not a JSON plot specification"
+      }
+    }
+  ],
+  "files": [
+    {
+      "path": "data/learning.csv",
+      "canonical_path": "data/learning.csv",
+      "sha256": "5b1a4624a7c428f8447cf40357609c3df8e80cb343c9246e6da91c9a8453dfcc",
+      "bytes": 2576
+    },
+    {
+      "path": "data/endpoints.csv",
+      "canonical_path": "data/endpoints.csv",
+      "sha256": "a9aa06b7f103e1fb77569d4cc5c0fcec7491552336c3172dec07d8521ce6155b",
+      "bytes": 463
+    },
+    {
+      "path": "specs/figure-1-learning-v2.json",
+      "canonical_path": "specs/figure-1-learning-v2.json",
+      "sha256": "d1ce455d513997dc4f899b8680a6b18a59c89cc4f5c26922c4d0d40c2f9d7233",
+      "bytes": 945
+    },
+    {
+      "path": "figures/figure-1-learning-v2.svg",
+      "canonical_path": "figures/figure-1-learning-v2.svg",
+      "sha256": "c3e5718209bd93a9da5eee920e3af33194e4acfc3e3c970d68875b97c223772b",
+      "bytes": 28389
+    },
+    {
+      "path": "figures/figure-1.svg",
+      "canonical_path": "figures/figure-1.svg",
+      "sha256": "5a261842a12465fbb01a3923e3922f434e01c30b2b8be3afbb8a02fde94db3ea",
+      "bytes": 29569
+    },
+    {
+      "path": "specs/plot-defaults.json",
+      "canonical_path": "specs/plot-defaults.json",
+      "sha256": "7e1e45bce23e25c74ccf82177acbe75e53bbc3d29a72d8e2976e539fd0815ec0",
+      "bytes": 692
+    },
+    {
+      "path": "specs/release-content.json",
+      "canonical_path": "specs/release-content.json",
+      "sha256": "8b5b7baab6dcfcca0862761c1048353484cae88b481b79e175ad3ba5f80f45e1",
+      "bytes": 3553
+    },
+    {
+      "path": "reproduce.py",
+      "canonical_path": "reproduce.py",
+      "sha256": "4c81620e6ba653077583019e030b92c42eba88854aebdfe2c3796c3d1e3d43d2",
+      "bytes": 7541
+    },
+    {
+      "path": "figures/figure-1-upstream.svg",
+      "canonical_path": "figures/figure-1-upstream.svg",
+      "sha256": "c3e5718209bd93a9da5eee920e3af33194e4acfc3e3c970d68875b97c223772b",
+      "bytes": 28389
+    },
+    {
+      "path": "figures/figure-1-before-polish.svg",
+      "canonical_path": "figures/figure-1-before-polish.svg",
+      "sha256": "b2c511ed7f334cde2aa82e448d76b6fabe4d458e29f7048d6485b9be4a5febbf",
+      "bytes": 29035
+    },
+    {
+      "path": "source/figurefoundry/scripts/ff_compose.py",
+      "canonical_path": "source/figurefoundry/scripts/ff_compose.py",
+      "sha256": "62910a6d082241107ce602d42e8a80ae48ed7d2a78ce42dccc2ce62938dbf45a",
+      "bytes": 20773
+    },
+    {
+      "path": "source/figurefoundry/scripts/ff_data.py",
+      "canonical_path": "source/figurefoundry/scripts/ff_data.py",
+      "sha256": "8cf8b7688b89e46cc0a5caf88881ddc8d12181fbb4e4a5e637907eaf3db2e43e",
+      "bytes": 12404
+    },
+    {
+      "path": "source/figurefoundry/scripts/ff_diagram.py",
+      "canonical_path": "source/figurefoundry/scripts/ff_diagram.py",
+      "sha256": "2883e802d506deea16a0e8d68e5f93fe304d0df2bb7ffb0a6c6b0232ff333391",
+      "bytes": 21647
+    },
+    {
+      "path": "source/figurefoundry/scripts/ff_export.py",
+      "canonical_path": "source/figurefoundry/scripts/ff_export.py",
+      "sha256": "fb6eb070c7fe72b34505f25dbc95e55f6e6bbc2d4914fc7bc77325cc583f14cb",
+      "bytes": 5617
+    },
+    {
+      "path": "source/figurefoundry/scripts/ff_inventory.py",
+      "canonical_path": "source/figurefoundry/scripts/ff_inventory.py",
+      "sha256": "2a4cee09535ebaf429857e571becd3a15db302a8477671c22ac34febcebcaff4",
+      "bytes": 4734
+    },
+    {
+      "path": "source/figurefoundry/scripts/ff_journal.py",
+      "canonical_path": "source/figurefoundry/scripts/ff_journal.py",
+      "sha256": "1c547ece789d7bb48eb31072f7743ea4a6a258842dc00c89f040dce3d4bd2a84",
+      "bytes": 3077
+    },
+    {
+      "path": "source/figurefoundry/scripts/ff_plots.py",
+      "canonical_path": "source/figurefoundry/scripts/ff_plots.py",
+      "sha256": "03edb2e8b7623f8940dc4c428fddb07626e64797f5b162be970879ed72171dee",
+      "bytes": 55577
+    },
+    {
+      "path": "source/figurefoundry/scripts/ff_project.py",
+      "canonical_path": "source/figurefoundry/scripts/ff_project.py",
+      "sha256": "1813bc9e8c656fb38261383d65809d13f7bd0c750d9de1801648a50e127c78fe",
+      "bytes": 18248
+    },
+    {
+      "path": "source/figurefoundry/scripts/ff_quality.py",
+      "canonical_path": "source/figurefoundry/scripts/ff_quality.py",
+      "sha256": "2c97ae34c10b558cb045a8eb0d3ea2ee5a90ce92c04d755924cb18202a57d1ba",
+      "bytes": 11505
+    },
+    {
+      "path": "source/figurefoundry/scripts/ff_reference.py",
+      "canonical_path": "source/figurefoundry/scripts/ff_reference.py",
+      "sha256": "a481cd38cfc768232874bbbbe710232579877ed3527e73f954119f28b87b41e2",
+      "bytes": 24031
+    },
+    {
+      "path": "source/figurefoundry/scripts/ff_seaborn.py",
+      "canonical_path": "source/figurefoundry/scripts/ff_seaborn.py",
+      "sha256": "f2fabad1a4d7279a97c218496dfffc0ee303c18f9fa14122221e92fa52a783e3",
+      "bytes": 10645
+    },
+    {
+      "path": "source/figurefoundry/scripts/ff_style.py",
+      "canonical_path": "source/figurefoundry/scripts/ff_style.py",
+      "sha256": "6282e6ce5420b25c1e965608f03a78c2e1eb4466f0369a87fe1402f730faee67",
+      "bytes": 5224
+    },
+    {
+      "path": "source/figurefoundry/scripts/ff_svg.py",
+      "canonical_path": "source/figurefoundry/scripts/ff_svg.py",
+      "sha256": "6b46e74650811b60200a485420a70667b0cb53124e8f75a295195ba71505fc64",
+      "bytes": 35523
+    },
+    {
+      "path": "source/figurefoundry/scripts/figurefoundry.py",
+      "canonical_path": "source/figurefoundry/scripts/figurefoundry.py",
+      "sha256": "51b521733e9265b1e0355b228b884e24e26b40a4a57f34493a9e81aee53cbff7",
+      "bytes": 15063
+    },
+    {
+      "path": "specs/figure-2-horizontal-v2.json",
+      "canonical_path": "specs/figure-2-horizontal-v2.json",
+      "sha256": "b5be02ec013309256fd1abcd23c345bd245a913b18cd286b93a8c633dd6cccad",
+      "bytes": 1561
+    },
+    {
+      "path": "figures/figure-2-horizontal-v2.svg",
+      "canonical_path": "figures/figure-2-horizontal-v2.svg",
+      "sha256": "9500d94a1987c8c68c562f6fbd07d24156f824ca483949d3002cc63ca65e3171",
+      "bytes": 24491
+    },
+    {
+      "path": "specs/figure-2-stacked-v2.json",
+      "canonical_path": "specs/figure-2-stacked-v2.json",
+      "sha256": "7fe67575d04426419d4827e1a07c340ac9ea387feb2fcd4cc3c75c4c4c2a5073",
+      "bytes": 1560
+    },
+    {
+      "path": "figures/figure-2-stacked-v2.svg",
+      "canonical_path": "figures/figure-2-stacked-v2.svg",
+      "sha256": "40ec99a2bc8906791a63c97b4a048c7e98f1369d807b4fafbd4c84782d5b6af9",
+      "bytes": 24467
+    },
+    {
+      "path": "figures/figure-2.svg",
+      "canonical_path": "figures/figure-2.svg",
+      "sha256": "e5cc66f9bdd00aa9d5d9fe10bedbb526c802d05fe5129f5a4915d19ab80c1988",
+      "bytes": 25839
+    },
+    {
+      "path": "figures/figure-2-upstream.svg",
+      "canonical_path": "figures/figure-2-upstream.svg",
+      "sha256": "9500d94a1987c8c68c562f6fbd07d24156f824ca483949d3002cc63ca65e3171",
+      "bytes": 24491
+    },
+    {
+      "path": "figures/figure-2-before-polish.svg",
+      "canonical_path": "figures/figure-2-before-polish.svg",
+      "sha256": "696c4450155f2a783af9ef9b9925c6945752141261a9c605ddcc00db73b8794e",
+      "bytes": 25242
+    }
+  ],
+  "snapshot": {
+    "project_id": "synthetic-methods-figure-set",
+    "question": "How do Baseline, Context and Proposed differ in synthetic learning trajectories and independent final runs?",
+    "science": {
+      "figure-1": {
+        "question": "How do the three synthetic methods change over observed training epochs?",
+        "claim": "Synthetic mean success increases over the seven observed epochs, with Proposed highest at every observed epoch.",
+        "units": {
+          "success": "percent",
+          "epoch": "training epoch",
+          "seed": "run identifier"
+        },
+        "statistics": {
+          "unit": "seed",
+          "estimator": "arithmetic mean",
+          "interval": "mean ± one sample SD, denominator n−1",
+          "within_unit": null,
+          "independent_runs_per_method": 6,
+          "missing_rows": 0,
+          "excluded_rows": 0,
+          "pairing": "none inferred from seed labels"
+        },
+        "entities": [],
+        "relations": [],
+        "quantities": {
+          "methods": 3,
+          "independent_runs_per_method": 6,
+          "total_runs": 18,
+          "observed_epochs_per_run": 7,
+          "plotted_observations": 126,
+          "baseline_final_mean": 57.88133333333333,
+          "context_final_mean": 69.47616666666667,
+          "proposed_final_mean": 79.0475
+        },
+        "evidence_files": [
+          "data/learning.csv",
+          "data/endpoints.csv"
+        ]
+      },
+      "figure-2": {
+        "question": "How do final means compare and how much do the six independent synthetic runs vary?",
+        "claim": "Synthetic final means are 57.881%, 69.476% and 79.048% for Baseline, Context and Proposed; all six runs per method are retained.",
+        "units": {
+          "success": "percent",
+          "epoch": "training epoch",
+          "seed": "run identifier"
+        },
+        "statistics": {
+          "unit": "seed",
+          "estimator": "arithmetic mean",
+          "interval": "mean ± one sample SD, denominator n−1",
+          "within_unit": null,
+          "independent_runs_per_method": 6,
+          "missing_rows": 0,
+          "excluded_rows": 0,
+          "pairing": "none inferred from seed labels"
+        },
+        "entities": [],
+        "relations": [],
+        "quantities": {
+          "methods": 3,
+          "independent_runs_per_method": 6,
+          "total_runs": 18,
+          "observed_epochs_per_run": 1,
+          "plotted_observations": 18,
+          "baseline_final_mean": 57.88133333333333,
+          "context_final_mean": 69.47616666666667,
+          "proposed_final_mean": 79.0475
+        },
+        "evidence_files": [
+          "data/learning.csv",
+          "data/endpoints.csv"
+        ]
+      }
+    },
+    "evidence": {
+      "data/learning.csv": "5b1a4624a7c428f8447cf40357609c3df8e80cb343c9246e6da91c9a8453dfcc",
+      "data/endpoints.csv": "a9aa06b7f103e1fb77569d4cc5c0fcec7491552336c3172dec07d8521ce6155b"
+    },
+    "files": {
+      "data/learning.csv": "5b1a4624a7c428f8447cf40357609c3df8e80cb343c9246e6da91c9a8453dfcc",
+      "data/endpoints.csv": "a9aa06b7f103e1fb77569d4cc5c0fcec7491552336c3172dec07d8521ce6155b",
+      "specs/figure-1-learning-v2.json": "d1ce455d513997dc4f899b8680a6b18a59c89cc4f5c26922c4d0d40c2f9d7233",
+      "figures/figure-1-learning-v2.svg": "c3e5718209bd93a9da5eee920e3af33194e4acfc3e3c970d68875b97c223772b",
+      "figures/figure-1.svg": "5a261842a12465fbb01a3923e3922f434e01c30b2b8be3afbb8a02fde94db3ea",
+      "specs/plot-defaults.json": "7e1e45bce23e25c74ccf82177acbe75e53bbc3d29a72d8e2976e539fd0815ec0",
+      "specs/release-content.json": "8b5b7baab6dcfcca0862761c1048353484cae88b481b79e175ad3ba5f80f45e1",
+      "reproduce.py": "4c81620e6ba653077583019e030b92c42eba88854aebdfe2c3796c3d1e3d43d2",
+      "figures/figure-1-upstream.svg": "c3e5718209bd93a9da5eee920e3af33194e4acfc3e3c970d68875b97c223772b",
+      "figures/figure-1-before-polish.svg": "b2c511ed7f334cde2aa82e448d76b6fabe4d458e29f7048d6485b9be4a5febbf",
+      "source/figurefoundry/scripts/ff_compose.py": "62910a6d082241107ce602d42e8a80ae48ed7d2a78ce42dccc2ce62938dbf45a",
+      "source/figurefoundry/scripts/ff_data.py": "8cf8b7688b89e46cc0a5caf88881ddc8d12181fbb4e4a5e637907eaf3db2e43e",
+      "source/figurefoundry/scripts/ff_diagram.py": "2883e802d506deea16a0e8d68e5f93fe304d0df2bb7ffb0a6c6b0232ff333391",
+      "source/figurefoundry/scripts/ff_export.py": "fb6eb070c7fe72b34505f25dbc95e55f6e6bbc2d4914fc7bc77325cc583f14cb",
+      "source/figurefoundry/scripts/ff_inventory.py": "2a4cee09535ebaf429857e571becd3a15db302a8477671c22ac34febcebcaff4",
+      "source/figurefoundry/scripts/ff_journal.py": "1c547ece789d7bb48eb31072f7743ea4a6a258842dc00c89f040dce3d4bd2a84",
+      "source/figurefoundry/scripts/ff_plots.py": "03edb2e8b7623f8940dc4c428fddb07626e64797f5b162be970879ed72171dee",
+      "source/figurefoundry/scripts/ff_project.py": "1813bc9e8c656fb38261383d65809d13f7bd0c750d9de1801648a50e127c78fe",
+      "source/figurefoundry/scripts/ff_quality.py": "2c97ae34c10b558cb045a8eb0d3ea2ee5a90ce92c04d755924cb18202a57d1ba",
+      "source/figurefoundry/scripts/ff_reference.py": "a481cd38cfc768232874bbbbe710232579877ed3527e73f954119f28b87b41e2",
+      "source/figurefoundry/scripts/ff_seaborn.py": "f2fabad1a4d7279a97c218496dfffc0ee303c18f9fa14122221e92fa52a783e3",
+      "source/figurefoundry/scripts/ff_style.py": "6282e6ce5420b25c1e965608f03a78c2e1eb4466f0369a87fe1402f730faee67",
+      "source/figurefoundry/scripts/ff_svg.py": "6b46e74650811b60200a485420a70667b0cb53124e8f75a295195ba71505fc64",
+      "source/figurefoundry/scripts/figurefoundry.py": "51b521733e9265b1e0355b228b884e24e26b40a4a57f34493a9e81aee53cbff7",
+      "specs/figure-2-horizontal-v2.json": "b5be02ec013309256fd1abcd23c345bd245a913b18cd286b93a8c633dd6cccad",
+      "figures/figure-2-horizontal-v2.svg": "9500d94a1987c8c68c562f6fbd07d24156f824ca483949d3002cc63ca65e3171",
+      "specs/figure-2-stacked-v2.json": "7fe67575d04426419d4827e1a07c340ac9ea387feb2fcd4cc3c75c4c4c2a5073",
+      "figures/figure-2-stacked-v2.svg": "40ec99a2bc8906791a63c97b4a048c7e98f1369d807b4fafbd4c84782d5b6af9",
+      "figures/figure-2.svg": "e5cc66f9bdd00aa9d5d9fe10bedbb526c802d05fe5129f5a4915d19ab80c1988",
+      "figures/figure-2-upstream.svg": "9500d94a1987c8c68c562f6fbd07d24156f824ca483949d3002cc63ca65e3171",
+      "figures/figure-2-before-polish.svg": "696c4450155f2a783af9ef9b9925c6945752141261a9c605ddcc00db73b8794e"
+    },
+    "frozen_upstream": {
+      "specs/figure-1-learning-v2.json": "d1ce455d513997dc4f899b8680a6b18a59c89cc4f5c26922c4d0d40c2f9d7233",
+      "specs/plot-defaults.json": "7e1e45bce23e25c74ccf82177acbe75e53bbc3d29a72d8e2976e539fd0815ec0",
+      "specs/release-content.json": "8b5b7baab6dcfcca0862761c1048353484cae88b481b79e175ad3ba5f80f45e1",
+      "reproduce.py": "4c81620e6ba653077583019e030b92c42eba88854aebdfe2c3796c3d1e3d43d2",
+      "figures/figure-1-upstream.svg": "c3e5718209bd93a9da5eee920e3af33194e4acfc3e3c970d68875b97c223772b",
+      "figures/figure-1-before-polish.svg": "b2c511ed7f334cde2aa82e448d76b6fabe4d458e29f7048d6485b9be4a5febbf",
+      "source/figurefoundry/scripts/ff_compose.py": "62910a6d082241107ce602d42e8a80ae48ed7d2a78ce42dccc2ce62938dbf45a",
+      "source/figurefoundry/scripts/ff_data.py": "8cf8b7688b89e46cc0a5caf88881ddc8d12181fbb4e4a5e637907eaf3db2e43e",
+      "source/figurefoundry/scripts/ff_diagram.py": "2883e802d506deea16a0e8d68e5f93fe304d0df2bb7ffb0a6c6b0232ff333391",
+      "source/figurefoundry/scripts/ff_export.py": "fb6eb070c7fe72b34505f25dbc95e55f6e6bbc2d4914fc7bc77325cc583f14cb",
+      "source/figurefoundry/scripts/ff_inventory.py": "2a4cee09535ebaf429857e571becd3a15db302a8477671c22ac34febcebcaff4",
+      "source/figurefoundry/scripts/ff_journal.py": "1c547ece789d7bb48eb31072f7743ea4a6a258842dc00c89f040dce3d4bd2a84",
+      "source/figurefoundry/scripts/ff_plots.py": "03edb2e8b7623f8940dc4c428fddb07626e64797f5b162be970879ed72171dee",
+      "source/figurefoundry/scripts/ff_project.py": "1813bc9e8c656fb38261383d65809d13f7bd0c750d9de1801648a50e127c78fe",
+      "source/figurefoundry/scripts/ff_quality.py": "2c97ae34c10b558cb045a8eb0d3ea2ee5a90ce92c04d755924cb18202a57d1ba",
+      "source/figurefoundry/scripts/ff_reference.py": "a481cd38cfc768232874bbbbe710232579877ed3527e73f954119f28b87b41e2",
+      "source/figurefoundry/scripts/ff_seaborn.py": "f2fabad1a4d7279a97c218496dfffc0ee303c18f9fa14122221e92fa52a783e3",
+      "source/figurefoundry/scripts/ff_style.py": "6282e6ce5420b25c1e965608f03a78c2e1eb4466f0369a87fe1402f730faee67",
+      "source/figurefoundry/scripts/ff_svg.py": "6b46e74650811b60200a485420a70667b0cb53124e8f75a295195ba71505fc64",
+      "source/figurefoundry/scripts/figurefoundry.py": "51b521733e9265b1e0355b228b884e24e26b40a4a57f34493a9e81aee53cbff7",
+      "specs/figure-2-horizontal-v2.json": "b5be02ec013309256fd1abcd23c345bd245a913b18cd286b93a8c633dd6cccad",
+      "figures/figure-2-upstream.svg": "9500d94a1987c8c68c562f6fbd07d24156f824ca483949d3002cc63ca65e3171",
+      "figures/figure-2-before-polish.svg": "696c4450155f2a783af9ef9b9925c6945752141261a9c605ddcc00db73b8794e"
+    }
+  },
+  "revision": {
+    "checked_against_baseline": true,
+    "changes": []
+  }
+}

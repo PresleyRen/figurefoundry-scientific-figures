@@ -5,6 +5,52 @@
   "panels": [
     {
       "source": "diagram.svg",
+      "source_sha256": "cef038017f399927854a365ab6980b129dac7906252651b2d748147fa2279cb6",
+      "source_audit": {
+        "passed": true,
+        "errors": [],
+        "warnings": [
+          "Only the presence of editable text was checked. Supply expected_labels to verify all intended labels and detect partially outlined exports.",
+          "Visual inspection remains required for clipping, overlap, glyph availability, and journal-specific presentation requirements."
+        ],
+        "metrics": {
+          "text_count": 10,
+          "visible_text_count": 10,
+          "path_count": 9,
+          "image_count": 0,
+          "element_count": 80,
+          "width_mm": 180.0,
+          "height_mm": 85.00000000000001,
+          "min_font_pt": 6.999998740157481,
+          "max_font_pt": 8.999999999999998,
+          "labels": [
+            "Resources",
+            "context",
+            "evidence check / feedback",
+            "Question",
+            "Agent planner",
+            "Evidence retrieval",
+            "Answer with source citations",
+            "Curated corpus Vector index",
+            "Tools / APIs",
+            "Retrieval-augmented agent: explicit topology"
+          ],
+          "expected_labels_checked": 0,
+          "limitations": [
+            "Static checks do not certify journal acceptance, scientific accuracy, or visual quality.",
+            "Font sizes are conservative geometric estimates; installed fonts, glyph coverage, clipping, overlaps, and rendered bounds require visual inspection.",
+            "Paths cannot reliably be distinguished as letters versus scientific geometry; supply every required label through expected_labels to detect missing live text."
+          ],
+          "file_size_bytes": 7520,
+          "viewbox": [
+            0.0,
+            0.0,
+            180.0,
+            85.0
+          ]
+        }
+      },
+      "expected_labels": [],
       "id": "panel-001",
       "placement": {
         "x_mm": 5.0,
@@ -24,6 +70,59 @@
     },
     {
       "source": "line.svg",
+      "source_sha256": "96b1b60071e48e2647515849c5306167aadbe7012a74509ab53674ec39f084bb",
+      "source_audit": {
+        "passed": true,
+        "errors": [],
+        "warnings": [
+          "Only the presence of editable text was checked. Supply expected_labels to verify all intended labels and detect partially outlined exports.",
+          "Visual inspection remains required for clipping, overlap, glyph availability, and journal-specific presentation requirements."
+        ],
+        "metrics": {
+          "text_count": 17,
+          "visible_text_count": 17,
+          "path_count": 46,
+          "image_count": 0,
+          "element_count": 264,
+          "width_mm": 89.99999991666665,
+          "height_mm": 59.99999994444445,
+          "min_font_pt": 7.499999999999999,
+          "max_font_pt": 8.999999999999998,
+          "labels": [
+            "0",
+            "5",
+            "10",
+            "15",
+            "20",
+            "25",
+            "30",
+            "Training epoch",
+            "50",
+            "60",
+            "70",
+            "80",
+            "Task success (%)",
+            "Baseline",
+            "Context",
+            "Proposed",
+            "Synthetic learning curves"
+          ],
+          "expected_labels_checked": 0,
+          "limitations": [
+            "Static checks do not certify journal acceptance, scientific accuracy, or visual quality.",
+            "Font sizes are conservative geometric estimates; installed fonts, glyph coverage, clipping, overlaps, and rendered bounds require visual inspection.",
+            "Paths cannot reliably be distinguished as letters versus scientific geometry; supply every required label through expected_labels to detect missing live text."
+          ],
+          "file_size_bytes": 24355,
+          "viewbox": [
+            0.0,
+            0.0,
+            255.11811,
+            170.07874
+          ]
+        }
+      },
+      "expected_labels": [],
       "id": "panel-002",
       "placement": {
         "x_mm": 5.0,
@@ -43,6 +142,53 @@
     },
     {
       "source": "distribution.svg",
+      "source_sha256": "e7bc8f630fa64c80a081a2a6c96a0c993d9cd77bd12e6ca5f66d9d8b4b8572d8",
+      "source_audit": {
+        "passed": true,
+        "errors": [],
+        "warnings": [
+          "Only the presence of editable text was checked. Supply expected_labels to verify all intended labels and detect partially outlined exports.",
+          "Visual inspection remains required for clipping, overlap, glyph availability, and journal-specific presentation requirements."
+        ],
+        "metrics": {
+          "text_count": 11,
+          "visible_text_count": 11,
+          "path_count": 32,
+          "image_count": 0,
+          "element_count": 175,
+          "width_mm": 89.99999991666665,
+          "height_mm": 59.99999994444445,
+          "min_font_pt": 7.999999999999999,
+          "max_font_pt": 8.999999999999998,
+          "labels": [
+            "Baseline",
+            "Context",
+            "Proposed",
+            "Method",
+            "60",
+            "65",
+            "70",
+            "75",
+            "80",
+            "Task success (%)",
+            "Synthetic run distribution"
+          ],
+          "expected_labels_checked": 0,
+          "limitations": [
+            "Static checks do not certify journal acceptance, scientific accuracy, or visual quality.",
+            "Font sizes are conservative geometric estimates; installed fonts, glyph coverage, clipping, overlaps, and rendered bounds require visual inspection.",
+            "Paths cannot reliably be distinguished as letters versus scientific geometry; supply every required label through expected_labels to detect missing live text."
+          ],
+          "file_size_bytes": 15059,
+          "viewbox": [
+            0.0,
+            0.0,
+            255.11811,
+            170.07874
+          ]
+        }
+      },
+      "expected_labels": [],
       "id": "panel-003",
       "placement": {
         "x_mm": 100.0,
@@ -62,13 +208,51 @@
     }
   ],
   "warnings": [
+    "Panel 1: no complete expected_labels inventory supplied; source native-text presence is checked, but partially outlined labels need review",
+    "Panel 2: no complete expected_labels inventory supplied; source native-text presence is checked, but partially outlined labels need review",
+    "Panel 3: no complete expected_labels inventory supplied; source native-text presence is checked, but partially outlined labels need review",
     "Panel 3: requested box has a different aspect ratio; uniform scaling preserves geometry and adds whitespace"
+  ],
+  "expected_labels": [
+    "Resources",
+    "context",
+    "evidence check / feedback",
+    "Question",
+    "Agent planner",
+    "Evidence retrieval",
+    "Answer with source citations",
+    "Curated corpus Vector index",
+    "Tools / APIs",
+    "Retrieval-augmented agent: explicit topology",
+    "a",
+    "0",
+    "5",
+    "10",
+    "15",
+    "20",
+    "25",
+    "30",
+    "Training epoch",
+    "50",
+    "60",
+    "70",
+    "80",
+    "Task success (%)",
+    "Baseline",
+    "Context",
+    "Proposed",
+    "Synthetic learning curves",
+    "b",
+    "Method",
+    "65",
+    "75",
+    "Synthetic run distribution",
+    "c"
   ],
   "audit": {
     "passed": true,
     "errors": [],
     "warnings": [
-      "Only the presence of editable text was checked. Supply expected_labels to verify all intended labels and detect partially outlined exports.",
       "Visual inspection remains required for clipping, overlap, glyph availability, and journal-specific presentation requirements."
     ],
     "metrics": {
@@ -124,7 +308,7 @@
         "Task success (%)",
         "Synthetic run distribution"
       ],
-      "expected_labels_checked": 0,
+      "expected_labels_checked": 34,
       "limitations": [
         "Static checks do not certify journal acceptance, scientific accuracy, or visual quality.",
         "Font sizes are conservative geometric estimates; installed fonts, glyph coverage, clipping, overlaps, and rendered bounds require visual inspection.",

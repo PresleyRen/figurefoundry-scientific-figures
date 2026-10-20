@@ -1,0 +1,31 @@
+[
+  {
+    "name": "doctor",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/skills/figurefoundry/scripts/figurefoundry.py",
+      "doctor"
+    ],
+    "returncode": 0
+  },
+  {
+    "name": "inspect-learning",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/skills/figurefoundry/scripts/figurefoundry.py",
+      "inspect",
+      "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/data/learning.csv"
+    ],
+    "returncode": 0
+  },
+  {
+    "name": "inspect-endpoints",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/skills/figurefoundry/scripts/figurefoundry.py",
+      "inspect",
+      "/workspace/scratch/7bd6ae34ede3/figurefoundry-scientific-figures/docs/evidence/pilot-v11/data/endpoints.csv"
+    ],
+    "returncode": 0
+  }
+]

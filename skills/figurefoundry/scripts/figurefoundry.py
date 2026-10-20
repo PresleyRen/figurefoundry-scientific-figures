@@ -6,12 +6,14 @@ import argparse
 import importlib.util
 import json
 import math
+import os
 import shutil
 import sys
+import tempfile
 from pathlib import Path
 
 SKILL_ROOT = Path(__file__).resolve().parents[1]
-VERSION = "1.0.0"
+VERSION = "1.1.0"
 
 
 def read_json(path):
@@ -32,6 +34,36 @@ def writable_output(path, overwrite):
         raise FileExistsError(f"Refusing to overwrite {path}; select a new name or use --overwrite.")
     path.parent.mkdir(parents=True, exist_ok=True)
     return path
+
+
+def report_output(path, overwrite, *, protected=()):
+    path = Path(path)
+    if path.suffix.lower() != ".json":
+        raise ValueError("Report output must end in .json")
+    if path.resolve() in {Path(item).resolve() for item in protected}:
+        raise ValueError("Choose a report output separate from its input files.")
+    if path.exists() and not overwrite:
+        raise FileExistsError(f"Refusing to overwrite {path}; select a new name or use --overwrite.")
+    return path
+
+
+def write_text_atomic(path, content):
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    temporary = None
+    try:
+        with tempfile.NamedTemporaryFile(mode="w", encoding="utf-8", dir=path.parent,
+                                         prefix=f".{path.name}.", delete=False) as stream:
+            temporary = Path(stream.name)
+            stream.write(content)
+        os.replace(temporary, path)
+    finally:
+        if temporary is not None:
+            temporary.unlink(missing_ok=True)
+
+
+def write_report(path, value):
+    write_text_atomic(path, json.dumps(value, ensure_ascii=False, indent=2, allow_nan=False) + "\n")
 
 
 def parser():
@@ -62,6 +94,44 @@ def parser():
     q.add_argument("--profile", required=True, type=Path)
     q = sub.add_parser("capabilities", help="Locate stable capability IDs, modules, docs and tests")
     q.add_argument("--query", default="")
+    q = sub.add_parser("coverage", help="Locate each source Skill feature, integration and extension point")
+    q.add_argument("--source", help="Source ID, for example S08")
+    q.add_argument("--query", default="")
+    q = sub.add_parser("atlas", help="Find specialty plots by scientific question or Chinese/English keywords")
+    q.add_argument("--query", default="")
+    q = sub.add_parser("palette", help="Measure text contrast and grayscale role separation")
+    q.add_argument("--spec", required=True, type=Path)
+    q = sub.add_parser("annotate", help="Add accessible title and description to a new editable SVG")
+    q.add_argument("svg", type=Path)
+    q.add_argument("--title", required=True)
+    q.add_argument("--description", required=True)
+    q.add_argument("--out", required=True, type=Path)
+    q.add_argument("--min-font-pt", type=float, default=6)
+    q.add_argument("--overwrite", action="store_true")
+    q = sub.add_parser("revision", help="Compare geometry and unselected text after SVG styling edits")
+    q.add_argument("before", type=Path)
+    q.add_argument("after", type=Path)
+    q.add_argument("--allow-text-id", action="append", default=[])
+    q.add_argument("--min-font-pt", type=float, default=6)
+    q = sub.add_parser("project", help="Check a figure set, select variants and export captions/alt text")
+    q.add_argument("--spec", required=True, type=Path)
+    q.add_argument("--out", required=True, type=Path)
+    q.add_argument("--baseline", type=Path)
+    q.add_argument("--notes-dir", type=Path)
+    q.add_argument("--overwrite", action="store_true")
+    q = sub.add_parser("references", help="Extract local paper HTML figures, captions and source evidence")
+    q.add_argument("--html", required=True, type=Path)
+    q.add_argument("--source-url", required=True)
+    q.add_argument("--context-blocks", type=int, default=2)
+    q.add_argument("--include-ungrouped", action="store_true")
+    q.add_argument("--out", required=True, type=Path)
+    q.add_argument("--overwrite", action="store_true")
+    q = sub.add_parser("benchmark-source", help="Validate literature benchmark provenance and transformations")
+    q.add_argument("--record", required=True, type=Path)
+    q.add_argument("--out", type=Path)
+    q.add_argument("--overwrite", action="store_true")
+    q = sub.add_parser("inventory", help="Locate plot/export/style calls in Python or notebooks")
+    q.add_argument("sources", nargs="+", type=Path)
     sub.add_parser("doctor", help="Report available native and optional backend dependencies")
     return p
 
@@ -71,7 +141,8 @@ def main(argv=None):
     try:
         if args.command == "plot":
             from ff_plots import render_plots
-            result = render_plots(read_json(args.spec), args.out, base_dir=args.spec.resolve().parent,
+            from ff_style import load_plot_spec
+            result = render_plots(load_plot_spec(args.spec), args.out, base_dir=args.spec.resolve().parent,
                                   overwrite=args.overwrite)
         elif args.command == "diagram":
             from ff_diagram import render_diagram
@@ -125,6 +196,60 @@ def main(argv=None):
             query = args.query.casefold()
             result = {"version": registry["version"], "matches": [entry for entry in registry["capabilities"]
                       if query in json.dumps(entry, ensure_ascii=False).casefold()]}
+        elif args.command == "coverage":
+            registry = read_json(SKILL_ROOT / "assets" / "source-coverage.json")
+            query = args.query.casefold()
+            selected = args.source.upper() if args.source else None
+            result = {"version": registry["version"], "matches": [
+                dict(feature, source_id=source["id"], source_name=source["name"], source_url=source["url"])
+                for source in registry["sources"] if selected is None or source["id"] == selected
+                for feature in source["features"]
+                if query in json.dumps(feature, ensure_ascii=False).casefold()]}
+        elif args.command == "atlas":
+            atlas = read_json(SKILL_ROOT / "assets" / "specialty-routes.json")
+            query = args.query.casefold()
+            result = {"matches": [route for route in atlas["routes"]
+                                   if query in json.dumps(route, ensure_ascii=False).casefold()]}
+        elif args.command == "palette":
+            from ff_quality import palette_report
+            result = palette_report(read_json(args.spec))
+        elif args.command == "annotate":
+            from ff_quality import annotate_svg
+            result = annotate_svg(args.svg, args.out, title=args.title, description=args.description,
+                                  min_font_pt=args.min_font_pt, overwrite=args.overwrite)
+        elif args.command == "revision":
+            from ff_quality import compare_svg_edits
+            result = compare_svg_edits(args.before, args.after, allowed_text_ids=args.allow_text_id,
+                                       min_font_pt=args.min_font_pt)
+        elif args.command == "project":
+            from ff_project import build_project, project_documents
+            protected = [args.spec] + ([args.baseline] if args.baseline else [])
+            target = report_output(args.out, args.overwrite, protected=protected)
+            result = build_project(read_json(args.spec), base_dir=args.spec.resolve().parent,
+                                   baseline=read_json(args.baseline) if args.baseline else None)
+            notes = project_documents(result) if result["passed"] and args.notes_dir else {}
+            for name in notes:
+                path = args.notes_dir / name
+                if path.exists() and not args.overwrite:
+                    raise FileExistsError(f"Refusing to overwrite {path}; select a new directory or use --overwrite.")
+            write_report(target, result)
+            for name, content in notes.items():
+                write_text_atomic(args.notes_dir / name, content)
+        elif args.command == "references":
+            from ff_reference import extract_figures
+            target = report_output(args.out, args.overwrite, protected=[args.html])
+            result = extract_figures(args.html, args.source_url, context_blocks=args.context_blocks,
+                                     include_ungrouped=args.include_ungrouped)
+            write_report(target, result)
+        elif args.command == "benchmark-source":
+            from ff_reference import validate_benchmark_record
+            target = report_output(args.out, args.overwrite, protected=[args.record]) if args.out else None
+            result = validate_benchmark_record(read_json(args.record))
+            if target:
+                write_report(target, result)
+        elif args.command == "inventory":
+            from ff_inventory import inventory_sources
+            result = inventory_sources(args.sources)
         else:
             required = {name: importlib.util.find_spec(name) is not None
                         for name in ("matplotlib", "numpy", "pandas", "scipy", "openpyxl")}

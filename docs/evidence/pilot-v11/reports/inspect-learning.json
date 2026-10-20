@@ -1,0 +1,25 @@
+{
+  "source": {
+    "file": "learning.csv",
+    "sha256": "5b1a4624a7c428f8447cf40357609c3df8e80cb343c9246e6da91c9a8453dfcc",
+    "rows": 126,
+    "columns": [
+      "method",
+      "seed",
+      "epoch",
+      "success"
+    ],
+    "missing_by_column": {
+      "method": 0,
+      "seed": 0,
+      "epoch": 0,
+      "success": 0
+    }
+  },
+  "dtypes": {
+    "method": "object",
+    "seed": "int64",
+    "epoch": "int64",
+    "success": "float64"
+  }
+}

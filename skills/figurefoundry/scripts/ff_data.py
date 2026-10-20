@@ -99,6 +99,61 @@ def complete_cases(frame, columns, *, warnings):
     return result
 
 
+def wide_to_long(frame, *, x, y_columns, value_name="value", series_name="series"):
+    """Melt only explicitly selected curve fields, retaining every other ID field.
+
+    Source values, missing values, row order within a series, and declared series
+    order survive the conversion. No numeric-column inference is performed.
+    """
+    if not isinstance(y_columns, list) or not y_columns or any(not isinstance(c, str) or not c for c in y_columns):
+        raise ValueError("y_columns must be a nonempty array of explicit column names.")
+    if len(set(y_columns)) != len(y_columns):
+        raise ValueError("y_columns contains duplicate column names.")
+    if not isinstance(x, str) or not x or x in y_columns:
+        raise ValueError("The x column must be named separately from y_columns.")
+    if any(not isinstance(name, str) or not name for name in (value_name, series_name)) or value_name == series_name:
+        raise ValueError("value_name and series_name must be distinct nonempty strings.")
+    if value_name in frame.columns or series_name in frame.columns:
+        raise ValueError("Wide-table output names already occur in the source; choose new value_name/series_name fields.")
+    require_columns(frame, [x] + y_columns)
+    working = frame.copy()
+    for name in y_columns:
+        working[name] = numeric(working, name)
+    id_columns = [name for name in frame.columns if name not in y_columns]
+    result = working.melt(id_vars=id_columns, value_vars=y_columns,
+                          var_name=series_name, value_name=value_name)
+    return result, {
+        "operation": "wide-to-long", "x": x, "y_columns": list(y_columns),
+        "value_name": value_name, "series_name": series_name,
+        "id_columns": id_columns, "input_rows": len(frame), "output_rows": len(result),
+        "missing_values_retained": int(result[value_name].isna().sum()),
+        "row_order": "declared series order, then source row order within each series",
+    }
+
+
+def independent_unit_values(frame, group_columns, value_column, *, unit, within_unit=None):
+    """Return one observed value per independent unit in each experimental group.
+
+    This uses the same explicitly declared within-unit mean/median as summarize,
+    so raw-point overlays show the units contributing to the bar statistics.
+    """
+    if not unit:
+        raise ValueError("Raw-point overlays require an explicit independent unit column.")
+    if within_unit not in {None, "mean", "median"}:
+        raise ValueError("within_unit must be mean or median when supplied")
+    keys = list(dict.fromkeys(list(group_columns) + [unit]))
+    require_columns(frame, keys + [value_column])
+    working = frame.copy()
+    working[value_column] = numeric(working, value_column)
+    if working[keys].isna().any().any():
+        raise ValueError("Group and independent unit identifiers cannot be missing.")
+    if working.duplicated(keys).any() and within_unit is None:
+        raise ValueError("Repeated unit within group; specify within_unit explicitly to avoid pseudoreplication.")
+    result = (working.groupby(keys, sort=False, observed=True)[value_column]
+              .agg(within_unit or "first").reset_index())
+    return result.dropna(subset=[value_column]).reset_index(drop=True)
+
+
 def summarize(frame, group_columns, value_column, *, unit=None, estimator="mean",
               error="none", within_unit=None, seed=1729, bootstrap_draws=2000):
     """Summarize groups, treating the explicitly named unit as independent.
