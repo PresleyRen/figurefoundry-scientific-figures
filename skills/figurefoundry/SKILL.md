@@ -161,6 +161,8 @@ Use `references` on a locally saved paper HTML to collect figure/caption/alt/con
 evidence. Keep observed source text and later design inferences separate. Validate
 digitized literature benchmarks with `benchmark-source` before plotting them.
 
+For a final publication figure set, hand the actual rendered figures, source data/specifications, numeric lineage, captions, venue rule receipts and current audit reports to [Paper Review Atlas](https://github.com/PresleyRen/paper-review-atlas/blob/main/skills/paper-review-atlas/references/acceptance-gates.md), especially A12/A14/A16. A FigureFoundry structural or visual audit is not a full manuscript or publication pass. If figures, numerical inputs or the intended venue change, recheck affected evidence before the final publication gate. Standalone figure tasks remain scoped.
+
 ### 5. Deliver and leave an extension point
 
 Provide the SVG master(s), original/spec sources, reproducible commands, manifest,
